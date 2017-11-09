@@ -17,14 +17,16 @@ private String materialenavn;
 private double enhedspris;
 private String enhed;
 private double msr;
+private String afhængighed;
 
-    public Materiale(int varenummer, String materialetype, String materialenavn, double enhedspris, String enhed, double msr) {
+    public Materiale(int varenummer, String materialetype, String materialenavn, double enhedspris, String enhed, double msr, String afhængighed) {
         this.varenummer = varenummer;
         this.materialetype = materialetype;
         this.materialenavn = materialenavn;
         this.enhedspris = enhedspris;
         this.enhed = enhed;
         this.msr=msr;
+        this.afhængighed=afhængighed;
     }
 
     public int getVarenummer() {
@@ -73,6 +75,14 @@ private double msr;
 
     public void setMsr(int msr) {
         this.msr = msr;
+    }
+
+    public String getAfhængighed() {
+        return afhængighed;
+    }
+
+    public void setAfhængighed(String afhængighed) {
+        this.afhængighed = afhængighed;
     }
 
     @Override

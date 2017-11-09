@@ -34,8 +34,8 @@ CREATE TABLE `materialeliste`(
 `materialenavn` varchar(50),
 `enhed`varchar(10), 
 `enhedspris`double (11,2),
-`type`varchar (45),
 `længde`int (11),
+`afhængighed`char(1),
 primary key (varenummer)
 );
 
@@ -52,7 +52,7 @@ create table `odetaljer`(
     primary key (odetaljer_id),
 	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
     
-    
+    insert into materialeliste values(1, "søm","mærklige søm", "pk", 20.00, 1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
