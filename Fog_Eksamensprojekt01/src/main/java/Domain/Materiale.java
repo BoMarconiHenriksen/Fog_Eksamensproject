@@ -7,28 +7,32 @@ package Domain;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
 public class Materiale {
 
-private int materiale_id;
+private int varenummer;
 private String materialetype;
 private String materialenavn;
-private double priceprpsc;
+private double enhedspris;
+private String enhed;
+private int længde;
 
-    public Materiale(int materiale_id, String materialetype, String materialenavn, double priceprpsc) {
-        this.materiale_id = materiale_id;
+    public Materiale(int varenummer, String materialetype, String materialenavn, double enhedspris, String enhed, int længde) {
+        this.varenummer = varenummer;
         this.materialetype = materialetype;
         this.materialenavn = materialenavn;
-        this.priceprpsc = priceprpsc;
+        this.enhedspris = enhedspris;
+        this.enhed = enhed;
+        this.længde=længde;
     }
 
-    public int getMateriale_id() {
-        return materiale_id;
+    public int getVarenummer() {
+        return varenummer;
     }
 
-    public void setMateriale_id(int materiale_id) {
-        this.materiale_id = materiale_id;
+    public void setVarenummer(int varenummer) {
+        this.varenummer = varenummer;
     }
 
     public String getMaterialetype() {
@@ -47,21 +51,28 @@ private double priceprpsc;
         this.materialenavn = materialenavn;
     }
 
-    public double getPriceprpsc() {
-        return priceprpsc;
+    public double getEnhedspris() {
+        return enhedspris;
     }
 
-    public void setPriceprpsc(double priceprpsc) {
-        this.priceprpsc = priceprpsc;
+    public void setEnhedspris(double enhedspris) {
+        this.enhedspris = enhedspris;
     }
-    
-    
 
+    public String getEnhed() {
+        return enhed;
+    }
 
+    public void setEnhed(String enhed) {
+        this.enhed = enhed;
+    }
 
+    public int getLængde() {
+        return længde;
+    }
 
+    public void setLængde(int længde) {
+        this.længde = længde;
+    }
 
-    
-    
-    
 }

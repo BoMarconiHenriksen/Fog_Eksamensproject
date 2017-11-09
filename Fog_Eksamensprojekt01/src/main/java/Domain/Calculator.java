@@ -7,12 +7,26 @@ package Domain;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
+ *
  */
 public class Calculator {
 
-    int a, b, c, d, e, f, g, h, qty;
-    double ap, bp, cp, dp, ep, fp, gp, hp;
-    Dimensioner dim;
+    
+    public double priceQtyTimesMaterial(double lgd, double enhedstr, double pris, double qty){
+      double  str= lgd/enhedstr;
+      double  prisprtype = pris*str;
+        return prisprtype;
+    }
+    
+ public static void main(String[] args) {
+     Calculator calc = new Calculator();
+    
+    double total = calc.priceQtyTimesMaterial(380, 100, 12.56, 4 );
+     System.out.println(total);
+ }
 
+   
 }
+
+

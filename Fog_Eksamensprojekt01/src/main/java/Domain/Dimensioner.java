@@ -7,7 +7,7 @@ package Domain;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
 public class Dimensioner {
     

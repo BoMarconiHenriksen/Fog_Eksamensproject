@@ -19,10 +19,12 @@
    <form name="Form1" action="IndexController" method="POST">
   Længde:<br>
   <input type="number" name="lentgh" ><br>
-  Brede:<br>
+  Bredde:<br>
   <input type="number" name="width" ><br><br>
-   Height:<br>
+   Højde:<br>
   <input type="number" name="height" ><br><br>
+  
+  
   <input type="submit" value="Submit">
 </form>
 </html>
