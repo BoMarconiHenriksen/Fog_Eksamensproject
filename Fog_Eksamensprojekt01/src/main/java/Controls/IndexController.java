@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "IndexController", urlPatterns = {"/IndexController"})
 public class IndexController extends HttpServlet {
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -78,3 +78,4 @@ public class IndexController extends HttpServlet {
     }// </editor-fold>
 
 }
+
