@@ -4,6 +4,8 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Controls.IndexController"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,4 +16,10 @@
     <body>
         <h1>Hello World!</h1>
     </body>
+    
+    <div>
+        
+         <p>Husets Længde: ${size1}</p><br>
+        
+    </div>
 </html>
