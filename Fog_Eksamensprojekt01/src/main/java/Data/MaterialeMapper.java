@@ -19,8 +19,8 @@ import java.util.List;
  */
 public class MaterialeMapper {
 
-    public static List<Materiale>getMaterial() throws NewException {
-       List <Materiale> mats = null; 
+    public static List<Materiale> getMaterial() throws NewException {
+       List <Materiale> mats = new ArrayList<>(); 
        try {
            
             Materiale mat;
@@ -40,7 +40,7 @@ public class MaterialeMapper {
                 
                 if (varenummer != lastId) {
                     mat = new Materiale( varenummer,  materialetype, materialenavn, enhedspris, enhed,  msr, afhængighed);
-                    mats = new ArrayList<>();
+                 
                     mats.add(mat);
                     
                 }
