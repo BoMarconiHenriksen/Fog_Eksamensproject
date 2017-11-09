@@ -24,7 +24,6 @@
    Højde:<br>
   <input type="number" name="height" ><br><br>
   
-  
   <input type="submit" value="Submit">
 </form>
 </html>
