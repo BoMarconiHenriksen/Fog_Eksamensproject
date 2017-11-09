@@ -35,6 +35,7 @@ CREATE TABLE `materialeliste`(
 `enhed`varchar(10), 
 `enhedspris`double (11,2),
 `type`varchar (45),
+`længde`int (11),
 primary key (varenummer)
 );
 
