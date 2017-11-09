@@ -31,9 +31,11 @@ DROP TABLE IF EXISTS `materialeliste`;
 CREATE TABLE `materialeliste`(
 `varenummer`int (20) not null, 
 `materialetype`varchar (45) ,
-`materialenavn` varchar(50), 
-`enhedspris`int (11),
-primary key (materiale_id)
+`materialenavn` varchar(50),
+`enhed`varchar(10), 
+`enhedspris`double (11,2),
+`type`varchar (45),
+primary key (varenummer)
 );
 
 drop table if exists `odetaljer`;
