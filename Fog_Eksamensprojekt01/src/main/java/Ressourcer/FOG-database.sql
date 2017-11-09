@@ -29,10 +29,10 @@ primary key (ordre_id), foreign key (user_id) references userlist(user_id));
 
 DROP TABLE IF EXISTS `materialeliste`;
 CREATE TABLE `materialeliste`(
-`materiale_id`int (11) not null auto_increment, 
+`varenummer`int (20) not null, 
 `materialetype`varchar (45) ,
-`materialenavn` varchar(45), 
-`pris`int (11),
+`materialenavn` varchar(50), 
+`enhedspris`int (11),
 primary key (materiale_id)
 );
 
