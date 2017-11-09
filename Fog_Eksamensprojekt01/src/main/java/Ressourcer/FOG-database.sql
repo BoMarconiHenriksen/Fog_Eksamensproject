@@ -9,6 +9,7 @@
 
 CREATE DATABASE `fog`;
 
+
 USE `fog`;
 
 drop table if exists `userlist`;
