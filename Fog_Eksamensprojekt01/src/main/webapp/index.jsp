@@ -15,7 +15,7 @@
         <h1>Hello World!</h1>
     </body>
     
-    <form action="/action_page.php">
+   <form action="IndexController" method="POST">
   Længde:<br>
   <input type="text" name="lentgh" value=""><br>
   Brede:<br>
