@@ -21,7 +21,10 @@
 
     <div>
 
-        <p>Husets Længde: ${size1}</p><br>
+        <p>Husets Længde: ${sizelentgh}</p><br>
+        <p>Husets Længde: ${sizewidth}</p><br>
+        <p>Husets Længde: ${sizeheight}</p><br>
+        <p>Trævalg: ${trechosen}</p><br>
 
         Her testes om der er hul igennem gennem frontcontroller- command - commandoen getAllMaterials 
         - logicfacade - datamapper - database og det er der :-)den skal fjernes igen

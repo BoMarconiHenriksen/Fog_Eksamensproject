@@ -19,12 +19,19 @@
     </body>
 
     <form name="Form1" action="IndexController" method="POST">
-        Længde:<br>
+        Carport Længde:<br>
         <input type="number" name="lentgh" ><br>
-        Bredde:<br>
+        Carport Bredde:<br>
         <input type="number" name="width" ><br><br>
-        Højde:<br>
+       Carport Højde:<br>
         <input type="number" name="height" ><br><br>
+    Tagtype:<br>
+   <ul>
+  <select name="kundetrevalg">
+  <option value="trykimpo">Trykimp.</option>
+  <option value="reguler">Regulær</option>
+</select>
+</ul>
 
         <input type="submit" value="Submit">
 
