@@ -18,7 +18,7 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
       
-        commands.put("stykliste", new stykListe());
+        commands.put("getAllMaterials", new getAllMaterials());
   
         
     }

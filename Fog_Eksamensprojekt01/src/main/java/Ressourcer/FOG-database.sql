@@ -99,6 +99,7 @@ INSERT INTO materialeliste values
 INSERT INTO materialeliste values   
 	(29, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 0);
 
+
 commit;    
     
 

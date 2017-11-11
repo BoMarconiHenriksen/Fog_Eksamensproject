@@ -3,6 +3,8 @@ package Business;
 
 
 import Data.MaterialeMapper;
+import Domain.Materiale;
+import Presentation.NewException;
 import java.util.List;
 
 /**
@@ -11,6 +13,13 @@ import java.util.List;
  * Author @ BenedikteEva 
  */
 public class LogicFacade {
+    
+    
+    public static List<Materiale> getMaterial() throws NewException {
+        return MaterialeMapper.getMaterial();
+    }
+            
+            
 
 //    public static User login(String username, String email, String password) throws BenedikteEvasNewException {
 //        return UserMapper.login(email, password);
