@@ -28,8 +28,8 @@
     Tagtype:<br>
    <ul>
   <select name="kundetrevalg">
-  <option value="trykimpo">Trykimp.</option>
-  <option value="reguler">Regulær</option>
+  <option value="Trykimp">Trykimp.</option>
+  <option value="Reguler">Regulr</option>
 </select>
 </ul>
 
