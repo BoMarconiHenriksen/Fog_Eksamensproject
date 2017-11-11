@@ -52,6 +52,9 @@ create table `odetaljer`(
     `redskabsrum`boolean default false,  
     primary key (odetaljer_id),
 	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
+
+
+
     
 drop table if exists `linjeliste`;
 create table `linjeliste`(

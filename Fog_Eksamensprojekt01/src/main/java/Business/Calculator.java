@@ -6,7 +6,9 @@
 package Business;
 
 import Data.MaterialeMapper;
+import Domain.LineItem;
 import Presentation.NewException;
+import java.util.List;
 
 /**
  *
@@ -31,10 +33,13 @@ public class Calculator {
 
  
 
-    public double priceTotalPriceCarport() throws NewException {
-        
+    public double priceTotalPriceCarport(List<LineItem> carport) throws NewException {
+       double priceTotalCarport = 0;
+        for (int i=0; i<carport.size();i++){
+          priceTotalCarport = carport.get(i).getTotalPrice();
+      }
 
-        return 0;
+        return priceTotalCarport;
     }
 
     public static void main(String[] args) {
