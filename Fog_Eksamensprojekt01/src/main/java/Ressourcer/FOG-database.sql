@@ -53,6 +53,15 @@ create table `odetaljer`(
     primary key (odetaljer_id),
 	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
     
+drop table if exists `linjeliste`;
+create table `linjeliste`(
+`linjeliste_id`int(11) not null auto_increment, 
+`vareid`int(11), 
+`baselength`int(11), 
+`linjepris`double (11,2),
+`beskrivelse`varchar(100),
+primary key (linjeliste_id), foreign key (`vareid`) references materialeliste(`vareid`));    
+    
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
 	(1, 'Træ & Tagplader', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
