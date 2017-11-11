@@ -4,6 +4,9 @@
     Author     : Ticondrus
 --%>
 
+
+<%@page import="Domain.Materiale"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,14 +17,24 @@
     <body>
         <h1>Hello World!</h1>
     </body>
+
+    <form name="Form1" action="IndexController" method="POST">
+        Længde:<br>
+        <input type="number" name="lentgh" ><br>
+        Bredde:<br>
+        <input type="number" name="width" ><br><br>
+        Højde:<br>
+        <input type="number" name="height" ><br><br>
+
+        <input type="submit" value="Submit">
+
+
+
+
+
+
+    </form>
     
-   <form action="IndexController" method="POST">
-  Længde:<br>
-  <input type="text" name="lentgh" value=""><br>
-  Brede:<br>
-  <input type="text" name="width" value=""><br><br>
-   Height:<br>
-  <input type="text" name="height" value=""><br><br>
-  <input type="submit" value="Submit">
-</form>
+    
+
 </html>
