@@ -18,19 +18,21 @@ public class Calculator {
 
     MaterialeMapper mam = new MaterialeMapper();
     // det metoden gør at    
-
+   public double addDimensionSizeToMaterial(int dim, int baseDim) {
+        double dimAdd = dim-baseDim;
+        return dimAdd;
+    }
+   
     public double priceQtyTimesMaterial(double lgd, double enhedstr, double pris, double qty) {
         double str = lgd / enhedstr;
         double prisprtype = pris * str * qty;
         return prisprtype;
     }
 
-    public double addDimensionSizeToMaterial(int dim, int baseDim) {
-        double dimAdd = dim-baseDim;
-        return dimAdd;
-    }
+ 
 
-    public double priceTotalPriceCarport(double length) throws NewException {
+    public double priceTotalPriceCarport() throws NewException {
+        
 
         return 0;
     }
