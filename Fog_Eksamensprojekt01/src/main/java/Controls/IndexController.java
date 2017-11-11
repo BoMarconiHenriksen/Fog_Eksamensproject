@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,6 +35,20 @@ public class IndexController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession();
+            
+         
+            int inputlentgh = 0;
+            int inputwidth = 0;
+            int inputheight = 0;
+            String Tretype = request.getParameter("kundetrevalg");
+            inputlentgh = Integer.parseInt(request.getParameter("lentgh"));
+            inputwidth = Integer.parseInt(request.getParameter("width"));
+            inputheight = Integer.parseInt(request.getParameter("height"));
+            session.setAttribute("sizelentgh", inputlentgh);
+            session.setAttribute("sizewidth", inputwidth);
+            session.setAttribute("sizeheight", inputheight);
+            session.setAttribute("trechosen", Tretype);
             request.getRequestDispatcher("outprintpage.jsp").forward(request, response);
         }
     }
