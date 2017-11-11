@@ -25,20 +25,22 @@ public class Calculator {
         return prisprtype;
     }
 
-    public double dimensionDependency(double length, double height, double width) throws NewException {
-       
-        
-        
-        
-        
-       return 0;
-}
+    public double addDimensionSizeToMaterial(int dim, int baseDim) {
+        double dimAdd = dim-baseDim;
+        return dimAdd;
+    }
+
+    public double priceTotalPriceCarport(double length) throws NewException {
+
+        return 0;
+    }
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
 
-        double total = calc.priceQtyTimesMaterial(330, 100, 12.56, 4);
-        System.out.println(total);
+        double totalPriceLine = calc.priceQtyTimesMaterial(330, 100, 12.56, 4);
+        double height = calc.addDimensionSizeToMaterial(270,270);
+        System.out.println(height);
     }
 
 }
