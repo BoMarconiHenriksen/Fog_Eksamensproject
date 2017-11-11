@@ -6,7 +6,11 @@
 package Business;
 
 import Data.MaterialeMapper;
+import Data.StykLinjeMapper;
+import Domain.LineItem;
 import Presentation.NewException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,8 +20,8 @@ import Presentation.NewException;
  */
 public class Calculator {
 
-    MaterialeMapper mam = new MaterialeMapper();
-    // det metoden gør at    
+  MaterialeMapper mam = new MaterialeMapper();
+    // her bør man være opmærksom på at base længde skal have fratrukket skuret længde på sternen
    public double addDimensionSizeToMaterial(int dim, int baseDim) {
         double dimAdd = dim-baseDim;
         return dimAdd;
@@ -31,18 +35,24 @@ public class Calculator {
 
  
 
-    public double priceTotalPriceCarport() throws NewException {
-        
+    public double priceTotalPriceCarport(List<LineItem> carport) throws NewException {
+       
+        double priceTotalCarport = 0;
+        for (int i=0; i<carport.size();i++){
+          priceTotalCarport = carport.get(i).getTotalPrice();
+      }
 
-        return 0;
+        return priceTotalCarport;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NewException {
         Calculator calc = new Calculator();
 
         double totalPriceLine = calc.priceQtyTimesMaterial(330, 100, 12.56, 4);
-        double height = calc.addDimensionSizeToMaterial(270,270);
-        System.out.println(height);
+        double height = calc.addDimensionSizeToMaterial(270,240);
+        List<LineItem> carport = null;
+        
+        System.out.println(calc.priceTotalPriceCarport(carport));
     }
 
 }

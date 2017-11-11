@@ -61,18 +61,7 @@ create table `linjeliste`(
 `baselength`int(11), 
 `antal`int (5),
 `beskrivelse`varchar(100),
-primary key (linjeliste_id));
-
-drop table if exists `lineitem`;
-create table `lineitem`(
-    `linjeliste_id`int(11) ,
-    `vareid`int (20),
-    `linjepris`double(11,2),
-    primary key (linjeliste_id, vareid), 
-    FOREIGN key (`linjeliste_id`)references linjeliste(`linjeliste_id`),
-      FOREIGN key (`vareid`)references materialeliste(`vareid`));
-      
-     
+primary key (linjeliste_id));    
     
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 

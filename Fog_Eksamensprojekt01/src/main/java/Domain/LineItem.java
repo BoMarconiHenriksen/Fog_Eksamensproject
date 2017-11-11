@@ -11,15 +11,13 @@ package Domain;
  */
 public class LineItem {
     private Materiale mat;
-    private double størrelse;
+    private StykLinje lin;
     private double totalPrice;
-    private String beskrivelse;
 
-    public LineItem(Materiale mat, double størrelse, double totalPrice, String beskrivelse) {
+    public LineItem(Materiale mat, StykLinje lin, double totalPrice) {
         this.mat = mat;
-        this.størrelse = størrelse;
+        this.lin = lin;
         this.totalPrice = totalPrice;
-        this.beskrivelse = beskrivelse;
     }
 
     public Materiale getMat() {
@@ -30,12 +28,12 @@ public class LineItem {
         this.mat = mat;
     }
 
-    public double getStørrelse() {
-        return størrelse;
+    public StykLinje getLin() {
+        return lin;
     }
 
-    public void setStørrelse(double størrelse) {
-        this.størrelse = størrelse;
+    public void setLin(StykLinje lin) {
+        this.lin = lin;
     }
 
     public double getTotalPrice() {
@@ -45,19 +43,10 @@ public class LineItem {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
-    public String getBeskrivelse() {
-        return beskrivelse;
-    }
-
-    public void setBeskrivelse(String beskrivelse) {
-        this.beskrivelse = beskrivelse;
-    }
-
-    @Override
-    public String toString() {
-        return "LineItem{" + "mat=" + mat + ", st\u00f8rrelse=" + størrelse + ", totalPrice=" + totalPrice + ", beskrivelse=" + beskrivelse + '}';
-    }
-    
    
+
+   
+  
+
+    
 }
