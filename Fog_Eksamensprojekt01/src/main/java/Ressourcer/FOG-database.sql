@@ -74,66 +74,73 @@ create table `lineitem`(
     
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ & Tagplader', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'Stk', 50.95, 100); -- 1085025200 0300
 INSERT INTO materialeliste values  
-	(3, 'Træ & Tagplader', '25x125 mm. trykimp. Brædt', 'm', 29.95, 100);
+	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'Stk', 29.95, 100);
 INSERT INTO materialeliste values   
-	(5, 'Træ & Tagplader', '38x73 mm. Lægte ubh.', 'm', 20.95, 100);
+	(3, 'Træ', '38x73 mm. Lægte ubh.', 'Stk', 20.95, 100);
 INSERT INTO materialeliste values   
-	(6, 'Træ & Tagplader', '45x95 mm. Reglar ub.', 'm', 14.75, 100);
+	(4, 'Træ', '45x95 mm. Reglar ub.', 'Stk', 14.75, 100);
 INSERT INTO materialeliste values   
-	(8, 'Træ & Tagplader', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100);
+	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'Stk', 37.95, 100);
 INSERT INTO materialeliste values   
-	(11, 'Træ & Tagplader', '297x97 mm. trykimp. Stolpe', 'm', 77.95, 100);
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'Stk', 77.95, 100);
 INSERT INTO materialeliste values   
-	(14, 'Træ & Tagplader', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100);
+	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'Stk', 6.95, 100);
+INSERT INTO materialeliste values  
+	(10, 'Træ', '25x150 mm. trykimp. Brædt', 'Stk', 37.95, 100); -- 1085025150 0300
+INSERT INTO materialeliste values  
+	(11, 'Træ', '25x50 mm. trykimp. Brædt', 'Stk', 19.95, 100); -- ingen vr.
+INSERT INTO materialeliste values  
+	(12, 'Træ', 'Færdigskåret (byg-selv spær)', 'sæt', 2200.00, 0); -- ingen vr. 
+
+-- Beslag og Skruer    
 INSERT INTO materialeliste values   
-	(15, 'Træ & Tagplader', 'Plastmo Ecolite blåtonet', 'stk', 510.00, 1);
+	(13, 'Beslag & Skruer', 'Plastmo bundskruer 200 stk', 'Pakke', 197.95, 0);
 INSERT INTO materialeliste values   
-	(16, 'Træ & Tagplader', 'Plastmo Ecolite blåtonet', 'Stk', 339.00, 1);
+	(14, 'Beslag & Skruer', 'hulbånd 1x20 mm. 10 mtr.', 'Rulle', 189.00, 0);
 INSERT INTO materialeliste values   
-	(17, 'Beslag & Skruer', 'Plastmo bundskruer 200 stk', 'Pakke', 197.95, 1);
+	(15, 'Beslag & Skruer', 'Universal 190 mm højre', 'Stk', 37.00, 0);
 INSERT INTO materialeliste values   
-	(18, 'Beslag & Skruer', 'hulbånd 1x20 mm. 10 mtr.', 'Rulle', 189.00, 1);
+	(16, 'Beslag & Skruer', 'Universal 190 mm venstre', 'Stk', 37.00, 0);
 INSERT INTO materialeliste values   
-	(19, 'Beslag & Skruer', 'Universal 190 mm højre', 'Stk', 37.00, 1);
+	(17, 'Beslag & Skruer', '4,5 x 60 mm. skruer 200 stk.', 'Pakke', 109.00, 0);
 INSERT INTO materialeliste values   
-	(20, 'Beslag & Skruer', 'Universal 190 mm venstre', 'Stk', 37.00, 1);
+	(18, 'Beslag & Skruer', '4,0 x 50 mm. beslagskruer 250 stk.', 'Pakke', 159.00, 0);
 INSERT INTO materialeliste values   
-	(21, 'Beslag & Skruer', '4,5 x 60 mm. skruer 200 stk.', 'Pakke', 109.00, 1);
+	(19, 'Beslag & Skruer', 'Bræddebolt 10 x 120 mm.', 'Stk', 18.76, 0);
 INSERT INTO materialeliste values   
-	(22, 'Beslag & Skruer', '4,0 x 50 mm. beslagskruer 250 stk.', 'Pakke', 159.00, 1);
+	(20, 'Beslag & Skruer', 'Firkantskiver 40x40x11mm.', 'Stk', 9.76, 0);
 INSERT INTO materialeliste values   
-	(23, 'Beslag & Skruer', 'Bræddebolt 10 x 120 mm.', 'Stk', 18.76, 1);
+	(21, 'Beslag & Skruer', '4,5 x 70 mm. Skruer 400 stk.', 'Pakke', 289.00, 0);
 INSERT INTO materialeliste values   
-	(24, 'Beslag & Skruer', 'Firkantskiver 40x40x11mm.', 'Stk', 9.76, 1);
+	(22, 'Beslag & Skruer', '4,5 x 50 mm. Skruer 300 stk.', 'Pakke', 229.00, 0);
 INSERT INTO materialeliste values   
-	(25, 'Beslag & Skruer', '4,5 x 70 mm. Skruer 400 stk.', 'Pakke', 289.00, 1);
+	(23, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 0);
 INSERT INTO materialeliste values   
-	(26, 'Beslag & Skruer', '4,5 x 50 mm. Skruer 300 stk.', 'Pakke', 229.00, 1);
+	(24, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 0);
 INSERT INTO materialeliste values   
-	(27, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 1);
+	(25, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 0);
 INSERT INTO materialeliste values   
-	(28, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 1);
+	(26, 'Beslag & Skruer', '5,0 x 40 mm. beslagskruer 250 stk.', 'Pakke', 229.00, 0); -- ingen vr.
 INSERT INTO materialeliste values   
-	(29, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 1);
+	(27, 'Beslag & Skruer', '5,0 x 100 mm. Skruer 100 stk.', 'Pakke', 339.00, 0); -- ingen vr.
     
-    
- -- Tagpakken
+-- Tagpakken
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 510.00, 600);
+	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 510.00, 600);
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 339.00, 360);
+	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 339.00, 360);
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 0); -- ingen vr.
+	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 0); -- ingen vr.
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 0); -- 7921695
+	(29, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 0); -- 7921695
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 0); -- ingen vr.
+	(30, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 0); -- ingen vr.
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 0); -- ingen vr. 
+	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 0); -- ingen vr. 
 INSERT INTO materialeliste values   
-	(null, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 0); -- ingen vr.   
+	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 0); -- ingen vr.
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
