@@ -58,7 +58,7 @@ create table `linjeliste`(
 `linjeliste_id`int(11) not null auto_increment, 
 `materialetype`varchar (45), 
 `dimension`varchar (1),
-`baselength`int(11), 
+`baselength`double(11,2), 
 `antal`int (5),
 `beskrivelse`varchar(100),
 primary key (linjeliste_id));
@@ -117,6 +117,23 @@ INSERT INTO materialeliste values
 	(28, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 1);
 INSERT INTO materialeliste values   
 	(29, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 1);
+    
+    
+ -- Tagpakken
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 510.00, 600);
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 339.00, 360);
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 0); -- ingen vr.
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 0); -- 7921695
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 0); -- ingen vr.
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 0); -- ingen vr. 
+INSERT INTO materialeliste values   
+	(null, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 0); -- ingen vr.   
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
