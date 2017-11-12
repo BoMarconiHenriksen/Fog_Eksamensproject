@@ -45,7 +45,7 @@ public class MaterialeMapperTest {
     @Test
     public void testGetMaterial() throws NewException {
         System.out.println("getMaterial");
-        String expResult = "m";
+        String expResult = "Stk";
         String result = MaterialeMapper.getMaterial().get(1).getEnhed();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -60,7 +60,7 @@ public class MaterialeMapperTest {
     public void testGetMaterialeByVarenummer() throws NewException {
         System.out.println("getMaterialeByVarenummer");
         int varenummer = 1;
-       String expResult = "Træ & Tagplader";
+       String expResult = "Træ";
         String result = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialetype();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

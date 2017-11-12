@@ -79,7 +79,7 @@ public class Calculator {
 
         List<LineItem> carport = LogicFacade.getLineItem();
 
-        System.out.println(calc.priceTotalPriceCarportUdenSkur(carport, 600, 420, 225));
+        System.out.println(calc.priceTotalPriceCarportUdenSkur(carport, 600, 360, 225));
     }
 
 }

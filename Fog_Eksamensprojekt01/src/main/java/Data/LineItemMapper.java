@@ -30,9 +30,9 @@ public class LineItemMapper {
             StykLinje styk;
             Connection con = DBConnector.connection();
             String sql = "select længde,baselength, dimension, lineitem.linjeliste_id, materialeliste.materialetype, linjeliste.beskrivelse,"
-                    + " materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste,"
-                    + " materialeliste, lineitem where materialeliste.vareid=lineitem.vareid "
-                    + "and linjeliste.linjeliste_id=lineitem.linjeliste_id";
+                    + " materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste, lineitem, "
+                    + "materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id "
+                    + "and materialeliste.vareid=linjeliste.linjeliste_id;";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
 

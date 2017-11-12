@@ -74,73 +74,73 @@ create table `lineitem`(
     
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'Stk', 50.95, 100); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
 INSERT INTO materialeliste values  
-	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'Stk', 29.95, 100);
+	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'm', 29.95, 100);
 INSERT INTO materialeliste values   
-	(3, 'Træ', '38x73 mm. Lægte ubh.', 'Stk', 20.95, 100);
+	(3, 'Træ', '38x73 mm. Lægte ubh.', 'm', 20.95, 100);
 INSERT INTO materialeliste values   
-	(4, 'Træ', '45x95 mm. Reglar ub.', 'Stk', 14.75, 100);
+	(4, 'Træ', '45x95 mm. Reglar ub.', 'm', 14.75, 100);
 INSERT INTO materialeliste values   
-	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'Stk', 37.95, 100);
+	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100);
 INSERT INTO materialeliste values   
-	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'Stk', 77.95, 100);
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'm', 77.95, 100);
 INSERT INTO materialeliste values   
-	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'Stk', 6.95, 100);
+	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100);
 INSERT INTO materialeliste values  
-	(10, 'Træ', '25x150 mm. trykimp. Brædt', 'Stk', 37.95, 100); -- 1085025150 0300
+	(10, 'Træ', '25x150 mm. trykimp. Brædt', 'm', 37.95, 100); -- 1085025150 0300
 INSERT INTO materialeliste values  
-	(11, 'Træ', '25x50 mm. trykimp. Brædt', 'Stk', 19.95, 100); -- ingen vr.
+	(11, 'Træ', '25x50 mm. trykimp. Brædt', 'Sm', 19.95, 100); -- ingen vr.
 INSERT INTO materialeliste values  
-	(12, 'Træ', 'Færdigskåret (byg-selv spær)', 'sæt', 2200.00, 0); -- ingen vr. 
+	(12, 'Træ', 'Færdigskåret (byg-selv spær)', 'sæt', 2200.00, 1); -- ingen vr. 
 
 -- Beslag og Skruer    
 INSERT INTO materialeliste values   
-	(13, 'Beslag & Skruer', 'Plastmo bundskruer 200 stk', 'Pakke', 197.95, 0);
+	(13, 'Beslag & Skruer', 'Plastmo bundskruer 200 stk', 'Pakke', 197.95, 1);
 INSERT INTO materialeliste values   
-	(14, 'Beslag & Skruer', 'hulbånd 1x20 mm. 10 mtr.', 'Rulle', 189.00, 0);
+	(14, 'Beslag & Skruer', 'hulbånd 1x20 mm. 10 mtr.', 'Rulle', 189.00, 1);
 INSERT INTO materialeliste values   
-	(15, 'Beslag & Skruer', 'Universal 190 mm højre', 'Stk', 37.00, 0);
+	(15, 'Beslag & Skruer', 'Universal 190 mm højre', 'Stk', 37.00, 1);
 INSERT INTO materialeliste values   
-	(16, 'Beslag & Skruer', 'Universal 190 mm venstre', 'Stk', 37.00, 0);
+	(16, 'Beslag & Skruer', 'Universal 190 mm venstre', 'Stk', 37.00, 1);
 INSERT INTO materialeliste values   
-	(17, 'Beslag & Skruer', '4,5 x 60 mm. skruer 200 stk.', 'Pakke', 109.00, 0);
+	(17, 'Beslag & Skruer', '4,5 x 60 mm. skruer 200 stk.', 'Pakke', 109.00, 1);
 INSERT INTO materialeliste values   
-	(18, 'Beslag & Skruer', '4,0 x 50 mm. beslagskruer 250 stk.', 'Pakke', 159.00, 0);
+	(18, 'Beslag & Skruer', '4,0 x 50 mm. beslagskruer 250 stk.', 'Pakke', 159.00, 1);
 INSERT INTO materialeliste values   
-	(19, 'Beslag & Skruer', 'Bræddebolt 10 x 120 mm.', 'Stk', 18.76, 0);
+	(19, 'Beslag & Skruer', 'Bræddebolt 10 x 120 mm.', 'Stk', 18.76, 1);
 INSERT INTO materialeliste values   
-	(20, 'Beslag & Skruer', 'Firkantskiver 40x40x11mm.', 'Stk', 9.76, 0);
+	(20, 'Beslag & Skruer', 'Firkantskiver 40x40x11mm.', 'Stk', 9.76, 1);
 INSERT INTO materialeliste values   
-	(21, 'Beslag & Skruer', '4,5 x 70 mm. Skruer 400 stk.', 'Pakke', 289.00, 0);
+	(21, 'Beslag & Skruer', '4,5 x 70 mm. Skruer 400 stk.', 'Pakke', 289.00, 1);
 INSERT INTO materialeliste values   
-	(22, 'Beslag & Skruer', '4,5 x 50 mm. Skruer 300 stk.', 'Pakke', 229.00, 0);
+	(22, 'Beslag & Skruer', '4,5 x 50 mm. Skruer 300 stk.', 'Pakke', 229.00, 1);
 INSERT INTO materialeliste values   
-	(23, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 0);
+	(23, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 1);
 INSERT INTO materialeliste values   
-	(24, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 0);
+	(24, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 1);
 INSERT INTO materialeliste values   
-	(25, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 0);
+	(25, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 1);
 INSERT INTO materialeliste values   
-	(26, 'Beslag & Skruer', '5,0 x 40 mm. beslagskruer 250 stk.', 'Pakke', 229.00, 0); -- ingen vr.
+	(26, 'Beslag & Skruer', '5,0 x 40 mm. beslagskruer 250 stk.', 'Pakke', 229.00, 1); -- ingen vr.
 INSERT INTO materialeliste values   
-	(27, 'Beslag & Skruer', '5,0 x 100 mm. Skruer 100 stk.', 'Pakke', 339.00, 0); -- ingen vr.
+	(27, 'Beslag & Skruer', '5,0 x 100 mm. Skruer 100 stk.', 'Pakke', 339.00, 1); -- ingen vr.
     
 -- Tagpakken
 INSERT INTO materialeliste values   
-	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 510.00, 600);
+	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 510.00, 1);
 INSERT INTO materialeliste values   
-	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet', 'Stk', 339.00, 360);
+	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 339.00, 1);
 INSERT INTO materialeliste values   
-	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 0); -- ingen vr.
+	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1); -- ingen vr.
 INSERT INTO materialeliste values   
-	(29, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 0); -- 7921695
+	(29, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 1); -- 7921695
 INSERT INTO materialeliste values   
-	(30, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 0); -- ingen vr.
+	(30, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 1); -- ingen vr.
 INSERT INTO materialeliste values   
-	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 0); -- ingen vr. 
+	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 1); -- ingen vr. 
 INSERT INTO materialeliste values   
-	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 0); -- ingen vr.
+	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1); -- ingen vr.
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
@@ -178,49 +178,49 @@ INSERT  INTO linjeliste   values
 (null, 'Beslag og skruer', 'c', 1,2, 'Til skurdør'),
 (null, 'Beslag og skruer', 'c', 1,32, 'Til montering af løsholter i skur');
 
-
+-- carport med fladt tag uden skur
 insert into lineitem values
 (1,1,null),
 (2,1,null),
 (3,2,null),
 (4,2,null),
-(5,5,null),
-(6,6,null),
-(7,6,null),
-(8,8,null),
-(9,8,null),
-(10,8,null),
-(11,11,null),
-(12,14,null),
-(13,14,null),
-(14,14,null),
-(15,15,null),
-(16,16,null);
+(5,3,null),
+(6,4,null),
+(7,4,null),
+(8,5,null),
+(9,5,null),
+(10,5,null),
+(11,6,null),
+(12,7,null),
+(13,7,null),
+(14,7,null),
+(15,8,null),
+(16,9,null);
 
 insert into lineitem values
-(17,17,null),
-(18,18,null),
-(19,19,null),
-(20,20,null),
-(21,21,null),
-(22,22,null),
-(23,23,null),
-(24,24,null),
-(25,25,null),
-(26,26,null),
-(27,27,null),
-(28,28,null),
-(29,29,null);
+(17,13,null),
+(18,14,null),
+(19,15,null),
+(20,16,null),
+(21,17,null),
+(22,18,null),
+(23,19,null),
+(24,20,null),
+(25,21,null),
+(26,22,null),
+(27,23,null),
+(28,24,null),
+(29,25,null);
 
-select lineitem.linjeliste_id, materialeliste.materialetype, linjeliste.beskrivelse,
-                    materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste,
-                    materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
-                   and linjeliste.linjeliste_id=lineitem.linjeliste_id;
-select*from materialeliste;
-select * from linjeliste;
+select vareid, materialenavn from materialeliste;
+
+select * from linjeliste, lineitem, materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id and materialeliste.vareid=linjeliste.linjeliste_id;
+
 commit;    
     
-select linjeliste.beskrivelse, materialeliste.materialenavn, enhedspris, antal from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid and linjeliste.linjeliste_id=lineitem.linjeliste_id;
+select linjeliste.linjeliste_id, materialeliste.vareid, beskrivelse, materialeliste.materialenavn, enhedspris, antal 
+from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
+and linjeliste.linjeliste_id=lineitem.linjeliste_id;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
