@@ -36,49 +36,50 @@ public class Calculator {
 
         double priceTotalCarport = 0;
         double lgd = 0;
-        for (int i = 0; i < carport.size(); i++) {
+        for (int i = 1; i < carport.size(); i++) {
 
-            switch (carport.get(i).getLin().getDimension()) {
-                case "l":
-                    lgd = length + addDimensionSizeToMaterial(length, carport.get(i).getLin().getBaselength());
-                    break;
-                case "b":
-                    lgd = width + addDimensionSizeToMaterial(width, carport.get(i).getLin().getBaselength());
-                    break;
-                case "h":
-                    lgd = height + addDimensionSizeToMaterial(height, carport.get(i).getLin().getBaselength());
-                    break;
-                case "s":
-                    lgd = 0;
-                    break;
-                case "c":
-                    lgd = addDimensionSizeToMaterial(1, carport.get(i).getLin().getBaselength());
-                    break;
+            if (carport.get(i).getLin().getDimension().equalsIgnoreCase("l")) {
+
+                lgd = length + addDimensionSizeToMaterial(length, carport.get(i).getLin().getBaselength());
+
+            } else if (carport.get(i).getLin().getDimension().equalsIgnoreCase("b")) {
+
+                lgd = width + addDimensionSizeToMaterial(width, carport.get(i).getLin().getBaselength());
+
+            } else if (carport.get(i).getLin().getDimension().equalsIgnoreCase("h")) {
+
+                lgd = height + addDimensionSizeToMaterial(height, carport.get(i).getLin().getBaselength());
+
+            } else if (carport.get(i).getLin().getDimension().equalsIgnoreCase("s")) {
+
+                lgd = 0;
+
+            } else if (carport.get(i).getLin().getDimension().equalsIgnoreCase("c")) {
+
+                lgd = carport.get(i).getLin().getBaselength();
+
             }
 
             double enhedstr = LogicFacade.getLineItem().get(i).getMat().getMsr();
             double pris = LogicFacade.getLineItem().get(i).getMat().getEnhedspris();
-            double qty = LogicFacade.getLineItem().get(i).getLin().getAntal();  
-            
-         
+            double qty = LogicFacade.getLineItem().get(i).getLin().getAntal();
+
             carport.get(i).setTotalPrice(priceQtyTimesMaterial(lgd, enhedstr, pris, qty));
-        
-        
-         priceTotalCarport = carport.get(i).getTotalPrice();
-  
-       
+            for (int j = 0; j < carport.size(); j++) {
+                priceTotalCarport += carport.get(i).getTotalPrice();
+            }
+
+            return priceTotalCarport;
+        }
         return priceTotalCarport;
-    }   return priceTotalCarport;
-}
+    }
 
     public static void main(String[] args) throws NewException {
         Calculator calc = new Calculator();
 
-       
-
         List<LineItem> carport = LogicFacade.getLineItem();
 
-        System.out.println(calc.priceTotalPriceCarportUdenSkur(carport, 780, 600, 225));
+        System.out.println(calc.priceTotalPriceCarportUdenSkur(carport, 600, 420, 225));
     }
 
 }

@@ -15,11 +15,12 @@
         <title>StykListe</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Pris</h1>
 
 
 
         <%out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");%>
+        
 
    
 

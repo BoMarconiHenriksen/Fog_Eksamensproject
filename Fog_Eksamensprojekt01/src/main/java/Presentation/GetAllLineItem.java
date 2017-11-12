@@ -28,9 +28,9 @@ abstract class GetAllLineItem extends Command {
         request.setAttribute("stykLinjeListe", stykLinjeListe);
         List<Materiale> mats = LogicFacade.getMaterial();
         String mat1 = mats.get(1).getMaterialenavn();
-        double length = Double.parseDouble(request.getParameter("length"));
-        double width = Double.parseDouble(request.getParameter("width"));
-        double height= Double.parseDouble(request.getParameter("height"));
+        int length = Integer.parseInt(request.getParameter("length"));
+        int width =Integer.parseInt(request.getParameter("width"));
+        int height= Integer.parseInt(request.getParameter("height"));
         List<LineItem> limes= LogicFacade.getLineItem();
         double carportTotal=calc.priceTotalPriceCarportUdenSkur(limes, length, width, height);
         request.setAttribute("mats", mats);
