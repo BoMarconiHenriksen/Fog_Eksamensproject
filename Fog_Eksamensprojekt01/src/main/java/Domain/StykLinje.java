@@ -14,11 +14,11 @@ public class StykLinje {
     private int linjeliste_id;
     private String materialetype;
     private String dimension;
-    private int baselength;
+    private double baselength;
     private int antal;
     private String beskrivelse;
 
-    public StykLinje(int linjeliste_id, String materialetype, String dimension, int baselength, int antal, String beskrivelse) {
+    public StykLinje(int linjeliste_id, String materialetype, String dimension, double baselength, int antal, String beskrivelse) {
         this.linjeliste_id = linjeliste_id;
         this.materialetype = materialetype;
         this.dimension = dimension;
@@ -27,10 +27,10 @@ public class StykLinje {
         this.beskrivelse = beskrivelse;
     }
 
-    public StykLinje(String materialetype, String dimension, int baseLength, int antal, String beskrivelse2) {
+    public StykLinje(String materialetype, String dimension, double baseLength, int antal, String beskrivelse) {
        this.materialetype = materialetype;
         this.dimension = dimension;
-        this.baselength = baselength;
+        this.baselength = baseLength;
         this.antal = antal;
         this.beskrivelse = beskrivelse;
     }
@@ -59,11 +59,11 @@ public class StykLinje {
         this.dimension = dimension;
     }
 
-    public int getBaselength() {
+    public double getBaselength() {
         return baselength;
     }
 
-    public void setBaselength(int baselength) {
+    public void setBaselength(double baselength) {
         this.baselength = baselength;
     }
 

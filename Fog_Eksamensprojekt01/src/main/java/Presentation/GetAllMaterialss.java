@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ejer
  */
-public class GetAllMaterials extends GetAllLineItem {
+public class GetAllMaterialss extends GetAllLineItem {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {

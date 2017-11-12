@@ -26,20 +26,24 @@
 
         Der udskrives blot et materiale fra databasen ikke interessant men det virker
 
-        <form name="getAllMaterials" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="getAllMaterials">
-            <input type="submit" name="getAllMaterials" value="Submit">
+        <form name="getAllLineItem" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="getAllLineItem">
+            <input type="submit" name="getAllLineItem" value="Submit">
         
-         </form>
+        
         
         <br><br>
     <form name="Form1" action="IndexController" method="POST">
+        
         Carport Længde:<br>
-        <input type="number" name="lentgh" min="240" ><br>
+        <input type="number" name="length" min="240" ><br>
         Carport Bredde:<br>
         <input type="number" name="width" min="240"><br><br>
        Carport Højde:<br>
         <input type="number" name="height"min="225" ><br><br>
+        Skur<br>
+        <input type="checkbox" name="skur">
+        <br><br>
     Tagtype:<br>
    <ul>
   <select name="kundetrevalg">
@@ -50,7 +54,7 @@
 
         <input type="submit" value="Submit">
    </form>
-        
+         </form>
        
         
         

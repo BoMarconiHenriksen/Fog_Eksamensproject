@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * The purpose of Command is to...
+ * 
  *
- * @author kasper
+ * @author BenedikteEva
  */
 abstract class Command {
 
@@ -16,8 +16,9 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
 
-        commands.put("getAllMaterials", new GetAllMaterials());
+        commands.put("getAllMaterials", new GetAllMaterialss());
         commands.put("getAllStykLinje", new GetAllStykLinje());
+        commands.put("getAllLineItem", new GetAllLineItem() {});
         commands.put("ErrorMsg", new ErrorMsg());
     }
 

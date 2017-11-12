@@ -27,15 +27,18 @@ abstract class GetAllLineItem extends Command {
         List<StykLinje> stykLinjeListe = LogicFacade.getStykLinje();
         request.setAttribute("stykLinjeListe", stykLinjeListe);
         List<Materiale> mats = LogicFacade.getMaterial();
-
         String mat1 = mats.get(1).getMaterialenavn();
-
+        double length = Double.parseDouble(request.getParameter("length"));
+        double width = Double.parseDouble(request.getParameter("width"));
+        double height= Double.parseDouble(request.getParameter("height"));
+        List<LineItem> limes= LogicFacade.getLineItem();
+        double carportTotal=calc.priceTotalPriceCarportUdenSkur(limes, length, width, height);
         request.setAttribute("mats", mats);
         request.setAttribute("mat1", mat1);
-       
+       request.setAttribute("carportTotal", carportTotal);
        
 
-        return "StykListe";
+        return "stykListe";
 
     }
 

@@ -4,6 +4,7 @@
     Author     : BenedikteEva
 --%>
 
+<%@page import="Domain.LineItem"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,9 +19,9 @@
 
 
 
-        <%-- out.println("<a>" + (List<Materiale>) request.getAttribute("mats") + "</a>");--%>
+        <%out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");%>
 
-        <% out.println("<a>" + (String) request.getAttribute("mat1") + "</a>");%>
+   
 
 
 

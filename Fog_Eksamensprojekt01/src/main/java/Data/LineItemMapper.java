@@ -46,12 +46,14 @@ public class LineItemMapper {
                 String materialetype = rs.getString("materialetype");
                 String beskrivelse= rs.getString("beskrivelse");
                 String dimension = rs.getString("dimension");
-                int baseLength = rs.getInt("baselength");
+                double baseLength = rs.getDouble("baselength");
+            
+                int linjelisteid=rs.getInt("linjeliste_id");
                 int antal = rs.getInt("antal");
                 int id = rs.getInt("linjeliste_id");
                 if (id != lastId) {
                     mat = new Materiale(materialetype, materialenavn, enhedspris, enhed, msr);
-                    styk = new StykLinje(materialetype, dimension, baseLength, antal, beskrivelse);
+                    styk = new StykLinje( materialetype, dimension, baseLength, antal, beskrivelse);
                    li= new LineItem(mat, styk, 0.00);
                    lis.add(li);
                 }
