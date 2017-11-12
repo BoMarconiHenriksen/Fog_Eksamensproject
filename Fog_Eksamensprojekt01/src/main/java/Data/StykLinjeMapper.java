@@ -5,14 +5,11 @@
  */
 package Data;
 
-import Domain.Materiale;
 import Domain.StykLinje;
 import Presentation.NewException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class StykLinjeMapper {
 
-    public static List<StykLinje> getStykLinje() throws NewException {
+    public static List<StykLinje> getStykLinje() throws NewException{
         List<StykLinje> styks = new ArrayList<>();
         try {
 
@@ -49,9 +46,10 @@ public class StykLinjeMapper {
                 }
             }
             return styks;
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new NewException(ex.getMessage());
+        } catch (SQLException| ClassNotFoundException ex) {
+           throw new NewException(ex.getCause().toString());
         }
+       
 
     }
 
@@ -80,12 +78,18 @@ public class StykLinjeMapper {
         return styk;
 
     }
+    
+    
 
-    public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws NewException {
 
-        StykLinjeMapper stykMap = new StykLinjeMapper();
-        System.out.println(stykMap.getStykLinje());
-
-        System.out.println(StykLinjeMapper.getStykLinjeById(2));
+        try {
+            StykLinjeMapper stykMap = new StykLinjeMapper();
+            System.out.println(stykMap.getStykLinje());
+            
+            System.out.println(StykLinjeMapper.getStykLinjeById(2));
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(StykLinjeMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

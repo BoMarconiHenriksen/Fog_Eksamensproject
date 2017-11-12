@@ -1,7 +1,5 @@
 package Presentation;
 
-
-
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +15,10 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
-      
-        commands.put("getAllMaterials", new getAllMaterials());
-  
-        
+
+        commands.put("getAllMaterials", new GetAllMaterials());
+        commands.put("getAllStykLinje", new GetAllStykLinje());
+        commands.put("ErrorMsg", new ErrorMsg());
     }
 
     static Command from(HttpServletRequest request) {

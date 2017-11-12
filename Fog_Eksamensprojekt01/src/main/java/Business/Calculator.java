@@ -6,10 +6,8 @@
 package Business;
 
 import Data.MaterialeMapper;
-import Data.StykLinjeMapper;
 import Domain.LineItem;
 import Presentation.NewException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,10 +36,19 @@ public class Calculator {
     public double priceTotalPriceCarport(List<LineItem> carport) throws NewException {
        
         double priceTotalCarport = 0;
+       
         for (int i=0; i<carport.size();i++){
-          priceTotalCarport = carport.get(i).getTotalPrice();
+             double lgd = 240;
+             double enhedstr = LogicFacade.getLineItem().get(i).getMat().getMsr();
+             double pris = LogicFacade.getLineItem().get(i).getMat().getEnhedspris();
+             double qty = LogicFacade.getLineItem().get(i).getLin().getAntal();
+              
+            carport.get(i).setTotalPrice(priceQtyTimesMaterial(lgd, enhedstr, pris, qty));
+        }
+            for (int j=1;j<carport.size();j++){
+         priceTotalCarport = carport.get(j).getTotalPrice();
       }
-
+       
         return priceTotalCarport;
     }
 
@@ -50,7 +57,7 @@ public class Calculator {
 
         double totalPriceLine = calc.priceQtyTimesMaterial(330, 100, 12.56, 4);
         double height = calc.addDimensionSizeToMaterial(270,240);
-        List<LineItem> carport = null;
+        List<LineItem> carport = LogicFacade.getLineItem();
         
         System.out.println(calc.priceTotalPriceCarport(carport));
     }

@@ -43,6 +43,11 @@ public class LineItem {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    @Override
+    public String toString() {
+        return "LineItem{" + "mat=" + mat + ", lin=" + lin + ", totalPrice=" + totalPrice + '}';
+    }
    
 
    

@@ -27,6 +27,14 @@ public class StykLinje {
         this.beskrivelse = beskrivelse;
     }
 
+    public StykLinje(String materialetype, String dimension, int baseLength, int antal, String beskrivelse2) {
+       this.materialetype = materialetype;
+        this.dimension = dimension;
+        this.baselength = baselength;
+        this.antal = antal;
+        this.beskrivelse = beskrivelse;
+    }
+
     public int getLinjeliste_id() {
         return linjeliste_id;
     }
@@ -77,7 +85,7 @@ public class StykLinje {
 
     @Override
     public String toString() {
-        return "StykLinje{" + "linjeliste_id=" + linjeliste_id + ", materialetype=" + materialetype + ", dimension=" + dimension + ", baselength=" + baselength + ", antal=" + antal + ", beskrivelse=" + beskrivelse + '}';
+        return "StykLinje{, materialetype=" + materialetype + ", dimension=" + dimension + ", baselength=" + baselength + ", antal=" + antal + ", beskrivelse=" + beskrivelse + '}';
     }
 
 }

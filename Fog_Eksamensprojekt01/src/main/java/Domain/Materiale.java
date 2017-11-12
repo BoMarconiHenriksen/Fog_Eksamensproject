@@ -29,6 +29,14 @@ private double msr;
       
     }
 
+    public Materiale(String materialetype, String materialenavn, double enhedspris, String enhed, double msr) {
+      this.materialetype = materialetype;
+        this.materialenavn = materialenavn;
+        this.enhedspris = enhedspris;
+        this.enhed = enhed;
+        this.msr=msr;
+    }
+
     public int getVarenummer() {
         return varenummer;
     }
@@ -83,7 +91,7 @@ private double msr;
 
     @Override
     public String toString() {
-        return "Materiale{" + "varenummer=" + varenummer + ", materialetype=" + materialetype + ", materialenavn=" + materialenavn + ", enhedspris=" + enhedspris + ", enhed=" + enhed + ", msr=" + msr + '}';
+        return "Materiale{ materialetype=" + materialetype + ", materialenavn=" + materialenavn + ", enhedspris=" + enhedspris + ", enhed=" + enhed + ", msr=" + msr + '}';
     }
 
 }

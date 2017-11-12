@@ -5,29 +5,29 @@
  */
 package Presentation;
 
-
-import Business.Calculator;
-import Domain.User;
-import java.util.Arrays;
+import Business.LogicFacade;
+import Domain.Materiale;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Ejer
  */
-public class stykListe extends Command {
+public class GetAllMaterials extends GetAllLineItem {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        HttpSession session = request.getSession();
 
-       User user = (User) session.getAttribute("user");
-       
-        Calculator calc = new Calculator();
-        
-        return user.getAdminStatus() + "page";
+        List<Materiale> mats = LogicFacade.getMaterial();
+
+        String mat1 = mats.get(1).getMaterialenavn();
+
+        request.setAttribute("mats", mats);
+        request.setAttribute("mat1", mat1);
+        return "stykListe";
+
     }
 
 }

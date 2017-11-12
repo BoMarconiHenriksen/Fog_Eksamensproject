@@ -57,7 +57,7 @@ drop table if exists `linjeliste`;
 create table `linjeliste`(
 `linjeliste_id`int(11) not null auto_increment, 
 `materialetype`varchar (45), 
-`dimension`char (1),
+`dimension`varchar (1),
 `baselength`int(11), 
 `antal`int (5),
 `beskrivelse`varchar(100),
@@ -68,9 +68,7 @@ create table `lineitem`(
     `linjeliste_id`int(11) ,
     `vareid`int (20),
     `linjepris`double(11,2),
-    primary key (linjeliste_id, vareid), 
-    FOREIGN key (`linjeliste_id`)references linjeliste(`linjeliste_id`),
-      FOREIGN key (`vareid`)references materialeliste(`vareid`));
+    primary key (linjeliste_id, vareid));
       
      
     
@@ -122,24 +120,24 @@ INSERT INTO materialeliste values
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
-(null, 'Træ & Tagplader', 'b', 240,4, 'Understernbrædder til for og bagende'),
-( null,'Træ & Tagplader', 'l', 240,4, 'Understernbrædder til siderne'), 
-(null, 'Træ & Tagplader', 'b', 240, 2,'Oversternbrædder til for og bagende'),
-(null, 'Træ & Tagplader', 'l', 240, 4,'Oversternbrædder til siderne'), 
+(null, 'Træ & Tagplader', 'b', 360,4, 'Understernbrædder til for og bagende'),
+( null,'Træ & Tagplader', 'l', 540,4, 'Understernbrædder til siderne'), 
+(null, 'Træ & Tagplader', 'b', 360, 2,'Oversternbrædder til for og bagende'),
+(null, 'Træ & Tagplader', 'l', 540, 4,'Oversternbrædder til siderne'), 
 (null, 'Træ & Tagplader', 'u', 420,1, 'Til z på bagside af dør'),
-(null, 'Træ & Tagplader', 's', 210,12, 'Løsholter til skurgavle'),
-(null, 'Træ & Tagplader', 's', 150,4, 'Løsholter til skursider'),
-(null, 'Træ & Tagplader', 'l', 240,2, 'Remme i sider, sadles ned i stolper, carport-del'),
-(null, 'Træ & Tagplader', 's', 240,1, 'Remme i sider, sadles ned i stolper, skur-del');
+(null, 'Træ & Tagplader', 's', 270,12, 'Løsholter til skurgavle'),
+(null, 'Træ & Tagplader', 's', 240,4, 'Løsholter til skursider'),
+(null, 'Træ & Tagplader', 'l', 600,2, 'Remme i sider, sadles ned i stolper, carport-del'),
+(null, 'Træ & Tagplader', 's', 480,1, 'Remme i sider, sadles ned i stolper, skur-del');
 
 INSERT  INTO linjeliste   values
-(null, 'Træ & Tagplader', 'l', 240, 15,'Spær, monteres på rem'),
+(null, 'Træ & Tagplader', 'l', 600, 15,'Spær, monteres på rem'),
 ( null,'Træ & Tagplader', 'h', 300,11, 'Stolper, nedgraves i 90 cm. jord'), 
 (null, 'Træ & Tagplader', 's', 210, 200,'Til beklædning af skur 1 på 2'),
-(null, 'Træ & Tagplader', 'l', 240,4, 'Vandbrædt på stern i sider'), 
-(null, 'Træ & Tagplader', 'b', 240,2, 'Vandbrædt på stern i forende'),
-(null, 'Træ & Tagplader', 'l', 240, 6,'Tagplader monteres på spær'),
-(null, 'Træ & Tagplader', 'b', 240, 6,'Tagplader monteres på spær');
+(null, 'Træ & Tagplader', 'l', 540,4, 'Vandbrædt på stern i sider'), 
+(null, 'Træ & Tagplader', 'b', 360,2, 'Vandbrædt på stern i forende'),
+(null, 'Træ & Tagplader', 'l', 600, 6,'Tagplader monteres på spær'),
+(null, 'Træ & Tagplader', 'b', 360, 6,'Tagplader monteres på spær');
 
 INSERT  INTO linjeliste   values
 (null, 'Beslag og skruer', 'c',1, 3, 'Skruer til tagplader'),
@@ -155,15 +153,50 @@ INSERT  INTO linjeliste   values
 (null, 'Beslag og skruer', 'c',1, 1, 'Til lås på dør i skur'),
 (null, 'Beslag og skruer', 'c', 1,2, 'Til skurdør'),
 (null, 'Beslag og skruer', 'c', 1,32, 'Til montering af løsholter i skur');
-select*from linjeliste;
 
 
+insert into lineitem values
+(1,1,null),
+(2,1,null),
+(3,2,null),
+(4,2,null),
+(5,5,null),
+(6,6,null),
+(7,6,null),
+(8,8,null),
+(9,8,null),
+(10,8,null),
+(11,11,null),
+(12,14,null),
+(13,14,null),
+(14,14,null),
+(15,15,null),
+(16,16,null);
 
+insert into lineitem values
+(17,17,null),
+(18,18,null),
+(19,19,null),
+(20,20,null),
+(21,21,null),
+(22,22,null),
+(23,23,null),
+(24,24,null),
+(25,25,null),
+(26,26,null),
+(27,27,null),
+(28,28,null),
+(29,29,null);
 
+select lineitem.linjeliste_id, materialeliste.materialetype, linjeliste.beskrivelse,
+                    materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste,
+                    materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
+                   and linjeliste.linjeliste_id=lineitem.linjeliste_id;
+select*from materialeliste;
 select * from linjeliste;
 commit;    
     
-
+select linjeliste.beskrivelse, materialeliste.materialenavn, enhedspris, antal from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid and linjeliste.linjeliste_id=lineitem.linjeliste_id;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
