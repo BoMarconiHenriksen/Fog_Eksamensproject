@@ -26,14 +26,14 @@
 
         Der udskrives blot et materiale fra databasen ikke interessant men det virker
 
-        <form name="getAllLineItem" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="getAllLineItem">
-            <input type="submit" name="getAllLineItem" value="Submit">
+        <form name="basisCarport" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="basisCarport">
+           
         
         
         
         <br><br>
-    <form name="Form1" action="IndexController" method="POST">
+   <%-- <form name="Form1" action="IndexController" method="POST">--%>
         
         Carport Længde:<br>
         <input type="number" name="length" min="240" ><br>
@@ -52,10 +52,19 @@
 </select>
 </ul>
 
-        <input type="submit" value="Submit">
-   </form>
+     <%--   <input type="submit" value="Submit">
+   </form> --%>
+         <input type="submit" name="basisCarport" value="Submit">
          </form>
-       
+         
+        
+        <%if ("basisCarport"==null){
+            out.println("");
+        }
+            else {
+            %> <h2>Pris på valgt Carport: </h2><br><%
+             out.println("<a>"+(Double)request.getAttribute("carportTotal")+"</a>");
+            }%>
         
         
  </body>

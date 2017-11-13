@@ -32,7 +32,7 @@ abstract class GetAllLineItem extends Command {
         int width =Integer.parseInt(request.getParameter("width"));
         int height= Integer.parseInt(request.getParameter("height"));
         List<LineItem> limes= LogicFacade.getLineItem();
-        double carportTotal=calc.priceTotalPriceCarportUdenSkur(limes, length, width, height);
+        double carportTotal=calc.calculateCarportBasis(length, width, height);
         request.setAttribute("mats", mats);
         request.setAttribute("mat1", mat1);
        request.setAttribute("carportTotal", carportTotal);

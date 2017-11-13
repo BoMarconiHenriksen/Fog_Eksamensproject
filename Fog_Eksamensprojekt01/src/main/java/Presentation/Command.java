@@ -20,6 +20,7 @@ abstract class Command {
         commands.put("getAllStykLinje", new GetAllStykLinje());
         commands.put("getAllLineItem", new GetAllLineItem() {});
         commands.put("ErrorMsg", new ErrorMsg());
+        commands.put("basisCarport", new basisCarport());
     }
 
     static Command from(HttpServletRequest request) {

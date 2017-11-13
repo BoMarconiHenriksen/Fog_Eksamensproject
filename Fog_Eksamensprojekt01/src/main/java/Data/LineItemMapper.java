@@ -70,7 +70,6 @@ public class LineItemMapper {
 
         System.out.println(LineItemMapper.getLineItems());
 
-        System.out.println(LineItemMapper.getLineItems());
     }
 }
 
