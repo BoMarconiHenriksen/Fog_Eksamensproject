@@ -30,11 +30,11 @@ public class RendUtilGetMaterials {
             sb.append("<td>").append("" + ma.getMaterialetype()).append("</td>");
             sb.append("<td>").append("" + ma.getMaterialenavn()).append("</td>");
             sb.append("<td>").append("" + ma.getEnhed()).append("</td>");
-            sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + ma.getVarenummer() + "\"><br>\n\n</td>"); //location.href='invoice_detail.jsp';\
+           // sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + ma.getVarenummer() + "\"><br>\n\n</td>"); //location.href='invoice_detail.jsp';\
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"action\" name=\"invoice_detail\">See order</button> ");
+      //  sb.append("<button type=\"submit\" value=\"action\" name=\"invoice_detail\">See order</button> ");
         sb.append("</form>\n");
         return sb.toString();
 
