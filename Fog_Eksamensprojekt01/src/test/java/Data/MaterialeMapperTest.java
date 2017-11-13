@@ -45,7 +45,7 @@ public class MaterialeMapperTest {
     @Test
     public void testGetMaterial() throws NewException {
         System.out.println("getMaterial");
-        String expResult = "Stk";
+        String expResult = "m";
         String result = MaterialeMapper.getMaterial().get(1).getEnhed();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
