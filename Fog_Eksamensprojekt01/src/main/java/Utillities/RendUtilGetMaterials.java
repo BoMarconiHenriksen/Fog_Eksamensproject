@@ -22,8 +22,8 @@ public class RendUtilGetMaterials {
         String mat1 = mats.get(1).getMaterialenavn();
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
-                + "<tr><th>Invoices</th><th></th><th></th></tr>\n"
-                + "<tr><th>InvoiceId </th><th>UserId  </th><th>Date </th><th></th></tr>\n");
+                + "<tr><th>Stykliste</th><th></th><th></th></tr>\n"
+                + "<tr><th>Trætype </th><th>Materiale  </th><th>Type </th><th></th></tr>\n");
         for (Materiale ma : mats) {
             sb.append("<tr><form name=\"invoice_detail\" action=\"InvoiceDetailServlet\" method=\"POST\">"); //Method kan være skrevet forkert! action=\"InvoiceDetailServlet\" method=POST>
             sb.append("<tr> <input type=\"hidden\" name=\"origin\" value=\"invoice_detail\">");
