@@ -74,7 +74,7 @@ create table `lineitem`(
     
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 50.95, 100); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 26.95, 100); -- 1085025200 0300
 INSERT INTO materialeliste values  
 	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'stk', 29.95, 100);
 INSERT INTO materialeliste values   
@@ -84,7 +84,7 @@ INSERT INTO materialeliste values
 INSERT INTO materialeliste values   
 	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100);
 INSERT INTO materialeliste values   
-	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'm', 77.95, 100);
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe 300 cm', 'stk', 83.85, 1);
 INSERT INTO materialeliste values   
 	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100);
 INSERT INTO materialeliste values  
@@ -141,6 +141,9 @@ INSERT INTO materialeliste values
 	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 1); -- ingen vr. 
 INSERT INTO materialeliste values   
 	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1); -- ingen vr.
+    
+INSERT INTO materialeliste values   
+	(33, 'Tagpakken', 'Plastmo Ecolite blåtonet 480', 'Stk', 199.00, 1);    
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
