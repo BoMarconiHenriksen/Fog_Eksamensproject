@@ -128,9 +128,9 @@ INSERT INTO materialeliste values
     
 -- Tagpakken
 INSERT INTO materialeliste values   
-	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 510.00, 1);
+	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 330.00, 1);
 INSERT INTO materialeliste values   
-	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 339.00, 1);
+	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 119.00, 1);
 INSERT INTO materialeliste values   
 	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1); -- ingen vr.
 INSERT INTO materialeliste values   
@@ -212,15 +212,11 @@ insert into lineitem values
 (28,24,null),
 (29,25,null);
 
-select vareid, materialenavn from materialeliste;
 
-select * from linjeliste, lineitem, materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id and materialeliste.vareid=linjeliste.linjeliste_id;
 
 commit;    
     
-select linjeliste.linjeliste_id, materialeliste.vareid, beskrivelse, materialeliste.materialenavn, enhedspris, antal 
-from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
-and linjeliste.linjeliste_id=lineitem.linjeliste_id;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

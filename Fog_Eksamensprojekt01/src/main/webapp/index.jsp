@@ -57,12 +57,12 @@
          <input type="submit" name="basisCarport" value="Submit">
          </form>
          
-        
+           <h2>Pris på valgt Carport: </h2><br>
         <%if ("basisCarport"==null){
             out.println("");
         }
             else {
-            %> <h2>Pris på valgt Carport: </h2><br><%
+          
              out.println("<a>"+(Double)request.getAttribute("carportTotal")+"</a>");
             }%>
         
