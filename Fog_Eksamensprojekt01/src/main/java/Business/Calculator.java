@@ -28,7 +28,7 @@ public class Calculator {
         double totalPriceScrewsAndSuch = 0;
         double totalPriceSimpleCarport = 0;
 
-        DecimalFormat df = new DecimalFormat("0.00");
+       // DecimalFormat df = new DecimalFormat("0.00");
 
         //træ og tag
         double brædt1pris = mat.getMaterialeByVarenummer(1).getEnhedspris();
