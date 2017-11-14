@@ -1,0 +1,36 @@
+
+title "Udregn pris simpel- Sequence Diagram"
+
+actor User
+boundary prisberegner.jsp  
+participant FrontController
+participant Command
+participant BasisCarport
+participant Calculator
+participant LogicFacade
+participant MaterialeMapper
+database "Fog Database"
+
+User --> prisberegner.jsp: intast mål
+
+prisberegner.jsp --> FrontController: POST()
+FrontController --> Command: processRequest()
+Command --> BasisCarport: setAttributes()
+BasisCarport-->Calculator:  calculateCarportBasis()
+Calculator-->LogicFacade: getMaterial()
+LogicFacade-->MaterialeMapper: getMaterial()
+MaterialeMapper-->"Fog Database":executeQuery()
+"Fog Database"-->MaterialeMapper: returnResultset()
+MaterialeMapper-->LogicFacade: return Resultset()
+LogicFacade-->Calculator: return materials()
+Calculator-->BasisCarport:returnPrice()
+BasisCarport-->Command: setAttribute()
+Command-->FrontController: setAttribute()Commands
+FrontController-->prisberegner.jsp: forwardResponse()
+prisberegner.jsp-->User: displayCarportPrice()
+
+
+
+
+
+@enduml
