@@ -11,70 +11,96 @@ CREATE DATABASE `fog`;
 
 USE `fog`;
 
-drop table if exists `userlist`;
-create table `userlist` (
-	`user_id` int(11) NOT NULL AUTO_INCREMENT,
-	`email`varchar(100) NOT NULL, 
-    `password`varchar(100) NOT NULL,  
-    `admin_status` int (3), 
-	`username` varchar(45) NOT NULL,
-	primary key (user_id));
-
-DROP TABLE IF EXISTS `ordreliste`;
-CREATE TABLE `ordreliste`(
-`ordre_id`int (11) not null auto_increment, 
-`user_id`int (11), 
-`receiveddate`varchar(11), 
-primary key (ordre_id), foreign key (user_id) references userlist(user_id));
-
-DROP TABLE IF EXISTS `materialeliste`;
-CREATE TABLE `materialeliste`(
-`vareid`int (20) not null auto_increment, 
--- `varenummer`int (20) not null,
-`materialetype`varchar (45) ,
-`materialenavn` varchar(50),
-`enhed`varchar(10), 
-`enhedspris`double (11,2),
-`længde`int (20),
-primary key (vareid)
+-- Create userlist
+DROP TABLE IF EXISTS `userlist`;
+CREATE TABLE `userlist` (
+	`user_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `zipcode` INT(4) NOT NULL,
+	`email` VARCHAR(100) NOT NULL, 
+    `password` VARCHAR(100) NOT NULL,  
+    `role` VARCHAR(20) NOT NULL DEFAULT 'customer', 
+	`firstname` VARCHAR(45) NOT NULL,
+    `lastname` VARCHAR(45) NOT NULL,
+    `address` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (user_id), FOREIGN KEY (zipcode) REFERENCES zipcodelist(zipcode),
+    UNIQUE KEY `email_UNIQUE` (`email`)
+);
+    
+-- create zipcodelist
+DROP TABLE IF EXISTS `zipcodelist`;
+CREATE TABLE `zipcodelist` (
+	`zipcode` INT(4) NOT NULL,
+    `city`VARCHAR(45) NOT NULL,
+    PRIMARY KEY (zipcode)
 );
 
-drop table if exists `odetaljer`;
-create table `odetaljer`(
+-- Create ordreliste
+DROP TABLE IF EXISTS `ordreliste`;
+CREATE TABLE `ordreliste`(
+	`ordre_id`INT (11) NOT NULL AUTO_INCREMENT, 
+	`user_id`INT (11), 
+	`receiveddate`VARCHAR(11), 
+	PRIMARY KEY (ordre_id), FOREIGN KEY (user_id) REFERENCES userlist(user_id)-- ,
+    -- FOREIGN KEY (ordre_id) REFERENCES odetaljer(ordre_id)
+);
 
-	`odetaljer_id`int(11) not null auto_increment, 
-    `ordre_id` int(11),
-	`length`double(9,2),
-	`width`double(9,2), 
-	`height`double(9,2), 
-	`tagtype`int (11), 
-    `redskabsrum`boolean default false,  
-    primary key (odetaljer_id),
-	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
+-- Create materialeliste 
+DROP TABLE IF EXISTS `materialeliste`;
+CREATE TABLE `materialeliste`(
+	`vareid`INT (20) NOT NULL AUTO_INCREMENT, 
+	-- `varenummer`int (20) not null,
+	`materialetype`VARCHAR (45) ,
+	`materialenavn` VARCHAR(50),
+	`enhed`VARCHAR(10), 
+	`enhedspris`DOUBLE (11,2),
+	`længde`INT (20),
+	PRIMARY KEY (vareid)
+);
 
-drop table if exists `linjeliste`;
-create table `linjeliste`(
-`linjeliste_id`int(11) not null auto_increment, 
-`materialetype`varchar (45), 
-`dimension`varchar (1),
-`baselength`double(11,2), 
-`antal`int (5),
-`beskrivelse`varchar(100),
-primary key (linjeliste_id));
+-- Create linjeliste 
+DROP TABLE IF EXISTS `linjeliste`;
+CREATE TABLE `linjeliste`(
+	`linjeliste_id` INT(11) NOT NULL AUTO_INCREMENT, 
+	`materialetype` VARCHAR (45), 
+	`dimension` VARCHAR (1),
+	`baselength` DOUBLE(11,2), 
+	`antal`INT (5),
+	`beskrivelse` VARCHAR(100),
+	PRIMARY KEY (linjeliste_id)
+);
+
+-- Create odetaljer
+DROP TABLE IF EXISTS `odetaljer`;
+CREATE TABLE `odetaljer`(
+	`odetaljer_id`INT(11) NOT NULL AUTO_INCREMENT, 
+    `ordre_id` INT(11),
+    `vareid`INT (20),
+    `linjeliste_id`INT(11),
+	`length`DOUBLE(9,2),
+	`width`DOUBLE(9,2), 
+	`height`DOUBLE(9,2),
+    `lengthredskabsrum`DOUBLE(9,2),
+	`tagtype`INT (11), 
+    `redskabsrum`BOOLEAN DEFAULT FALSE,  
+    PRIMARY KEY (odetaljer_id),
+	FOREIGN KEY (`ordre_id`)REFERENCES ordreliste(`ordre_id`),
+    FOREIGN KEY (`vareid`)REFERENCES materialeliste(`vareid`),
+    FOREIGN KEY (`linjeliste_id`)REFERENCES linjeliste(`linjeliste_id`)
+);
 
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 26.95, 100); -- 1085025200 0300
 INSERT INTO materialeliste values  
-	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'm', 29.95, 100);
+	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'stk', 29.95, 100);
 INSERT INTO materialeliste values   
-	(3, 'Træ', '38x73 mm. Lægte ubh.', 'm', 20.95, 100);
+	(3, 'Træ', '38x73 mm. Lægte ubh.', 'stk', 20.95, 100);
 INSERT INTO materialeliste values   
 	(4, 'Træ', '45x95 mm. Reglar ub.', 'm', 14.75, 100);
 INSERT INTO materialeliste values   
 	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100);
 INSERT INTO materialeliste values   
-	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'm', 77.95, 100);
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe 300 cm', 'stk', 83.85, 1);
 INSERT INTO materialeliste values   
 	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100);
 INSERT INTO materialeliste values  
@@ -118,9 +144,9 @@ INSERT INTO materialeliste values
     
 -- Tagpakken
 INSERT INTO materialeliste values   
-	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 510.00, 1);
+	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 330.00, 1);
 INSERT INTO materialeliste values   
-	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 339.00, 1);
+	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 119.00, 1);
 INSERT INTO materialeliste values   
 	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1); -- ingen vr.
 INSERT INTO materialeliste values   
@@ -132,26 +158,29 @@ INSERT INTO materialeliste values
 INSERT INTO materialeliste values   
 	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1); -- ingen vr.
     
+INSERT INTO materialeliste values   
+	(33, 'Tagpakken', 'Plastmo Ecolite blåtonet 480', 'Stk', 199.00, 1);   
+    
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
-(null, 'Træ & Tagplader', 'b', 360,4, 'Understernbrædder til for og bagende'),
-( null,'Træ & Tagplader', 'l', 540,4, 'Understernbrædder til siderne'), 
-(null, 'Træ & Tagplader', 'b', 360, 2,'Oversternbrædder til for og bagende'),
-(null, 'Træ & Tagplader', 'l', 540, 4,'Oversternbrædder til siderne'), 
-(null, 'Træ & Tagplader', 'u', 420,1, 'Til z på bagside af dør'),
-(null, 'Træ & Tagplader', 's', 270,12, 'Løsholter til skurgavle'),
-(null, 'Træ & Tagplader', 's', 240,4, 'Løsholter til skursider'),
-(null, 'Træ & Tagplader', 'l', 600,2, 'Remme i sider, sadles ned i stolper, carport-del'),
-(null, 'Træ & Tagplader', 's', 480,1, 'Remme i sider, sadles ned i stolper, skur-del');
+(null, 'Træ', 'b', 360,4, 'Understernbrædder til for og bagende'),
+( null,'Træ', 'l', 540,4, 'Understernbrædder til siderne'), 
+(null, 'Træ', 'b', 360, 2,'Oversternbrædder til for og bagende'),
+(null, 'Træ', 'l', 540, 4,'Oversternbrædder til siderne'), 
+(null, 'Træ', 'u', 420,1, 'Til z på bagside af dør'),
+(null, 'Træ', 's', 270,12, 'Løsholter til skurgavle'),
+(null, 'Træ', 's', 240,4, 'Løsholter til skursider'),
+(null, 'Træ', 'l', 600,2, 'Remme i sider, sadles ned i stolper, carport-del'),
+(null, 'Træ', 's', 480,1, 'Remme i sider, sadles ned i stolper, skur-del');
 
 INSERT  INTO linjeliste   values
-(null, 'Træ & Tagplader', 'l', 600, 15,'Spær, monteres på rem'),
-( null,'Træ & Tagplader', 'h', 300,11, 'Stolper, nedgraves i 90 cm. jord'), 
-(null, 'Træ & Tagplader', 's', 210, 200,'Til beklædning af skur 1 på 2'),
-(null, 'Træ & Tagplader', 'l', 540,4, 'Vandbrædt på stern i sider'), 
-(null, 'Træ & Tagplader', 'b', 360,2, 'Vandbrædt på stern i forende'),
-(null, 'Træ & Tagplader', 'l', 600, 6,'Tagplader monteres på spær'),
-(null, 'Træ & Tagplader', 'b', 360, 6,'Tagplader monteres på spær');
+(null, 'Træ', 'l', 600, 15,'Spær, monteres på rem'),
+( null,'Træ', 'h', 300,11, 'Stolper, nedgraves i 90 cm. jord'), 
+(null, 'Træ', 's', 210, 200,'Til beklædning af skur 1 på 2'),
+(null, 'Træ', 'l', 540,4, 'Vandbrædt på stern i sider'), 
+(null, 'Træ', 'b', 360,2, 'Vandbrædt på stern i forende'),
+(null, 'Træ', 'l', 600, 6,'Tagplader monteres på spær'),
+(null, 'Træ', 'b', 360, 6,'Tagplader monteres på spær');
 
 INSERT  INTO linjeliste   values
 (null, 'Beslag og skruer', 'c',1, 3, 'Skruer til tagplader'),
