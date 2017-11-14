@@ -105,8 +105,9 @@
         <%if ("basisCarport" == null) {
                 out.println("...");
             } else {
+            
 
-                out.println("<p> Samlet Carport pris: " + (Double) request.getAttribute("carportTotal") + "</p><br>");
+                out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
 
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");

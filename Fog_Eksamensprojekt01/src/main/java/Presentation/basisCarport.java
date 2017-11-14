@@ -6,6 +6,8 @@
 package Presentation;
 
 import Business.Calculator;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,13 +27,15 @@ public class basisCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
         String trevalg = request.getParameter("kundetrevalg");
+        DecimalFormat df = new DecimalFormat("#0.00"); 
 
         Calculator calc = new Calculator();
         double length = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
         double width = Double.parseDouble(request.getParameter("widthchoice")) / 100;
         double height = Double.parseDouble(request.getParameter("heightchoice")) / 100;
         double carportTotal = calc.calculateCarportBasis(length, width, height);
-        request.setAttribute("carportTotal", carportTotal);
+        String carportTotalDecimaled = df.format(carportTotal);
+        request.setAttribute("carportTotal", carportTotalDecimaled);
 
         request.setAttribute("lentghInput", lentghinput);
         request.setAttribute("widthInput", widthinput);
