@@ -84,18 +84,7 @@ public class Calculator {
 
     }
     
-    // her bør man være opmærksom på at base længde skal have fratrukket skuret længde på sternen ved skur
-    public double addDimensionSizeToMaterial(double size, double baseSize) {
-        double dimAdd = size - baseSize;
-        return dimAdd;
-    }
-
-    public double priceQtyTimesMaterial(double lgd, double enhedstr, double pris, double qty) {
-        double str = lgd / enhedstr;
-        double prisprtype = pris * str * qty;
-        return prisprtype;
-    }
-
+  
 
 
     public static void main(String[] args) throws NewException {
