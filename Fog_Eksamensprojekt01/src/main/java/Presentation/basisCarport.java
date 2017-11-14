@@ -19,7 +19,6 @@ public class basisCarport extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
-            HttpSession session = request.getSession();
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
