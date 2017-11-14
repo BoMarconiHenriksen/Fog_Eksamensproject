@@ -18,23 +18,27 @@ public class basisCarport extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
-        double heightinput = Double.parseDouble(request.getParameter("height"));
-        
+        double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
+
+        String skurellerej = request.getParameter("skur");
+        String trevalg = request.getParameter("kundetrevalg");
 
         Calculator calc = new Calculator();
         double length = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
         double width = Double.parseDouble(request.getParameter("widthchoice")) / 100;
-        double height = Double.parseDouble(request.getParameter("height")) / 100;
+        double height = Double.parseDouble(request.getParameter("heightchoice")) / 100;
         double carportTotal = calc.calculateCarportBasis(length, width, height);
         request.setAttribute("carportTotal", carportTotal);
-        
+
         request.setAttribute("lentghInput", lentghinput);
         request.setAttribute("widthInput", widthinput);
         request.setAttribute("heightInput", heightinput);
+        
+        request.setAttribute("skurInput", skurellerej);
+        request.setAttribute("trevalgInput", trevalg);
 
         return "index";
     }

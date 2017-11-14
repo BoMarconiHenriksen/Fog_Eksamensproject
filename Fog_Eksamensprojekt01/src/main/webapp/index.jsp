@@ -83,9 +83,13 @@
                 </select>
             </ul>
             Carport Højde:<br>
-            <input type="number" name="height"min="225" ><br><br>
-            Skur<br>
-            <input type="checkbox" name="skur">
+            <ul>
+                <select name="heightchoice">
+                    <option number="225">225</option>
+                </select>
+            </ul>
+
+            Skur: <input type="checkbox" name="skur">
             <br><br>
             Tagtype:<br>
             <ul>
@@ -110,6 +114,9 @@
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
+
+                out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
 
