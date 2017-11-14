@@ -18,13 +18,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Prisberegner</h1>
 
 
-        Her testes om der er hul igennem gennem frontcontroller- command - commandoen getAllMaterials 
-        - logicfacade - datamapper - database og det er der :-)den skal fjernes igen
-
-        Der udskrives blot et materiale fra databasen ikke interessant men det virker
+        <h2>Her kan intastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
 
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarport">
