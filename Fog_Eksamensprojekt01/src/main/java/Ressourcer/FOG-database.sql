@@ -39,7 +39,6 @@ CREATE TABLE `materialeliste`(
 primary key (vareid)
 );
 
-
 drop table if exists `odetaljer`;
 create table `odetaljer`(
 
@@ -53,9 +52,6 @@ create table `odetaljer`(
     primary key (odetaljer_id),
 	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
 
-
-
-    
 drop table if exists `linjeliste`;
 create table `linjeliste`(
 `linjeliste_id`int(11) not null auto_increment, 
@@ -66,15 +62,6 @@ create table `linjeliste`(
 `beskrivelse`varchar(100),
 primary key (linjeliste_id));
 
-drop table if exists `lineitem`;
-create table `lineitem`(
-    `linjeliste_id`int(11) ,
-    `vareid`int (20),
-    `linjepris`double(11,2),
-    primary key (linjeliste_id, vareid));
-      
-     
-    
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
 	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
@@ -181,49 +168,8 @@ INSERT  INTO linjeliste   values
 (null, 'Beslag og skruer', 'c', 1,2, 'Til skurdør'),
 (null, 'Beslag og skruer', 'c', 1,32, 'Til montering af løsholter i skur');
 
--- carport med fladt tag uden skur
-insert into lineitem values
-(1,1,null),
-(2,1,null),
-(3,2,null),
-(4,2,null),
-(5,3,null),
-(6,4,null),
-(7,4,null),
-(8,5,null),
-(9,5,null),
-(10,5,null),
-(11,6,null),
-(12,7,null),
-(13,7,null),
-(14,7,null),
-(15,8,null),
-(16,9,null);
-
-insert into lineitem values
-(17,13,null),
-(18,14,null),
-(19,15,null),
-(20,16,null),
-(21,17,null),
-(22,18,null),
-(23,19,null),
-(24,20,null),
-(25,21,null),
-(26,22,null),
-(27,23,null),
-(28,24,null),
-(29,25,null);
-
-select vareid, materialenavn from materialeliste;
-
-select * from linjeliste, lineitem, materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id and materialeliste.vareid=linjeliste.linjeliste_id;
-
 commit;    
     
-select linjeliste.linjeliste_id, materialeliste.vareid, beskrivelse, materialeliste.materialenavn, enhedspris, antal 
-from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
-and linjeliste.linjeliste_id=lineitem.linjeliste_id;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
