@@ -92,4 +92,6 @@ public class StykLinjeMapper {
             Logger.getLogger(StykLinjeMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }
+

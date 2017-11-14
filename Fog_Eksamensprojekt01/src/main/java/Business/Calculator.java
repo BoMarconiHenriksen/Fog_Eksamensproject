@@ -96,7 +96,7 @@ public class Calculator {
         return prisprtype;
     }
 
-   
+
 
     public static void main(String[] args) throws NewException {
         Calculator calc = new Calculator();
