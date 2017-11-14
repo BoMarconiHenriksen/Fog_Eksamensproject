@@ -5,29 +5,18 @@
  */
 package Presentation;
 
-
-import Business.Calculator;
-import Domain.User;
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
-public class stykListe extends Command {
+public class Login extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        HttpSession session = request.getSession();
-
-       User user = (User) session.getAttribute("user");
-       
-        Calculator calc = new Calculator();
-        
-        return user.getAdminStatus() + "page";
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

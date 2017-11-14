@@ -5,30 +5,35 @@
  */
 package Presentation;
 
+
+import Business.Calculator;
 import Business.LogicFacade;
-import Domain.Materiale;
+import Domain.StykLinje;
+import Domain.User;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
-public class getAllMaterials extends Command{
+public class GetAllStykLinje extends GetAllLineItem {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-     
-        
-        List<Materiale> mats = LogicFacade.getMaterial();
-        
-        String mat1= mats.get(1).getMaterialenavn();
-      //  String getMats = RendUtilMaterialeListe.MaterialeListe(Materiale);
-        request.setAttribute("mats", mats);
- request.setAttribute("mat1", mat1);
-        return "outprintpage";
+        HttpSession session = request.getSession();
 
+       User user = (User) session.getAttribute("user");
+       List<StykLinje> stykLinjeListe= LogicFacade.getStykLinje();
+       request.setAttribute("stykLinjeListe", stykLinjeListe);
+        
+        
+        
+        
+        return "outprintpage";
     }
-    
+
 }
