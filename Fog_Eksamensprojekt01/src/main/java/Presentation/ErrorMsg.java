@@ -16,8 +16,8 @@ public class ErrorMsg extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-       String Msg= "errormessage:  ";
-        return Msg;
+       String Msg= "errormessage: have no idea ";
+        throw new NewException(Msg);
     }
     
 }

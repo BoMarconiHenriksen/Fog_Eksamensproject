@@ -7,6 +7,9 @@
 
 <%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>
+<%@page import="Presentation.FrontController"%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,15 +19,31 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-    </body>
+   
+        
+        Her testes om der er hul igennem gennem frontcontroller- command - commandoen getAllMaterials 
+        - logicfacade - datamapper - database og det er der :-)den skal fjernes igen
 
-    <form name="Form1" action="IndexController" method="POST">
+        Der udskrives blot et materiale fra databasen ikke interessant men det virker
+
+        <form name="basisCarport" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="basisCarport">
+           
+        
+        
+        
+        <br><br>
+   <%-- <form name="Form1" action="IndexController" method="POST">--%>
+        
         Carport Længde:<br>
-        <input type="number" name="lentgh" ><br>
+        <input type="number" name="length" min="240" ><br>
         Carport Bredde:<br>
-        <input type="number" name="width" ><br><br>
+        <input type="number" name="width" min="240"><br><br>
        Carport Højde:<br>
-        <input type="number" name="height" ><br><br>
+        <input type="number" name="height"min="225" ><br><br>
+        Skur<br>
+        <input type="checkbox" name="skur">
+        <br><br>
     Tagtype:<br>
    <ul>
   <select name="kundetrevalg">
@@ -33,15 +52,23 @@
 </select>
 </ul>
 
-        <input type="submit" value="Submit">
-
-
-
-
-
-
-    </form>
-    
+     <%--   <input type="submit" value="Submit">
+   </form> --%>
+         <input type="submit" name="basisCarport" value="Submit">
+         </form>
+         
+           <h2>Pris på valgt Carport: </h2><br>
+        <%if ("basisCarport"==null){
+            out.println("");
+        }
+            else {
+          
+             out.println("<a>"+(Double)request.getAttribute("carportTotal")+"</a>");
+            }%>
+        
+        
+ </body>
+   
     
 
 </html>

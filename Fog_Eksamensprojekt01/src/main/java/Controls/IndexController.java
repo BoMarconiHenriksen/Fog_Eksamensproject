@@ -45,10 +45,10 @@ public class IndexController extends HttpServlet {
             inputlentgh = Integer.parseInt(request.getParameter("lentgh"));
             inputwidth = Integer.parseInt(request.getParameter("width"));
             inputheight = Integer.parseInt(request.getParameter("height"));
-            session.setAttribute("sizelentgh", inputlentgh);
-            session.setAttribute("sizewidth", inputwidth);
-            session.setAttribute("sizeheight", inputheight);
-            session.setAttribute("trechosen", Tretype);
+            request.setAttribute("sizelentgh", inputlentgh);
+            request.setAttribute("sizewidth", inputwidth);
+            request.setAttribute("sizeheight", inputheight);
+            request.setAttribute("trechosen", Tretype);
             request.getRequestDispatcher("outprintpage.jsp").forward(request, response);
         }
     }

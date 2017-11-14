@@ -88,4 +88,5 @@ public class StykLinje {
         return "StykLinje{, materialetype=" + materialetype + ", dimension=" + dimension + ", baselength=" + baselength + ", antal=" + antal + ", beskrivelse=" + beskrivelse + '}';
     }
 
+
 }

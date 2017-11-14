@@ -52,9 +52,6 @@ create table `odetaljer`(
     `redskabsrum`boolean default false,  
     primary key (odetaljer_id),
 	FOREIGN key (`ordre_id`)references orderlist(`ordre_id`));
-
-
-
     
 drop table if exists `linjeliste`;
 create table `linjeliste`(
@@ -77,17 +74,17 @@ create table `lineitem`(
     
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'm', 50.95, 100); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 26.95, 100); -- 1085025200 0300
 INSERT INTO materialeliste values  
-	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'm', 29.95, 100);
+	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'stk', 29.95, 100);
 INSERT INTO materialeliste values   
-	(3, 'Træ', '38x73 mm. Lægte ubh.', 'm', 20.95, 100);
+	(3, 'Træ', '38x73 mm. Lægte ubh.', 'stk', 20.95, 100);
 INSERT INTO materialeliste values   
 	(4, 'Træ', '45x95 mm. Reglar ub.', 'm', 14.75, 100);
 INSERT INTO materialeliste values   
 	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100);
 INSERT INTO materialeliste values   
-	(6, 'Træ', '97x97 mm. trykimp. Stolpe', 'm', 77.95, 100);
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe 300 cm', 'stk', 83.85, 1);
 INSERT INTO materialeliste values   
 	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100);
 INSERT INTO materialeliste values  
@@ -131,9 +128,9 @@ INSERT INTO materialeliste values
     
 -- Tagpakken
 INSERT INTO materialeliste values   
-	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 510.00, 1);
+	(8, 'Tagpakken', 'Plastmo Ecolite blåtonet 600', 'Stk', 330.00, 1);
 INSERT INTO materialeliste values   
-	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 339.00, 1);
+	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 119.00, 1);
 INSERT INTO materialeliste values   
 	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1); -- ingen vr.
 INSERT INTO materialeliste values   
@@ -144,6 +141,9 @@ INSERT INTO materialeliste values
 	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 1); -- ingen vr. 
 INSERT INTO materialeliste values   
 	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1); -- ingen vr.
+    
+INSERT INTO materialeliste values   
+	(33, 'Tagpakken', 'Plastmo Ecolite blåtonet 480', 'Stk', 199.00, 1);    
     
 -- Data til linjelisten 
 INSERT  INTO linjeliste   values
@@ -215,15 +215,11 @@ insert into lineitem values
 (28,24,null),
 (29,25,null);
 
-select vareid, materialenavn from materialeliste;
 
-select * from linjeliste, lineitem, materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id and materialeliste.vareid=linjeliste.linjeliste_id;
 
 commit;    
     
-select linjeliste.linjeliste_id, materialeliste.vareid, beskrivelse, materialeliste.materialenavn, enhedspris, antal 
-from linjeliste, materialeliste, lineitem where materialeliste.vareid=lineitem.vareid 
-and linjeliste.linjeliste_id=lineitem.linjeliste_id;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
