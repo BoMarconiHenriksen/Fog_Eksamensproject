@@ -13,25 +13,46 @@ import Presentation.NewException;
  *
  * @author BenedikteEva
  *
- *
+ * Calculator class.
+ * Udfører beregninger på priser og materialer ud fra kundens ønsket størrelse
  */
 public class Calculator {
+    
 
     MaterialeMapper mat = new MaterialeMapper();
+    
+    /**
+     *  Beregner en samlet total pris på den øsnkede carport med alle grundelementer samt alle ekstra ting m.m.
+     * @param length længden af carporten
+     * @param width bredden af carporten
+     * @param heigth højden af carporten
+     * @return totalPriceSimpleCarport
+     * @throws NewException 
+     */
 
-    public double calculateCarportBasis(double length, double width, double heigth) throws NewException {
+    public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
+        
 
         double totalPriceSimpleCarport = 0;
         double totalPriceBase = beregnBase(length, width);
-        double totalPriceScrewsAndSuch = beregnPrisScrewsAndSuch(length);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
         
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
         return totalPriceSimpleCarport;
 
     }
+    
+    /**
+     * Beregner prisen på de skruer og andre småting som den ønsket carport skal bruge.
+     * @param length længden af den ønskede carport
+     * @return totalPriceScrewsAndSuch
+     * @throws NewException 
+     */
 
-    private double beregnPrisScrewsAndSuch(double length) throws NewException {
+    private double calculatePriceScrewsAndSuch(double length) throws NewException {
+        
+        
         // dimser
         double totalPriceScrewsAndSuch = 0;
         double plastmoBundPris = mat.getMaterialeByVarenummer(13).getEnhedspris();
@@ -49,7 +70,18 @@ public class Calculator {
         return totalPriceScrewsAndSuch;
     }
 
+/**
+ * Bergner en samlet pris på den ønskede carports grundelementer i form af træ, stolper m.m.
+ * @param length længden af den ønskede carport
+ * @param width bredden af carporten
+ * @return totalPriceBase
+ * @throws NewException 
+ */
+    
     private double beregnBase(double length, double width) throws NewException {
+        
+
+        
         // DecimalFormat df = new DecimalFormat("0.00");
         //træ og tag
         double brædt1pris = mat.getMaterialeByVarenummer(1).getEnhedspris();
@@ -77,13 +109,21 @@ public class Calculator {
                 + 1 * length * brædt3Pris + width * plastmoTagpris;
         return totalPriceBase;
     }
+    
+    /**
+     * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at kunne teste beregninernes virkegrad.
+     * @param args
+     * @throws NewException 
+     */
 
     public static void main(String[] args) throws NewException {
+        
+        
         Calculator calc = new Calculator();
         MaterialeMapper mat = new MaterialeMapper();
 
         System.out.println(3 / 0.55);
-        System.out.println(calc.calculateCarportBasis(6, 4.8, 2.25));
+        System.out.println(calc.calculateCarportSimple(6, 4.8, 2.25));
 
     }
 
