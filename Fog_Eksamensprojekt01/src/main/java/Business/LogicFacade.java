@@ -37,15 +37,22 @@ public class LogicFacade {
     }
      
      
-     
-     
+       public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException{
+           Materiale mat = new Materiale(vareid, enhedspris);
+           MaterialeMapper.changeMaterialePris(vareid, enhedspris);
+          return mat;
+       }
          public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
+             
+             System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
+             LogicFacade.changeMaterialePris(7, 29.95);
+             System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
     
             System.out.println(StykLinjeMapper.getStykLinje());
             
             System.out.println(StykLinjeMapper.getStykLinjeById(2));
-             System.out.println(LineItemMapper.getLineItems());
+             
     }     
             
 
