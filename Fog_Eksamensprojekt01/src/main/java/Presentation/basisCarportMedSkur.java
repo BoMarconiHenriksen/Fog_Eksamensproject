@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
 public class basisCarportMedSkur extends Command{
 
