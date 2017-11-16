@@ -37,6 +37,11 @@ private double msr;
         this.msr=msr;
     }
 
+    public Materiale(int varenummer, double enhedspris) {
+       this.varenummer = varenummer;
+       this.enhedspris = enhedspris;
+    }
+
     public int getVarenummer() {
         return varenummer;
     }

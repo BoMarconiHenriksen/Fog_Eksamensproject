@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
 public class basisCarportMedSkur extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "index";
+       
     }
     
 }

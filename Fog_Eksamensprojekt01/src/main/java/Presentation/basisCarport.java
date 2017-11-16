@@ -33,7 +33,7 @@ public class basisCarport extends Command {
         double length = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
         double width = Double.parseDouble(request.getParameter("widthchoice")) / 100;
         double height = Double.parseDouble(request.getParameter("heightchoice")) / 100;
-        double carportTotal = calc.calculateCarportBasis(length, width, height);
+        double carportTotal = calc.calculateCarportSimple(length, width, height);
         String carportTotalDecimaled = df.format(carportTotal);
         request.setAttribute("carportTotal", carportTotalDecimaled);
 
