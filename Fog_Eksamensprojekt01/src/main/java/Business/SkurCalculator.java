@@ -16,7 +16,7 @@ public class SkurCalculator {
 
     MaterialeMapper mat = new MaterialeMapper();
 
-    private double skurPrisBeregner(double skurLængde, double skurBredde) throws NewException {
+    public double skurPrisBeregner(double skurLængde, double skurBredde) throws NewException {
 
         double LægteTilZ = mat.getMaterialeByVarenummer(3).getEnhedspris();
         double LøsholterSkurGavl = mat.getMaterialeByVarenummer(4).getEnhedspris();
