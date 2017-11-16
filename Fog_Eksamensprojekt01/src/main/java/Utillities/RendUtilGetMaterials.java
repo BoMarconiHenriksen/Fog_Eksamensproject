@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utillities;
 
 import Business.LogicFacade;
@@ -11,6 +6,7 @@ import Presentation.NewException;
 import java.util.List;
 
 /**
+ * Klassen bruges til at lave et udprint af styklisten
  *
  * @author Ticondrus
  */
@@ -30,11 +26,11 @@ public class RendUtilGetMaterials {
             sb.append("<td>").append("" + ma.getMaterialetype()).append("</td>");
             sb.append("<td>").append("" + ma.getMaterialenavn()).append("</td>");
             sb.append("<td>").append("" + ma.getEnhed()).append("</td>");
-           // sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + ma.getVarenummer() + "\"><br>\n\n</td>"); //location.href='invoice_detail.jsp';\
+            // sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + ma.getVarenummer() + "\"><br>\n\n</td>"); //location.href='invoice_detail.jsp';\
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-      //  sb.append("<button type=\"submit\" value=\"action\" name=\"invoice_detail\">See order</button> ");
+        //  sb.append("<button type=\"submit\" value=\"action\" name=\"invoice_detail\">See order</button> ");
         sb.append("</form>\n");
         return sb.toString();
 

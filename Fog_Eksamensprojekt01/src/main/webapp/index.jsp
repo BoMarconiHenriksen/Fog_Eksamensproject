@@ -4,12 +4,10 @@
     Author     : Ticondrus
 --%>
 
-
+<%@page import="Presentation.basisCarport"%>
 <%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>
 <%@page import="Presentation.FrontController"%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,14 +18,10 @@
     <body>
         <h1>Prisberegner</h1>
 
-
         <h2>Her kan intastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
 
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarport">
-
-
-
 
             <br><br>
             <%-- <form name="Form1" action="IndexController" method="POST">--%>
@@ -101,11 +95,12 @@
             <input type="submit" name="basisCarport" value="Submit">
         </form>
 
-        <h2>Pris på valgt Carport: </h2><br>
-        <%if ("basisCarport" == null) {
-                out.println("...");
+        <!--Hvis basisCarport er null printes der ikke noget på siden-->
+        <%if (request.getAttribute("widthInput") == null) {
+                out.println("");
             } else {
-            
+
+                out.println("<h2>Pris på valgt Carport: </h2><br>");
 
                 out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
 
@@ -113,13 +108,15 @@
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
 
-                out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                if (request.getAttribute("skurInput") != null) {
+                    out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                } else {
+                    out.println("<p> Skur: Fravalgt");
+                }
+
                 out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
 
     </body>
-
-
-
 </html>
