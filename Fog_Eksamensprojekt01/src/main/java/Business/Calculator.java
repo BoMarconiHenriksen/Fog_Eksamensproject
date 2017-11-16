@@ -20,7 +20,7 @@ import Utillities.RendUtilGetMaterials;
 public class Calculator {
     
 
-    MaterialeMapper mat = new MaterialeMapper();
+    LogicFacade mat = new LogicFacade();
     
     /**
      *  Beregner en samlet total pris på den øsnkede carport med alle grundelementer samt alle ekstra ting m.m.
@@ -85,7 +85,7 @@ public class Calculator {
         
         // DecimalFormat df = new DecimalFormat("0.00");
         //træ og tag
-        double brædt1pris = mat.getMaterialeByVarenummer(1).getEnhedspris();
+        double brædt1pris = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
         double brædt2pris = mat.getMaterialeByVarenummer(2).getEnhedspris();
         double remme1pris = mat.getMaterialeByVarenummer(3).getEnhedspris();
         double stolpePris1 = mat.getMaterialeByVarenummer(6).getEnhedspris();
@@ -125,11 +125,11 @@ public class Calculator {
         
         
         Calculator calc = new Calculator();
-        MaterialeMapper mat = new MaterialeMapper();
+       LogicFacade mat = new LogicFacade();
         RendUtilGetMaterials rugmat= new RendUtilGetMaterials();
 
-        System.out.println(3 / 0.55);
-      
+        System.out.println(calc.calculateCarportSimple(4.80, 3.00, 2.25));
+        System.out.println(mat.getMaterialeByVarenummer(1));
 
     }
 
