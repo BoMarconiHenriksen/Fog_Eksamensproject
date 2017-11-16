@@ -26,6 +26,17 @@ public class LogicFacade {
         return MaterialeMapper.getMaterial();
         
     }
+    
+     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
+        String materialetype = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialetype();
+        String materialenavn = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialenavn();
+        double enhedspris = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhedspris();
+        String enhed = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhed();
+        double msr = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMsr();
+        Materiale mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
+        return mat;
+    }
+
         
     
      public static List<StykLinje> getStykLinje() throws NewException {
