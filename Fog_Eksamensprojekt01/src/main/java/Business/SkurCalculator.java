@@ -14,7 +14,7 @@ import Presentation.NewException;
  */
 public class SkurCalculator {
 
-    MaterialeMapper mat = new MaterialeMapper();
+  LogicFacade mat = new LogicFacade();
 
     public double skurPrisBeregner(double skurLængde, double skurBredde) throws NewException {
 
@@ -49,7 +49,7 @@ public class SkurCalculator {
     public static void main(String[] args) throws NewException {
 
         SkurCalculator calc = new SkurCalculator();
-        MaterialeMapper mat = new MaterialeMapper();
+         LogicFacade mat = new LogicFacade();
 
         System.out.println(calc.skurPrisBeregner(3.20, 2.20));
         System.out.println(mat.getMaterialeByVarenummer(3).getMaterialenavn());
