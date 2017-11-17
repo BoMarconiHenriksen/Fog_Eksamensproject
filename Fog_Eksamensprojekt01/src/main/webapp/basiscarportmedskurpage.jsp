@@ -19,10 +19,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Carport med skur</title>
     </head>
     <body>
-        <h1>Simpel carport med skur</h1>
+        <h1>Carport med skur</h1>
 
 
         <h2>Her kan indtastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
@@ -181,11 +181,11 @@
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-                if (request.getAttribute("skurInput") != null) {
-                    out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
-                } else {
-                    out.println("<p> Skur: Fravalgt");
-                }
+                //if (request.getAttribute("skurInput") != null) {
+                   // out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                //} else {
+                    //out.println("<p> Skur: Fravalgt");
+               // }
               //  out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
