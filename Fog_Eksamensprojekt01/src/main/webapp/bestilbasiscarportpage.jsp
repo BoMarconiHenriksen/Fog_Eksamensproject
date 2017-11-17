@@ -125,21 +125,20 @@
             
                     </form>
 
-        <h2>Pris på valgt Carport: </h2><br>
-        <%if ("basisCarport" == null) {
-                out.println("...");
+        <!--Hvis basisCarport er null printes der ikke noget på siden-->
+        <%if (request.getAttribute("widthInput") == null) {
+                out.println("");
             } else {
-            
-
+                out.println("<h2>Pris på valgt Carport: </h2><br>");
                 out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
-
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-
-                out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
-                
-                
+                if (request.getAttribute("skurInput") != null) {
+                    out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                } else {
+                    out.println("<p> Skur: Fravalgt");
+                }
                 out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
