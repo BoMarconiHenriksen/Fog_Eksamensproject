@@ -33,15 +33,7 @@
 
 
 
-
-            <br><br>
-            <%-- <form name="Form1" action="IndexController" method="POST">--%>
-            
-            <select  id="status" name="status" class="listBx"  onChange = "check(this);">
-                            <option value="" >--- Select ---</option>                           
-                            <option value="1"  <%if((request.getAttribute("status") != null) && request.getAttribute("status").equals("1")){ %> selected <%} %>>Logged in</option>
-                            <option value="0"  <%if((request.getAttribute("status") != null) && request.getAttribute("status").equals("0")){ %> selected <%} %>>Logged Out</option>
-            </select><br><br>
+          
                         
 
             Carport Længde:<br>
@@ -118,13 +110,6 @@
                          
                          
             <br><br>
-            Tagtype:<br>
-            <ul>
-                <select name="kundetrevalg">
-                    <option value="Trykimp">Trykimp.</option>
-                    <option value="Reguler">Regulr</option>
-                </select>
-            </ul>
             
             
 
