@@ -25,7 +25,7 @@
         <h1>Simpel Carport</h1>
 
 
-        <h2>Her kan intastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
+        <h2>Her kan indtastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
 
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarport">

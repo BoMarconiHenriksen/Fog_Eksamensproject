@@ -25,7 +25,7 @@
         <h1>Simpel carport med skur</h1>
 
 
-        <h2>Her kan intastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
+        <h2>Her kan indtastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
 
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarportmedSkur">
@@ -38,10 +38,10 @@
                     <tr>
                         <th>Carport Længde</th>
                         <th>Carport Bredde</th>
-                        <th>Corport Højde</th>
+                        <th>Carport Højde<br>(Standard)</th>
                         <th>Skur Længde</th>
                         <th>Skur Bredde</th>
-                        <th>Skur Højde</th>
+                        <th>Skur Højde<br>(Standard)</th>
 
                     </tr>
 
@@ -95,6 +95,7 @@
                             </select></td>
 
                         <td><select name="lentgchoiceskur">
+                                <option number="210">210</option>
                                 <option number="240">240</option>
                                 <option number="270">270</option>
                                 <option number="300">300</option>
@@ -112,13 +113,15 @@
                                 <option number="660">660</option>
                                 <option number="660">690</option>
                                 <option number="720">720</option>
-                                <option number="750">750</option>
-                                <option number="780">780</option>
+                                
                             </select>
 
                         </td>
 
                         <td><select name="widthchoiceskur">
+                                 <option number="150">150</option>
+                                <option number="180">180</option>
+                                <option number="210">210</option>
                                 <option number="240">240</option>
                                 <option number="270">270</option>
                                 <option number="300">300</option>
@@ -135,13 +138,11 @@
                                 <option number="630">630</option>
                                 <option number="660">660</option>
                                 <option number="660">690</option>
-                                <option number="720">720</option>
-                                <option number="750">750</option>
-                                <option number="780">780</option>
+                               
                             </select></td>    
 
                         <td> <select name="heightchoiceskur">
-                                <option number="xxx">xxx</option>
+                                <option number="210">210</option>
                             </select></td>
 
                     </tr>
@@ -150,22 +151,23 @@
 
 
 
-                <br><br>
+             <%--   <br><br>
                 Tagtype:<br>
                 <ul>
-                    <select name="kundetrevalg">
+                    <select name="kundetrævalg">
                         <option value="Trykimp">Trykimp.</option>
                         <option value="Reguler">Regulr</option>
                     </select>
-                </ul>
+                </ul> --%>
 
 
 
                 <%--   <input type="submit" value="Submit">
               </form> --%>
+                <br>
                 <button type="submit" name="basisCarportmedSkur" value="Submit">Tjek Pris </button>
 
-                <button type="submit" name="checkoutFunktion" value="Submit"> Bestil </button>
+             <%--   <button type="submit" name="checkoutFunktion" value="Submit"> Bestil </button> --%>
 
         </form>
 
@@ -188,7 +190,7 @@
             out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInputSkur") + "</p><br>");
             out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInputSkur") + "</p><br>");
 
-            out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
+           // out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
         }%>
 
 

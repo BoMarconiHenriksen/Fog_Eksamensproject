@@ -126,7 +126,7 @@ public class Calculator {
         
         Calculator calc = new Calculator();
        LogicFacade mat = new LogicFacade();
-        RendUtilGetMaterials rugmat= new RendUtilGetMaterials();
+       
 
         System.out.println(calc.calculateCarportSimple(4.80, 3.00, 2.25));
         System.out.println(mat.getMaterialeByVarenummer(1));

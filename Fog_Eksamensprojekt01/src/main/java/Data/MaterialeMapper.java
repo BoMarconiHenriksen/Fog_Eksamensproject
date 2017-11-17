@@ -107,7 +107,7 @@ public class MaterialeMapper {
 
   
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-        MaterialeMapper.changeMaterialePris(7, 29.95);
+        MaterialeMapper.changeMaterialePris(7, 14.95);
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7).getEnhedspris());
     System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
     
