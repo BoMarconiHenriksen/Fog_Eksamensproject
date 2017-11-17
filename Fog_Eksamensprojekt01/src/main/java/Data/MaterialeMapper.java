@@ -8,8 +8,10 @@ package Data;
 import Domain.Materiale;
 import Presentation.NewException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -86,12 +88,28 @@ public class MaterialeMapper {
 
       
     }
+    public static void changeMaterialePris(int vareid, double enhedspris) throws NewException{
+        try {
+            Connection con = DBConnector.connection();
+            String sql= "UPDATE  materialeliste SET enhedspris=? WHERE vareid=?";
+        
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setDouble(1,enhedspris);
+            ps.setInt(2, vareid);
+            ps.executeUpdate();
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new NewException(ex.getMessage());
+        }
+    }
 
     public static void main(String[] args) throws NewException {
 
   
-        System.out.println(MaterialeMapper.getMaterial());
-        
-        System.out.println(MaterialeMapper.getMaterialeByVarenummer(20));
+        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
+        MaterialeMapper.changeMaterialePris(7, 14.95);
+        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7).getEnhedspris());
+    System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
+    
     }
 }

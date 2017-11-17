@@ -21,7 +21,11 @@ abstract class Command {
         commands.put("getAllLineItem", new GetAllLineItem() {});
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
+        commands.put("checkOutCarport", new basisCarport());
+        commands.put("basisCarportmedSkur", new basisCarportMedSkur());
         commands.put("checkoutFunktion", new Checkout());
+        commands.put("orderSelectionSimpleCarport", new OrderSelectionCommand());
+        commands.put("orderSelectionSimpleCarportmedSkur", new OrderSelectionCommand());
     }
 
     static Command from(HttpServletRequest request) {

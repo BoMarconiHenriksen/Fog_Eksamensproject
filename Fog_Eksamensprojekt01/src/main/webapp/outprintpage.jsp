@@ -9,7 +9,7 @@
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>
-<%@page import="Controls.IndexController"%>
+<%@page import="Presentation.FrontController"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,10 +25,8 @@
 
     <div>
 
-        <p>Husets Længde: ${sizelentgh}</p><br>
+        <p>Carportens samlede pris: ${carportTotalValg}</p><br>
         <p>Husets Længde: ${sizewidth}</p><br>
-        <p>Husets Længde: ${sizeheight}</p><br>
-        <p>Trævalg: ${trechosen}</p><br>
 
       
         <%

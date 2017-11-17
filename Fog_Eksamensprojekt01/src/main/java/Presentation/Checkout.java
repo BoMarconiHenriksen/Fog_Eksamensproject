@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * @author Ticondrus
  */
 
-public class CheckoutController extends Command {
+public class Checkout extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {

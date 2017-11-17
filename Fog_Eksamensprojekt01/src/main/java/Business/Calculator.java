@@ -8,6 +8,7 @@ package Business;
 import Data.MaterialeMapper;
 
 import Presentation.NewException;
+import Utillities.RendUtilGetMaterials;
 
 /**
  *
@@ -19,7 +20,7 @@ import Presentation.NewException;
 public class Calculator {
     
 
-    MaterialeMapper mat = new MaterialeMapper();
+    LogicFacade mat = new LogicFacade();
     
     /**
      *  Beregner en samlet total pris på den øsnkede carport med alle grundelementer samt alle ekstra ting m.m.
@@ -36,7 +37,7 @@ public class Calculator {
         double totalPriceSimpleCarport = 0;
         double totalPriceBase = beregnBase(length, width);
         double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
-        
+       
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
         return totalPriceSimpleCarport;
@@ -55,7 +56,7 @@ public class Calculator {
         
         // dimser
         double totalPriceScrewsAndSuch = 0;
-        double plastmoBundPris = mat.getMaterialeByVarenummer(13).getEnhedspris();
+        double plastmoBundSkruePris = mat.getMaterialeByVarenummer(13).getEnhedspris();
         double hulbåndPris = mat.getMaterialeByVarenummer(14).getEnhedspris();
         double universalHøjre = mat.getMaterialeByVarenummer(15).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
         double universalVenstre = mat.getMaterialeByVarenummer(16).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
@@ -65,7 +66,7 @@ public class Calculator {
         double firkantSkivePris = mat.getMaterialeByVarenummer(20).getEnhedspris();
 
 
-        totalPriceScrewsAndSuch = 1 * plastmoBundPris + 2 * hulbåndPris + (int) Math.round(length / 0.55) * universalHøjre
+        totalPriceScrewsAndSuch = 1 * plastmoBundSkruePris + 2 * hulbåndPris + (int) Math.round(length / 0.55) * universalHøjre
                 + (int) Math.round(length / 0.55) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
@@ -84,7 +85,7 @@ public class Calculator {
         
         // DecimalFormat df = new DecimalFormat("0.00");
         //træ og tag
-        double brædt1pris = mat.getMaterialeByVarenummer(1).getEnhedspris();
+        double brædt1pris = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
         double brædt2pris = mat.getMaterialeByVarenummer(2).getEnhedspris();
         double remme1pris = mat.getMaterialeByVarenummer(3).getEnhedspris();
         double stolpePris1 = mat.getMaterialeByVarenummer(6).getEnhedspris();
@@ -115,15 +116,20 @@ public class Calculator {
      * @param args
      * @throws NewException 
      */
+    
+    
+  // bemærk at målene på skuret skal være mindst 30 cm mindre end målenee på carporten grundet tagudhæng. 
+   
 
     public static void main(String[] args) throws NewException {
         
         
         Calculator calc = new Calculator();
-        MaterialeMapper mat = new MaterialeMapper();
+       LogicFacade mat = new LogicFacade();
+       
 
-        System.out.println(3 / 0.55);
-        System.out.println(calc.calculateCarportSimple(6, 4.8, 2.25));
+        System.out.println(calc.calculateCarportSimple(4.80, 3.00, 2.25));
+        System.out.println(mat.getMaterialeByVarenummer(1));
 
     }
 
