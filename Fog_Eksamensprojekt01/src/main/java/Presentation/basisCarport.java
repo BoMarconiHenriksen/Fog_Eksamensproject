@@ -44,7 +44,7 @@ public class basisCarport extends Command {
         request.setAttribute("skurInput", skurellerej);
         request.setAttribute("trevalgInput", trevalg);
 
-        return "index";
+        return "bestilbasiscarportpage";
     }
 
 }

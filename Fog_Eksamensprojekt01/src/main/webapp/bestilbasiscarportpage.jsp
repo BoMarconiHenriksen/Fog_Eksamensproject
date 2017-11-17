@@ -109,7 +109,7 @@
         %>
 
         <div>
-            <%= RendUtilCustomerPresentation.getSkurInfo(custInputLine.toString())%>
+           <%-- <% = RendUtilCustomerPresentation.getSkurInfo(custInputLine.toString())%> --%>
 
         </div>
             
@@ -132,7 +132,7 @@
           </form> --%>
             <button type="submit" name="basisCarport" value="checkprice">Tjek Pris </button>
                        
-            <button type="submit" name="checkoutFunktion" value="Submit"> Bestil </button>
+        <%--    <button type="submit" name="checkoutFunktion" value="Submit"> Bestil </button> --%>
          
         </form>
             
