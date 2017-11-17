@@ -139,7 +139,7 @@
                 } else {
                     out.println("<p> Skur: Fravalgt");
                 }
-                out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
+               // out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
 
