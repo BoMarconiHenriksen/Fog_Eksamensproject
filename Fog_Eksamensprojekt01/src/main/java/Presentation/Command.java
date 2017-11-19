@@ -26,6 +26,7 @@ abstract class Command {
         commands.put("checkoutFunktion", new Checkout());
         commands.put("orderSelectionSimpleCarport", new OrderSelectionCommand());
         commands.put("orderSelectionSimpleCarportmedSkur", new OrderSelectionCommand());
+        commands.put("OrdreList", new OrdreList());
     }
 
     static Command from(HttpServletRequest request) {

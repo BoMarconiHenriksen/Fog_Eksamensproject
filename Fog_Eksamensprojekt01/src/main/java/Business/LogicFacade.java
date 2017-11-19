@@ -2,9 +2,11 @@ package Business;
 
 import Data.LineItemMapper;
 import Data.MaterialeMapper;
+import Data.OrdreMapper;
 import Data.StykLinjeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Ordre;
 import Domain.StykLinje;
 import Presentation.NewException;
 import java.sql.SQLException;
@@ -22,6 +24,10 @@ public class LogicFacade {
     public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
 
+    }
+    
+    public static List<Ordre> getOrderList() throws NewException {
+        return OrdreMapper.getOrderList();
     }
 
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {

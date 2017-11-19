@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="Business.LogicFacade"%>
 <%@page import="Data.OrdreMapper"%>
 <%@page import="Utillities.RendUtilOrderList"%>
 <%@page import="Domain.Ordre"%>
@@ -27,16 +28,26 @@
             // }
             //UserMapper um = new UserMapper();
             //String cName = (String) request.getAttribute("cName");
+            
+            //Den gamle måde
             OrdreMapper getList = new OrdreMapper();
-
             List<Ordre> allInvoiceList = getList.getOrderList();
 
+            //Med FrontController
+            LogicFacade logic = new LogicFacade();%>
+        
         %>
-
+        <!-- Den gamle måde-->
         <div id="box">
             <%= RendUtilOrderList.invoiceList(allInvoiceList)%>
         </div>
+        
+        <!--Med FrontController-->
+        <div>
+            <%= RendUtilOrderList.invoiceList(logic.getOrderList())%>
 
+        </div>
+            
 
 
     </body>

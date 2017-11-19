@@ -15,8 +15,8 @@ import java.util.logging.Logger;
  * @author Bo
  */
 public class OrdreMapper {
-    
-    public List<Ordre> getOrderList() throws Exception {
+
+    public static List<Ordre> getOrderList() throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
         Ordre o;
         try {
@@ -34,10 +34,10 @@ public class OrdreMapper {
             }
 
             return ordreList;
-        } catch (SQLException | NumberFormatException | NullPointerException ex) {
-            ex.getCause();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
         }
-        return ordreList;
+
     }
 
 //    public List<Order> getOrdersByUserId(int user_id) throws MakingAnException {
@@ -62,7 +62,6 @@ public class OrdreMapper {
 //        }
 //        return orders;
 //    }
-    
     //Bruges til test
 //    public static void main(String[] args) {
 //        
@@ -75,5 +74,4 @@ public class OrdreMapper {
 //        }
 //        
 //    }
-    
 }
