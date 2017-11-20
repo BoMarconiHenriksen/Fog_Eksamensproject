@@ -7,11 +7,15 @@ package Data;
 
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Order;
 import Domain.StykLinje;
+import Domain.User;
 import Presentation.NewException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +24,27 @@ import java.util.List;
  * @author Ejer
  */
 public class LineItemMapper {
+
+    public static void addOrdertoOrderList(User or) throws NewException {
+        
+        Order od = new Order();
+
+        try {
+
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO ordreliste (user_id, reciveddate) VALUES (?, ?)";
+            PreparedStatement orderPstmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            orderPstmt.setInt(1, or.getUser_id());
+            orderPstmt.setString(2, od.getReciveddate());
+            orderPstmt.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
 
     public static List<LineItem> getLineItems() throws NewException {
         List<LineItem> lis = new ArrayList<>();
@@ -38,24 +63,23 @@ public class LineItemMapper {
 
             while (rs.next()) {
 
-               
                 String materialenavn = rs.getString("materialenavn");
                 double enhedspris = rs.getDouble("enhedspris");
                 String enhed = rs.getString("enhed");
                 double msr = rs.getDouble("længde");
                 String materialetype = rs.getString("materialetype");
-                String beskrivelse= rs.getString("beskrivelse");
+                String beskrivelse = rs.getString("beskrivelse");
                 String dimension = rs.getString("dimension");
                 double baseLength = rs.getDouble("baselength");
-            
-                int linjelisteid=rs.getInt("linjeliste_id");
+
+                int linjelisteid = rs.getInt("linjeliste_id");
                 int antal = rs.getInt("antal");
                 int id = rs.getInt("linjeliste_id");
                 if (id != lastId) {
                     mat = new Materiale(materialetype, materialenavn, enhedspris, enhed, msr);
-                    styk = new StykLinje( materialetype, dimension, baseLength, antal, beskrivelse);
-                   li= new LineItem(mat, styk, 0.00);
-                   lis.add(li);
+                    styk = new StykLinje(materialetype, dimension, baseLength, antal, beskrivelse);
+                    li = new LineItem(mat, styk, 0.00);
+                    lis.add(li);
                 }
             }
             return lis;
@@ -65,13 +89,9 @@ public class LineItemMapper {
 
     }
 
-  
     public static void main(String[] args) throws NewException {
 
         System.out.println(LineItemMapper.getLineItems());
 
-
     }
 }
-
-
