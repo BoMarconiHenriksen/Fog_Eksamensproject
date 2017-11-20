@@ -21,10 +21,10 @@ public class Order {
      *
      * @param order_id 1
      * @param user_id 2
-     * @param reciveddate 3
+     * @param receiveddate 3
      */
     public int ordre_id;
-    public String reciveddate;
+    public String receiveddate;
     public int user_id;
 
    
@@ -32,9 +32,9 @@ public class Order {
         this.user_id = user_id;
     }
 
-    public Order(int ordre_id, int user_id, String reciveddate) {
+    public Order(int ordre_id, int user_id, String receiveddate) {
        this.ordre_id = ordre_id;
-        this.reciveddate = reciveddate;
+        this.receiveddate = receiveddate;
         this.user_id = user_id;
     }
     
@@ -44,14 +44,15 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order no  " + ordre_id + ", received:  " + reciveddate + ", user_id:  " + user_id ;
+        return "Order no  " + ordre_id + ", received:  " + receiveddate + ", user_id:  " + user_id ;
     }
 
 
-    public Order(int ordre_id, String reciveddate) {
+    public Order(int ordre_id, String receiveddate) {
         this.ordre_id = ordre_id;
-        this.reciveddate = reciveddate;
+        this.receiveddate = receiveddate;
     }
+    
 
     public int getUser_id() {
         return user_id;
@@ -66,11 +67,11 @@ public class Order {
     }
 
     public String getReciveddate() {
-        return reciveddate;
+        return receiveddate;
     }
 
-    public void setReciveddate(String reciveddate) {
-        this.reciveddate = reciveddate;
+    public void setReciveddate(String receiveddate) {
+        this.receiveddate = receiveddate;
     }
 
     public void setOrder_id(int ordre_id) {

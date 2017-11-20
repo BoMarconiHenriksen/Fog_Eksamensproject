@@ -44,8 +44,8 @@ public class LogicFacade {
         return LineItemMapper.getLineItems();
     }
     
-    public static Order placeAnOrder(int ordre_id, int user_id, String reciveddate) throws NewException{
-        Order theOrdered = new Order(ordre_id, user_id, reciveddate);
+    public static Order placeAnOrder(int user_id, String receiveddate) throws NewException{
+        Order theOrdered = new Order(user_id, receiveddate);
         User or = new User(user_id);
         LineItemMapper.addOrdertoOrderList(or);
         return theOrdered;

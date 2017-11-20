@@ -29,7 +29,7 @@ public class basisCarport extends Command {
         Order order = new Order();
         int ordre_id = 1;
         int user_id = 1;
-        String recivedate = "20. november 2017";
+        String receiveddate = "20. november 2017";
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
@@ -55,11 +55,10 @@ public class basisCarport extends Command {
         request.setAttribute("trevalgInput", trevalg);
 
 
-        Domain.Order theOrdered = LogicFacade.placeAnOrder(ordre_id, user_id, recivedate );
+        Domain.Order theOrdered = LogicFacade.placeAnOrder(user_id, receiveddate );
 
-        session.setAttribute("order_id", theOrdered);
         session.setAttribute("user_id", theOrdered);
-        session.setAttribute("reciveDate", theOrdered);
+        session.setAttribute("recieveddate",theOrdered.getReciveddate());
 
         return "bestilbasiscarportpage";
     }

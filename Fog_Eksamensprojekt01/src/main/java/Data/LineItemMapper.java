@@ -26,19 +26,23 @@ import java.util.List;
 public class LineItemMapper {
 
     public static void addOrdertoOrderList(User or) throws NewException {
-        
+
         Order od = new Order();
 
         try {
 
             Connection con = DBConnector.connection();
             String SQL;
-            SQL = "INSERT INTO ordreliste (user_id, reciveddate) VALUES (?, ?)";
+            SQL = "INSERT INTO ordreliste (user_id, receiveddate) VALUES (?, ?)";
             PreparedStatement orderPstmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             orderPstmt.setInt(1, or.getUser_id());
             orderPstmt.setString(2, od.getReciveddate());
             orderPstmt.executeUpdate();
+            ResultSet ids = orderPstmt.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            od.setOrder_id(id);
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
