@@ -167,7 +167,7 @@ INSERT INTO materialeliste values
 INSERT  INTO linjeliste   values
 (null, 'Træ', 'b', 360,4, 'Understernbrædder til for og bagende'),
 ( null,'Træ', 'l', 540,4, 'Understernbrædder til siderne'), 
-(null, 'Træ', 'b', 360, 2,'Oversternbrædder til for og bagende'),
+(null, 'Træ', 'b', 360, 2,'Oversternbrædder til forenden'),
 (null, 'Træ', 'l', 540, 4,'Oversternbrædder til siderne'), 
 (null, 'Træ', 'u', 420,1, 'Til z på bagside af dør'),
 (null, 'Træ', 's', 270,12, 'Løsholter til skurgavle'),
