@@ -36,8 +36,8 @@
 
             <button type="submit" name="orderSelectionSimpleCarportmedSkur" value="Submit"> Bestil en simpel carport med skur </button>
 
-
-
+            <script type="text/javascript" src="jquery-1.8.3.js"></script>
+            <script src="script/javascript.js" type="text/javascript"></script>
     </body>
 
 
