@@ -22,7 +22,7 @@ public class RendUtilOrderList {
         for (Ordre o : ordreList) {
 
             sb.append("<tr><form name=\"invoice_detailAdmin\" action=\"FrontController\" method=\"POST\">");
-            sb.append("<tr> <input type=\"hidden\" name=\"origin\" value=\"invoice_detailAdmin\">");
+            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"invoice_detail\">");
             sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
             sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
@@ -30,7 +30,7 @@ public class RendUtilOrderList {
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"action\" name=invoice_detail\">See order</button> ");
+        sb.append("<button type=\"submit\" value=\"command\" name=invoice_detail\">See order</button> ");
         sb.append("</form>\n");
         return sb.toString();
 
