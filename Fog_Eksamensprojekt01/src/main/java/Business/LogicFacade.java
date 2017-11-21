@@ -46,10 +46,13 @@ public class LogicFacade {
     
     public static Order placeAnOrder(int user_id, String receiveddate) throws NewException{
         Order theOrdered = new Order(user_id, receiveddate);
-        User or = new User(user_id);
-        LineItemMapper.addOrdertoOrderList(or);
+        LineItemMapper.addOrdertoOrderList(theOrdered);
         return theOrdered;
         
+    }
+    
+    public static List<Order> getOrderList() throws NewException{
+        return LineItemMapper.getOrderList();
     }
 
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {

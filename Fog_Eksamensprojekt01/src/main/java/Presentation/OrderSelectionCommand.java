@@ -18,7 +18,6 @@ public class OrderSelectionCommand extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession();
 
         String command = request.getParameter("command");
         String orderSelectionSimpleCarport = request.getParameter("orderSelectionSimpleCarport");

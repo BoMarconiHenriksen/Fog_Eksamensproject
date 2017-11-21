@@ -48,8 +48,8 @@ public class Order {
     }
 
 
-    public Order(int ordre_id, String receiveddate) {
-        this.ordre_id = ordre_id;
+    public Order(int user_id, String receiveddate) {
+        this.user_id = user_id;
         this.receiveddate = receiveddate;
     }
     

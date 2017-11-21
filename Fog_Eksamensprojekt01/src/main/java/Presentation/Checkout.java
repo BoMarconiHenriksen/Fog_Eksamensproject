@@ -23,10 +23,15 @@ public class Checkout extends Command {
         
             HttpSession session = request.getSession();
             
-         
-
+        session.getAttribute("carportTotal");
+        
+        session.getAttribute("lentghChosen");
+        session.getAttribute("widthChosen");
+        session.getAttribute("heightChosen");
             
-                    return "outprintpage";
+            
+            
+            return "outprintpage";
         }
 }
 

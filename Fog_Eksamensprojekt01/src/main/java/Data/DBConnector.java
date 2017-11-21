@@ -14,8 +14,8 @@ public class DBConnector {
 
  
     private final static String URL = "jdbc:mysql://46.101.179.58:3306/fog";
-    private final static String USER = "xxxx";
-    private final static String PASSWORD = "xxxx";
+    private final static String USER = "testuser";
+    private final static String PASSWORD = "password123";
     private static Connection conn;
 
     public static Connection connection() throws ClassNotFoundException, SQLException {

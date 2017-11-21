@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 /**
  *
@@ -25,25 +26,45 @@ import java.util.List;
  */
 public class LineItemMapper {
 
-    public static void addOrdertoOrderList(User or) throws NewException {
+    public static void addOrdertoOrderList(Order or) throws NewException {
 
-        Order od = new Order();
 
         try {
 
-            Connection con = DBConnector.connection();
+            Connection conn = DBConnector.connection();
             String SQL;
             SQL = "INSERT INTO ordreliste (user_id, receiveddate) VALUES (?, ?)";
-            PreparedStatement orderPstmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             orderPstmt.setInt(1, or.getUser_id());
-            orderPstmt.setString(2, od.getReciveddate());
+            orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
-            ResultSet ids = orderPstmt.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            od.setOrder_id(id);
 
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+    
+        public static List<Order> getOrderList() throws NewException {
+        List<Order> ordreList = new ArrayList<>();
+        Order o;
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM ordrelist";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            while (rs.next()) {
+                int ordre_id = rs.getInt("ordre_id");
+                int user_id = rs.getInt("user_id");
+                String reciveddate = rs.getString("received");
+
+                o = new Order(ordre_id, user_id, reciveddate);
+                ordreList.add(o);
+            }
+
+            return ordreList;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
         }
@@ -94,8 +115,14 @@ public class LineItemMapper {
     }
 
     public static void main(String[] args) throws NewException {
+        
+        Order ord = new Order(1, "2016-10-09");
 
-        System.out.println(LineItemMapper.getLineItems());
+        //   System.out.println(LineItemMapper.getLineItems());
+        
+        LineItemMapper.addOrdertoOrderList(ord);
+
+        
 
     }
 }

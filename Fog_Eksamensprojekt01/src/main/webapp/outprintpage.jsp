@@ -26,7 +26,9 @@
     <div>
 
         <p>Carportens samlede pris: ${carportTotalValg}</p><br>
-        <p>Husets Længde: ${sizewidth}</p><br>
+        <p>Caroportens ønskede Længde: ${lentghChosen}</p><br>
+        <p>Caroportens ønskede Bredde: ${widthChosen}</p><br>
+        <p>Caroportens ønskede Højde: ${heightChosen}</p><br>
 
       
         <%
