@@ -26,7 +26,7 @@
 
 
         <h2>Velkommen. Vælg her en carport type.</h2>
-
+        
         <form name="OrderSelectionCommand" action="FrontController" method="POST">
             <input type="hidden" name="command" value="orderSelectionSimpleCarport">
             <input type="hidden" name="command" value="orderSelectionSimpleCarportmedSkur">

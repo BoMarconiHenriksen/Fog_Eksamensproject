@@ -21,13 +21,13 @@ public class OrdreMapper {
         Ordre o;
         try {
             Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM ordrelist";
+            String sql = "SELECT * FROM ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
             while (rs.next()) {
                 int ordre_id = rs.getInt("ordre_id");
                 int user_id = rs.getInt("user_id");
-                String reciveddate = rs.getString("received");
+                String reciveddate = rs.getString("receiveddate");
 
                 o = new Ordre(ordre_id, reciveddate, user_id);
                 ordreList.add(o);

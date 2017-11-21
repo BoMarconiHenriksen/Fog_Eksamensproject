@@ -47,34 +47,34 @@ public class StykLinjeMapperTest {
      * Test of getStykLinje method, of class StykLinjeMapper.
      * @throws java.lang.Exception
      */
-    @Test
-    public void testGetStykLinje() throws NewException {
-        System.out.println("getStykLinje");
-        String expResult = "l";
-        String result = StykLinjeMapper.getStykLinje().get(1).getDimension();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-  
-    }
+//    @Test
+//    public void testGetStykLinje() throws NewException {
+//        System.out.println("getStykLinje");
+//        String expResult = "l";
+//        String result = StykLinjeMapper.getStykLinje().get(1).getDimension();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//  
+//    }
 
     /**
      * Test of getStykLinjeById method, of class StykLinjeMapper.
      * @throws Presentation.NewException
      */
-    @Test
-    public void testGetStykLinjeById() throws NewException {
-        try {
-            System.out.println("getStykLinjeById");
-            
-            String expResult = "b";
-            String result = StykLinjeMapper.getStykLinjeById(1).getDimension();
-            assertEquals(expResult, result);
-            // TODO review the generated test code and remove the default call to fail.
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(StykLinjeMapperTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-    }
+//    @Test
+//    public void testGetStykLinjeById() throws NewException {
+//        try {
+//            System.out.println("getStykLinjeById");
+//            
+//            String expResult = "b";
+//            String result = StykLinjeMapper.getStykLinjeById(1).getDimension();
+//            assertEquals(expResult, result);
+//            // TODO review the generated test code and remove the default call to fail.
+//        } catch (ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(StykLinjeMapperTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//     
+//    }
 
   
     
