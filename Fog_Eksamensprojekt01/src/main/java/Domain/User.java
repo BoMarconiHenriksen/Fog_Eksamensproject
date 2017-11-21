@@ -20,10 +20,6 @@ public class User {
     
     }
 
-    User(int user_id) {
-          this.user_id = user_id;
-    }
-
 
     public void setEmail(String email) {
         this.email = email;
@@ -42,6 +38,10 @@ public class User {
     private String password; // Should be hashed and all
     private String adminStatus;
     private String username;
+    
+       public User(int user_id) {
+          this.user_id = user_id;
+    }
 
     public User(String username, String email, String password, String adminStatus) {
         this.username = username;
