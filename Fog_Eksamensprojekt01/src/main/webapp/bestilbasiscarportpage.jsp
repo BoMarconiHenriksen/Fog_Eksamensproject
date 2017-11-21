@@ -30,6 +30,7 @@
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarport">
             <input type="hidden" name="command" value="checkoutFunktion">
+            <input type="hidden" name="command" value="getAllLineItem">
 
             Carport Længde:<br>
             <ul>
@@ -86,134 +87,134 @@
             </ul>
 
             <!--Her starter vores hidden skur-->
-           <!-- <form action="#" method="POST">-->
-                <div>
-                    Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
-                </div>
-                <div id="hidden_fields">
-                    Hvor stort skal skuret være? 
+            <!-- <form action="#" method="POST">-->
+            <div>
+                Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
+            </div>
+            <div id="hidden_fields">
+                Hvor stort skal skuret være? 
 
-                    <br><br>
-                    <body>
-                        <table border=4>
-                            <tr>
-                                <th>Carport Længde</th>
-                                <th>Carport Bredde</th>
-                                <th>Carport Højde<br>(Standard)</th>
-                                <th>Skur Længde</th>
-                                <th>Skur Bredde</th>
-                                <th>Skur Højde<br>(Standard)</th>
+                <br><br>
+                <body>
+                    <table border=4>
+                        <tr>
+                            <th>Carport Længde</th>
+                            <th>Carport Bredde</th>
+                            <th>Carport Højde<br>(Standard)</th>
+                            <th>Skur Længde</th>
+                            <th>Skur Bredde</th>
+                            <th>Skur Højde<br>(Standard)</th>
 
-                            </tr>
+                        </tr>
 
-                            <tr>
-                                <td> <select name="lentgchoice">
-                                        <option number="240">240</option>
-                                        <option number="270">270</option>
-                                        <option number="300">300</option>
-                                        <option number="330">330</option>
-                                        <option number="360">360</option>
-                                        <option number="390">390</option>
-                                        <option number="420">420</option>
-                                        <option number="450">450</option>
-                                        <option number="480">480</option>
-                                        <option number="510">510</option>
-                                        <option number="540">540</option>
-                                        <option number="570">570</option>
-                                        <option number="600">600</option>
-                                        <option number="630">630</option>
-                                        <option number="660">660</option>
-                                        <option number="660">690</option>
-                                        <option number="720">720</option>
-                                        <option number="750">750</option>
-                                        <option number="780">780</option>
-                                    </select>
-                                </td>
+                        <tr>
+                            <td> <select name="lentgchoice">
+                                    <option number="240">240</option>
+                                    <option number="270">270</option>
+                                    <option number="300">300</option>
+                                    <option number="330">330</option>
+                                    <option number="360">360</option>
+                                    <option number="390">390</option>
+                                    <option number="420">420</option>
+                                    <option number="450">450</option>
+                                    <option number="480">480</option>
+                                    <option number="510">510</option>
+                                    <option number="540">540</option>
+                                    <option number="570">570</option>
+                                    <option number="600">600</option>
+                                    <option number="630">630</option>
+                                    <option number="660">660</option>
+                                    <option number="660">690</option>
+                                    <option number="720">720</option>
+                                    <option number="750">750</option>
+                                    <option number="780">780</option>
+                                </select>
+                            </td>
 
-                                <td><select name="widthchoice">
-                                        <option number="240">240</option>
-                                        <option number="270">270</option>
-                                        <option number="300">300</option>
-                                        <option number="330">330</option>
-                                        <option number="360">360</option>
-                                        <option number="390">390</option>
-                                        <option number="420">420</option>
-                                        <option number="450">450</option>
-                                        <option number="480">480</option>
-                                        <option number="510">510</option>
-                                        <option number="540">540</option>
-                                        <option number="570">570</option>
-                                        <option number="600">600</option>
-                                        <option number="630">630</option>
-                                        <option number="660">660</option>
-                                        <option number="660">690</option>
-                                        <option number="720">720</option>
-                                        <option number="750">750</option>
-                                    </select></td>
+                            <td><select name="widthchoice">
+                                    <option number="240">240</option>
+                                    <option number="270">270</option>
+                                    <option number="300">300</option>
+                                    <option number="330">330</option>
+                                    <option number="360">360</option>
+                                    <option number="390">390</option>
+                                    <option number="420">420</option>
+                                    <option number="450">450</option>
+                                    <option number="480">480</option>
+                                    <option number="510">510</option>
+                                    <option number="540">540</option>
+                                    <option number="570">570</option>
+                                    <option number="600">600</option>
+                                    <option number="630">630</option>
+                                    <option number="660">660</option>
+                                    <option number="660">690</option>
+                                    <option number="720">720</option>
+                                    <option number="750">750</option>
+                                </select></td>
 
-                                <td> <select name="heightchoice">
-                                        <option number="225">225</option>
-                                    </select></td>
+                            <td> <select name="heightchoice">
+                                    <option number="225">225</option>
+                                </select></td>
 
-                                <td><select name="lentgchoiceskur">
-                                        <option number="210">210</option>
-                                        <option number="240">240</option>
-                                        <option number="270">270</option>
-                                        <option number="300">300</option>
-                                        <option number="330">330</option>
-                                        <option number="360">360</option>
-                                        <option number="390">390</option>
-                                        <option number="420">420</option>
-                                        <option number="450">450</option>
-                                        <option number="480">480</option>
-                                        <option number="510">510</option>
-                                        <option number="540">540</option>
-                                        <option number="570">570</option>
-                                        <option number="600">600</option>
-                                        <option number="630">630</option>
-                                        <option number="660">660</option>
-                                        <option number="660">690</option>
-                                        <option number="720">720</option>
+                            <td><select name="lentgchoiceskur">
+                                    <option number="210">210</option>
+                                    <option number="240">240</option>
+                                    <option number="270">270</option>
+                                    <option number="300">300</option>
+                                    <option number="330">330</option>
+                                    <option number="360">360</option>
+                                    <option number="390">390</option>
+                                    <option number="420">420</option>
+                                    <option number="450">450</option>
+                                    <option number="480">480</option>
+                                    <option number="510">510</option>
+                                    <option number="540">540</option>
+                                    <option number="570">570</option>
+                                    <option number="600">600</option>
+                                    <option number="630">630</option>
+                                    <option number="660">660</option>
+                                    <option number="660">690</option>
+                                    <option number="720">720</option>
 
-                                    </select>
+                                </select>
 
-                                </td>
+                            </td>
 
-                                <td><select name="widthchoiceskur">
-                                        <option number="150">150</option>
-                                        <option number="180">180</option>
-                                        <option number="210">210</option>
-                                        <option number="240">240</option>
-                                        <option number="270">270</option>
-                                        <option number="300">300</option>
-                                        <option number="330">330</option>
-                                        <option number="360">360</option>
-                                        <option number="390">390</option>
-                                        <option number="420">420</option>
-                                        <option number="450">450</option>
-                                        <option number="480">480</option>
-                                        <option number="510">510</option>
-                                        <option number="540">540</option>
-                                        <option number="570">570</option>
-                                        <option number="600">600</option>
-                                        <option number="630">630</option>
-                                        <option number="660">660</option>
-                                        <option number="660">690</option>
+                            <td><select name="widthchoiceskur">
+                                    <option number="150">150</option>
+                                    <option number="180">180</option>
+                                    <option number="210">210</option>
+                                    <option number="240">240</option>
+                                    <option number="270">270</option>
+                                    <option number="300">300</option>
+                                    <option number="330">330</option>
+                                    <option number="360">360</option>
+                                    <option number="390">390</option>
+                                    <option number="420">420</option>
+                                    <option number="450">450</option>
+                                    <option number="480">480</option>
+                                    <option number="510">510</option>
+                                    <option number="540">540</option>
+                                    <option number="570">570</option>
+                                    <option number="600">600</option>
+                                    <option number="630">630</option>
+                                    <option number="660">660</option>
+                                    <option number="660">690</option>
 
-                                    </select></td>    
+                                </select></td>    
 
-                                <td> <select name="heightchoiceskur">
-                                        <option number="210">210</option>
-                                    </select></td>
+                            <td> <select name="heightchoiceskur">
+                                    <option number="210">210</option>
+                                </select></td>
 
-                            </tr>
-                        </table>
-                        <!--Her slutter hidden skur-->    
+                        </tr>
+                    </table>
+                    <!--Her slutter hidden skur-->    
 
-                </div>
-                <!--<div>
-                    Populate: <input type="text" id="populate" name="populate">
-                </div>-->
+            </div>
+            <!--<div>
+                Populate: <input type="text" id="populate" name="populate">
+            </div>-->
 
             <!--</form>-->
 
@@ -240,33 +241,38 @@
 
         <%--    <button type="submit" name="checkoutFunktion" value="Submit"> Bestil </button> --%>
 
+
+
+        <br>
+        denne knap skal flyttes over på adminpages er bare nødt til at kunne køre programmet<br>
+
+        <button type="submit" name="getAllLineItem" value="Submit"> se en stykliste </button>
+
     </form>
 
+    <!--Hvis basisCarport er null printes der ikke noget på siden-->
+    <%if (request.getAttribute("widthInput") == null) {
+            out.println("");
+        } else {
+            out.println("<h2>Pris på valgt Carport: </h2><br>");
+            out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
+            out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
+            out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
+            out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
+        
 
-
-</form>
-
-<!--Hvis basisCarport er null printes der ikke noget på siden-->
-<%if (request.getAttribute("widthInput") == null) {
-        out.println("");
-    } else {
-        out.println("<h2>Pris på valgt Carport: </h2><br>");
-        out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
-        out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
-        out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
-        out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-        if (request.getAttribute("skurInput") != null) {
-            out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
-        } //else {
-        //out.println("<p> Skur: Fravalgt");
-        // }
-        // out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
-    }%>
-<script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-crossorigin="anonymous"></script>
-<script src="script/javascript.js" type="text/javascript"></script>
+            if (request.getAttribute("skurInput") != null) {
+                out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+            } //else {
+            //out.println("<p> Skur: Fravalgt");
+            // }
+            // out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
+        }%>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <script src="script/javascript.js" type="text/javascript"></script>
 </body>
 
 

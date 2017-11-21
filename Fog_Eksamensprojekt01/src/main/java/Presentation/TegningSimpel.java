@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Utillities.RendSvg;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,12 +13,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ejer
  */
-public class carportMedRejsningogSkur extends Command{
+public class TegningSimpel extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        return null;
-     
-    }
+        
+        
+        RendSvg svag = new RendSvg();
+        String carportTegning = svag.simpelCarport(480, 300);
+        request.setAttribute("carportTegning",carportTegning);
+        
+        return "stykListe";
+        
     
-}
+}}

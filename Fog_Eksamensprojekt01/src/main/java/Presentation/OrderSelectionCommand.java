@@ -20,16 +20,22 @@ public class OrderSelectionCommand extends Command {
 
         HttpSession session = request.getSession();
 
-        String command = request.getParameter("command");
+//        String command = request.getParameter("command");
         String orderSelectionSimpleCarport = request.getParameter("orderSelectionSimpleCarport");
         String orderSelectionSimpleCarportmedSkur = request.getParameter("orderSelectionSimpleCarportmedSkur");
+        String getAllLineItem = request.getParameter("getAllLineItem");
+        if (orderSelectionSimpleCarport != null) {
+            return "bestilbasiscarportpage";
+        }
 
-        if (orderSelectionSimpleCarport != null)
-        return "bestilbasiscarportpage";
-        
-        if (orderSelectionSimpleCarportmedSkur != null)
+        if (orderSelectionSimpleCarportmedSkur != null) {
             return "basiscarportmedskurpage";
-        else
+        }
+
+        if (getAllLineItem != null) {
+            return "stykListe";
+        } else {
             return "index";
+        }
     }
 }

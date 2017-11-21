@@ -21,9 +21,11 @@
 
 
 
-        <%--out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");--%>
+        <%out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");%>
         
-        <%out.println("<a>"+(String)request.getAttribute("tjavs")+"</a>");%>
+        <%out.println("<a>"+(String)request.getAttribute("carportTegning")+"</a>");%>
+        
+        
                 
    
 

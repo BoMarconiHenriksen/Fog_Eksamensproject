@@ -10,6 +10,7 @@ import Business.LogicFacade;
 import Domain.LineItem;
 import Domain.Materiale;
 import Domain.StykLinje;
+import Utillities.RendSvg;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +37,9 @@ abstract class GetAllLineItem extends Command {
         request.setAttribute("mats", mats);
         request.setAttribute("mat1", mat1);
        request.setAttribute("carportTotal", carportTotal);
-       
+          RendSvg svag = new RendSvg();
+        String carportTegning = svag.simpelCarport(480, 300);
+        request.setAttribute("carportTegning",carportTegning);
 
         return "stykListe";
 
