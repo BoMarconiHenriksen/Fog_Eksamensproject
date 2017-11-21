@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  *
  * @author Ticondrus
- **  Denne klasse som er en extension af command klassen henter brugerens valgte 
+ *  Denne klasse som er en extension af command klassen henter brugerens valgte 
  * carport og skurmål fra basiscarportmedskurpage.jsp og sender disse mål
  *  gennem en calculator der returnerer en totalPris for carport og skur
  * hvis der er en pris sendes man tilbage til der hvor parameterene kom fra ellers 
@@ -77,7 +77,7 @@ public class basisCarportMedSkur extends Command {
         //Her er starten på en stykliste
         List<LineItem> stykLinjeListe = LogicFacade.getLineItem();
         RendUtilStykListe rusl = new RendUtilStykListe();
-        String tjavs = rusl.getStykListeUdenSkur(stykLinjeListe, length, width);
+        String tjavs = rusl.getStykListeBaseSimpel(stykLinjeListe, length, width);
         request.setAttribute("tjavs", tjavs);
 
         if (checkprice != null) {

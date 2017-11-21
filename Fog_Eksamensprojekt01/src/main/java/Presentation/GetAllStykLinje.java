@@ -5,35 +5,26 @@
  */
 package Presentation;
 
-
-import Business.Calculator;
 import Business.LogicFacade;
+import Domain.LineItem;
 import Domain.StykLinje;
-import Domain.User;
-import java.util.Arrays;
+import Utillities.RendUtilStykListe;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author BenedikteEva
  */
-public class GetAllStykLinje extends GetAllLineItem {
+public class GetAllStykLinje extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        HttpSession session = request.getSession();
 
-       User user = (User) session.getAttribute("user");
-       List<StykLinje> stykLinjeListe= LogicFacade.getStykLinje();
-       request.setAttribute("stykLinjeListe", stykLinjeListe);
-        
-        
-        
-        
-        return "outprintpage";
+      
+
+        return "basiscarportmedskurpage";
     }
 
 }

@@ -177,7 +177,7 @@
                 out.println("");
             } else {
                 out.println("<h2>Pris på valgt Carport: </h2><br>");
-                out.println("<p> Samlet Carport pris: " + request.getAttribute("carportTotal") + "</p><br>");
+                out.println("<p> Samlet Carport pris: " + (String)request.getAttribute("carportTotal") + "</p><br>");
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
@@ -189,7 +189,11 @@
               //  out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
-
+             
+    
+              <%out.println("<p>"+(String)request.getAttribute("tjavs")+"</p>");%>
+    
+    
 </body>
 
 

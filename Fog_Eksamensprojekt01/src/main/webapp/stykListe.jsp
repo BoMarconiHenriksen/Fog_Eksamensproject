@@ -4,6 +4,8 @@
     Author     : BenedikteEva
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.Array"%>
 <%@page import="Domain.LineItem"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>
@@ -19,9 +21,10 @@
 
 
 
-        <%out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");%>
+        <%--out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");--%>
         
-
+        <%out.println("<a>"+(String)request.getAttribute("tjavs")+"</a>");%>
+                
    
 
 
