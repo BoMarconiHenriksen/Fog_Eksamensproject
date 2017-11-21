@@ -31,7 +31,7 @@ public class RendUtilInvoiceDetail {
             sb.append("</tr>\n");
         }
         sb.append("</table>\n"); 
-//        sb.append("<button type=\"submit\" value=\"action\" name=invoice_detail\">Back</button> " );
+        sb.append("<button type=\"submit\" value=\"action\" name=invoice_detail\">Back</button> " );
         sb.append("</form>\n");
         return sb.toString();
 

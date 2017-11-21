@@ -6,6 +6,7 @@ import Data.OrdreMapper;
 import Data.StykLinjeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.StykLinje;
 import Presentation.NewException;
@@ -28,6 +29,10 @@ public class LogicFacade {
     
     public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
+    }
+    
+    public static List<Odetaljer> getOrdersByOrderId(int ordre_id) throws NewException {
+        return OrdreMapper.getOrdersByOrderId(ordre_id);
     }
 
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {

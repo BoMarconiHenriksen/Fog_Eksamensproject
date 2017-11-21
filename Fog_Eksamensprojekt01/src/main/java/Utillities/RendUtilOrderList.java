@@ -21,7 +21,7 @@ public class RendUtilOrderList {
                 + "<tr><th>InvoiceId</th><th>Date</th><th></th></tr>\n");
         for (Ordre o : ordreList) {
 
-            sb.append("<tr><form name=\"invoice_detailAdmin\" action=\"InvoiceHistoryCustomerServlet\" method=\"POST\">");
+            sb.append("<tr><form name=\"invoice_detailAdmin\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"origin\" value=\"invoice_detailAdmin\">");
             sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
