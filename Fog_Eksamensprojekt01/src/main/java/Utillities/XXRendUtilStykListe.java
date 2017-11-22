@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Ticondrus
  */
-public class RendUtilStykListe {
+public class XXRendUtilStykListe {
 
     public static String getStykListeBaseSimpel(List<LineItem> lim, double length, double width) throws NewException {
 

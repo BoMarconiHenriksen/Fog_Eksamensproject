@@ -10,7 +10,7 @@ import Business.LogicFacade;
 import Domain.LineItem;
 import Domain.Materiale;
 import Domain.StykLinje;
-import Utillities.RendSvg;
+import Utillities.XXRendSvg;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,10 +26,14 @@ abstract class GetAllLineItem extends Command {
 
         Calculator calc = new Calculator();
         List<StykLinje> stykLinjeListe = LogicFacade.getStykLinje();
+       
         request.setAttribute("stykLinjeListe", stykLinjeListe);
+       
         List<Materiale> mats = LogicFacade.getMaterial();
         String mat1 = mats.get(1).getMaterialenavn();
-        int length = Integer.parseInt(request.getParameter("length"));
+       
+        
+        double length = Integer.parseInt(request.getParameter("length"));
         int width =Integer.parseInt(request.getParameter("width"));
         int height= Integer.parseInt(request.getParameter("height"));
         List<LineItem> limes= LogicFacade.getLineItem();
@@ -37,7 +41,7 @@ abstract class GetAllLineItem extends Command {
         request.setAttribute("mats", mats);
         request.setAttribute("mat1", mat1);
        request.setAttribute("carportTotal", carportTotal);
-          RendSvg svag = new RendSvg();
+          XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(480, 300);
         request.setAttribute("carportTegning",carportTegning);
 

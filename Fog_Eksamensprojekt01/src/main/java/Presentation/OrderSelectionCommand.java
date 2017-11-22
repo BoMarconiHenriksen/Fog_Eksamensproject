@@ -32,9 +32,7 @@ public class OrderSelectionCommand extends Command {
             return "basiscarportmedskurpage";
         }
 
-        if (getAllLineItem != null) {
-            return "stykListe";
-        } else {
+       else {
             return "index";
         }
     }

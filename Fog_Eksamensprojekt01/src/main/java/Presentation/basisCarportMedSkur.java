@@ -7,7 +7,7 @@ import Business.Calculator;
 import Business.LogicFacade;
 import Business.SkurCalculator;
 import Domain.LineItem;
-import Utillities.RendUtilStykListe;
+import Utillities.XXRendUtilStykListe;
 import java.text.DecimalFormat;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -76,7 +76,7 @@ public class basisCarportMedSkur extends Command {
 
         //Her er starten på en stykliste
         List<LineItem> stykLinjeListe = LogicFacade.getLineItem();
-        RendUtilStykListe rusl = new RendUtilStykListe();
+        XXRendUtilStykListe rusl = new XXRendUtilStykListe();
         String tjavs = rusl.getStykListeBaseSimpel(stykLinjeListe, length, width);
         request.setAttribute("tjavs", tjavs);
 
