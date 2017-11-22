@@ -20,10 +20,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carport uden skur</title>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <script src="script/javascript.js" type="text/javascript"></script>
+
     </head>
     <body>
         <h1>Carport uden skur</h1>
-
 
         <h2>Her kan indtastes input til en ønsket carport uden skur, og udskrives en pris på, hvad den vil koste.</h2>
 
@@ -210,57 +216,32 @@
                     <!--Her slutter hidden skur-->    
 
             </div>
-            <!--<div>
-                Populate: <input type="text" id="populate" name="populate">
-            </div>-->
-
             <!--</form>-->
 
+            <br><br>
 
+            <button type="submit" name="basisCarport" value="Submit">Tjek Pris </button>
 
-        </div>
+        </form>
 
-
-
-        <br><br>
-
-
-
-        <%--   <input type="submit" value="Submit">
-      </form> --%>
-        <button type="submit" name="basisCarport" value="Submit">Tjek Pris </button>
-        
-          </form>
-        
-                <form name="Checkout" action="FrontController" method="POST">
+        <form name="Checkout" action="FrontController" method="POST">
             <input type="hidden" name="command" value="checkoutFunktion">
-        
-        <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
 
-    </form>
+            <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
 
+        </form>
 
+        <!--Hvis basisCarport er null printes der ikke noget på siden-->
+        <%if (request.getAttribute("widthInput") == null) {
+                out.println("");
+            } else {
+                out.println("<h2>Pris på valgt Carport: </h2><br>");
+                out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotal") + "</p><br>");
+                out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
+                out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
+                out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
 
-</form>
+            }%>
 
-<!--Hvis basisCarport er null printes der ikke noget på siden-->
-<%if (request.getAttribute("widthInput") == null) {
-        out.println("");
-    } else {
-        out.println("<h2>Pris på valgt Carport: </h2><br>");
-        out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotal") + "</p><br>");
-        out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
-        out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
-        out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-
-    }%>
-<script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-crossorigin="anonymous"></script>
-<script src="script/javascript.js" type="text/javascript"></script>
-</body>
-
-
-
+    </body>
 </html>

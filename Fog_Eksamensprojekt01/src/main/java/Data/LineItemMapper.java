@@ -60,7 +60,7 @@ public class LineItemMapper {
                 int user_id = rs.getInt("user_id");
                 String reciveddate = rs.getString("received");
 
-                o = new Order(ordre_id, user_id, reciveddate);
+                o = new Order(ordre_id, reciveddate, user_id);
                 ordreList.add(o);
             }
 
