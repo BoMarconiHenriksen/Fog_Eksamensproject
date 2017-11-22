@@ -18,7 +18,7 @@
 
              <svg x="200" y="0" width="<%=780%>" height="<%=600%>" 
              viewBox="0 0 <%=780 + 200%> <%=600 + 200%>"
-        viewBox="0 0 780 600">
+             viewBox="0 0 780 600">
 
         <svg x="200" y="0" width="<%=780%>" height="<%=600%>" 
              viewBox="0 0 <%=780 + 1%> <%=600 + 1%>">
@@ -120,7 +120,7 @@
             refX="0" refY="9" 
             orient="auto">
         <path d="M0,9 L16,0 L16,16 L0,9" style="fill: #000000;" />
-        
+
     </marker>
     <marker id="endArrow" 
             markerWidth="18" markerHeight="18" 
@@ -130,24 +130,24 @@
     </marker>
     </defs>
 
-         <!-- Vertical line -->
-            <line x1="100"  y1="0" x2="100" y2="<%=600%>" 
-                style="stroke:#006600;
-                       marker-start: url(#beginArrow);
-                       marker-end: url(#endArrow);"/>
-            <text x="140" y="<%=600/2%>"
-                  font-size="40px"
-                  text-anchor="middle"
-                  style="writing-mode: tb;">Height: <%=600%></text>
-            <!-- Horizontal line %-->
-            <line x1="200"  y1="<%=600+100%>" x2="<%=780+200%>"   y2="<%=600+100%>" 
-                style="stroke:#006600;
-                       marker-start: url(#beginArrow);
-                       marker-end: url(#endArrow);"/>
-            <text x="<%=780/2+200%>" y="<%=600+80%>"
-                  font-size="40px"
-                  text-anchor="middle">Width: <%=780%></text>
-</svg>
+    <!-- Vertical line -->
+    <line x1="100"  y1="0" x2="100" y2="<%=600%>" 
+          style="stroke:#006600;
+          marker-start: url(#beginArrow);
+          marker-end: url(#endArrow);"/>
+    <text x="140" y="<%=600 / 2%>"
+          font-size="40px"
+          text-anchor="middle"
+          style="writing-mode: tb;">Height: <%=600%></text>
+    <!-- Horizontal line %-->
+    <line x1="200"  y1="<%=600 + 100%>" x2="<%=780 + 200%>"   y2="<%=600 + 100%>" 
+          style="stroke:#006600;
+          marker-start: url(#beginArrow);
+          marker-end: url(#endArrow);"/>
+    <text x="<%=780 / 2 + 200%>" y="<%=600 + 80%>"
+          font-size="40px"
+          text-anchor="middle">Width: <%=780%></text>
+    </svg>
 
 
 

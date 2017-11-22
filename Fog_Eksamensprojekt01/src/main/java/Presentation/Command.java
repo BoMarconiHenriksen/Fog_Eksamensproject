@@ -16,7 +16,6 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
 
-     
         commands.put("getAllLineItem", new GetAllLineItem() {});
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());

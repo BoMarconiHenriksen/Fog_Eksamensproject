@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
 import Business.Calculator;
@@ -18,15 +13,16 @@ public class XXTegningSimpel extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
-        
+
         Calculator calc = new Calculator();
-       Double totalPris= calc.calculateCarportSimple(480, 300, 225);
+        Double totalPris = calc.calculateCarportSimple(480, 300, 225);
         request.setAttribute("totalPris", totalPris);
-       XXRendSvg svag = new XXRendSvg();
+        
+        XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(480, 300);
-        request.setAttribute("carportTegning",carportTegning);
-        
+        request.setAttribute("carportTegning", carportTegning);
+
         return "stykListe";
-        
-    
-}}
+
+    }
+}

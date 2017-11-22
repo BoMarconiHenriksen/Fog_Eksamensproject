@@ -1,38 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utillities;
 
 import Presentation.NewException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author BenedikteEva
  */
 public class XXRendSvg {
-
     StringBuilder sb = new StringBuilder();
-
-    public String setSvgCanvas(double length, double width) {
-        sb.append(" <SVG width=\"75%\"  \n"
-                + "\n"
-                + "             <svg x=\"200\" y=\"200\" width=\"" + length * 2 + "\" height=\"" + width * 2 + "\" \n"
-                + "             viewBox=\"0 0 " + (length + 200) + " " + (width + 200) + "\"\n"
-                + "        viewBox=\"0 0 " + length + " " + width + "\">\n"
-                + "\n"
-                + "        <svg x=\"200\" y=\"0\" width=\"" + length + "\" height=\"" + width + "\"\n"
-                + "             viewBox=\"0 0 " + (length + 1) + " " + (width + 1) + "\">\n");
-        return sb.toString();
-    }
 
     public String simpelCarport(double length, double width) {
 
         StringBuilder sb = new StringBuilder();
         int spærAntal = (int) Math.round(length / 55);
+        
         sb.append(setSvgCanvas(length, width));
         sb.append(rammen(length, width));
         sb.append(remme(length, width));
@@ -46,9 +27,22 @@ public class XXRendSvg {
         sb.append(stolper(length, width));
         sb.append(hulBånd(length, width));
         sb.append(pileOgTekst(length, width));
-        sb.append(markerMellemSpær(length,width));
+        sb.append(markerMellemSpær(length, width));
         return sb.toString();
     }
+    
+    public String setSvgCanvas(double length, double width) {
+        sb.append(" <SVG width=\"75%\"  \n"
+                + "\n"
+                + "             <svg x=\"200\" y=\"200\" width=\"" + length * 2 + "\" height=\"" + width * 2 + "\" \n"
+                + "             viewBox=\"0 0 " + (length + 200) + " " + (width + 200) + "\"\n"
+                + "        viewBox=\"0 0 " + length + " " + width + "\">\n"
+                + "\n"
+                + "        <svg x=\"200\" y=\"0\" width=\"" + length + "\" height=\"" + width + "\"\n"
+                + "             viewBox=\"0 0 " + (length + 1) + " " + (width + 1) + "\">\n");
+        return sb.toString();
+    }
+
 
     private String spærX(double width, double posX) {
         String spær = " <rect x=\"" + (posX) * 55 + "\" y=\"0\" height=\""
@@ -57,7 +51,6 @@ public class XXRendSvg {
     }
 
     private String rammen(double length, double width) {
-
         String ramme = " <rect x=\"0\" y=\"0\" height=\"" + width + "\" width=\"" + length + "\"\n"
                 + "style=\"stroke:#000000; fill: #ffffff\"/>";
         return ramme;
@@ -65,7 +58,6 @@ public class XXRendSvg {
     }
 
     private String ydreSpær(double length, double width) {
-
         String ydreSpær = (" <rect x=\"0\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
                 + "        <rect x=\"" + (length - 4) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
@@ -75,7 +67,6 @@ public class XXRendSvg {
     }
 
     private String remme(double length, double width) {
-
         String lægter = (" <rect x=\"0\" y=\"30\" height=\"2.5\" width=\"" + length + "\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
                 + "        <rect x=\"0\" y=\"" + (width - 30) + "\" height=\"2.5\" width=\"" + length + "\"\n"
@@ -84,7 +75,6 @@ public class XXRendSvg {
     }
 
     private String stolper(double length, double width) {
-
         String stolper = " <rect x=\"105\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
                 + "        <rect x=\"" + (length - 55) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
@@ -97,7 +87,6 @@ public class XXRendSvg {
     }
 
     private String hulBånd(double length, double width) {
-
         String hulbaand = " <line x1=\"53\"x2=\"" + (length - 30) + "\" y1=\"30\" y2=\"" + (width - 30) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
@@ -118,8 +107,7 @@ public class XXRendSvg {
     }
 
     private String pileOgTekst(double length, double width) {
-
-        String pileOgTekst = " <defs>\n"
+       String pileOgTekst = " <defs>\n"
                 + "    <marker id=\"beginArrow\" \n"
                 + "            markerWidth=\"18\" markerHeight=\"18\" \n"
                 + "            refX=\"0\" refY=\"9\" \n"
@@ -156,9 +144,9 @@ public class XXRendSvg {
                 + "";
         return pileOgTekst;
     }
-    
-    private String markerMellemSpær(double length, double width){
-        String markerMellemSpær=" <defs>\n"
+
+    private String markerMellemSpær(double length, double width) {
+        String markerMellemSpær = " <defs>\n"
                 + "    <marker id=\"beginLine\" \n"
                 + "            markerWidth=\"18\" markerHeight=\"18\" \n"
                 + "            refX=\"0\" refY=\"9\" \n"
@@ -179,7 +167,7 @@ public class XXRendSvg {
                 + "                style=\"stroke:#006600;\n"
                 + "                       marker-start: url(#beginLine);\n"
                 + "                       marker-end: url(#endLine);\"/>\n"
-                + "            <text x=\"" + (10)+ "\" y=\"" + (width + 80) + "\"\n"
+                + "            <text x=\"" + (10) + "\" y=\"" + (width + 80) + "\"\n"
                 + "                  font-size=\"40px\"\n"
                 + "                  text-anchor=\"middle\">55</text>\n"
                 + "</svg>\n"

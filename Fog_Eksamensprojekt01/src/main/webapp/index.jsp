@@ -24,23 +24,19 @@
     <body>
         <h1>Fog Trælast</h1>
 
-
         <h2>Velkommen. Vælg her en carport type.</h2>
 
         <form name="OrderSelectionCommand" action="FrontController" method="POST">
             <input type="hidden" name="command" value="orderSelectionSimpleCarport">
             <input type="hidden" name="command" value="orderSelectionSimpleCarportmedSkur">
-           
+
             <button type="submit" name="orderSelectionSimpleCarport" value="Submit">Bestil en simpel carport </button>
             <button type="submit" name="orderSelectionSimpleCarportmedSkur" value="Submit"> Bestil en simpel carport med skur </button>
+        </form>
 
-      
-       
-    </form>
-
-    <script type="text/javascript" src="jquery-1.8.3.js"></script>
-    <script src="script/javascript.js" type="text/javascript"></script>
-</body>
+        <script type="text/javascript" src="jquery-1.8.3.js"></script>
+        <script src="script/javascript.js" type="text/javascript"></script>
+    </body>
 
 
 
