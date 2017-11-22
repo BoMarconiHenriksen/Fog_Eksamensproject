@@ -2,17 +2,16 @@ package Business;
 
 import Data.LineItemMapper;
 import Data.MaterialeMapper;
+import Data.OrdreMapper;
 import Data.StykLinjeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
-import Domain.Order;
+import Domain.Odetaljer;
+import Domain.Ordre;
 import Domain.StykLinje;
-import Domain.User;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The purpose of LogicFacade is to...
@@ -24,6 +23,10 @@ public class LogicFacade {
     public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
 
+    }
+    
+    public static List<Odetaljer> getOrdersByOrderId(int ordre_id) throws NewException {
+        return OrdreMapper.getOrdersByOrderId(ordre_id);
     }
 
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
@@ -44,15 +47,15 @@ public class LogicFacade {
         return LineItemMapper.getLineItems();
     }
     
-    public static Order placeAnOrder(int user_id, String receiveddate) throws NewException{
-        Order theOrdered = new Order(user_id, receiveddate);
+    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException{
+        Ordre theOrdered = new Ordre(user_id, receiveddate);
         LineItemMapper.addOrdertoOrderList(theOrdered);
         return theOrdered;
         
     }
     
-    public static List<Order> getOrderList() throws NewException{
-        return LineItemMapper.getOrderList();
+    public static List<Ordre> getOrderList() throws NewException{
+        return OrdreMapper.getOrderList();
     }
 
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {

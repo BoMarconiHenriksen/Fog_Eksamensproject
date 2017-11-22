@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Data;
 
 import Domain.LineItem;
 import Domain.Materiale;
-import Domain.Order;
+import Domain.Ordre;
 import Domain.StykLinje;
 import Domain.User;
 import Presentation.NewException;
@@ -26,7 +21,7 @@ import java.util.Date;
  */
 public class LineItemMapper {
 
-    public static void addOrdertoOrderList(Order or) throws NewException {
+    public static void addOrdertoOrderList(Ordre or) throws NewException {
 
 
         try {
@@ -47,31 +42,7 @@ public class LineItemMapper {
 
     }
     
-        public static List<Order> getOrderList() throws NewException {
-        List<Order> ordreList = new ArrayList<>();
-        Order o;
-        try {
-            Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM ordrelist";
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
-
-            while (rs.next()) {
-                int ordre_id = rs.getInt("ordre_id");
-                int user_id = rs.getInt("user_id");
-                String reciveddate = rs.getString("received");
-
-                o = new Order(ordre_id, reciveddate, user_id);
-                ordreList.add(o);
-            }
-
-            return ordreList;
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new NewException(ex.getMessage());
-        }
-
-    }
-
-    public static List<LineItem> getLineItems() throws NewException {
+   public static List<LineItem> getLineItems() throws NewException {
         List<LineItem> lis = new ArrayList<>();
         try {
 
@@ -116,11 +87,11 @@ public class LineItemMapper {
 
     public static void main(String[] args) throws NewException {
         
-        Order ord = new Order(1, "2016-10-09");
-
-        //   System.out.println(LineItemMapper.getLineItems());
         
-        LineItemMapper.addOrdertoOrderList(ord);
+
+        
+        
+        
 
         
 

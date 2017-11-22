@@ -31,13 +31,8 @@
 
         <h2>Velkommen. Vælg her en carport type.</h2>
 
-
-
-
         <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>
         <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedskurpage.jsp';" >Bestil en simpel carport med skur</button>
-
-
 
     </body>
 

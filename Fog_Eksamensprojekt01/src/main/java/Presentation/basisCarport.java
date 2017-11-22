@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Business.Calculator;
 import Business.LogicFacade;
-import Domain.Order;
+import Domain.Ordre;
 import Domain.User;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,11 +25,9 @@ public class basisCarport extends Command {
 
         HttpSession session = request.getSession();
 
-        String command = request.getParameter("command");
-        String checkoutOrder = request.getParameter("basisCarportCheckout");
-        String checkPrice = request.getParameter("basisCarport");
-
-        Order order = new Order();
+        Ordre order = new Ordre(1);
+//        User user = new User();
+//        session.getAttribute("user");
 
         int user_id = 1;
         order.setUser_id(user_id);

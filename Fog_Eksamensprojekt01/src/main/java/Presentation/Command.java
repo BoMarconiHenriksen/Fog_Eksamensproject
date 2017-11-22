@@ -23,6 +23,9 @@ abstract class Command {
         commands.put("basisCarport", new basisCarport());
         commands.put("basisCarportmedSkur", new basisCarportMedSkur());
         commands.put("checkoutFunktion", new Checkout());
+        commands.put("OrdreList", new OrdreList());
+        commands.put("InvoiceDetail", new InvoiceDetail());
+
     }
 
     static Command from(HttpServletRequest request) {
