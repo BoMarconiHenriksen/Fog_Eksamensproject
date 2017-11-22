@@ -42,7 +42,34 @@ public class LineItemMapper {
 
     }
     
+
+    public static LineItem updateVareId(int linjeliste_id, int vareid, double msr) throws NewException{
+        StykLinje styl = null; 
+        Materiale mat = null;
+         try {
+
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "update lineitem, linjeliste set vareid=?, baselength=? where lineitem.linjeliste_id="+linjeliste_id;
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, vareid);
+            ps.setDouble(2, msr);
+            ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+        return null;
+
+    }
+
+   
+    
+
+   
+
    public static List<LineItem> getLineItems() throws NewException {
+
         List<LineItem> lis = new ArrayList<>();
         try {
 
@@ -68,14 +95,18 @@ public class LineItemMapper {
                 String dimension = rs.getString("dimension");
                 double baseLength = rs.getDouble("baselength");
 
+
                 int linjelisteid = rs.getInt("linjeliste_id");
+
                 int antal = rs.getInt("antal");
                 int id = rs.getInt("linjeliste_id");
                 if (id != lastId) {
                     mat = new Materiale(materialetype, materialenavn, enhedspris, enhed, msr);
-                    styk = new StykLinje(materialetype, dimension, baseLength, antal, beskrivelse);
-                    li = new LineItem(mat, styk, 0.00);
-                    lis.add(li);
+
+                    styk = new StykLinje( materialetype, dimension, baseLength, antal, beskrivelse);
+                   li= new LineItem(mat, styk);
+                   lis.add(li);
+
                 }
             }
             return lis;
@@ -86,14 +117,7 @@ public class LineItemMapper {
     }
 
     public static void main(String[] args) throws NewException {
-        
-        
-
-        
-        
-        
-
-        
-
+    
+       
     }
 }

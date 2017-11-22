@@ -12,12 +12,12 @@ package Domain;
 public class LineItem {
     private Materiale mat;
     private StykLinje lin;
-    private double totalPrice;
 
-    public LineItem(Materiale mat, StykLinje lin, double totalPrice) {
+
+    public LineItem(Materiale mat, StykLinje lin) {
         this.mat = mat;
         this.lin = lin;
-        this.totalPrice = totalPrice;
+  
     }
 
     public Materiale getMat() {
@@ -36,17 +36,11 @@ public class LineItem {
         this.lin = lin;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+ 
 
     @Override
     public String toString() {
-        return "LineItem{" + "mat=" + mat + ", lin=" + lin + ", totalPrice=" + totalPrice + '}';
+        return "LineItem{" + "mat=" + mat + ", lin=" + lin + '}';
     }
    
 

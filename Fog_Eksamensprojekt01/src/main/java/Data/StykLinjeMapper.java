@@ -67,7 +67,7 @@ public class StykLinjeMapper {
             int linjeid = rs.getInt("linjeliste_id");
                 String materialetype = rs.getString("materialetype");
                 String beskrivelse = rs.getString("beskrivelse");
-                String dimension = rs.getString("dimension");
+                String dimension = rs.getString("carporttype");
                 int baseLength = rs.getInt("baselength");
                 int antal = rs.getInt("antal");
 

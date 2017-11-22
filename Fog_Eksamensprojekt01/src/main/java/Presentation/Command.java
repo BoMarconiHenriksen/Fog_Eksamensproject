@@ -16,15 +16,15 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
 
-        commands.put("getAllMaterials", new GetAllMaterialss());
-        commands.put("getAllStykLinje", new GetAllStykLinje());
         commands.put("getAllLineItem", new GetAllLineItem() {});
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
         commands.put("basisCarportmedSkur", new basisCarportMedSkur());
         commands.put("checkoutFunktion", new Checkout());
+        commands.put("tegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
         commands.put("InvoiceDetail", new InvoiceDetail());
+
 
     }
 

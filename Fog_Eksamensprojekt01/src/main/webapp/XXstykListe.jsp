@@ -4,6 +4,9 @@
     Author     : BenedikteEva
 --%>
 
+<%@page import="Utillities.XXRendSvg"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.Array"%>
 <%@page import="Domain.LineItem"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>
@@ -17,11 +20,16 @@
     <body>
         <h1>Pris</h1>
 
-
-
-        <%out.println("<a>" + (Double) request.getAttribute("carportTotal") + "</a>");%>
+        <%out.println("<a>" + (Double) request.getAttribute("totalPris") + "</a>");%>
         
-
+        <%XXRendSvg svag = new XXRendSvg();String carportTegning = svag.simpelCarport(480, 300); %>
+        <%=carportTegning%>
+      
+       <%--=(String)(request.getAttribute("carportTegning"))--%>
+   <!-- Horizontal line %-->
+            
+        </SVG>
+      
    
 
 
