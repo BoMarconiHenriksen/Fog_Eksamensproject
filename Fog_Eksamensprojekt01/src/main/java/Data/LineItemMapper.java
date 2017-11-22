@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Data;
 
 import Domain.LineItem;
 import Domain.Materiale;
-import Domain.Order;
+import Domain.Ordre;
 import Domain.StykLinje;
 import Domain.User;
 import Presentation.NewException;
@@ -18,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 /**
  *
@@ -25,24 +21,20 @@ import java.util.List;
  */
 public class LineItemMapper {
 
-    public static void addOrdertoOrderList(User or) throws NewException {
+    public static void addOrdertoOrderList(Ordre or) throws NewException {
 
-        Order od = new Order();
 
         try {
 
-            Connection con = DBConnector.connection();
+            Connection conn = DBConnector.connection();
             String SQL;
             SQL = "INSERT INTO ordreliste (user_id, receiveddate) VALUES (?, ?)";
-            PreparedStatement orderPstmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             orderPstmt.setInt(1, or.getUser_id());
-            orderPstmt.setString(2, od.getReciveddate());
+            orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
-            ResultSet ids = orderPstmt.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            od.setOrder_id(id);
+
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
@@ -50,6 +42,7 @@ public class LineItemMapper {
 
     }
     
+
     public static LineItem updateVareId(int linjeliste_id, int vareid, double msr) throws NewException{
         StykLinje styl = null; 
         Materiale mat = null;
@@ -73,7 +66,10 @@ public class LineItemMapper {
    
     
 
-    public static List<LineItem> getLineItems() throws NewException {
+   
+
+   public static List<LineItem> getLineItems() throws NewException {
+
         List<LineItem> lis = new ArrayList<>();
         try {
 
@@ -121,10 +117,7 @@ public class LineItemMapper {
     }
 
     public static void main(String[] args) throws NewException {
-
-        
-//        LineItemMapper.updateVareId(1,1,300);
-//        System.out.println(LineItemMapper.getLineItems().get(0));
-
+    
+       
     }
 }
