@@ -180,6 +180,11 @@
             <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
 
         </form>
+        
+        <p>
+            
+        </p>
+        <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
 
         <!--Hvis basisCarport er null printes der ikke noget på siden-->
         <%if (request.getAttribute("widthInput") == null) {
