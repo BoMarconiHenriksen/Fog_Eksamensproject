@@ -12,8 +12,6 @@ import Domain.StykLinje;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The purpose of LogicFacade is to...

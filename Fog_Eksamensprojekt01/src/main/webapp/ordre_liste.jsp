@@ -26,12 +26,10 @@
             // else{
             //     out.println("Hello  You have to log in again to see history. Which order do you want to see?");
             // }
-            //UserMapper um = new UserMapper();
-            //String cName = (String) request.getAttribute("cName");
-            
-            
-            request.getAttribute("invoiceList");
-            
+                        
+            //Spg til Thomas
+            //request.getAttribute("invoiceList");
+            //out.println(request.getAttribute("invoiceList"));
         %>
         
         <div>

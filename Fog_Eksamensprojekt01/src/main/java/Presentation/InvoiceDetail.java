@@ -15,8 +15,7 @@ public class InvoiceDetail extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
-        //case invoice_detail
-        
+                
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
         
