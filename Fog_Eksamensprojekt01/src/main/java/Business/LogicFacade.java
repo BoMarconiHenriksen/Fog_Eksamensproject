@@ -5,7 +5,9 @@ import Data.MaterialeMapper;
 import Data.StykLinjeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Order;
 import Domain.StykLinje;
+import Domain.User;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
@@ -40,6 +42,17 @@ public class LogicFacade {
 
     public static List<LineItem> getLineItem() throws NewException {
         return LineItemMapper.getLineItems();
+    }
+    
+    public static Order placeAnOrder(int user_id, String receiveddate) throws NewException{
+        Order theOrdered = new Order(user_id, receiveddate);
+        LineItemMapper.addOrdertoOrderList(theOrdered);
+        return theOrdered;
+        
+    }
+    
+    public static List<Order> getOrderList() throws NewException{
+        return LineItemMapper.getOrderList();
     }
 
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {

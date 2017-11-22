@@ -17,26 +17,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Din Bestilling</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
 
-    <div>
-
-        <p>Carportens samlede pris: ${carportTotalValg}</p><br>
-        <p>Husets Længde: ${sizewidth}</p><br>
-
-      
-        <%
-     LogicFacade logic = new LogicFacade();%>
         <div>
-            <%= RendUtilGetMaterials.getSpecifikMaterial(logic.getMaterial())%>
+            <!-- Sætter attributerne i session-->
+            <p>Carportens samlede pris: ${carportTotalValg}</p><br>
+            <p>Caroportens ønskede Længde: ${lentghChosen}</p><br>
+            <p>Caroportens ønskede Bredde: ${widthChosen}</p><br>
+            <p>Caroportens ønskede Højde: ${heightChosen}</p><br>
 
         </div>
 
+    </body>
 
-
-    </div>
 </html>

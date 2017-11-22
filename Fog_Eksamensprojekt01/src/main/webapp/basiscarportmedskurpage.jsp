@@ -19,10 +19,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Carport med skur</title>
     </head>
     <body>
-        <h1>Simpel carport med skur</h1>
+        <h1>Carport med skur</h1>
 
 
         <h2>Her kan indtastes input til en ønsket carport og udskrives en pris på hvad den vil koste.</h2>
@@ -36,9 +36,6 @@
             <body>
                 <table border=4>
                     <tr>
-                        <th>Carport Længde</th>
-                        <th>Carport Bredde</th>
-                        <th>Carport Højde<br>(Standard)</th>
                         <th>Skur Længde</th>
                         <th>Skur Bredde</th>
                         <th>Skur Højde<br>(Standard)</th>
@@ -46,53 +43,6 @@
                     </tr>
 
                     <tr>
-                        <td> <select name="lentgchoice">
-                                <option number="240">240</option>
-                                <option number="270">270</option>
-                                <option number="300">300</option>
-                                <option number="330">330</option>
-                                <option number="360">360</option>
-                                <option number="390">390</option>
-                                <option number="420">420</option>
-                                <option number="450">450</option>
-                                <option number="480">480</option>
-                                <option number="510">510</option>
-                                <option number="540">540</option>
-                                <option number="570">570</option>
-                                <option number="600">600</option>
-                                <option number="630">630</option>
-                                <option number="660">660</option>
-                                <option number="660">690</option>
-                                <option number="720">720</option>
-                                <option number="750">750</option>
-                                <option number="780">780</option>
-                            </select>
-                        </td>
-
-                        <td><select name="widthchoice">
-                                <option number="240">240</option>
-                                <option number="270">270</option>
-                                <option number="300">300</option>
-                                <option number="330">330</option>
-                                <option number="360">360</option>
-                                <option number="390">390</option>
-                                <option number="420">420</option>
-                                <option number="450">450</option>
-                                <option number="480">480</option>
-                                <option number="510">510</option>
-                                <option number="540">540</option>
-                                <option number="570">570</option>
-                                <option number="600">600</option>
-                                <option number="630">630</option>
-                                <option number="660">660</option>
-                                <option number="660">690</option>
-                                <option number="720">720</option>
-                                <option number="750">750</option>
-                            </select></td>
-
-                        <td> <select name="heightchoice">
-                                <option number="225">225</option>
-                            </select></td>
 
                         <td><select name="lentgchoiceskur">
                                 <option number="210">210</option>
@@ -181,11 +131,11 @@
                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                 out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                 out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-                if (request.getAttribute("skurInput") != null) {
-                    out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
-                } else {
-                    out.println("<p> Skur: Fravalgt");
-                }
+                //if (request.getAttribute("skurInput") != null) {
+                   // out.println("<p> Skur: " + request.getAttribute("skurInput") + "</p><br>");
+                //} else {
+                    //out.println("<p> Skur: Fravalgt");
+               // }
               //  out.println("<p> Trætype: " + request.getAttribute("trevalgInput") + "</p><br>");
             }%>
 
