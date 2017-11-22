@@ -22,8 +22,6 @@ abstract class Command {
         commands.put("checkOutCarport", new basisCarport());
         commands.put("basisCarportmedSkur", new basisCarportMedSkur());
         commands.put("checkoutFunktion", new Checkout());
-        commands.put("orderSelectionSimpleCarport", new OrderSelectionCommand());
-        commands.put("orderSelectionSimpleCarportmedSkur", new OrderSelectionCommand());
         commands.put("tegningSimpel", new XXTegningSimpel());
     }
 
