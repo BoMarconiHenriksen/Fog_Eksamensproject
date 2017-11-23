@@ -100,15 +100,15 @@ public class XXRendUtilStykListe {
         String plastmoTag = null;
         String plastmoTagEnhed = null;
 
-        if (length == 300) {
+        if (length <= 300) {
 
             plastmoTag = LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(); //300 cm
             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(9).getEnhed();
-        } else if (length == 480) {
+        } else if (length <= 480) {
 
             plastmoTag = LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(); //480 cm
             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(33).getEnhed();
-        } else if (length == 600) {
+        } else if (length <= 600) {
 
             plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
