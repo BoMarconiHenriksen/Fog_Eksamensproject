@@ -2,8 +2,6 @@ package Utillities;
 
 import Business.LogicFacade;
 import Domain.LineItem;
-import Domain.Materiale;
-import Domain.StykLinje;
 import Presentation.NewException;
 import java.util.List;
 
@@ -14,88 +12,7 @@ import java.util.List;
  */
 public class XXRendUtilStykListe {
 
-    public static String getStykListeBasis(double length, double width) throws NewException {
-        List<LineItem> lim = LogicFacade.getLineItem();
-        StringBuilder sb = new StringBuilder();
-        sb.append("<h2>Stykliste</h2>\n"
-                + "<table border=4>"
-                + "<tr><th>Materiale</th>"
-                + "<th>Længde</th>"
-                + "<th>Antal</th>"
-                + "<th>Enhed</th>"
-                + "<th>Beskrivelse</th>");
-        sb.append("</tr>");
-
-        for (int i = 0; i < lim.size(); i++) {
-            switch (lim.get(i).getLin().getDimension()) {
-                case "w":
-
-                    sb.append("<tr><td>" + lim.get(i).getMat().getMaterialenavn() + "</td>");
-                    sb.append("<td>" + width * 100 + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getAntal() + "</td>");
-                    sb.append("<td>" + lim.get(i).getMat().getEnhed() + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getBeskrivelse() + "</td>");
-                    sb.append("</tr>");
-
-                    break;
-                case "l":
-                    String plastmoTag = null;
-                    String plastmoTagEnhed = null;
-                    if (length == 3.00) {
-
-                        plastmoTag = LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(); //300 cm
-                        plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(9).getEnhed();
-                    } else if (length == 4.80) {
-
-                        plastmoTag = LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(); //480 cm
-                        plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(33).getEnhed();
-                    } else if (length == 6.00) {
-
-                        plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
-                        plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-                    }
-                    sb.append("<tr><td>" + plastmoTag + "</td>");
-                    sb.append("<td>" + length * 100 + "</td>");
-                    sb.append("<td>" + (int) Math.round(width) + "</td>");
-                    sb.append("<td>" + plastmoTagEnhed + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getBeskrivelse() + "</td>");
-                    sb.append("</tr>");
-
-                    break;
-
-                case "h":
-                    sb.append("<tr><td>" + lim.get(i).getMat().getMaterialenavn() + "</td>");
-                    sb.append("<td>" + 300 + "</td>");
-                    sb.append("<td>" + 4 + "</td>");
-                    sb.append("<td>" + lim.get(i).getMat().getEnhed() + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getBeskrivelse() + "</td>");
-                    sb.append("</tr>");
-                    break;
-                case "b":
-                    sb.append("<tr><td>" + lim.get(i).getMat().getMaterialenavn() + "</td>");
-                    sb.append("<td>" + "" + "</td>");
-                    sb.append("<td>" + 4 + "</td>");
-                    sb.append("<td>" + lim.get(i).getMat().getEnhed() + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getBeskrivelse() + "</td>");
-                    sb.append("</tr>");
-                    break;
-                    
-                     case "c":
-                    sb.append("<tr><td>" + lim.get(i).getMat().getMaterialenavn() + "</td>");
-                    sb.append("<td>" + "" + "</td>");
-                    sb.append("<td>" + 4 + "</td>");
-                    sb.append("<td>" + lim.get(i).getMat().getEnhed() + "</td>");
-                    sb.append("<td>" + lim.get(i).getLin().getBeskrivelse() + "</td>");
-                    sb.append("</tr>");
-                    break;
-
-
-            }
-            sb.append("</table></ui>");
-            return sb.toString();
-        }
-        return sb.toString();
-    }
+ 
 
     public static String getStykListeBaseSimpel(double length, double width) throws NewException {
         List<LineItem> lim;
@@ -110,7 +27,7 @@ public class XXRendUtilStykListe {
                 + "<th>Beskrivelse</th>");
         sb.append("</tr>");
 
-        sb.append(" \"<tr><th>Træ</th></tr>\n");
+        sb.append("<tr><th>Træ</th></tr>\n");
         sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
         sb.append("<td>" + width  + "</td>");
         sb.append("<td>" + lim.get(0).getLin().getAntal() + "</td>");

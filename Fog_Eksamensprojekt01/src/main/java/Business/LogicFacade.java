@@ -7,7 +7,6 @@ import Data.StykLinjeMapper;
 import Data.OdetaljeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
-import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.StykLinje;
 import Domain.Odetaljer;

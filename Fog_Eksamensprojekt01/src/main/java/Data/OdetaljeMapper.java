@@ -20,7 +20,7 @@ public class OdetaljeMapper {
 
             Connection conn = DBConnector.connection();
             String SQL;
-            SQL = "INSERT INTO odetaljer (ordre_id, length, width, height) VALUES (?, ?, ?, ?)";
+            SQL = "INSERT INTO odetaljer (ordre_id, carport_length, carport_width, carport_height) VALUES (?, ?, ?, ?)";
             PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             orderPstmt.setInt(1, ordre_id);
@@ -50,11 +50,11 @@ public class OdetaljeMapper {
                 int vareId = rs.getInt("vareid");
                 int linjelisteId = rs.getInt("linjeliste_id");
 //                String ordreStatus = rs.getString("ordre_status");
-                double carportLength = rs.getDouble("length");
-                double carportWidth = rs.getDouble("width");
-                double carportHeight = rs.getDouble("height");
-                double lengthRedskabsrum = rs.getDouble("lengthredskabsrum");
-//                double widthRedskabsrum = rs.getDouble("widthredskabsrum");
+                double carportLength = rs.getDouble("carport_length");
+                double carportWidth = rs.getDouble("carport_width");
+                double carportHeight = rs.getDouble("carport_height");
+                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
+//                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
 
                 o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId,
