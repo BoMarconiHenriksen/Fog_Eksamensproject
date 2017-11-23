@@ -27,10 +27,13 @@
     double length = (Double) request.getAttribute("length");
     double width = (Double) request.getAttribute("width");
     double heigth = (Double) request.getAttribute("height");
+  
+    DecimalFormat df = new DecimalFormat("#0.00");
     double pris = (Double) calc.calculateCarportSimple(length, width, heigth);
 
-    out.println("<p>" + pris + "</p>");%>
-    <br> <br>
+    out.println("<p>" + df.format(pris) + "</p>");%></div>
+<br> <br><div>
+
 <%
     XXRendSvg svag = new XXRendSvg();
 

@@ -96,7 +96,7 @@ public class XXRendUtilStykListe {
         sb.append("<td>" + lim.get(13).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
-        sb.append(" \"<br><tr><th>Tag</th></tr>\n");
+        sb.append("<br><tr><th>Tag</th></tr>\n");
         String plastmoTag = null;
         String plastmoTagEnhed = null;
 
@@ -121,7 +121,7 @@ public class XXRendUtilStykListe {
         sb.append("<td>" + lim.get(14).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
-        sb.append(" \"<br><tr><th>Beslag & Skruer</th></tr>\n");
+        sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
         sb.append("<tr><td>" + lim.get(12).getMat().getMaterialenavn() + "</td>");
         sb.append("<td>" + "" + "</td>");
         sb.append("<td>" + 1 + "</td>");
