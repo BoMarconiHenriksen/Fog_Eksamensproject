@@ -77,7 +77,7 @@ public class basisCarportMedSkur extends Command {
         //Her er starten på en stykliste
         List<LineItem> stykLinjeListe = LogicFacade.getLineItem();
         XXRendUtilStykListe rusl = new XXRendUtilStykListe();
-        String tjavs = rusl.getStykListeBaseSimpel(stykLinjeListe, length, width);
+        String tjavs = rusl.getStykListeBaseSimpel( length, width);
         request.setAttribute("tjavs", tjavs);
 
         if (checkprice != null) {

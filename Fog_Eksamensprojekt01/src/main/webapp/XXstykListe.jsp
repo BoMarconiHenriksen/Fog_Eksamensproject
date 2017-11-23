@@ -4,6 +4,10 @@
     Author     : BenedikteEva
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="Business.Calculator"%>
+<%@page import="Business.LogicFacade"%>
+<%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Array"%>
@@ -17,13 +21,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>StykListe</title>
     </head>
-    <body>
+    
         <h1>Pris</h1>
-
-        <%out.println("<a>" + (Double) request.getAttribute("totalPris") + "</a>");%>
+        <br>
         
-        <%XXRendSvg svag = new XXRendSvg();String carportTegning = svag.simpelCarport(480, 300); %>
-        <%=carportTegning%>
+        <%Calculator calc = new Calculator(); DecimalFormat df = new DecimalFormat("#0.00");%>
+        <p>
+            <%=df.format(calc.calculateCarportSimple(600/100,300/100,225/100))%>
+       </p>
+        <br><br>
+          <%XXRendSvg svag = new XXRendSvg();
+        String carportTegning = svag.simpelCarport(600, 300); %>
+       
+          <p>
+       <%=carportTegning%>
+        
+           </p>
+      <br><br>
+    
+      <p>
+      <% XXRendUtilStykListe rusl= new XXRendUtilStykListe();%>
+    <%=rusl.getStykListeBaseSimpel(600,300)%>
+    
+     </p>
+      
+        
+        
       
        <%--=(String)(request.getAttribute("carportTegning"))--%>
    <!-- Horizontal line %-->
@@ -35,5 +58,5 @@
 
 
 
-    </body>
+    
 </html>

@@ -30,8 +30,8 @@ public class Calculator {
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
 
         double totalPriceSimpleCarport = 0;
-        double totalPriceBase = beregnBase(length, width);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
+        double totalPriceBase = beregnBase(length/100, width/100);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length/100);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
@@ -116,8 +116,7 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(4.80, 3.00, 2.25));
-      
+        System.out.println(calc.calculateCarportSimple(480, 300, 225));
 
     }
 

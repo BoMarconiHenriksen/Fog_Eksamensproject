@@ -4,11 +4,13 @@ import Data.LineItemMapper;
 import Data.MaterialeMapper;
 import Data.OrdreMapper;
 import Data.StykLinjeMapper;
+import Data.OdetaljeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.StykLinje;
+import Domain.Odetaljer;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
@@ -24,9 +26,12 @@ public class LogicFacade {
         return MaterialeMapper.getMaterial();
 
     }
-    
-    public static List<Odetaljer> getOrdersByOrderId(int ordre_id) throws NewException {
-        return OrdreMapper.getOrdersByOrderId(ordre_id);
+
+      public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+        return OrdreMapper.getOrderByOrderId(ordre_id);
+    }
+       public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
+        return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
@@ -62,6 +67,10 @@ public class LogicFacade {
         Materiale mat = new Materiale(vareid, enhedspris);
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
+    }
+    
+    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException{
+        OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
 
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {

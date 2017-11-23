@@ -32,6 +32,26 @@ public class Odetaljer {
         this.tagType = tagType;
     }
 
+    public Odetaljer(int ordreId, double carportLength, double carportWidth, double carportHeight) {
+       this.ordreId = ordreId;
+        this.carportLength = carportLength;
+        this.carportWidth = carportWidth;
+        this.carportHeight = carportHeight;
+    }
+
+    public Odetaljer(int odetaljerId, int ordreId, int vareId, int linjelisteId, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum,  int tagType) {
+       this.odetaljerId = odetaljerId;
+        this.ordreId = ordreId;
+        this.vareId = vareId;
+        this.linjelisteId = linjelisteId;
+        this.carportLength = carportLength;
+        this.carportWidth = carportWidth;
+        this.carportHeight = carportHeight;
+        this.lengthRedskabsrum = lengthRedskabsrum;
+//        this.widthRedskabsrum = widthRedskabsrum;
+        this.tagType = tagType;
+    }
+
     public int getOdetaljerId() {
         return odetaljerId;
     }

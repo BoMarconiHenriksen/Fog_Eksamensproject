@@ -5,6 +5,7 @@ import Business.Calculator;
 import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.User;
+import Domain.Odetaljer;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.LocalDate;
@@ -72,6 +73,9 @@ public class basisCarport extends Command {
         order.setReciveddate(formatDateTime);
 
         LogicFacade.placeAnOrder(user_id, formatDateTime);
+        int or = LogicFacade.getOrderList().size();
+        Odetaljer od= new Odetaljer(or, lentghinput, widthinput, heightinput);
+       LogicFacade.addOdetaljertoOdetaljeListe(or, od);
 
         //   List<Order> custOrderList = LogicFacade.getOrderList();
         return "bestilbasiscarportpage";
