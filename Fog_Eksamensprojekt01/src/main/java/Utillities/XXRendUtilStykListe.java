@@ -113,6 +113,12 @@ public class XXRendUtilStykListe {
             plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
         }
+        
+        else if (length > 600) {
+
+              plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// skal ændres så der kommer 2 tagplader istedet             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+        }
 
         sb.append("<tr><td>" + plastmoTag + "</td>");
         sb.append("<td>" + length  + "</td>");
