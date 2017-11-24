@@ -79,6 +79,6 @@ public class basisCarport extends Command {
        LogicFacade.addOdetaljertoOdetaljeListe(or, od);
 
         //   List<Order> custOrderList = LogicFacade.getOrderList();
-        return "bestilbasiscarportpage";
+        return "outprintpage";
     }
 }
