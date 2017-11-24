@@ -20,13 +20,15 @@ public class OdetaljeMapper {
 
             Connection conn = DBConnector.connection();
             String SQL;
-            SQL = "INSERT INTO odetaljer (ordre_id, carport_length, carport_width, carport_height) VALUES (?, ?, ?, ?)";
+            SQL = "INSERT INTO odetaljer (ordre_id, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES (?, ?, ?, ?,?,?)";
             PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             orderPstmt.setInt(1, ordre_id);
             orderPstmt.setDouble(2, od.getCarportLength());
             orderPstmt.setDouble(3, od.getCarportWidth());
             orderPstmt.setDouble(4, od.getCarportHeight());
+            orderPstmt.setDouble(5, od.getLengthRedskabsrum());
+            orderPstmt.setDouble(6, od.getWidthRedskabsrum());
             orderPstmt.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -46,20 +48,20 @@ public class OdetaljeMapper {
             if (rs.next()) {
 
                 int odetaljerId = rs.getInt("odetaljer_id");
-                int ordreId = rs.getInt("ordre_id");
+              
                 int vareId = rs.getInt("vareid");
                 int linjelisteId = rs.getInt("linjeliste_id");
-//                String ordreStatus = rs.getString("ordre_status");
+                String ordreStatus = rs.getString("ordre_status");
                 double carportLength = rs.getDouble("carport_length");
                 double carportWidth = rs.getDouble("carport_width");
                 double carportHeight = rs.getDouble("carport_height");
                 double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-//                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
+                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
 
-                o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId,
+                o = new Odetaljer(odetaljerId, ordre_id, vareId, linjelisteId,ordreStatus ,
                        carportLength, carportWidth,
-                        carportHeight, lengthRedskabsrum,  tagType);
+                        carportHeight, lengthRedskabsrum,widthRedskabsrum,  tagType);
 
                 return o;
             }
@@ -82,7 +84,7 @@ public class OdetaljeMapper {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(2));
+        System.out.println(OdetaljeMapper.getOrderByOrderId2(3));
         System.out.println("ordre detalje liste:");
 
     }
