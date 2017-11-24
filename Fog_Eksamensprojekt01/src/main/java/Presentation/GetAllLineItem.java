@@ -38,7 +38,7 @@ abstract class GetAllLineItem extends Command {
         request.setAttribute("carportTotal", carportTotal);
         
         XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(480, 300);
+        String carportTegning = svag.simpelCarport(480, 300,210,150);
         request.setAttribute("carportTegning", carportTegning);
 
         return "stykListe";

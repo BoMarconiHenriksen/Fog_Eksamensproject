@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +43,6 @@ public class OrdreMapper {
 
     }
 
-  
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
         Odetaljer o = null;
         try {
@@ -54,17 +55,17 @@ public class OrdreMapper {
             int ordreId = rs.getInt("ordre_id");
             int vareId = rs.getInt("vareid");
             int linjelisteId = rs.getInt("linjeliste_id");
-//            String ordreStatus = rs.getString("ordre_status");
-            double carportLength = rs.getDouble("length");
-            double carportWidth = rs.getDouble("width");
-            double carportHeight = rs.getDouble("height");
-            double lengthRedskabsrum = rs.getDouble("lengthredskabsrum");
-//            double widthRedskabsrum = rs.getDouble("width_redskabsrum");
+            String ordreStatus = rs.getString("ordre_status");
+            double carportLength = rs.getDouble("carport_length");
+            double carportWidth = rs.getDouble("carport_width");
+            double carportHeight = rs.getDouble("carport_height");
+            double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
+            double widthRedskabsrum = rs.getDouble("width_redskabsrum");
             int tagType = rs.getInt("tagtype");
 
-            o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId,
+            o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
                     carportLength, carportWidth,
-                    carportHeight, lengthRedskabsrum, tagType);
+                    carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
 
             return o;
         } catch (ClassNotFoundException | SQLException ex) {
@@ -72,9 +73,36 @@ public class OrdreMapper {
         }
         return o;
     }
+ public static void AddOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
+
+        try {
+
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO odetaljer( ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, ods.getOrdreStatus());
+            ps.setDouble(2, ods.getCarportLength());
+            ps.setDouble(3, ods.getCarportWidth());
+            ps.setDouble(4, ods.getCarportHeight());
+            ps.setDouble(5, ods.getLengthRedskabsrum());
+            ps.setDouble(6, ods.getWidthRedskabsrum());
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            ods.setOrdreId(id);
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+
 
 //    Bruges til test
-    public static void main(String[] args) throws NewException {
+public static void main(String[] args) throws NewException {
 
       
 //        System.out.println("ordre liste:");

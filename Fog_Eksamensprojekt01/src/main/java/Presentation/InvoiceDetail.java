@@ -2,8 +2,6 @@ package Presentation;
 
 import Business.LogicFacade;
 import Domain.Odetaljer;
-import Domain.Odetaljer;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,6 +24,8 @@ public class InvoiceDetail extends Command {
         request.setAttribute("length", (Double)od.getCarportLength());
         request.setAttribute("width", (Double)od.getCarportWidth());
         request.setAttribute("height", (Double)od.getCarportHeight());
+        request.setAttribute("redskabsskur_length",(Double) od.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double)od.getWidthRedskabsrum());
         request.setAttribute("od", od);
         return "invoice_detail";
     }

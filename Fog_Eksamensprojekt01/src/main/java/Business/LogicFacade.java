@@ -68,19 +68,21 @@ public class LogicFacade {
         return mat;
     }
     
+    
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException{
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
 
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
-        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-        LogicFacade.changeMaterialePris(7, 29.95);
-        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-
-        System.out.println(StykLinjeMapper.getStykLinje());
-
-        System.out.println(StykLinjeMapper.getStykLinjeById(2));
+        System.out.println(LogicFacade.getOrderByOrderId(3));
+        System.out.println(LogicFacade.getOrderByOrderId2(3));
+//        LogicFacade.changeMaterialePris(7, 29.95);
+//        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
+//
+//        System.out.println(StykLinjeMapper.getStykLinje());
+//
+//        System.out.println(StykLinjeMapper.getStykLinjeById(2));
 
     }
 

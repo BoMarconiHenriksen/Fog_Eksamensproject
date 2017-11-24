@@ -60,6 +60,10 @@ public class Odetaljer {
         this.tagType = tagType;
     }
 
+    public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 
     public int getOdetaljerId() {
