@@ -30,7 +30,11 @@
             
 
         </div>
-    <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+
+            
+      <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+
+
     </body>
 
 </html>
