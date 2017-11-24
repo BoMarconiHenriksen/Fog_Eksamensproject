@@ -45,9 +45,9 @@ public class basisCarport extends Command {
         DecimalFormat df = new DecimalFormat("#0.00");
 
         Calculator calc = new Calculator();
-        double length = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
-        double width = Double.parseDouble(request.getParameter("widthchoice")) / 100;
-        double height = Double.parseDouble(request.getParameter("heightchoice")) / 100;
+        double length = Double.parseDouble(request.getParameter("lentgchoice")) ;
+        double width = Double.parseDouble(request.getParameter("widthchoice")) ;
+        double height = Double.parseDouble(request.getParameter("heightchoice")) ;
         double carportTotal = calc.calculateCarportSimple(length, width, height);
         String carportTotalDecimaled = df.format(carportTotal);
         request.setAttribute("carportTotal", carportTotalDecimaled);
