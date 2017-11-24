@@ -7,18 +7,19 @@ import Presentation.NewException;
  * @author BenedikteEva
  */
 public class XXRendSvg {
+
     StringBuilder sb = new StringBuilder();
 
-    public String simpelCarport(double length, double width) {
+    public String simpelCarport(double length, double width, double skurlength, double skurwidth) {
 
         StringBuilder sb = new StringBuilder();
         int spærAntal = (int) Math.round(length / 55);
-        
+
         sb.append(setSvgCanvas(length, width));
         sb.append(rammen(length, width));
         sb.append(remme(length, width));
-//        sb.append(ydreSpær(width, length));
 
+//        sb.append(ydreSpær(width, length));
         for (int i = 0; i <= spærAntal; i++) {
 
             sb.append(spærX(width, i));
@@ -26,11 +27,12 @@ public class XXRendSvg {
 
         sb.append(stolper(length, width));
         sb.append(hulBånd(length, width));
+        sb.append(skur(length, width, skurlength, skurwidth));
         sb.append(pileOgTekst(length, width));
-        sb.append(markerMellemSpær(length, width));
+//        sb.append(markerMellemSpær(length, width));
         return sb.toString();
     }
-    
+
     public String setSvgCanvas(double length, double width) {
         sb.append(" <SVG width=\"75%\"  \n"
                 + "\n"
@@ -42,7 +44,6 @@ public class XXRendSvg {
                 + "             viewBox=\"0 0 " + (length + 1) + " " + (width + 1) + "\">\n");
         return sb.toString();
     }
-
 
     private String spærX(double width, double posX) {
         String spær = " <rect x=\"" + (posX) * 55 + "\" y=\"0\" height=\""
@@ -106,8 +107,29 @@ public class XXRendSvg {
         return hulbaand;
     }
 
+    private String skur(double length, double width, double skurlength, double skurwidth) {
+
+        String skurFlade = "<rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
+                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
+                + "        <rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"" + skurwidth + "\"\n"
+                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
+                + "        <rect x=\"" + (length - 30) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
+                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
+//        String skurStolper="<rect x=\"550\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"550\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
+
+        return skurFlade;
+
+    }
+
     private String pileOgTekst(double length, double width) {
-       String pileOgTekst = " <defs>\n"
+        String pileOgTekst = " <defs>\n"
                 + "    <marker id=\"beginArrow\" \n"
                 + "            markerWidth=\"18\" markerHeight=\"18\" \n"
                 + "            refX=\"0\" refY=\"9\" \n"
@@ -140,41 +162,40 @@ public class XXRendSvg {
                 + "            <text x=\"" + (length / 2 + 200) + "\" y=\"" + (width + 80) + "\"\n"
                 + "                  font-size=\"40px\"\n"
                 + "                  text-anchor=\"middle\">Width: " + (length) + "</text>\n"
-                + "\n"
+                + "</svg>\n"
+                + "</SVG>\n"
                 + "";
         return pileOgTekst;
     }
 
-    private String markerMellemSpær(double length, double width) {
-        String markerMellemSpær = " <defs>\n"
-                + "    <marker id=\"beginLine\" \n"
-                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
-                + "            refX=\"0\" refY=\"9\" \n"
-                + "            orient=\"auto\">\n"
-                + "        <path d=\"M0,9  L0,9\" style=\"fill: #000000;\" />\n"
-                + "        \n"
-                + "    </marker>\n"
-                + "    <marker id=\"endLine\" \n"
-                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
-                + "            refX=\"18\" refY=\"9\" \n"
-                + "            orient=\"auto\">\n"
-                + "        <path d=\"M0,0  L0,0\" style=\"fill: #000000;\" />\n"
-                + "    </marker>\n"
-                + "    </defs>\n"
-                + "\n"
-                + "            <!-- Horizontal line %-->\n"
-                + "            <line x1=\"0\"  y1=\"10\" x2=\"" + 55 + "\"   y2=\"10\" \n"
-                + "                style=\"stroke:#006600;\n"
-                + "                       marker-start: url(#beginLine);\n"
-                + "                       marker-end: url(#endLine);\"/>\n"
-                + "            <text x=\"" + (10) + "\" y=\"" + (width + 80) + "\"\n"
-                + "                  font-size=\"40px\"\n"
-                + "                  text-anchor=\"middle\">55</text>\n"
-                + "</svg>\n"
-                + "";
-        return markerMellemSpær;
-    }
-
+//    private String markerMellemSpær(double length, double width) {
+//        String markerMellemSpær = " <defs>\n"
+//                + "    <marker id=\"beginLine\" \n"
+//                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
+//                + "            refX=\"0\" refY=\"9\" \n"
+//                + "            orient=\"auto\">\n"
+//                + "        <path d=\"M0,9  L0,9\" style=\"fill: #000000;\" />\n"
+//                + "        \n"
+//                + "    </marker>\n"
+//                + "    <marker id=\"endLine\" \n"
+//                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
+//                + "            refX=\"18\" refY=\"9\" \n"
+//                + "            orient=\"auto\">\n"
+//                + "        <path d=\"M0,0  L0,0\" style=\"fill: #000000;\" />\n"
+//                + "    </marker>\n"
+//                + "    </defs>\n"
+//                + "\n"
+//                + "            <!-- Horizontal line %-->\n"
+//                + "            <line x1=\"0\"  y1=\"10\" x2=\"" + 55 + "\"   y2=\"10\" \n"
+//                + "                style=\"stroke:#006600;\n"
+//                + "                       marker-start: url(#beginLine);\n"
+//                + "                       marker-end: url(#endLine);\"/>\n"
+//                + "            <text x=\"" + (10) + "\" y=\"" + (width + 80) + "\"\n"
+//                + "                  font-size=\"40px\"\n"
+//                + "                  text-anchor=\"middle\">55</text>\n"
+//                + "</svg>\n"
+//                + "";
+//        return markerMellemSpær;
     public static String dobbelCarportMskur(double length, double width, double skurLength, double skurWidth) {
 
         return null;
@@ -184,7 +205,7 @@ public class XXRendSvg {
     public static void main(String[] args) throws NewException {
 
         XXRendSvg rsvg = new XXRendSvg();
-        System.out.println(rsvg.simpelCarport(480, 300));
+        System.out.println(rsvg.simpelCarport(480, 300, 210, 150));
 
     }
 

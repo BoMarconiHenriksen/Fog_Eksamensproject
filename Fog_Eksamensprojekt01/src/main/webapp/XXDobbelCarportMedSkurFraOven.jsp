@@ -112,6 +112,7 @@
         <line x1="56"x2="552" y1="30" y2="570" width="10"
               stroke-dasharray="10,10"
               style="stroke:#000000;   opacity: 0.6 "/>
+       
         </svg>
         Pile og tekst
         <defs>
@@ -149,7 +150,7 @@
           text-anchor="middle">Width: <%=780%></text>
     </svg>
 
-
+   
 
     </SVG> 
 

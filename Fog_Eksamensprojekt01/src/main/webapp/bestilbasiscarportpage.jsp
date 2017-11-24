@@ -171,20 +171,19 @@
             <br><br>
 
             <button type="submit" name="basisCarport" value="Submit">Tjek Pris </button>
+ <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
 
         </form>
+       
 
-        <form name="Checkout" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="checkoutFunktion">
 
-            <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
-
-        </form>
+        
         
         <p>
             
         </p>
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+
 
         <!--Hvis basisCarport er null printes der ikke noget på siden-->
         <%if (request.getAttribute("widthInput") == null) {

@@ -30,8 +30,8 @@ public class Calculator {
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
 
         double totalPriceSimpleCarport = 0;
-        double totalPriceBase = beregnBase(length, width);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
+        double totalPriceBase = beregnBase(length/100, width/100);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length/100);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
@@ -103,6 +103,15 @@ public class Calculator {
                 + 1 * length * brædt3Pris + width * plastmoTagpris;
         return totalPriceBase;
     }
+    
+//    private double beregnSkurEnkelt(double skurLength, double skurWidth) throws NewException{
+//        double ekstraStolpePris= 4*LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
+//        double løsHolterSkurGavl=4*skurLength*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
+//        double LøsHolterSkurSider=4*skurWidth*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
+//        double remmeSiderSkurdel= 2*skurWidth*LogicFacade.ge
+//        
+//    }
+    
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
@@ -116,8 +125,7 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(4.80, 3.00, 2.25));
-      
+        System.out.println(calc.calculateCarportSimple(480, 300, 225));
 
     }
 

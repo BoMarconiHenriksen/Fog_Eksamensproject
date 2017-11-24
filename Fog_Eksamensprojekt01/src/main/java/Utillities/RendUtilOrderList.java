@@ -14,6 +14,7 @@ public class RendUtilOrderList {
     public static String invoiceList(List<Ordre> ordreList) throws NewException {
 
         ordreList = LogicFacade.getOrderList();
+        
 
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
@@ -25,12 +26,12 @@ public class RendUtilOrderList {
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
             sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-            sb.append("<td>\n <input type=\"radio\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
+            sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
 
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"command\" name=InvoiceDetail\">See order</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail\">See order</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }

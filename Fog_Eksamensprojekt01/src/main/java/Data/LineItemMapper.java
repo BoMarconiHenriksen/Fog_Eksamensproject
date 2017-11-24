@@ -77,10 +77,9 @@ public class LineItemMapper {
             Materiale mat;
             StykLinje styk;
             Connection con = DBConnector.connection();
-            String sql = "select længde,baselength, dimension, lineitem.linjeliste_id, materialeliste.materialetype, linjeliste.beskrivelse,"
-                    + " materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste, lineitem, "
-                    + "materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id "
-                    + "and materialeliste.vareid=linjeliste.linjeliste_id;";
+            String sql = "select* from lineitem,linjeliste,materialeliste "
+                    + "where lineitem.linjeliste_id=linjeliste.linjeliste_id "
+                    + "and lineitem.vareid= materialeliste.vareid;";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
 

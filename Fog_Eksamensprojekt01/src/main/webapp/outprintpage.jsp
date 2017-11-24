@@ -23,14 +23,17 @@
 
         <div>
             <!-- Sætter attributerne i session-->
-            <p>Carportens samlede pris: ${carportTotalValg}</p><br>
-            <p>Caroportens ønskede Længde: ${lentghChosen}</p><br>
-            <p>Caroportens ønskede Bredde: ${widthChosen}</p><br>
-            <p>Caroportens ønskede Højde: ${heightChosen}</p><br>
+            <p>Carportens samlede pris: ${carportTotal}</p><br>
+            <p>Carportens ønskede Længde: ${lentghInput}</p><br>
+            <p>Carportens ønskede Bredde: ${widthInput}</p><br>
+            <p>Carportens ønskede Højde: ${heightInput}</p><br>
+            
 
         </div>
+
             
       <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+
 
     </body>
 
