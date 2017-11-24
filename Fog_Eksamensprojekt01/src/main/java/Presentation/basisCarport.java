@@ -36,6 +36,9 @@ public class basisCarport extends Command {
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
+         double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
+        double widthinputskur = Double.parseDouble(request.getParameter("widthchoiceskur"));
+        double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
 
         String skurellerej = request.getParameter("skur");
         String trevalg = request.getParameter("kundetrevalg");
@@ -49,15 +52,13 @@ public class basisCarport extends Command {
         String carportTotalDecimaled = df.format(carportTotal);
         request.setAttribute("carportTotal", carportTotalDecimaled);
 
-        session.setAttribute("carportTotalValg", carportTotalDecimaled);
+      
 
         request.setAttribute("lentghInput", lentghinput);
         request.setAttribute("widthInput", widthinput);
         request.setAttribute("heightInput", heightinput);
 
-        session.setAttribute("lentghChosen", lentghinput);
-        session.setAttribute("widthChosen", widthinput);
-        session.setAttribute("heightChosen", heightinput);
+       
 
         request.setAttribute("skurInput", skurellerej);
         request.setAttribute("trevalgInput", trevalg);
@@ -74,7 +75,7 @@ public class basisCarport extends Command {
 
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getOrderList().size();
-        Odetaljer od= new Odetaljer(or, lentghinput, widthinput, heightinput);
+        Odetaljer od= new Odetaljer(or, lentghinput, widthinput, heightinput, lentghinputskur,widthinputskur);
        LogicFacade.addOdetaljertoOdetaljeListe(or, od);
 
         //   List<Order> custOrderList = LogicFacade.getOrderList();
