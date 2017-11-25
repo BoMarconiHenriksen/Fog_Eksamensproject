@@ -20,8 +20,8 @@ public class XXRendSvg {
         sb.append(remme(length, width));
 //        sb.append(skur(length, width, skurlength*100, skurwidth*100));
 
-//        sb.append(ydreSpær(width, length));
-        for (int i = 0; i <= spærAntal; i++) {
+        sb.append(ydreSpær(width, length));
+        for (int i = 0; i < spærAntal; i++) {
 
             sb.append(spærX(width, i));
         }
@@ -59,14 +59,20 @@ public class XXRendSvg {
 
     }
 
-    private String ydreSpær(double length, double width) {
+    private String ydreSpær(double width, double length) {
         String ydreSpær = (" <rect x=\"0\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
-                + "        <rect x=\"" + (length - 4) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
+                + "        <rect x=\"" + (length-2.5 ) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>");
         return ydreSpær;
 
     }
+    
+//     <rect x="0" y="0" height="300" width="2.5"
+//          style="stroke:#000000; fill: #ffffff"/>
+//  
+//          <rect x="477" y="0" height="300" width="2.5"
+//          style="stroke:#000000; fill: #ffffff"/>
 
     private String remme(double length, double width) {
         String lægter = (" <rect x=\"0\" y=\"30\" height=\"2.5\" width=\"" + length + "\"\n"
