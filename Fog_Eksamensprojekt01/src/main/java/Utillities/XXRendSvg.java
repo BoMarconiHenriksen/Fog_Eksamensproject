@@ -152,7 +152,7 @@ public class XXRendSvg {
                 + "            <text x=\"140\" y=\"" + width / 2 + "\"\n"
                 + "                  font-size=\"30px\"\n"
                 + "                  text-anchor=\"middle\"\n"
-                + "                  style=\"writing-mode: tb;\">Width: " + width + "</text>\n"
+                + "                  style=\"writing-mode: tb;\">Bredde: " + width + "</text>\n"
                 + "            <!-- Horizontal line %-->\n"
                 + "            <line x1=\"200\"  y1=\"" + (width + 100) + "\" x2=\"" + (length + 200) + "\"   y2=\"" + (width + 100) + "\" \n"
                 + "                style=\"stroke:#006600;\n"
@@ -160,7 +160,7 @@ public class XXRendSvg {
                 + "                       marker-end: url(#endArrow);\"/>\n"
                 + "            <text x=\"" + (length / 2 + 200) + "\" y=\"" + (width + 80) + "\"\n"
                 + "                  font-size=\"30px\"\n"
-                + "                  text-anchor=\"middle\">Length: " + (length) + "</text>\n"
+                + "                  text-anchor=\"middle\">Længde: " + (length) + "</text>\n"
                 + "</svg>\n"
                 + "</SVG>\n"
                 + "";
