@@ -18,6 +18,7 @@ public class XXRendSvg {
         sb.append(setSvgCanvas(length, width));
         sb.append(rammen(length, width));
         sb.append(remme(length, width));
+//        sb.append(skur(length, width, skurlength*100, skurwidth*100));
 
 //        sb.append(ydreSpær(width, length));
         for (int i = 0; i <= spærAntal; i++) {
@@ -27,7 +28,7 @@ public class XXRendSvg {
 
         sb.append(stolper(length, width));
         sb.append(hulBånd(length, width));
-        sb.append(skur(length, width, skurlength, skurwidth));
+        
         sb.append(pileOgTekst(length, width));
 //        sb.append(markerMellemSpær(length, width));
         return sb.toString();
@@ -109,20 +110,18 @@ public class XXRendSvg {
 
     private String skur(double length, double width, double skurlength, double skurwidth) {
 
-        String skurFlade = "<rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
-                + "        <rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"" + skurwidth + "\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
-                + "        <rect x=\"" + (length - 30) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
-//        String skurStolper="<rect x=\"550\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"550\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
+        String skurFlade = "<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"" + (skurlength) + "\" width=\"" + (width-30) + "\"\n"
+                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n";
+//                + "        <rect x=\"" + (length - 0.30) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
+//                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
+        String skurStolper="<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"" + (length - skurwidth-0.3) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
 
         return skurFlade;
 

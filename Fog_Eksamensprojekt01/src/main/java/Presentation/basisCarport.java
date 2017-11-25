@@ -1,8 +1,8 @@
-
 package Presentation;
 
 import Business.Calculator;
 import Business.LogicFacade;
+import Business.SkurCalculator;
 import Domain.Ordre;
 import Domain.User;
 import Domain.Odetaljer;
@@ -25,6 +25,8 @@ public class basisCarport extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
+        String SePris = request.getParameter("basisCarport");
+        String CheckUd = request.getParameter("basisCarportCheckud");
 
         Ordre order = new Ordre(1);
 //        User user = new User();
@@ -32,11 +34,14 @@ public class basisCarport extends Command {
 
         int user_id = 1;
         order.setUser_id(user_id);
+        String ordre_status = "Ny Ordre";
+        request.setAttribute("userNr", user_id);
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
-         double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
+
+        double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
         double widthinputskur = Double.parseDouble(request.getParameter("widthchoiceskur"));
         double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
 
@@ -45,40 +50,60 @@ public class basisCarport extends Command {
         DecimalFormat df = new DecimalFormat("#0.00");
 
         Calculator calc = new Calculator();
-        double length = Double.parseDouble(request.getParameter("lentgchoice")) ;
-        double width = Double.parseDouble(request.getParameter("widthchoice")) ;
-        double height = Double.parseDouble(request.getParameter("heightchoice")) ;
-        double carportTotal = calc.calculateCarportSimple(length, width, height);
-        String carportTotalDecimaled = df.format(carportTotal);
-        request.setAttribute("carportTotal", carportTotalDecimaled);
 
-      
+        double carportTotaludenSkur = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
+        String carportTotalDecimaledudenSkur = df.format(carportTotaludenSkur);
+        request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
 
+        //Skuret 
+        //  if (lentghinputskur != 0){
+        SkurCalculator calcskur = new SkurCalculator();
+
+        double skurTotaludenCarport = calcskur.skurPrisBeregner(lentghinputskur, widthinputskur);
+
+        String carportTotalDecimaledmedSkur = df.format(carportTotaludenSkur + skurTotaludenCarport);
+        request.setAttribute("carportTotalmedSkur", carportTotalDecimaledmedSkur);
+
+        request.setAttribute("lentghInputSkuret", lentghinputskur);
+        request.setAttribute("widthInputSkuret", widthinputskur);
+        request.setAttribute("heightInputSkuret", heightputskur);
+        //   }
+
+//        session.setAttribute("carportTotalValg", carportTotalDecimaled);
         request.setAttribute("lentghInput", lentghinput);
         request.setAttribute("widthInput", widthinput);
         request.setAttribute("heightInput", heightinput);
 
-       
-
+//        session.setAttribute("lentghChosen", lentghinput);
+//        session.setAttribute("widthChosen", widthinput);
+//        session.setAttribute("heightChosen", heightinput);
         request.setAttribute("skurInput", skurellerej);
-        request.setAttribute("trevalgInput", trevalg);
+//        request.setAttribute("trevalgInput", trevalg);
 
-        //Laver timestamp af d.d.
-        LocalDate today = LocalDate.now();
-        //Kalder dateTimeFormatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //Sætter Stringen til d.d.
-        String formatDateTime = today.format(formatter);
+       
+        if (CheckUd != null) {
 
-        //Sætter datoen på ordren
-        order.setReciveddate(formatDateTime);
+            LocalDate today = LocalDate.now();
+            //Kalder dateTimeFormatter
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            //Sætter Stringen til d.d.
+            String formatDateTime = today.format(formatter);
 
-        LogicFacade.placeAnOrder(user_id, formatDateTime);
-        int or = LogicFacade.getOrderList().size();
-        Odetaljer od= new Odetaljer(or, lentghinput, widthinput, heightinput, lentghinputskur,widthinputskur);
-       LogicFacade.addOdetaljertoOdetaljeListe(or, od);
+            //Sætter datoen på ordren
+            order.setReciveddate(formatDateTime);
 
-        //   List<Order> custOrderList = LogicFacade.getOrderList();
-        return "outprintpage";
+            LogicFacade.placeAnOrder(user_id, formatDateTime);
+            int or = LogicFacade.getOrderList().size();
+            Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
+            LogicFacade.updatereOdetajlermedSkur(or, ods);
+
+            return "outprintpage";
+        }
+             if (SePris != null) {
+            return "bestilbasiscarportpage";
+      
+        } else {
+            return "index";
+        }
     }
 }

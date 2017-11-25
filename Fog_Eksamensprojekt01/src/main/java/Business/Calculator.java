@@ -86,13 +86,13 @@ public class Calculator {
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
         double plastmoTagpris = 0;
         double totalPriceBase = 0;
-        if (length == 3.00) {
+        if (length <= 3.00) {
 
             plastmoTagpris = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
-        } else if (length == 4.80) {
+        } else if (length <= 4.80) {
 
             plastmoTagpris = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
-        } else if (length == 6.00) {
+        } else if (length <= 6.00) {
 
             plastmoTagpris = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 

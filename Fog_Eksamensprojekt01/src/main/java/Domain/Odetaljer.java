@@ -5,66 +5,58 @@ package Domain;
  * @author Bo
  */
 public class Odetaljer {
-    
-   private int odetaljerId; 
-   private int ordreId;
-   private int vareId;
-   private int linjelisteId;
-   private String ordreStatus;
-   private double carportLength;
-   private double carportWidth;
-   private double carportHeight;
-   private double lengthRedskabsrum;
-   private double widthRedskabsrum;
-   private int tagType;
 
-    public Odetaljer(int odetaljerId, int ordreId, int vareId, int linjelisteId, String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType) {
+    private int odetaljerId;
+    private int ordre_id;
+    private int vareId;
+    private int linjelisteId;
+    private String ordre_status;
+    private double carport_length;
+    private double carport_width;
+    private double carport_height;
+    private double length_redskabsrum;
+    private double width_redskabsrum;
+    private int tagType;
+
+    public Odetaljer(int odetaljerId, int ordre_id, int vareId, int linjelisteId, String ordreStatus, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, int tagType) {
         this.odetaljerId = odetaljerId;
-        this.ordreId = ordreId;
+        this.ordre_id = ordre_id;
         this.vareId = vareId;
         this.linjelisteId = linjelisteId;
-        this.ordreStatus = ordreStatus;
-        this.carportLength = carportLength;
-        this.carportWidth = carportWidth;
-        this.carportHeight = carportHeight;
-        this.lengthRedskabsrum = lengthRedskabsrum;
-        this.widthRedskabsrum = widthRedskabsrum;
-        this.tagType = tagType;
-    }
-
-    public Odetaljer(int ordreId, double carportLength, double carportWidth, double carportHeight) {
-       this.ordreId = ordreId;
-        this.carportLength = carportLength;
-        this.carportWidth = carportWidth;
-        this.carportHeight = carportHeight;
-    }  
-    public Odetaljer(int ordreId, double carportLength, double carportWidth, double carportHeight,double lengthRedskabsrum,double widthRedskabsrum ) {
-       this.ordreId = ordreId;
-        this.carportLength = carportLength;
-        this.carportWidth = carportWidth;
-        this.carportHeight = carportHeight;
-            this.lengthRedskabsrum = lengthRedskabsrum;
-        this.widthRedskabsrum = widthRedskabsrum;
-    }
-
-    public Odetaljer(int odetaljerId, int ordreId, int vareId, int linjelisteId, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum,  int tagType) {
-       this.odetaljerId = odetaljerId;
-        this.ordreId = ordreId;
-        this.vareId = vareId;
-        this.linjelisteId = linjelisteId;
-        this.carportLength = carportLength;
-        this.carportWidth = carportWidth;
-        this.carportHeight = carportHeight;
-        this.lengthRedskabsrum = lengthRedskabsrum;
-//        this.widthRedskabsrum = widthRedskabsrum;
+        this.ordre_status = ordre_status;
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+        this.length_redskabsrum = length_redskabsrum;
+        this.width_redskabsrum = width_redskabsrum;
         this.tagType = tagType;
     }
 
     public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ordre_id = ordre_id;
+        this.ordre_status = ordre_status;
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+        this.length_redskabsrum = length_redskabsrum;
+        this.width_redskabsrum = width_redskabsrum;
     }
 
-   
+    public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height) {
+        this.ordre_id = ordre_id;
+        this.ordre_status = ordre_status;
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+    }
+
+    public Odetaljer(int ordre_id, double carport_length, double carport_width, double carport_height) {
+        this.ordre_id = ordre_id;
+
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+    }
 
     public int getOdetaljerId() {
         return odetaljerId;
@@ -75,11 +67,11 @@ public class Odetaljer {
     }
 
     public int getOrdreId() {
-        return ordreId;
+        return ordre_id;
     }
 
     public void setOrdreId(int ordreId) {
-        this.ordreId = ordreId;
+        this.ordre_id = ordre_id;
     }
 
     public int getVareId() {
@@ -99,51 +91,51 @@ public class Odetaljer {
     }
 
     public String getOrdreStatus() {
-        return ordreStatus;
+        return ordre_status;
     }
 
     public void setOrdreStatus(String ordreStatus) {
-        this.ordreStatus = ordreStatus;
+        this.ordre_status = ordre_status;
     }
 
     public double getCarportLength() {
-        return carportLength;
+        return carport_length;
     }
 
-    public void setCarportLength(double carportLength) {
-        this.carportLength = carportLength;
+    public void setCarportLength(double carport_length) {
+        this.carport_length = carport_length;
     }
 
     public double getCarportWidth() {
-        return carportWidth;
+        return carport_width;
     }
 
-    public void setCarportWidth(double carportWidth) {
-        this.carportWidth = carportWidth;
+    public void setCarportWidth(double carport_width) {
+        this.carport_width = carport_width;
     }
 
     public double getCarportHeight() {
-        return carportHeight;
+        return carport_height;
     }
 
-    public void setCarportHeight(double carportHeight) {
-        this.carportHeight = carportHeight;
+    public void setCarportHeight(double carport_height) {
+        this.carport_height = carport_height;
     }
 
     public double getLengthRedskabsrum() {
-        return lengthRedskabsrum;
+        return length_redskabsrum;
     }
 
-    public void setLengthRedskabsrum(double lengthRedskabsrum) {
-        this.lengthRedskabsrum = lengthRedskabsrum;
+    public void setLengthRedskabsrum(double length_Redskabsrum) {
+        this.length_redskabsrum = length_redskabsrum;
     }
 
     public double getWidthRedskabsrum() {
-        return widthRedskabsrum;
+        return width_redskabsrum;
     }
 
-    public void setWidthRedskabsrum(double widthRedskabsrum) {
-        this.widthRedskabsrum = widthRedskabsrum;
+    public void setWidthRedskabsrum(double width_redskabsrum) {
+        this.width_redskabsrum = width_redskabsrum;
     }
 
     public int getTagType() {
@@ -156,11 +148,7 @@ public class Odetaljer {
 
     @Override
     public String toString() {
-        return "Odetaljer{" + "odetaljerId=" + odetaljerId + ", ordreId=" + ordreId + ", vareId=" + vareId + ", linjelisteId=" + linjelisteId + ", ordreStatus=" + ordreStatus + ", carportLength=" + carportLength + ", carportWidth=" + carportWidth + ", carportHeight=" + carportHeight + ", lengthRedskabsrum=" + lengthRedskabsrum + ", widthRedskabsrum=" + widthRedskabsrum + ", tagType=" + tagType + '}';
+        return "Odetaljer{" + "odetaljerId=" + odetaljerId + ", ordreId=" + ordre_id + ", vareId=" + vareId + ", linjelisteId=" + linjelisteId + ", ordreStatus=" + ordre_status + ", carportLength=" + carport_length + ", carportWidth=" + carport_width + ", carportHeight=" + carport_height + ", lengthRedskabsrum=" + length_redskabsrum + ", widthRedskabsrum=" + width_redskabsrum + ", tagType=" + tagType + '}';
     }
-   
-   
-    
-    
-    
+
 }
