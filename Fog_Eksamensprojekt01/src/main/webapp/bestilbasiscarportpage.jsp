@@ -199,6 +199,7 @@
       <%--  <form name="Checkout" action="FrontController" method="POST">
             <input type="hidden" name="command" value="checkoutFunktion">
 
+
             <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
 
         </form>--%>
@@ -209,6 +210,8 @@
             tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
         </p>
         <%--   <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button> --%>
+
+
 
         <!--Hvis basisCarport er null printes der ikke noget på siden-->
         <%if (request.getAttribute("widthInput") == null) {

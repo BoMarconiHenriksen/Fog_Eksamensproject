@@ -10,7 +10,47 @@
 CREATE DATABASE `fog`;
 
 USE `fog`;
+drop table if exists `lineitem`;
+create table `lineitem`(
+    `linjeliste_id`int(11) ,
+    `vareid`int (20),
+  
+    primary key (linjeliste_id, vareid));
 
+insert into lineitem values
+(1,1),
+(2,1),
+(3,2),
+(4,2),
+(5,3),
+(6,4),
+(7,4),
+(8,5),
+(9,5),
+(10,5),
+(11,6),
+(12,7),
+(13,7),
+(14,7),
+(15,8),
+(16,9);
+
+insert into lineitem values
+(17,13),
+(18,14),
+(19,15),
+(20,16),
+(21,17),
+(22,18),
+(23,19),
+(24,20),
+(25,21),
+(26,22),
+(27,23),
+(28,24),
+(29,32);
+insert into lineitem values
+(30,33);
 
 
 -- Create userlist
