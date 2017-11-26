@@ -37,6 +37,7 @@
 
         <p>Dit bruger id: ${userNr}</p><br>
         <p>Dit Ordre id: ${KundensOID}</p><br>
+        <p>Din Ordre Status: Ordren er lige Bestilt.</p><br>
         <p>
 
         </p>

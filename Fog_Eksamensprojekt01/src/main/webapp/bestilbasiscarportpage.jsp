@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Carport uden skur</title>
+        <title>For Carporte</title>
 
         <script
             src="https://code.jquery.com/jquery-3.2.1.js"
@@ -29,9 +29,9 @@
 
     </head>
     <body>
-        <h1>Carport uden skur</h1>
+        <h1Bestilling af Carporte</h1>
 
-        <h2>Her kan indtastes input til en ønsket carport uden skur, og udskrives en pris på, hvad den vil koste.</h2>
+        <h2>Her kan indtastes input til en ønsket carport med eller uden skur...</h2>
 
         <form name="basisCarport" action="FrontController" method="POST">
             <input type="hidden" name="command" value="basisCarport">
