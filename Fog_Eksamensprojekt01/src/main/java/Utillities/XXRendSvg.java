@@ -25,7 +25,7 @@ public class XXRendSvg {
             sb.append(spærX(width, i, (int) Calculator.afstandMellemSpær(length)));
         }
 
-        sb.append(stolper(length, width));
+        sb.append(stolper(length, width, skurwidth));
         sb.append(skur(length, width, skurlength, skurwidth));
         sb.append(hulBånd(length, width));
         sb.append(pileOgTekst(length, width));
@@ -80,14 +80,14 @@ public class XXRendSvg {
         return lægter;
     }
 
-    private String stolper(double length, double width) {
-        String stolper = " <rect x=\""+(2*Calculator.afstandMellemSpær(length)-5)+"\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
+    private String stolper(double length, double width, double skurwidth) {
+        String stolper = " <rect x=\""+(1*Calculator.afstandMellemSpær(length)-5)+"\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
                 + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length))+"\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
                 + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length))+"\" y=\"" + (width - 35) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\""+(2*Calculator.afstandMellemSpær(length)-5)+"\" y=\"" + (width - 35) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(1*Calculator.afstandMellemSpær(length)-5)+"\" y=\"" + (width - 35) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
         return stolper;
     }
@@ -106,23 +106,23 @@ public class XXRendSvg {
 //"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
 
         return skurFlade;
-
     }
+   
 
     private String hulBånd(double length, double width) {
-        String hulbaand = " <line x1=\"53\"x2=\"" + (length - 30) + "\" y1=\"30\" y2=\"" + (width - 30) + "\" width=\"10\"\n"
+        String hulbaand = " <line x1=\""+(Calculator.afstandMellemSpær(length)-2)+"\"x2=\"" + (length - (Calculator.afstandMellemSpær(length))) + "\" y1=\"30\" y2=\"" + (width - 30) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\"56\"x2=\"" + (length - 30) + "\" y1=\"" + (width - 30) + "\" y2=\"30\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)+2)+"\"x2=\"" + (length - (Calculator.afstandMellemSpær(length))) + "\" y1=\"" + (width - 30) + "\" y2=\"30\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>  \n"
                 + "\n"
-                + "        <line x1=\"53\"x2=\"" + (length - 30) + "\" y1=\"" + (width - 30) + "\" y2=\"30\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)-2)+"\"x2=\"" + (length - (Calculator.afstandMellemSpær(length))) + "\" y1=\"" + (width - 30) + "\" y2=\"30\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\"56\"x2=\"" + (length - 30) + "\" y1=\"30\" y2=\"" + (width - 30) + "\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)+2)+"\"x2=\"" + (length - (Calculator.afstandMellemSpær(length))) + "\" y1=\"30\" y2=\"" + (width - 30) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "        </svg>";
