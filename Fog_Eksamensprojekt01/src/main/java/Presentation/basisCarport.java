@@ -95,6 +95,14 @@ public class basisCarport extends Command {
             int or = LogicFacade.getOrderList().size();
             Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
             LogicFacade.updatereOdetajlermedSkur(or, ods);
+            LogicFacade.getOrderByOrderId2(or);
+
+            request.setAttribute("length", (Double) ods.getCarportLength());
+            request.setAttribute("width", (Double) ods.getCarportWidth());
+            request.setAttribute("height", (Double) ods.getCarportHeight());
+            request.setAttribute("redskabsskur_length", (Double) ods.getLengthRedskabsrum());
+            request.setAttribute("redskabsskur_width", (Double) ods.getWidthRedskabsrum());
+            request.setAttribute("od", ods);
 
             request.setAttribute("KundensOID", or);
 
