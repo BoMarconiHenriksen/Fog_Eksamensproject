@@ -1,5 +1,6 @@
 package Utillities;
 
+import Business.Calculator;
 import Presentation.NewException;
 
 /**
@@ -13,27 +14,19 @@ public class XXRendSvg {
     public String simpelCarport(double length, double width, double skurlength, double skurwidth) {
 
         StringBuilder sb = new StringBuilder();
-       
-        
-        int spærAntalCirka = (int) Math.round(length / 55);
-        int restSpærAntal = (int)length%spærAntalCirka;
-        int rigtigSpærAntal=(int)length-restSpærAntal; 
-        double afstandMellemSpær = (((int) Math.round(length/ (spærAntalCirka)))-((int)length%spærAntalCirka)/(spærAntalCirka));
-        int spærAntal = (int) Math.round(length/ (afstandMellemSpær));
-    
+
         sb.append(setSvgCanvas(length, width));
         sb.append(rammen(length, width));
         sb.append(remme(length, width));
-        
 
         sb.append(ydreSpær(width, length));
-        for (int i = 0; i <= spærAntal; i++) {
+        for (int i = 0; i <= Calculator.antalSpær(length); i++) {
 
-            sb.append(spærX(width, i, (int) afstandMellemSpær));
+            sb.append(spærX(width, i, (int) Calculator.afstandMellemSpær(length)));
         }
 
         sb.append(stolper(length, width));
-//        sb.append(skur(length, width, skurlength, skurwidth));
+        sb.append(skur(length, width, skurlength, skurwidth));
         sb.append(hulBånd(length, width));
         sb.append(pileOgTekst(length, width));
 //        sb.append(markerMellemSpær(length, width));
@@ -68,18 +61,17 @@ public class XXRendSvg {
     private String ydreSpær(double width, double length) {
         String ydreSpær = (" <rect x=\"0\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
-                + "        <rect x=\"" + (length-2.5 ) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
+                + "        <rect x=\"" + (length - 2.5) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>");
         return ydreSpær;
 
     }
-    
+
 //     <rect x="0" y="0" height="300" width="2.5"
 //          style="stroke:#000000; fill: #ffffff"/>
 //  
 //          <rect x="477" y="0" height="300" width="2.5"
 //          style="stroke:#000000; fill: #ffffff"/>
-
     private String remme(double length, double width) {
         String lægter = (" <rect x=\"0\" y=\"30\" height=\"2.5\" width=\"" + length + "\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
@@ -89,20 +81,21 @@ public class XXRendSvg {
     }
 
     private String stolper(double length, double width) {
-        String stolper = " <rect x=\"105\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
+        String stolper = " <rect x=\""+(2*Calculator.afstandMellemSpær(length)-5)+"\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"" + (length - 55) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length))+"\" y=\"28\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"105\" y=\"" + (width - 30) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length))+"\" y=\"" + (width - 35) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"" + (length - 55) + "\" y=\"" + (width - 30) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(2*Calculator.afstandMellemSpær(length)-5)+"\" y=\"" + (width - 35) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
         return stolper;
     }
-  private String skur(double length, double width, double skurlength, double skurwidth) {
-     
-        String skurFlade = "     <rect x=\"" + (length-30 - skurwidth*100) + "\" y=\"30\" height=\"" + ((skurlength*100)) + "\" width=\"" + (skurwidth*100) + "\"\n" +
-"              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
+
+    private String skur(double length, double width, double skurlength, double skurwidth) {
+
+        String skurFlade = "     <rect x=\"" + (length - 30 - skurwidth * 100) + "\" y=\"30\" height=\"" + ((skurlength * 100)) + "\" width=\"" + (skurwidth * 100) + "\"\n"
+                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
 //        String skurStolper="<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"9.7\" width=\"9.7\"\n" +
 //"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
 //"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
@@ -136,7 +129,6 @@ public class XXRendSvg {
         return hulbaand;
     }
 
-  
     private String pileOgTekst(double length, double width) {
         String pileOgTekst = " <defs>\n"
                 + "    <marker id=\"beginArrow\" \n"
@@ -205,20 +197,18 @@ public class XXRendSvg {
 //                + "</svg>\n"
 //                + "";
 //        return markerMellemSpær;
-    public static String dobbelCarportMskur(double length, double width, double skurLength, double skurWidth) {
 
-        return null;
 
-    }
+
 
     public static void main(String[] args) throws NewException {
-int length=600;
+        int length = 600;
         XXRendSvg rsvg = new XXRendSvg();
-         int spærAntalCirka = (int) Math.round(length / 55);
-        int restSpærAntal = (int)length%spærAntalCirka;
-        int rigtigSpærAntal=(int)length-restSpærAntal; 
-        double afstandMellemSpær = (((int) Math.round(length/ (spærAntalCirka)))-((int)length%spærAntalCirka)/(spærAntalCirka));
-        int spærAntal = (int) Math.round(length/ (afstandMellemSpær));
+        int spærAntalCirka = (int) Math.round(length / 55);
+        int restSpærAntal = (int) length % spærAntalCirka;
+        int rigtigSpærAntal = (int) length - restSpærAntal;
+        double afstandMellemSpær = (((int) Math.round(length / (spærAntalCirka))) - ((int) length % spærAntalCirka) / (spærAntalCirka));
+        int spærAntal = (int) Math.round(length / (afstandMellemSpær));
         System.out.println(afstandMellemSpær);
 //        System.out.println(rsvg.simpelCarport(480, 300, 210, 150));
 

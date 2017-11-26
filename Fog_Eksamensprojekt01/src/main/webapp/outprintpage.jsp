@@ -86,8 +86,7 @@
     double skurWidth = (Double) request.getAttribute("redskabsskur_width")/100;
     DecimalFormat df = new DecimalFormat("#0.00");
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-
-    out.println("<p>" + df.format(pris) + "</p>");%>
+;%>
 <br> <br><div>
 
     <%

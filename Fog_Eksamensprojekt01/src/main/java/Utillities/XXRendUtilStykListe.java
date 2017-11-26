@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class XXRendUtilStykListe {
 
- 
-
     public static String getStykListeBaseSimpel(double length, double width) throws NewException {
         List<LineItem> lim;
         lim = LogicFacade.getLineItem();
@@ -29,28 +27,28 @@ public class XXRendUtilStykListe {
 
         sb.append("<tr><th>Træ</th></tr>\n");
         sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width  + "</td>");
+        sb.append("<td>" + width + "</td>");
         sb.append("<td>" + lim.get(0).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(0).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(1).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length  + "</td>");
+        sb.append("<td>" + length + "</td>");
         sb.append("<td>" + lim.get(1).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(1).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width  + "</td>");
+        sb.append("<td>" + width + "</td>");
         sb.append("<td>" + lim.get(2).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(2).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length  + "</td>");
+        sb.append("<td>" + length + "</td>");
         sb.append("<td>" + lim.get(3).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(3).getLin().getBeskrivelse() + "</td>");
@@ -62,14 +60,9 @@ public class XXRendUtilStykListe {
         sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(7).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
-//          sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
-//        sb.append("<td>" + width* 100 + "</td>");
-//        sb.append("<td>" + lim.get(8).getLin().getAntal() + "</td>");
-//        sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
-//        sb.append("<td>" + lim.get(8).getLin().getBeskrivelse() + "</td>");
-//        sb.append("</tr>");
+
         sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length  + "</td>");
+        sb.append("<td>" + length + "</td>");
         sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
         sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(9).getLin().getBeskrivelse() + "</td>");
@@ -83,49 +76,20 @@ public class XXRendUtilStykListe {
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(6).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length  + "</td>");
+        sb.append("<td>" + length + "</td>");
         sb.append("<td>" + lim.get(12).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(6).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(12).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(6).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width+ "</td>");
+        sb.append("<td>" + width + "</td>");
         sb.append("<td>" + lim.get(13).getLin().getAntal() + "</td>");
         sb.append("<td>" + lim.get(6).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(13).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
-        sb.append("<br><tr><th>Tag</th></tr>\n");
-        String plastmoTag = null;
-        String plastmoTagEnhed = null;
-
-        if (length <= 300) {
-
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(); //300 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(9).getEnhed();
-        } else if (length <= 480) {
-
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(); //480 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(33).getEnhed();
-        } else if (length <= 600) {
-
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-        }
-        
-        else if (length > 600) {
-
-              plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// skal ændres så der kommer 2 tagplader istedet             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-        }
-
-        sb.append("<tr><td>" + plastmoTag + "</td>");
-        sb.append("<td>" + length  + "</td>");
-        sb.append("<td>" + lim.get(14).getLin().getAntal() + "</td>");
-        sb.append("<td>" + plastmoTagEnhed + "</td>");
-        sb.append("<td>" + lim.get(14).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
+        stykListeFladtTag(sb, length, width, lim);
 
         sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
         sb.append("<tr><td>" + lim.get(12).getMat().getMaterialenavn() + "</td>");
@@ -189,6 +153,40 @@ public class XXRendUtilStykListe {
         return sb.toString();
 
     }
-    
-    
+
+    private static void stykListeFladtTag(StringBuilder sb, double length, double width, List<LineItem> lim) throws NewException {
+        sb.append("<br><tr><th>Tag</th></tr>\n");
+        String plastmoTag = null;
+        String plastmoTagEnhed = null;
+        
+        if (length <= 300) {
+            
+            plastmoTag = LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(); //300 cm
+            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(9).getEnhed();
+        } else if (length <= 480) {
+            
+            plastmoTag = LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(); //480 cm
+            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(33).getEnhed();
+        } else if (length <= 600) {
+            
+            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
+            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+        } else if (length > 600) {
+            
+            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// skal ændres så der kommer 2 tagplader istedet             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+        }
+        
+        sb.append("<tr><td>" + plastmoTag + "</td>");
+        sb.append("<td>" + length + "</td>");
+        if (width % 100>0 && width%100<50) {
+            sb.append("<td>" + ((int) Math.round(width / 100) + 1) + "</td>");
+        } else {
+            sb.append("<td>" + ((int) Math.round(width / 100)) + "</td>");
+        }
+        sb.append("<td>" + plastmoTagEnhed + "</td>");
+        sb.append("<td>" + lim.get(14).getLin().getBeskrivelse() + "</td>");
+        sb.append("</tr>");
+    }
+
 }
