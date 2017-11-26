@@ -67,6 +67,10 @@ public class LogicFacade {
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
     }
+      public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+       throws NewException {
+        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
+    }
     
     
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException{

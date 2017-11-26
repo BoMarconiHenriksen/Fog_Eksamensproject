@@ -13,21 +13,28 @@ public class XXRendSvg {
     public String simpelCarport(double length, double width, double skurlength, double skurwidth) {
 
         StringBuilder sb = new StringBuilder();
-        int spærAntal = (int) Math.round(length / 55);
-
+       
+        
+        int spærAntalCirka = (int) Math.round(length / 55);
+        int restSpærAntal = (int)length%spærAntalCirka;
+        int rigtigSpærAntal=(int)length-restSpærAntal; 
+        double afstandMellemSpær = (((int) Math.round(length/ (spærAntalCirka)))-((int)length%spærAntalCirka)/(spærAntalCirka));
+        int spærAntal = (int) Math.round(length/ (afstandMellemSpær));
+    
         sb.append(setSvgCanvas(length, width));
         sb.append(rammen(length, width));
         sb.append(remme(length, width));
+        
 
-//        sb.append(ydreSpær(width, length));
+        sb.append(ydreSpær(width, length));
         for (int i = 0; i <= spærAntal; i++) {
 
-            sb.append(spærX(width, i));
+            sb.append(spærX(width, i, (int) afstandMellemSpær));
         }
 
         sb.append(stolper(length, width));
+//        sb.append(skur(length, width, skurlength, skurwidth));
         sb.append(hulBånd(length, width));
-        sb.append(skur(length, width, skurlength, skurwidth));
         sb.append(pileOgTekst(length, width));
 //        sb.append(markerMellemSpær(length, width));
         return sb.toString();
@@ -45,8 +52,8 @@ public class XXRendSvg {
         return sb.toString();
     }
 
-    private String spærX(double width, double posX) {
-        String spær = " <rect x=\"" + (posX) * 55 + "\" y=\"0\" height=\""
+    private String spærX(double width, double posX, int afstandMellemSpær) {
+        String spær = " <rect x=\"" + (posX) * afstandMellemSpær + "\" y=\"0\" height=\""
                 + width + "\" width=\"2.5\"\n  style=\"stroke:#000000; fill: #ffffff\"/>";
         return spær;
     }
@@ -58,14 +65,20 @@ public class XXRendSvg {
 
     }
 
-    private String ydreSpær(double length, double width) {
+    private String ydreSpær(double width, double length) {
         String ydreSpær = (" <rect x=\"0\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
-                + "        <rect x=\"" + (length - 4) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
+                + "        <rect x=\"" + (length-2.5 ) + "\" y=\"0\" height=\"" + width + "\" width=\"2.5\"\n"
                 + "              style=\"stroke:#000000; fill: #ffffff\"/>");
         return ydreSpær;
 
     }
+    
+//     <rect x="0" y="0" height="300" width="2.5"
+//          style="stroke:#000000; fill: #ffffff"/>
+//  
+//          <rect x="477" y="0" height="300" width="2.5"
+//          style="stroke:#000000; fill: #ffffff"/>
 
     private String remme(double length, double width) {
         String lægter = (" <rect x=\"0\" y=\"30\" height=\"2.5\" width=\"" + length + "\"\n"
@@ -85,6 +98,22 @@ public class XXRendSvg {
                 + "        <rect x=\"" + (length - 55) + "\" y=\"" + (width - 30) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
         return stolper;
+    }
+  private String skur(double length, double width, double skurlength, double skurwidth) {
+     
+        String skurFlade = "     <rect x=\"" + (length-30 - skurwidth*100) + "\" y=\"30\" height=\"" + ((skurlength*100)) + "\" width=\"" + (skurwidth*100) + "\"\n" +
+"              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
+//        String skurStolper="<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"" + (length - skurwidth-0.3) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+//"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
+
+        return skurFlade;
+
     }
 
     private String hulBånd(double length, double width) {
@@ -107,27 +136,7 @@ public class XXRendSvg {
         return hulbaand;
     }
 
-    private String skur(double length, double width, double skurlength, double skurwidth) {
-
-        String skurFlade = "<rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
-                + "        <rect x=\"" + (length - 30 - skurwidth) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"" + skurwidth + "\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>\n"
-                + "        <rect x=\"" + (length - 30) + "\" y=\"30\" height=\"" + skurlength + "\" width=\"2.5\"\n"
-                + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
-//        String skurStolper="<rect x=\"550\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"550\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
-
-        return skurFlade;
-
-    }
-
+  
     private String pileOgTekst(double length, double width) {
         String pileOgTekst = " <defs>\n"
                 + "    <marker id=\"beginArrow\" \n"
@@ -151,17 +160,17 @@ public class XXRendSvg {
                 + "                       marker-start: url(#beginArrow);\n"
                 + "                       marker-end: url(#endArrow);\"/>\n"
                 + "            <text x=\"140\" y=\"" + width / 2 + "\"\n"
-                + "                  font-size=\"40px\"\n"
+                + "                  font-size=\"30px\"\n"
                 + "                  text-anchor=\"middle\"\n"
-                + "                  style=\"writing-mode: tb;\">Height:" + width + "</text>\n"
+                + "                  style=\"writing-mode: tb;\">Bredde: " + width + "</text>\n"
                 + "            <!-- Horizontal line %-->\n"
                 + "            <line x1=\"200\"  y1=\"" + (width + 100) + "\" x2=\"" + (length + 200) + "\"   y2=\"" + (width + 100) + "\" \n"
                 + "                style=\"stroke:#006600;\n"
                 + "                       marker-start: url(#beginArrow);\n"
                 + "                       marker-end: url(#endArrow);\"/>\n"
                 + "            <text x=\"" + (length / 2 + 200) + "\" y=\"" + (width + 80) + "\"\n"
-                + "                  font-size=\"40px\"\n"
-                + "                  text-anchor=\"middle\">Width: " + (length) + "</text>\n"
+                + "                  font-size=\"30px\"\n"
+                + "                  text-anchor=\"middle\">Længde: " + (length) + "</text>\n"
                 + "</svg>\n"
                 + "</SVG>\n"
                 + "";
@@ -203,9 +212,15 @@ public class XXRendSvg {
     }
 
     public static void main(String[] args) throws NewException {
-
+int length=600;
         XXRendSvg rsvg = new XXRendSvg();
-        System.out.println(rsvg.simpelCarport(480, 300, 210, 150));
+         int spærAntalCirka = (int) Math.round(length / 55);
+        int restSpærAntal = (int)length%spærAntalCirka;
+        int rigtigSpærAntal=(int)length-restSpærAntal; 
+        double afstandMellemSpær = (((int) Math.round(length/ (spærAntalCirka)))-((int)length%spærAntalCirka)/(spærAntalCirka));
+        int spærAntal = (int) Math.round(length/ (afstandMellemSpær));
+        System.out.println(afstandMellemSpær);
+//        System.out.println(rsvg.simpelCarport(480, 300, 210, 150));
 
     }
 

@@ -2,10 +2,12 @@ package Data;
 
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.StykLinje;
 import Domain.User;
 import Presentation.NewException;
+import com.mysql.cj.mysqlx.protobuf.MysqlxCrud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +25,6 @@ public class LineItemMapper {
 
     public static void addOrdertoOrderList(Ordre or) throws NewException {
 
-
         try {
 
             Connection conn = DBConnector.connection();
@@ -35,22 +36,70 @@ public class LineItemMapper {
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
 
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+
+    public static void AddOdetailstoOrderudenSkur(Odetaljer od) throws NewException {
+
+        try {
+
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO odetaljer( ordre_status, carport_length, carport_width, carport_height) VALUES ( ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, od.getOrdreStatus());
+            ps.setDouble(2, od.getCarportLength());
+            ps.setDouble(3, od.getCarportWidth());
+            ps.setDouble(4, od.getCarportHeight());
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            od.setOrdreId(id);
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
         }
 
     }
-    
 
-    public static LineItem updateVareId(int linjeliste_id, int vareid, double msr) throws NewException{
-        StykLinje styl = null; 
-        Materiale mat = null;
-         try {
+    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods) throws NewException {
+
+        try {
 
             Connection con = DBConnector.connection();
             String SQL;
-            SQL = "update lineitem, linjeliste set vareid=?, baselength=? where lineitem.linjeliste_id="+linjeliste_id;
+            SQL = "INSERT INTO odetaljer( ordre_id, ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            
+            ps.setInt(1, ordre_id);
+            ps.setString(2, ods.getOrdreStatus());
+            ps.setDouble(3, ods.getCarportLength());
+            ps.setDouble(4, ods.getCarportWidth());
+            ps.setDouble(5, ods.getCarportHeight());
+            ps.setDouble(6, ods.getLengthRedskabsrum());
+            ps.setDouble(7, ods.getWidthRedskabsrum());
+            ps.executeUpdate();
+         
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+
+    public static LineItem updateVareId(int linjeliste_id, int vareid, double msr) throws NewException {
+        StykLinje styl = null;
+        Materiale mat = null;
+        try {
+
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "update lineitem, linjeliste set vareid=?, baselength=? where lineitem.linjeliste_id=" + linjeliste_id;
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, vareid);
             ps.setDouble(2, msr);
@@ -63,12 +112,7 @@ public class LineItemMapper {
 
     }
 
-   
-    
-
-   
-
-   public static List<LineItem> getLineItems() throws NewException {
+    public static List<LineItem> getLineItems() throws NewException {
 
         List<LineItem> lis = new ArrayList<>();
         try {
@@ -77,9 +121,10 @@ public class LineItemMapper {
             Materiale mat;
             StykLinje styk;
             Connection con = DBConnector.connection();
-            String sql = "select* from lineitem,linjeliste,materialeliste "
-                    + "where lineitem.linjeliste_id=linjeliste.linjeliste_id "
-                    + "and lineitem.vareid= materialeliste.vareid;";
+            String sql = "select længde,baselength, dimension, lineitem.linjeliste_id, materialeliste.materialetype, linjeliste.beskrivelse,"
+                    + " materialeliste.materialenavn,enhed, enhedspris, antal from linjeliste, lineitem, "
+                    + "materialeliste where linjeliste.linjeliste_id=lineitem.linjeliste_id "
+                    + "and materialeliste.vareid=linjeliste.linjeliste_id;";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
 
@@ -94,7 +139,6 @@ public class LineItemMapper {
                 String dimension = rs.getString("dimension");
                 double baseLength = rs.getDouble("baselength");
 
-
                 int linjelisteid = rs.getInt("linjeliste_id");
 
                 int antal = rs.getInt("antal");
@@ -102,9 +146,9 @@ public class LineItemMapper {
                 if (id != lastId) {
                     mat = new Materiale(materialetype, materialenavn, enhedspris, enhed, msr);
 
-                    styk = new StykLinje( materialetype, dimension, baseLength, antal, beskrivelse);
-                   li= new LineItem(mat, styk);
-                   lis.add(li);
+                    styk = new StykLinje(materialetype, dimension, baseLength, antal, beskrivelse);
+                    li = new LineItem(mat, styk);
+                    lis.add(li);
 
                 }
             }
@@ -116,7 +160,6 @@ public class LineItemMapper {
     }
 
     public static void main(String[] args) throws NewException {
-    
-       
+
     }
 }

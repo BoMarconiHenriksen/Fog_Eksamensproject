@@ -36,8 +36,8 @@ public class SkurCalculator {
         double VinkelBeslagSkur = mat.getMaterialeByVarenummer(25).getEnhedspris();
         double dørTilbehørPris = LægteTilZ + StaldørsGreb + THængselSkur;
         // Her lægges alle skurdelene sammen 
-        double totalPrisSkur = 12 * skurLængde * LøsholterSkurSider + 4 * skurBredde * LøsholterSkurGavl
-                + 4 * stolpePris1 + ((2 * skurLængde + 2 * skurBredde) * 10) * BrædtSkurBeklædning
+        double totalPrisSkur = 12 * skurLængde/100 * LøsholterSkurSider + 4 * skurBredde/100 * LøsholterSkurGavl
+                + 4 * stolpePris1 + ((2 * skurLængde/100 + 2 * skurBredde/100) * 10) * BrædtSkurBeklædning
                 + 2 * SkruerYdersteBeklædning + 2 * SkruerIndersteBeklædning + dørTilbehørPris + tilEkstraStolper;
         
        
@@ -51,7 +51,7 @@ public class SkurCalculator {
         SkurCalculator calc = new SkurCalculator();
          LogicFacade mat = new LogicFacade();
 
-        System.out.println(calc.skurPrisBeregner(3.20, 2.20));
+        System.out.println(calc.skurPrisBeregner(320, 220));
         System.out.println(mat.getMaterialeByVarenummer(3).getMaterialenavn());
 
     }

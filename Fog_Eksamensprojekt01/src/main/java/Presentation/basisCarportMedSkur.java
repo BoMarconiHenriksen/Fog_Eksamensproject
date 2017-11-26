@@ -30,7 +30,7 @@ public class basisCarportMedSkur extends Command {
 
         HttpSession session = request.getSession();
 
-        String checkprice = request.getParameter("basisCarportmedSkur");
+//        String checkprice = request.getParameter("basisCarportmedSkur");
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
@@ -77,20 +77,19 @@ public class basisCarportMedSkur extends Command {
         //Her er starten på en stykliste
         List<LineItem> stykLinjeListe = LogicFacade.getLineItem();
         XXRendUtilStykListe rusl = new XXRendUtilStykListe();
-        String tjavs = rusl.getStykListeBaseSimpel( length, width);
-        request.setAttribute("tjavs", tjavs);
+     
+     
+//        if (checkprice != null) {
+//            return "basiscarportmedskurpage";
+//        }
 
-        if (checkprice != null) {
+//        if (checkprice == null) {
+//            return "outprintpage";
+//
+//        } else {
+
             return "basiscarportmedskurpage";
         }
 
-        if (checkprice == null) {
-            return "outprintpage";
-
-        } else {
-
-            return null;
-        }
-
     }
-}
+//}
