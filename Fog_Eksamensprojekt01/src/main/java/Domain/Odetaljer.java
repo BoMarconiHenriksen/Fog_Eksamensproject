@@ -52,11 +52,21 @@ public class Odetaljer {
 
     public Odetaljer(int ordre_id, double carport_length, double carport_width, double carport_height) {
         this.ordre_id = ordre_id;
-
         this.carport_length = carport_length;
         this.carport_width = carport_width;
         this.carport_height = carport_height;
     }
+    
+    
+        public Odetaljer(String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum) {
+        this.ordre_status = ordre_status;
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+        this.length_redskabsrum = length_redskabsrum;
+        this.width_redskabsrum = width_redskabsrum;
+    }
+    
 
     public int getOdetaljerId() {
         return odetaljerId;

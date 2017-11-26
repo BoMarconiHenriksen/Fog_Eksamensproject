@@ -27,6 +27,7 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
+        String GemDesign = request.getParameter("CarportGemDesign");
 
         Ordre order = new Ordre(1);
 //        User user = new User();
@@ -34,7 +35,7 @@ public class basisCarport extends Command {
 
         int user_id = 1;
         order.setUser_id(user_id);
-        String ordre_status = "Ny Ordre";
+        
         request.setAttribute("userNr", user_id);
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
@@ -81,6 +82,8 @@ public class basisCarport extends Command {
 //        request.setAttribute("trevalgInput", trevalg);
 
         if (CheckUd != null) {
+            
+            String ordre_status = "Ny Ordre";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter
@@ -108,6 +111,18 @@ public class basisCarport extends Command {
 
             return "outprintpage";
         }
+
+        if (GemDesign != null) {
+
+            String ordre_status = "Ordren er gemt i din Kurv.";
+
+            Odetaljer OdG = new Odetaljer(ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);        
+            LogicFacade.saveOdetajlertoDB(user_id, OdG);
+
+            return "index";
+
+        }
+
         if (SePris != null) {
             return "bestilbasiscarportpage";
 
