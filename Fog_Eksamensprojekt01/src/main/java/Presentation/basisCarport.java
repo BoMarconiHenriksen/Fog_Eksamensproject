@@ -80,7 +80,6 @@ public class basisCarport extends Command {
         request.setAttribute("skurInput", skurellerej);
 //        request.setAttribute("trevalgInput", trevalg);
 
-       
         if (CheckUd != null) {
 
             LocalDate today = LocalDate.now();
@@ -97,11 +96,13 @@ public class basisCarport extends Command {
             Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
             LogicFacade.updatereOdetajlermedSkur(or, ods);
 
+            request.setAttribute("KundensOID", or);
+
             return "outprintpage";
         }
-             if (SePris != null) {
+        if (SePris != null) {
             return "bestilbasiscarportpage";
-      
+
         } else {
             return "index";
         }
