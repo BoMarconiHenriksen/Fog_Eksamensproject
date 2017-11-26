@@ -31,7 +31,7 @@
        </p>
         <br><br>
           <%XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(600, 300); %>
+        String carportTegning = svag.simpelCarport(lentgh, width, skurlength, skurwidth); %>
        
           <p>
        <%=carportTegning%>

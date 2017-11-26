@@ -4,6 +4,11 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.XXRendSvg"%>
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="Utillities.XXRendUtilStykListe"%>
+<%@page import="Business.SkurCalculator"%>
+<%@page import="Business.Calculator"%>
 <%@page import="Domain.StykLinje"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Domain.User"%>
@@ -68,6 +73,31 @@
                      }%>
 
         </div>
+                     
+                     <div>
+                         <%Calculator calc = new Calculator();
+    SkurCalculator scalc = new SkurCalculator();
+
+    XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+    double length = (Double) request.getAttribute("length");
+    double width = (Double) request.getAttribute("width");
+    double heigth = (Double) request.getAttribute("height");
+    double skurlength = (Double) request.getAttribute("redskabsskur_length")/100;
+    double skurWidth = (Double) request.getAttribute("redskabsskur_width")/100;
+    DecimalFormat df = new DecimalFormat("#0.00");
+    double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
+
+    out.println("<p>" + df.format(pris) + "</p>");%>
+<br> <br><div>
+
+    <%
+        XXRendSvg svag = new XXRendSvg();
+
+        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+
+        out.println("<a>" + carportTegning + "</a>");
+    %>  
+                     </div>
 
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
