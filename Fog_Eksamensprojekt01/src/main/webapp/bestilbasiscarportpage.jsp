@@ -5,6 +5,11 @@
 --%>
 
 
+<%@page import="Utillities.XXRendSvg"%>
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="Utillities.XXRendUtilStykListe"%>
+<%@page import="Business.SkurCalculator"%>
+<%@page import="Business.Calculator"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
 <%@page import="Utillities.RendUtilCustomerPresentation"%>
@@ -107,9 +112,9 @@
             </table>
 
         </div>
-        
+
         <p>
-            
+
         </p>
 
         <!--Her starter vores hidden skur-->
@@ -192,6 +197,8 @@
 
         </div>
 
+
+
         <br><br>
 
         <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
@@ -243,5 +250,28 @@
 
         }%>
 
-</body>
-</html>
+    <div>
+        <%Calculator calc = new Calculator();
+            SkurCalculator scalc = new SkurCalculator();
+
+            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+            double length = (Double) request.getAttribute("lentghInput");
+            double width = (Double) request.getAttribute("widthInput");
+            double heigth = (Double) request.getAttribute("heightInput");
+            double skurlength = (Double) request.getAttribute("lentghInputSkuret") / 100;
+            double skurWidth = (Double) request.getAttribute("widthInputSkuret") / 100;
+            DecimalFormat df = new DecimalFormat("#0.00");
+                             double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));%>
+        <br> <br><div>
+
+            <%
+                XXRendSvg svag = new XXRendSvg();
+
+                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+
+                out.println("<a>" + carportTegning + "</a>");
+            %>  
+        </div>
+
+        </body>
+        </html>

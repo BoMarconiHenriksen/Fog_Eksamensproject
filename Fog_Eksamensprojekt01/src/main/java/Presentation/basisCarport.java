@@ -65,15 +65,15 @@ public class basisCarport extends Command {
         String carportTotalDecimaledmedSkur = df.format(carportTotaludenSkur + skurTotaludenCarport);
         request.setAttribute("carportTotalmedSkur", carportTotalDecimaledmedSkur);
 
-        request.setAttribute("lentghInputSkuret", lentghinputskur);
-        request.setAttribute("widthInputSkuret", widthinputskur);
-        request.setAttribute("heightInputSkuret", heightputskur);
+        request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
+        request.setAttribute("widthInputSkuret", (Double) widthinputskur);
+        request.setAttribute("heightInputSkuret", (Double) heightputskur);
         //   }
 
 //        session.setAttribute("carportTotalValg", carportTotalDecimaled);
-        request.setAttribute("lentghInput", lentghinput);
-        request.setAttribute("widthInput", widthinput);
-        request.setAttribute("heightInput", heightinput);
+        request.setAttribute("lentghInput", (Double) lentghinput);
+        request.setAttribute("widthInput", (Double) widthinput);
+        request.setAttribute("heightInput", (Double) heightinput);
 
 //        session.setAttribute("lentghChosen", lentghinput);
 //        session.setAttribute("widthChosen", widthinput);
