@@ -27,7 +27,7 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
-
+int count;
         Ordre order = new Ordre(1);
 //        User user = new User();
 //        session.getAttribute("user");
@@ -53,6 +53,8 @@ public class basisCarport extends Command {
         //får at vide at skurlængden er rettet til
         
         if (lentghinputskur>widthinput-30){
+            count=1;
+            
             String ditSkurErForLangt = "Det valgte redskabsrum er for langt i forhold til carporten."
                     + "Vi har sat længden af Deres redskabsrum til at være 30 cm mindre end den valgte carport."
                     + "hvis De ønsker en speciel carport bedes De venligst kontakte os på tlf nr. xxxxxx";
@@ -60,8 +62,11 @@ public class basisCarport extends Command {
             lentghinputskur=widthinput-30;
         
         }
+        else{
+            count=0;
+        }
         
-        
+        request.setAttribute("count", count);
         Calculator calc = new Calculator();
 
         double carportTotaludenSkur = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
