@@ -53,7 +53,7 @@
 
 
 
-    <%String styk = rusl.getStykListeBaseSimpel(length, width);
+    <%String styk = rusl.getStykListeBaseSimpel(length, width,skurlength, skurWidth);
     out.println("<a>" + styk + "</a>");%>
 
 
