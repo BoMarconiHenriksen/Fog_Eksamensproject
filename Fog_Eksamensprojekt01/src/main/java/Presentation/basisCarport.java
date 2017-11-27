@@ -27,14 +27,19 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
+
+        String GemDesign = request.getParameter("CarportGemDesign");
+
+
 int count;
+
         Ordre order = new Ordre(1);
 //        User user = new User();
 //        session.getAttribute("user");
 
         int user_id = 1;
         order.setUser_id(user_id);
-        String ordre_status = "Ny Ordre";
+        
         request.setAttribute("userNr", user_id);
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
@@ -82,15 +87,15 @@ int count;
         String carportTotalDecimaledmedSkur = df.format(carportTotaludenSkur + skurTotaludenCarport);
         request.setAttribute("carportTotalmedSkur", carportTotalDecimaledmedSkur);
 
-        request.setAttribute("lentghInputSkuret", lentghinputskur);
-        request.setAttribute("widthInputSkuret", widthinputskur);
-        request.setAttribute("heightInputSkuret", heightputskur);
+        request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
+        request.setAttribute("widthInputSkuret", (Double) widthinputskur);
+        request.setAttribute("heightInputSkuret", (Double) heightputskur);
         //   }
 
 //        session.setAttribute("carportTotalValg", carportTotalDecimaled);
-        request.setAttribute("lentghInput", lentghinput);
-        request.setAttribute("widthInput", widthinput);
-        request.setAttribute("heightInput", heightinput);
+        request.setAttribute("lentghInput", (Double) lentghinput);
+        request.setAttribute("widthInput", (Double) widthinput);
+        request.setAttribute("heightInput", (Double) heightinput);
 
 //        session.setAttribute("lentghChosen", lentghinput);
 //        session.setAttribute("widthChosen", widthinput);
@@ -99,6 +104,8 @@ int count;
 //        request.setAttribute("trevalgInput", trevalg);
 
         if (CheckUd != null) {
+            
+            String ordre_status = "Ny Ordre";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter
@@ -126,6 +133,18 @@ int count;
 
             return "outprintpage";
         }
+
+        if (GemDesign != null) {
+
+            String ordre_status = "Ordren er gemt i din Kurv.";
+
+            Odetaljer OdG = new Odetaljer(ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);        
+            LogicFacade.saveOdetajlertoDB(user_id, OdG);
+
+            return "index";
+
+        }
+
         if (SePris != null) {
             return "bestilbasiscarportpage";
 

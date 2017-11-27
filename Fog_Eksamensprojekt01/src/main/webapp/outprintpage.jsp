@@ -93,8 +93,10 @@
     double skurlength = (Double) request.getAttribute("redskabsskur_length");
     double skurWidth = (Double) request.getAttribute("redskabsskur_width");
     DecimalFormat df = new DecimalFormat("#0.00");
+
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
 ;%>
+
 <br> <br><div>
 
     <%
