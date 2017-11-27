@@ -28,13 +28,13 @@ public class basisCarport extends Command {
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
 int count;
-        Ordre order = new Ordre(1);
+        Ordre order = new Ordre();
 //        User user = new User();
 //        session.getAttribute("user");
 
-        int user_id = 1;
+        int user_id = 2;
         order.setUser_id(user_id);
-        String ordre_status = "Ny Ordre";
+        String ordre_status = null ;
         request.setAttribute("userNr", user_id);
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
