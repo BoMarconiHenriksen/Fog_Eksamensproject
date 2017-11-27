@@ -60,12 +60,20 @@
                     out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                     out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
 
-                    if (Double.parseDouble(request.getParameter("lentgchoiceskur")) != 0) {
+                    if (Double.parseDouble(request.getParameter("lentgchoiceskur")) != 0 ) {
 
                         out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
                         out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
                         out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
                         out.println("<p> Standard Højde på Skuret: " + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
+                   if((int)request.getAttribute("count")!=0){
+                       out.println("<p>"+request.getAttribute("ditSkurErForLangt")+"</p>");
+                   }
+                   else{
+                        out.println("");
+                   }
+                    
+                    
                     } else {
                         out.println("");
                          }
@@ -82,12 +90,11 @@
     double length = (Double) request.getAttribute("length");
     double width = (Double) request.getAttribute("width");
     double heigth = (Double) request.getAttribute("height");
-    double skurlength = (Double) request.getAttribute("redskabsskur_length")/100;
-    double skurWidth = (Double) request.getAttribute("redskabsskur_width")/100;
+    double skurlength = (Double) request.getAttribute("redskabsskur_length");
+    double skurWidth = (Double) request.getAttribute("redskabsskur_width");
     DecimalFormat df = new DecimalFormat("#0.00");
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-
-    out.println("<p>" + df.format(pris) + "</p>");%>
+;%>
 <br> <br><div>
 
     <%

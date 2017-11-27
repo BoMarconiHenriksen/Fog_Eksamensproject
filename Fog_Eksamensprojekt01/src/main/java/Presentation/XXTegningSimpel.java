@@ -20,7 +20,7 @@ public class XXTegningSimpel extends Command {
         request.setAttribute("totalPris", totalPris);
        
       
-        String styk = XXRendUtilStykListe.getStykListeBaseSimpel(480, 300);
+        String styk = XXRendUtilStykListe.getStykListeBaseSimpel(480, 300,450,150);
         request.setAttribute("styk", styk);
         
         XXRendSvg svag = new XXRendSvg();

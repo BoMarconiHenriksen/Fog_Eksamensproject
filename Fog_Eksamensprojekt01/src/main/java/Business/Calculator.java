@@ -16,6 +16,8 @@ import Presentation.NewException;
  */
 public class Calculator {
 
+    
+
 //    LogicFacade mat = new LogicFacade();
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
@@ -104,6 +106,17 @@ public class Calculator {
         return totalPriceBase;
     }
     
+    public static int antalSpær(double length) {
+        int spærAntalCirka = (int) Math.round(length / 57);
+        return spærAntalCirka;
+    }
+
+    public static int afstandMellemSpær(double length) {
+        int spærAntalCirka = antalSpær(length);
+        double afstandMellemSpær = ((int) Math.round(length / (spærAntalCirka))) - ((int) length % spærAntalCirka) / (spærAntalCirka);
+        return (int) afstandMellemSpær;
+    }
+    
 //    private double beregnSkurEnkelt(double skurLength, double skurWidth) throws NewException{
 //        double ekstraStolpePris= 4*LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
 //        double løsHolterSkurGavl=4*skurLength*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
@@ -126,7 +139,24 @@ public class Calculator {
         Calculator calc = new Calculator();
 
         System.out.println(calc.calculateCarportSimple(480, 300, 225));
-
+        System.out.println(calc.afstandMellemSpær(240));
+        System.out.println(calc.afstandMellemSpær(300));
+        System.out.println(calc.afstandMellemSpær(330));
+        System.out.println(calc.afstandMellemSpær(360));
+        System.out.println(calc.afstandMellemSpær(390));
+        System.out.println(calc.afstandMellemSpær(420));
+        System.out.println(calc.afstandMellemSpær(450));
+        System.out.println(calc.afstandMellemSpær(480));
+        System.out.println(calc.afstandMellemSpær(510));
+        System.out.println(calc.afstandMellemSpær(540));
+        System.out.println(calc.afstandMellemSpær(570));
+        System.out.println(calc.afstandMellemSpær(600));
+        System.out.println(calc.afstandMellemSpær(630));
+        System.out.println(calc.afstandMellemSpær(660));
+        System.out.println(calc.afstandMellemSpær(690));
+        System.out.println(calc.afstandMellemSpær(720));
+        System.out.println(calc.afstandMellemSpær(750));
+         System.out.println(calc.afstandMellemSpær(780));
     }
 
 }
