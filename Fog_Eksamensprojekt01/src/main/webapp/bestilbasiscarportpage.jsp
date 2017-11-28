@@ -258,8 +258,8 @@
             double length = (Double) request.getAttribute("lentghInput");
             double width = (Double) request.getAttribute("widthInput");
             double heigth = (Double) request.getAttribute("heightInput");
-            double skurlength = (Double) request.getAttribute("lentghInputSkuret") / 100;
-            double skurWidth = (Double) request.getAttribute("widthInputSkuret") / 100;
+            double skurlength = (Double) request.getAttribute("lentghInputSkuret");
+            double skurWidth = (Double) request.getAttribute("widthInputSkuret");
             DecimalFormat df = new DecimalFormat("#0.00");
                              double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));%>
         <br> <br><div>

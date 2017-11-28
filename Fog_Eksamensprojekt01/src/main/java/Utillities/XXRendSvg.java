@@ -96,14 +96,14 @@ public class XXRendSvg {
 
         String skurFlade = "     <rect x=\"" + (length - 15 - skurwidth ) + "\" y=\"15\" height=\"" + ((skurlength )) + "\" width=\"" + (skurwidth ) + "\"\n"
                 + "              style=\"stroke:#000000; fill: #gg0000;  opacity: 0.2\"/>";
-//        String skurStolper="<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"" + (length - skurwidth-0.3) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
-//"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
-//"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
+        String skurStolper="<rect x=\"" + (length - skurwidth-0.3) + "\" y=\"30\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"745\" y=\"568\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"" + (length - skurwidth-0.3) + "\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n" +
+"        <rect x=\"745\" y=\"28\" height=\"9.7\" width=\"9.7\"\n" +
+"              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
 
         return skurFlade;
     }
