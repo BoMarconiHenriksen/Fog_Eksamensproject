@@ -33,11 +33,11 @@ public class basisCarport extends Command {
 
 int count;
 
-        Ordre order = new Ordre(1);
+        Ordre order = new Ordre();
 //        User user = new User();
 //        session.getAttribute("user");
 
-        int user_id = 1;
+        int user_id = 2;
         order.setUser_id(user_id);
         
         request.setAttribute("userNr", user_id);

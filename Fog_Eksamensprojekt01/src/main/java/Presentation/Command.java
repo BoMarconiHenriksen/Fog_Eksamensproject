@@ -23,7 +23,9 @@ abstract class Command {
         commands.put("checkoutFunktion", new Checkout());
         commands.put("XXtegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
+        commands.put("OrdreList_Customer", new OrdreList_Customer());
         commands.put("InvoiceDetail", new InvoiceDetail());
+        commands.put("InvoiceDetail_Customer", new InoiceDetail_Customer());
 
 
     }
