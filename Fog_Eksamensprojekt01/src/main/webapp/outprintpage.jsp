@@ -82,7 +82,7 @@
 
         </div>
                      
-                     <div>
+                     
                          <%Calculator calc = new Calculator();
     SkurCalculator scalc = new SkurCalculator();
 

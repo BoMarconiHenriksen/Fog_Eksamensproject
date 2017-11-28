@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,21 +71,23 @@ public class OdetaljeMapper {
             String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
-            if (rs.next()) {
+            while(rs.next()) {
 
                 int odetaljerId = rs.getInt("odetaljer_id");
-              
+      
                 int vareId = rs.getInt("vareid");
                 int linjelisteId = rs.getInt("linjeliste_id");
-                String ordreStatus = rs.getString("ordre_status");
-                double carportLength = rs.getDouble("carport_length");
+                                double carportLength = rs.getDouble("carport_length");
                 double carportWidth = rs.getDouble("carport_width");
                 double carportHeight = rs.getDouble("carport_height");
                 double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
                 double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
+                String ordreStatus = rs.getString("ordre_status");
+              
 
-                o = new Odetaljer(odetaljerId, ordre_id, vareId, linjelisteId,ordreStatus ,
+
+                o = new Odetaljer(odetaljerId, ordre_id, vareId, linjelisteId, ordreStatus ,
                        carportLength, carportWidth,
                         carportHeight, lengthRedskabsrum,widthRedskabsrum,  tagType);
 
@@ -95,6 +99,21 @@ public class OdetaljeMapper {
         return o;
 
     }
+    
+    public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException{
+        try {
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "update odetaljer set ordre_status=? where ordre_id=" + order_id;
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, ordre_status);
+         
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
 
 //    Bruges til test
     public static void main(String[] args) throws NewException {
@@ -102,13 +121,15 @@ public class OdetaljeMapper {
         OdetaljeMapper orderList = new OdetaljeMapper();
         Odetaljer od = new Odetaljer(1,480.00,300.00,225.00);
         orderList.addOdetaljertoOdetaljeListe(1, od);
+        String ordre_status= "Bestilt";
+        orderList.updateOrdreStatus(16, ordre_status);
 //        System.out.println("ordre liste:");
 //        try {
 //            System.out.println(orderList.getOrderList());
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(3));
+        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
         System.out.println("ordre detalje liste:");
 
     }
