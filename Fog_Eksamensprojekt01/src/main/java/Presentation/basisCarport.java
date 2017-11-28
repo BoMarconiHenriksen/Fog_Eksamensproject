@@ -30,19 +30,16 @@ public class basisCarport extends Command {
 
         String GemDesign = request.getParameter("CarportGemDesign");
 
-
-int count;
+        int count;
 
         Ordre order = new Ordre();
 
-
 //        User user = new User();
 //        session.getAttribute("user");
-
-        int user_id = 2;
+        int user_id = 1;
         order.setUser_id(user_id);
 
-        String ordre_status = null ;
+        String ordre_status = null;
 
         request.setAttribute("userNr", user_id);
 
@@ -60,21 +57,19 @@ int count;
 
         // denne skulle gerne gøre at skuret ikke bliver for langt samt at kunden 
         //får at vide at skurlængden er rettet til
-        
-        if (lentghinputskur>widthinput-30){
-            count=1;
-            
+        if (lentghinputskur > widthinput - 30) {
+            count = 1;
+
             String ditSkurErForLangt = "Det valgte redskabsrum er for langt i forhold til carporten."
                     + "Vi har sat længden af Deres redskabsrum til at være 30 cm mindre end den valgte carport."
                     + "hvis De ønsker en speciel carport bedes De venligst kontakte os på tlf nr. xxxxxx";
-        request.setAttribute("ditSkurErForLangt", ditSkurErForLangt);
-            lentghinputskur=widthinput-30;
-        
+            request.setAttribute("ditSkurErForLangt", ditSkurErForLangt);
+            lentghinputskur = widthinput - 30;
+
+        } else {
+            count = 0;
         }
-        else{
-            count=0;
-        }
-        
+
         request.setAttribute("count", count);
         Calculator calc = new Calculator();
 
@@ -99,13 +94,11 @@ int count;
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
 
-
         request.setAttribute("skurInput", skurellerej);
 
-
         if (CheckUd != null) {
-            
-            String ordre_status = "Ny Ordre";
+
+            ordre_status = "Ny Ordre";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter
@@ -136,9 +129,9 @@ int count;
 
         if (GemDesign != null) {
 
-            String ordre_status = "Ordren er gemt i din Kurv.";
+            ordre_status = "Ordren er gemt i din Kurv.";
 
-            Odetaljer OdG = new Odetaljer(ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);        
+            Odetaljer OdG = new Odetaljer(ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
             LogicFacade.saveOdetajlertoDB(user_id, OdG);
 
             return "index";
