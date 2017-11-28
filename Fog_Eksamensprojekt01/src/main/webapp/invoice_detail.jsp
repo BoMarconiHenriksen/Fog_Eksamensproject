@@ -22,7 +22,6 @@
 
 <h1>Pris</h1>
 <br>
-
 <%Calculator calc = new Calculator();
     SkurCalculator scalc = new SkurCalculator();
 
@@ -34,7 +33,6 @@
     double skurWidth = (Double) request.getAttribute("redskabsskur_width");
     DecimalFormat df = new DecimalFormat("#0.00");
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-
     out.println("<p>" + df.format(pris) + "</p>");%>
 <br> <br><div>
 
@@ -45,12 +43,6 @@
 
         out.println("<a>" + carportTegning + "</a>");
     %>  
-
-
-
-
-
-
 
 
     <%String styk = rusl.getStykListeBaseSimpel(length, width,skurlength, skurWidth);
