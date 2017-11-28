@@ -31,7 +31,7 @@
         <form name="InvoiceDetail_Customer" action="FrontController" method="POST">
             <input type="hidden" name="command" value="InvoiceDetail_Customer_DeleteOrder">
 
-            <button type="submit" name="InvoiceDetail_Customer_DeleteOrder" value="Submit">Slet ORdren </button>
+            <button type="submit" name="InvoiceDetail_Customer_DeleteOrder" value="Submit">Slet Ordren </button>
         </form>
 
 

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Ticondrus
  */
-public class InoiceDetail_Customer extends Command {
+public class InvoiceDetail_Customer extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {

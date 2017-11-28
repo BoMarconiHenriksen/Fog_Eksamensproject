@@ -69,7 +69,6 @@ public class OrdreMapper {
 
     public static void deleteOrderListByOrderID(int order_id) throws NewException {
        
-        Ordre o;
         try {
             Connection con = DBConnector.connection();
             String sql = "DELETE FROM ordreliste WHERE order_id=" + order_id;
