@@ -31,8 +31,7 @@ public class InoiceDetail_Customer extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
         Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
-//        List<Odetaljer> oDetaljerList = LogicFacade.getOrdersByOrderId2(orderid);
-//        request.setAttribute("oDetaljerList", oDetaljerList);
+
         
 
         request.setAttribute("length", (Double)od.getCarportLength());
