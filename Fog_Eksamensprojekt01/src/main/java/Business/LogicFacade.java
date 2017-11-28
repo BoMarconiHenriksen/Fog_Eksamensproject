@@ -64,9 +64,13 @@ public class LogicFacade {
     public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
     }
-    
+
     public static List<Ordre> getOrderListByUserId(int user_id) throws NewException {
         return OrdreMapper.getOrderListByUserID(user_id);
+    }
+
+    public static void deleteOrderListByUserId(int order_id) throws NewException {
+        OrdreMapper.deleteOrderListByOrderID(order_id);
     }
 
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
@@ -80,12 +84,9 @@ public class LogicFacade {
         LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
 
-    
-     public static User getUserByUserId(int user_id) throws NewException {
+    public static User getUserByUserId(int user_id) throws NewException {
         return UserMapper.getUserByUserId(user_id);
     }
-
-
 
     public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
             throws NewException {
@@ -123,7 +124,4 @@ public class LogicFacade {
 //    public static List<User> getAllUsers() throws BenedikteEvasNewException {
 //        return UserMapper.getAllUsers();
 //    }
-
-   
-   
 }
