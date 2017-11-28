@@ -122,14 +122,14 @@ public class OdetaljeMapper {
         Odetaljer od = new Odetaljer(1,480.00,300.00,225.00);
         orderList.addOdetaljertoOdetaljeListe(1, od);
         String ordre_status= "Bestilt";
-        orderList.updateOrdreStatus(16, ordre_status);
+        orderList.updateOrdreStatus(2, ordre_status);
 //        System.out.println("ordre liste:");
 //        try {
 //            System.out.println(orderList.getOrderList());
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
+        System.out.println(OdetaljeMapper.getOrderByOrderId2(16).getOrdreStatus());
         System.out.println("ordre detalje liste:");
 
     }
