@@ -25,6 +25,10 @@ public class Ordre {
         this.user_id = user_id;
     }
 
+    public Ordre() {
+       
+    }
+
     public int getOrdre_id() {
         return ordre_id;
     }

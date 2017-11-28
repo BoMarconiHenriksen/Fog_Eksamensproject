@@ -143,7 +143,7 @@ INSERT INTO zipcodelist VALUES (1000,'København K');
 -- Demo user data
 INSERT INTO userlist VALUES 
 	(1, 1000, 'ansat@ansat.dk', 'a', 'Ansat', 'Jens', 'Jensen', 'Flyvervej 1');
-    
+        insert into userlist values(2, 1000, 'kunde@kunde.dk', 'b', 'Kunde', 'Einar', 'Hansen', 'Ved Søen 2', 50505050);
 -- Demo data ordreliste
 INSERT INTO ordreliste VALUES
 	(1, 1, '2017-9-9');
