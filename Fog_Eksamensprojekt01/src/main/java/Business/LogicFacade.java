@@ -5,11 +5,13 @@ import Data.MaterialeMapper;
 import Data.OrdreMapper;
 import Data.StykLinjeMapper;
 import Data.OdetaljeMapper;
+import Data.UserMapper;
 import Domain.LineItem;
 import Domain.Materiale;
 import Domain.Ordre;
 import Domain.StykLinje;
 import Domain.Odetaljer;
+import Domain.User;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
@@ -74,12 +76,20 @@ public class LogicFacade {
         LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
 
+    
+     public static User getUserByUserId(int user_id) throws NewException {
+        return UserMapper.getUserByUserId(user_id);
+    }
+
+
+
     public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
             throws NewException {
         OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
     }
 
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
+
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
 
@@ -109,4 +119,7 @@ public class LogicFacade {
 //    public static List<User> getAllUsers() throws BenedikteEvasNewException {
 //        return UserMapper.getAllUsers();
 //    }
+
+   
+   
 }

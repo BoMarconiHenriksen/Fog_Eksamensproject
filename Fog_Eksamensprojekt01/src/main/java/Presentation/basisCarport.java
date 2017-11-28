@@ -33,13 +33,17 @@ public class basisCarport extends Command {
 
 int count;
 
-        Ordre order = new Ordre(1);
+        Ordre order = new Ordre();
+
+
 //        User user = new User();
 //        session.getAttribute("user");
 
-        int user_id = 1;
+        int user_id = 2;
         order.setUser_id(user_id);
-        
+
+        String ordre_status = null ;
+
         request.setAttribute("userNr", user_id);
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
@@ -91,17 +95,13 @@ int count;
         request.setAttribute("widthInputSkuret", (Double) widthinputskur);
         request.setAttribute("heightInputSkuret", (Double) heightputskur);
         //   }
-
-//        session.setAttribute("carportTotalValg", carportTotalDecimaled);
         request.setAttribute("lentghInput", (Double) lentghinput);
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
 
-//        session.setAttribute("lentghChosen", lentghinput);
-//        session.setAttribute("widthChosen", widthinput);
-//        session.setAttribute("heightChosen", heightinput);
+
         request.setAttribute("skurInput", skurellerej);
-//        request.setAttribute("trevalgInput", trevalg);
+
 
         if (CheckUd != null) {
             
