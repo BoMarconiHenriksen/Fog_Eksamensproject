@@ -112,7 +112,7 @@ public static void main(String[] args) throws NewException {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OrdreMapper.getOrderByOrderId(1));
+        System.out.println(OrdreMapper.getOrderByOrderId(1).getOrdreStatus());
         System.out.println("ordre detalje liste:");
 
 //            System.out.println(orderList.getOrdersByOrderId(2));
