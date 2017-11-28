@@ -15,7 +15,7 @@ public class RendUtilOrderList {
     public static String invoiceList(List<Ordre> ordreList) throws NewException {
 
         ordreList = LogicFacade.getOrderList();
-        User user;
+       
 
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
