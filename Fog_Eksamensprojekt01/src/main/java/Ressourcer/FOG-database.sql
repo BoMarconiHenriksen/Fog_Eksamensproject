@@ -10,6 +10,13 @@
 CREATE DATABASE `fog`;
 
 USE `fog`;
+drop table if exists `lineitem`;
+create table `lineitem`(
+    `linjeliste_id`int(11) ,
+    `vareid`int (20),
+  
+    primary key (linjeliste_id, vareid));
+
 
 -- Create userlist
 DROP TABLE IF EXISTS `userlist`;

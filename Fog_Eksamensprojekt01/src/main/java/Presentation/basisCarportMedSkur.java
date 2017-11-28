@@ -1,22 +1,27 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ 
  */
 package Presentation;
 
 import Business.Calculator;
+import Business.LogicFacade;
 import Business.SkurCalculator;
+import Domain.LineItem;
+import Utillities.XXRendUtilStykListe;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import Presentation.Command;
 
 /**
  *
- * @author Ejer
+ * @author Ticondrus
+ *  Denne klasse som er en extension af command klassen henter brugerens valgte 
+ * carport og skurmål fra basiscarportmedskurpage.jsp og sender disse mål
+ *  gennem en calculator der returnerer en totalPris for carport og skur
+ * hvis der er en pris sendes man tilbage til der hvor parameterene kom fra ellers 
+ * til en side der hedder outprinpage.jsp hvor man får en liste af materialer. 
  */
 public class basisCarportMedSkur extends Command {
 
@@ -25,37 +30,34 @@ public class basisCarportMedSkur extends Command {
 
         HttpSession session = request.getSession();
 
-        String command = request.getParameter("command");
-        String checkprice = request.getParameter("basisCarportmedSkur");
-
+//        String checkprice = request.getParameter("basisCarportmedSkur");
 
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
-        
-       double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
+
+        double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
         double widthinputskur = Double.parseDouble(request.getParameter("widthchoiceskur"));
-      //  double heightinputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
+        //  double heightinputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
 
         String skurellerej = request.getParameter("skur");
         String trevalg = request.getParameter("kundetrevalg");
         DecimalFormat df = new DecimalFormat("#0.00");
 
-        //Caroporten
+        //Carporten
         Calculator calc = new Calculator();
-        double length = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
-        double width = Double.parseDouble(request.getParameter("widthchoice")) / 100;
-        double height = Double.parseDouble(request.getParameter("heightchoice")) / 100;
+        double length = lentghinput / 100;
+        double width = widthinput / 100;
+        double height = heightinput / 100;
         double carportTotaludenSkur = calc.calculateCarportSimple(length, width, height);
-        
-       //Skuret 
-       SkurCalculator calcskur = new SkurCalculator();
-         
-       double lengthskur = Double.parseDouble(request.getParameter("lentgchoice")) / 100;
-       double widthskur = Double.parseDouble(request.getParameter("widthchoice")) / 100;
-       double skurTotaludenCarport = calcskur.skurPrisBeregner(length, width);
-         
-        
+
+        //Skuret 
+        SkurCalculator calcskur = new SkurCalculator();
+
+        double lengthskur = lentghinputskur / 100;
+        double widthskur = widthinputskur / 100;
+        double skurTotaludenCarport = calcskur.skurPrisBeregner(lengthskur, widthskur);
+
         String carportTotalDecimaled = df.format(carportTotaludenSkur + skurTotaludenCarport);
         request.setAttribute("carportTotal", carportTotalDecimaled);
 
@@ -69,17 +71,25 @@ public class basisCarportMedSkur extends Command {
         //Skuret
         request.setAttribute("lentghInputSkur", lentghinputskur);
         request.setAttribute("widthInputSkur", widthinputskur);
-        
-        
+
         request.setAttribute("trevalgInput", trevalg);
 
-        if (checkprice != null) {
+        //Her er starten på en stykliste
+        List<LineItem> stykLinjeListe = LogicFacade.getLineItem();
+        XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+     
+     
+//        if (checkprice != null) {
+//            return "basiscarportmedskurpage";
+//        }
+
+//        if (checkprice == null) {
+//            return "outprintpage";
+//
+//        } else {
+
             return "basiscarportmedskurpage";
         }
 
-        if (checkprice == null) {
-            return "outprintpage";
-        } else
-        return null;
     }
-}
+//}

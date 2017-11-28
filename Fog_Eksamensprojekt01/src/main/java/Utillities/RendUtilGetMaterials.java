@@ -21,7 +21,7 @@ public class RendUtilGetMaterials {
                 + "<tr><th>Stykliste</th><th></th><th></th></tr>\n"
                 + "<tr><th>Trætype </th><th>Materiale  </th><th>Type </th><th></th></tr>\n");
         for (Materiale ma : mats) {
-            sb.append("<tr><form name=\"invoice_detail\" action=\"InvoiceDetailServlet\" method=\"POST\">"); //Method kan være skrevet forkert! action=\"InvoiceDetailServlet\" method=POST>
+            sb.append("<tr><form name=\"invoiceList\" action=\"FrontController\" method=\"POST\">"); //Method kan være skrevet forkert! action=\"InvoiceDetailServlet\" method=POST>
             sb.append("<tr> <input type=\"hidden\" name=\"origin\" value=\"invoice_detail\">");
             sb.append("<td>").append("" + ma.getMaterialetype()).append("</td>");
             sb.append("<td>").append("" + ma.getMaterialenavn()).append("</td>");

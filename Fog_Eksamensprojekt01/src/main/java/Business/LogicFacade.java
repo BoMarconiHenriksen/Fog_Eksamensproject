@@ -2,15 +2,17 @@ package Business;
 
 import Data.LineItemMapper;
 import Data.MaterialeMapper;
+import Data.OrdreMapper;
 import Data.StykLinjeMapper;
+import Data.OdetaljeMapper;
 import Domain.LineItem;
 import Domain.Materiale;
+import Domain.Ordre;
 import Domain.StykLinje;
+import Domain.Odetaljer;
 import Presentation.NewException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The purpose of LogicFacade is to...
@@ -22,6 +24,14 @@ public class LogicFacade {
     public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
 
+    }
+
+    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+        return OrdreMapper.getOrderByOrderId(ordre_id);
+    }
+
+    public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
+        return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
@@ -42,21 +52,47 @@ public class LogicFacade {
         return LineItemMapper.getLineItems();
     }
 
+    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
+        Ordre theOrdered = new Ordre(user_id, receiveddate);
+        LineItemMapper.addOrdertoOrderList(theOrdered);
+        return theOrdered;
+
+    }
+
+    public static List<Ordre> getOrderList() throws NewException {
+        return OrdreMapper.getOrderList();
+    }
+
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
         Materiale mat = new Materiale(vareid, enhedspris);
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
     }
 
+    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+            throws NewException {
+        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
+    }
+
+    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
+            throws NewException {
+        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
+    }
+
+    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
+        OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
+    }
+
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
-        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-        LogicFacade.changeMaterialePris(7, 29.95);
-        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-
-        System.out.println(StykLinjeMapper.getStykLinje());
-
-        System.out.println(StykLinjeMapper.getStykLinjeById(2));
+        System.out.println(LogicFacade.getOrderByOrderId(3));
+        System.out.println(LogicFacade.getOrderByOrderId2(3));
+//        LogicFacade.changeMaterialePris(7, 29.95);
+//        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
+//
+//        System.out.println(StykLinjeMapper.getStykLinje());
+//
+//        System.out.println(StykLinjeMapper.getStykLinjeById(2));
 
     }
 
