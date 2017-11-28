@@ -42,6 +42,30 @@ public class OrdreMapper {
         }
 
     }
+    
+        public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
+        List<Ordre> ordreList = new ArrayList<>();
+        Ordre o;
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM ordreliste WHERE user_id=" + user_id;
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            while (rs.next()) {
+                int ordre_id = rs.getInt("ordre_id");
+                int userId = rs.getInt("user_id");
+                String reciveddate = rs.getString("receiveddate");
+
+                o = new Ordre(ordre_id, reciveddate, userId);
+                ordreList.add(o);
+            }
+
+            return ordreList;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
 
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
         Odetaljer o = null;

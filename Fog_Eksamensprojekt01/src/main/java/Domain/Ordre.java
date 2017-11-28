@@ -26,7 +26,7 @@ public class Ordre {
     }
 
     public Ordre() {
-       
+
     }
 
     public int getOrdre_id() {
