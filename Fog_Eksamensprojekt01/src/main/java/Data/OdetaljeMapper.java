@@ -77,15 +77,17 @@ public class OdetaljeMapper {
       
                 int vareId = rs.getInt("vareid");
                 int linjelisteId = rs.getInt("linjeliste_id");
-                String ordreStatus = rs.getString("ordre_status");
-                double carportLength = rs.getDouble("carport_length");
+                                double carportLength = rs.getDouble("carport_length");
                 double carportWidth = rs.getDouble("carport_width");
                 double carportHeight = rs.getDouble("carport_height");
                 double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
                 double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
+                String ordreStatus = rs.getString("ordre_status");
+              
 
-                o = new Odetaljer(odetaljerId, ordre_id, vareId, linjelisteId,ordreStatus ,
+
+                o = new Odetaljer(odetaljerId, ordre_id, vareId, linjelisteId, ordreStatus ,
                        carportLength, carportWidth,
                         carportHeight, lengthRedskabsrum,widthRedskabsrum,  tagType);
 
@@ -127,7 +129,7 @@ public class OdetaljeMapper {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(17));
+        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
         System.out.println("ordre detalje liste:");
 
     }

@@ -23,7 +23,7 @@ public class Odetaljer {
         this.ordre_id = ordre_id;
         this.vareId = vareId;
         this.linjelisteId = linjelisteId;
-        this.ordre_status = ordre_status;
+        this.ordre_status = ordreStatus;
         this.carport_length = carport_length;
         this.carport_width = carport_width;
         this.carport_height = carport_height;
@@ -81,7 +81,7 @@ public class Odetaljer {
     }
 
     public void setOrdreId(int ordreId) {
-        this.ordre_id = ordre_id;
+        this.ordre_id = ordreId;
     }
 
     public int getVareId() {
@@ -105,7 +105,7 @@ public class Odetaljer {
     }
 
     public void setOrdreStatus(String ordreStatus) {
-        this.ordre_status = ordre_status;
+        this.ordre_status = ordreStatus;
     }
 
     public double getCarportLength() {

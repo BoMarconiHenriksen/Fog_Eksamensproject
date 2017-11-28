@@ -50,7 +50,8 @@ public class OrdreMapper {
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
             ResultSet rs = con.prepareStatement(sql).executeQuery();
-
+            
+            while(rs.next()){
             int odetaljerId = rs.getInt("odetaljer_id");
             int ordreId = rs.getInt("ordre_id");
             int vareId = rs.getInt("vareid");
@@ -66,7 +67,7 @@ public class OrdreMapper {
             o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
                     carportLength, carportWidth,
                     carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
-
+            }
             return o;
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -111,7 +112,7 @@ public static void main(String[] args) throws NewException {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OrdreMapper.getOrderByOrderId(2));
+        System.out.println(OrdreMapper.getOrderByOrderId(1).getOrdreStatus());
         System.out.println("ordre detalje liste:");
 
 //            System.out.println(orderList.getOrdersByOrderId(2));
