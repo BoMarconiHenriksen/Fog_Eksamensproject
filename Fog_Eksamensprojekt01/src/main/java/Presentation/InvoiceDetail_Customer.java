@@ -35,10 +35,7 @@ public class InvoiceDetail_Customer extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
         
-         if (DeletetheOrder != null){
-            LogicFacade.deleteOrderListByUserId(orderid);
-            return "ordrelist_customer";
-        }else {
+         
          
         Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
 
@@ -48,9 +45,16 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
-
         
+        if (DeletetheOrder != null){
+          //  LogicFacade.deleteOrderListByUserId(orderid);
+            return "index";
+        }
+        if ( LockIntoOrder != null){
+       
         return "invoice_detail_customer";
-    } 
+    } else {
+            return "index";
+        }
 }
 }

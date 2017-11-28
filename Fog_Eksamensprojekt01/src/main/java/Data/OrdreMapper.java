@@ -71,7 +71,7 @@ public class OrdreMapper {
        
         try {
             Connection con = DBConnector.connection();
-            String sql = "DELETE FROM ordreliste WHERE order_id=" + order_id;
+            String sql = "DELETE FROM ordreliste, odetaljer WHERE order_id = " + order_id + ";";
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.execute();

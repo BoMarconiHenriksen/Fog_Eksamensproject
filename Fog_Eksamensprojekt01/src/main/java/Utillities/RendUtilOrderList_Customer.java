@@ -23,7 +23,6 @@ public class RendUtilOrderList_Customer {
 
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
-            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
             sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
@@ -32,10 +31,13 @@ public class RendUtilOrderList_Customer {
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
 
             sb.append("</tr>\n");
+            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
+             sb.append("</tr>\n");
         }
 
         sb.append("</table>\n");
         sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail_Customer\">Se orderen</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail_Customer_DeleteOrder\">Slet orderen</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }

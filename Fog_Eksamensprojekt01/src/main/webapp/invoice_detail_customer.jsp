@@ -8,6 +8,8 @@
 <%@page import="Business.SkurCalculator"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendSvg"%>
+<%@page import="Business.LogicFacade"%>
+<%@page import="Presentation.FrontController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
