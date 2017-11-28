@@ -28,10 +28,11 @@ public class LogicFacade {
 
     }
 
-      public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
         return OrdreMapper.getOrderByOrderId(ordre_id);
     }
-       public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
+
+    public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
@@ -52,15 +53,15 @@ public class LogicFacade {
     public static List<LineItem> getLineItem() throws NewException {
         return LineItemMapper.getLineItems();
     }
-    
-    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException{
+
+    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
         Ordre theOrdered = new Ordre(user_id, receiveddate);
         LineItemMapper.addOrdertoOrderList(theOrdered);
         return theOrdered;
-        
+
     }
-    
-    public static List<Ordre> getOrderList() throws NewException{
+
+    public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
     }
 
@@ -69,17 +70,26 @@ public class LogicFacade {
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
     }
-      public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
-       throws NewException {
+
+    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+            throws NewException {
         LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
+
     
      public static User getUserByUserId(int user_id) throws NewException {
         return UserMapper.getUserByUserId(user_id);
     }
 
-    
-    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException{
+
+
+    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
+            throws NewException {
+        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
+    }
+
+    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
+
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
 

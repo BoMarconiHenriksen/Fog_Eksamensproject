@@ -38,6 +38,30 @@ public class OdetaljeMapper {
         }
 
     }
+    
+        public static void saveOdetaljertoDesignGemning(int user_id, Odetaljer OdG) throws NewException {
+
+        try {
+
+            Connection conn = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO designgemning (user_id, ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+           
+            orderPstmt.setInt(1,    user_id);
+            orderPstmt.setString(2, OdG.getOrdreStatus());
+            orderPstmt.setDouble(3, OdG.getCarportLength());
+            orderPstmt.setDouble(4, OdG.getCarportWidth());
+            orderPstmt.setDouble(5, OdG.getCarportHeight());
+            orderPstmt.setDouble(6, OdG.getLengthRedskabsrum());
+            orderPstmt.setDouble(7, OdG.getWidthRedskabsrum());
+            orderPstmt.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
 
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
 
