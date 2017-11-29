@@ -73,6 +73,10 @@ public class LogicFacade {
         OrdreMapper.deleteOrderListByOrderID(order_id);
     }
 
+    public static void deleteOrderDetailsByUserId(int order_id) throws NewException {
+        OrdreMapper.deleteOrderDetailsByOrderID(order_id);
+    }
+
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
         Materiale mat = new Materiale(vareid, enhedspris);
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
@@ -97,6 +101,10 @@ public class LogicFacade {
 
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
+    
+    public static int getLastInvoiceId() throws NewException {
+     return OrdreMapper.getLastInvoiceId();
+}
 
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 

@@ -35,10 +35,7 @@ public class LineItemMapper {
             orderPstmt.setInt(1, or.getUser_id());
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
-            ResultSet ids = orderPstmt.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            or.setOrdre_id(id);
+            
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());

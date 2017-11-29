@@ -47,7 +47,8 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("od", od);
         
         if (DeletetheOrder != null){
-          //  LogicFacade.deleteOrderListByUserId(orderid);
+            LogicFacade.deleteOrderDetailsByUserId(orderid);
+            LogicFacade.deleteOrderListByUserId(orderid);
             return "index";
         }
         if ( LockIntoOrder != null){

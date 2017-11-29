@@ -67,11 +67,26 @@ public class OrdreMapper {
 
     }
 
-    public static void deleteOrderListByOrderID(int order_id) throws NewException {
+    public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
        
         try {
             Connection con = DBConnector.connection();
-            String sql = "DELETE FROM ordreliste, odetaljer WHERE order_id = " + order_id + ";";
+            String sql = "DELETE FROM ordreliste WHERE ordre_id=" + ordre_id;
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.execute();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+    
+        public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
+       
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "DELETE FROM odetaljer WHERE ordre_id=" + ordre_id;
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.execute();
@@ -140,18 +155,33 @@ public class OrdreMapper {
         }
 
     }
+    
+    public static int getLastInvoiceId() throws NewException {
+       
+      
+      int invoiceid = 0;
+        try {
+ Connection con = DBConnector.connection();
+            String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            if (rs.next()) {
+
+                invoiceid = rs.getInt("ordre_id");
+
+            }
+        }  catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return invoiceid;
+}
 
 //    Bruges til test
     public static void main(String[] args) throws NewException {
 
-//        System.out.println("ordre liste:");
-//        try {
-//            System.out.println(orderList.getOrderList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        System.out.println(OrdreMapper.getOrderByOrderId(1).getOrdreStatus());
-        System.out.println("ordre detalje liste:");
+        OrdreMapper.deleteOrderDetailsByOrderID(4);
+        OrdreMapper.deleteOrderListByOrderID(4);
 
 //            System.out.println(orderList.getOrdersByOrderId(2));
     }
