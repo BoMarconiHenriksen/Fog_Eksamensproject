@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -37,10 +38,34 @@ public class OrdreMapper {
             }
 
             return ordreList;
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException | IndexOutOfBoundsException ex) {
             throw new NewException(ex.getMessage());
         }
 
+    }
+
+    public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{ 
+        Ordre or = null; 
+        try {
+          
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM ordreliste WHERE ordre_id="+ordre_id;
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            
+            while(rs.next()){
+                
+           int ordreId= or.getOrdre_id();
+            int user_id= or.getUser_id();
+            String receiveddate=or.getReciveddate();
+            or= new Ordre(ordreId,receiveddate,user_id );
+            return or;
+             }
+        } catch (ClassNotFoundException | SQLException ex) {
+          Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return or;
+     
     }
 
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
@@ -112,7 +137,7 @@ public static void main(String[] args) throws NewException {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OrdreMapper.getOrderByOrderId(1).getOrdreStatus());
+        System.out.println(OrdreMapper.getOrderList().get(0));
         System.out.println("ordre detalje liste:");
 
 //            System.out.println(orderList.getOrdersByOrderId(2));

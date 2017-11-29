@@ -36,7 +36,7 @@ public class basisCarport extends Command {
 
 //        User user = new User();
 //        session.getAttribute("user");
-        int user_id = 1;
+        int user_id = 4;
         order.setUser_id(user_id);
 
         String ordre_status = null;

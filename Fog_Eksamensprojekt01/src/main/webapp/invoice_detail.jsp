@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
@@ -13,44 +14,64 @@
 <%@page import="Business.Calculator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Ordre Detaljer</title>
+    </head>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ordre Detaljer</title>
-</head>
-
-
-<h1>Pris</h1>
-<br>
-<%Calculator calc = new Calculator();
-    SkurCalculator scalc = new SkurCalculator();
-
-    XXRendUtilStykListe rusl = new XXRendUtilStykListe();
-    double length = (Double) request.getAttribute("length");
-    double width = (Double) request.getAttribute("width");
-    double heigth = (Double) request.getAttribute("height");
-    double skurlength = (Double) request.getAttribute("redskabsskur_length");
-    double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-    DecimalFormat df = new DecimalFormat("#0.00");
-    double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-    out.println("<p>" + df.format(pris) + "</p>");%>
-<br> <br><div>
-
-    <%
-        XXRendSvg svag = new XXRendSvg();
-
-        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-
-        out.println("<a>" + carportTegning + "</a>");
-    %>  
+    <body>
 
 
-    <%String styk = rusl.getStykListeBaseSimpel(length, width,skurlength, skurWidth);
-    out.println("<a>" + styk + "</a>");%>
+        <br>
+
+
+        <%Calculator calc = new Calculator();
+            SkurCalculator scalc = new SkurCalculator();
+            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+
+            double length = (Double) request.getAttribute("length");
+            double width = (Double) request.getAttribute("width");
+            double heigth = (Double) request.getAttribute("height");
+            double skurlength = (Double) request.getAttribute("redskabsskur_length");
+            double skurWidth = (Double) request.getAttribute("redskabsskur_width");
+            DecimalFormat df = new DecimalFormat("#0.00");
+            double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
+        %>
 
 
 
 
 
+        <%
+            out.println("<p><br>" + request.getAttribute("showCust") + "</p>");
+            out.println("<p><br>" + request.getAttribute("visOrdre") + "</p>");
+           
+            out.println("<h3>Pris</h3><p>" + df.format(pris) + "</p>");
+
+        %>
+
+
+        <br> <br>
+        <div>
+            <%String styk = rusl.getStykListeBaseSimpel(length, width, skurlength, skurWidth);
+        out.println("<a>" + styk + "</a>");%>
+
+
+        </div>
+        <div class="w3-display-bottomleft">
+            <%
+                XXRendSvg svag = new XXRendSvg();
+
+                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+
+                out.println("<a>" + carportTegning + "</a>");
+            %>  
+
+        </div>     
+
+
+    </body>
+</html>
 
 

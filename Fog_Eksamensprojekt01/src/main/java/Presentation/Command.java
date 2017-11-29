@@ -24,6 +24,7 @@ abstract class Command {
         commands.put("XXtegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
         commands.put("InvoiceDetail", new InvoiceDetail());
+        commands.put("InvoiceSetStatus", new InvoiceSetStatus());
 
 
     }

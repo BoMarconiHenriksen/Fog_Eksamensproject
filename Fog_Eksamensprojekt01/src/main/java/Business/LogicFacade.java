@@ -61,7 +61,7 @@ public class LogicFacade {
 
     }
 
-    public static List<Ordre> getOrderList() throws NewException {
+   public static List<Ordre> getOrderList() throws NewException{
         return OrdreMapper.getOrderList();
     }
 
@@ -92,7 +92,15 @@ public class LogicFacade {
 
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
+public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{ 
+    return OrdreMapper.getOrdreByOrderId(ordre_id);
+ 
+}
 
+ public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
+    
+     OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
+ }
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
         System.out.println(LogicFacade.getOrderByOrderId(3));
