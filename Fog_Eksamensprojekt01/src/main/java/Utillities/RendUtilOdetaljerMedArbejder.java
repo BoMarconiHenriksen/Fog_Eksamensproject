@@ -1,6 +1,8 @@
 package Utillities;
 
+import Business.Calculator;
 import Business.LogicFacade;
+import Business.SkurCalculator;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
@@ -32,9 +34,12 @@ public class RendUtilOdetaljerMedArbejder {
     }
 
     public static String odetailsForOrder(Odetaljer od) throws NewException {
-        
+      
          Ordre o=  LogicFacade.getOrdreByOrderId(od.getOrdreId());
-        StringBuilder sb = new StringBuilder();
+        
+         
+         
+         StringBuilder sb = new StringBuilder();
         sb.append("<form name=\"InvoiceSetStatus\" action=\"FrontController\" method=\"POST\">");
         sb.append("<input type=\"hidden\" name=\"command\" value=\"InvoiceSetStatus\">");
         sb.append("<table border=1>\n");
@@ -42,6 +47,7 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><th>InvoiceId</th><th>Date</th><th>status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
+       
         sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
 
         sb.append("</table>\n>");
