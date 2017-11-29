@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="Domain.Odetaljer"%>
 <%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
@@ -44,18 +45,20 @@
 
 
         <%
-            out.println("<p><br>" + request.getAttribute("showCust") + "</p>");
-            out.println("<p><br>" + request.getAttribute("visOrdre") + "</p>");
-           
+            
+         
+       
+
             out.println("<h3>Pris</h3><p>" + df.format(pris) + "</p>");
 
         %>
 
-
+   <%= RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer)request.getAttribute("od"))%>
+         <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer)request.getAttribute("od"))%>
         <br> <br>
         <div>
             <%String styk = rusl.getStykListeBaseSimpel(length, width, skurlength, skurWidth);
-        out.println("<a>" + styk + "</a>");%>
+                out.println("<a>" + styk + "</a>");%>
 
 
         </div>

@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class RendUtilOdetaljerMedArbejder {
 
-    public static String customerDetailsForOrder(Odetaljer od, Ordre o) throws NewException {
-
+    public static String customerDetailsForOrder(Odetaljer od) throws NewException {
+   Ordre o=  LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         sb.append("<table border=1>\n");
 
@@ -31,7 +31,9 @@ public class RendUtilOdetaljerMedArbejder {
         return sb.toString();
     }
 
-    public static String odetailsForOrder(Odetaljer od, Ordre o) throws NewException {
+    public static String odetailsForOrder(Odetaljer od) throws NewException {
+        
+         Ordre o=  LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         sb.append("<form name=\"InvoiceSetStatus\" action=\"FrontController\" method=\"POST\">");
         sb.append("<input type=\"hidden\" name=\"command\" value=\"InvoiceSetStatus\">");
@@ -40,10 +42,10 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><th>InvoiceId</th><th>Date</th><th>status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-        sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getOrdreStatus()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
 
         sb.append("</table>\n>");
-        sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
+        sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + od.getOrdreId() + "\"><br>\n\n</td>");
         sb.append(" <select name=\"status\">\n"
                 + "  <option text=\"Ny Ordre\">Ny Ordre</option>\n"
                 + "  <option text=\"Bestilt\">Bestilt</option>\n"

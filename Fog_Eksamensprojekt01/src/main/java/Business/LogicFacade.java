@@ -28,7 +28,7 @@ public class LogicFacade {
 
     }
 
-    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+    public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }
 
@@ -93,7 +93,7 @@ public class LogicFacade {
         OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
     }
 public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{ 
-    return OrdreMapper.getOrdreByOrderId(ordre_id);
+    return OrdreMapper.getOrdreByOrdreId(ordre_id);
  
 }
 
@@ -108,7 +108,7 @@ public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{
  }
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
-        System.out.println(LogicFacade.getOrderByOrderId(3));
+        System.out.println(LogicFacade.getOdetaljerByOrderId(3));
         System.out.println(LogicFacade.getOrderByOrderId2(3));
 //        LogicFacade.changeMaterialePris(7, 29.95);
 //        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));

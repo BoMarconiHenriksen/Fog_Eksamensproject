@@ -20,13 +20,11 @@ public class InvoiceDetail extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
         
-        Ordre odr = LogicFacade.getOrdreByOrderId(orderid);
-        Odetaljer od = LogicFacade.getOrderByOrderId(orderid);
+
+        Odetaljer od = LogicFacade.getOdetaljerByOrderId(orderid);
         String status = od.getOrdreStatus();
-        String visOrdre=RendUtilOdetaljerMedArbejder.odetailsForOrder(od, odr);
-        String showCust = RendUtilOdetaljerMedArbejder.customerDetailsForOrder(od, odr);
-        request.setAttribute("visOrdre", visOrdre);
-        request.setAttribute("showCust", showCust);
+      
+     
 
         request.setAttribute("length", (Double) od.getCarportLength());
         request.setAttribute("width", (Double) od.getCarportWidth());
