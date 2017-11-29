@@ -1,5 +1,9 @@
 package Presentation;
 
+import Business.LogicFacade;
+import Domain.Ordre;
+import Utillities.RendUtilOrderList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,12 +17,12 @@ public class OrdreList extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
             
-        //List<Ordre> invoiceList = LogicFacade.getOrderList();
+        List<Ordre> invoiceList = LogicFacade.getOrderList();
         
-        //RendUtilOrderList.invoiceList(invoiceList);
+        RendUtilOrderList.invoiceList(invoiceList);
         
         
-        //request.setAttribute("invoiceList", invoiceList);
+        request.setAttribute("invoiceList", invoiceList);
         
         return "ordre_liste";
 

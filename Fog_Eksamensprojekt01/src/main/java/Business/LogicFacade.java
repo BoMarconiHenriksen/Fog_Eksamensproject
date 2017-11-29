@@ -101,6 +101,11 @@ public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{
     
      OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
  }
+ 
+ 
+ public static int getLastInvoiceId() throws NewException {
+     return OrdreMapper.getLastInvoiceId();
+ }
     public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
 
         System.out.println(LogicFacade.getOrderByOrderId(3));

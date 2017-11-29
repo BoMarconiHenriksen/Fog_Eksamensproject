@@ -31,7 +31,6 @@ public class RendUtilOrderList {
             sb.append("<td>").append("" + LogicFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOrderByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
-          
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");

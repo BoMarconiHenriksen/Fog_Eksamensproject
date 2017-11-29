@@ -45,7 +45,7 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("</table>\n>");
         sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
         sb.append(" <select name=\"status\">\n"
-                   + "  <option text=\"Ny Ordre\">Ny Ordre</option>\n"
+                + "  <option text=\"Ny Ordre\">Ny Ordre</option>\n"
                 + "  <option text=\"Bestilt\">Bestilt</option>\n"
                 + "<option text=\"Modtaget\">Modtaget</option>\n"
                 + " <option text=\"Betalt\">Betalt</option>\n"

@@ -110,7 +110,7 @@ public class basisCarport extends Command {
             order.setReciveddate(formatDateTime);
 
             LogicFacade.placeAnOrder(user_id, formatDateTime);
-            int or = LogicFacade.getOrderList().size();
+            int or = LogicFacade.getLastInvoiceId();
             Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
             LogicFacade.updatereOdetajlermedSkur(or, ods);
             LogicFacade.getOrderByOrderId2(or);

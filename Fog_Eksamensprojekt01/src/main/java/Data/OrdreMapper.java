@@ -125,6 +125,27 @@ public class OrdreMapper {
         }
 
     }
+ 
+  public static int getLastInvoiceId() throws NewException {
+       
+      
+      int invoiceid = 0;
+        try {
+ Connection con = DBConnector.connection();
+            String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            if (rs.next()) {
+
+                invoiceid = rs.getInt("ordre_id");
+
+            }
+        }  catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return invoiceid;
+    }
 
 
 //    Bruges til test
