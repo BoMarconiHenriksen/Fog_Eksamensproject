@@ -32,8 +32,8 @@ public class Calculator {
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
 
         double totalPriceSimpleCarport = 0;
-        double totalPriceBase = beregnBase(length/100, width/100);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length/100);
+        double totalPriceBase = calculateBaseCarport(length, width);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
@@ -62,8 +62,8 @@ public class Calculator {
         double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
         double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
-        totalPriceScrewsAndSuch = 1 * plastmoBundSkruePris + 2 * hulbåndPris + (int) Math.round(length / 0.55) * universalHøjre
-                + (int) Math.round(length / 0.55) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
+        totalPriceScrewsAndSuch = 1 * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
+                + numberOfRafters(length) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
 
@@ -76,46 +76,48 @@ public class Calculator {
      * @return totalPriceBase
      * @throws NewException
      */
-    private double beregnBase(double length, double width) throws NewException {
+    private double calculateBaseCarport(double length, double width) throws NewException {
 
         // DecimalFormat df = new DecimalFormat("0.00");
         //træ og tag
-        double brædt1pris = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
-        double brædt2pris = LogicFacade.getMaterialeByVarenummer(2).getEnhedspris();
-        double remme1pris = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
-        double stolpePris1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-        double brædt3Pris = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();
+        double plank1Price = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
+        double plank2Price = LogicFacade.getMaterialeByVarenummer(2).getEnhedspris();
+        double strapsToCarryRoofPrice = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
+        double postPrice1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
+        double plank3Price = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
-        double plastmoTagpris = 0;
+        double plastmoRoofPrice = 0;
         double totalPriceBase = 0;
         if (length <= 3.00) {
 
-            plastmoTagpris = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
         } else if (length <= 4.80) {
 
-            plastmoTagpris = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
         } else if (length <= 6.00) {
 
-            plastmoTagpris = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
         }
-        totalPriceBase = 2 * width * brædt1pris + 2 * length * brædt1pris + 1 * width * brædt2pris
-                + 2 * length * brædt2pris + 2 * (length + 0.6) * remme1pris
-                + (int) Math.round(length / 0.55) * width * remme1pris + 4 * stolpePris1 + 2 * length * brædt3Pris
-                + 1 * length * brædt3Pris + width * plastmoTagpris;
+        totalPriceBase = 2 * width/100 * plank1Price + 2 * length/100 * plank1Price + 1 * width/100 * plank2Price
+                + 2 * length/100 * plank2Price + 2 * (length/100 + 0.6) * strapsToCarryRoofPrice
+                + numberOfRafters(length) * width/100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length/100 * plank3Price
+                + 1 * length/100 * plank3Price + width/100 * plastmoRoofPrice;
         return totalPriceBase;
     }
     
-    public static int antalSpær(double length) {
-        int spærAntalCirka = (int) Math.round(length / 57);
-        return spærAntalCirka;
+    public static int numberOfRafters(double length) {
+        int approxNumberOfRafts = (int) Math.round(length / 57);
+        return approxNumberOfRafts;
     }
 
-    public static int afstandMellemSpær(double length) {
-        int spærAntalCirka = antalSpær(length);
-        double afstandMellemSpær = ((int) Math.round(length / (spærAntalCirka))) - ((int) length % spærAntalCirka) / (spærAntalCirka);
-        return (int) afstandMellemSpær;
+    public static int spaceBetweenRafters(double length) {
+      
+        double spaceBetweenRafters = ((int) Math.round(length / (numberOfRafters(length)))) - ((int) length % numberOfRafters(length)) / (numberOfRafters(length));
+        return (int) spaceBetweenRafters;
     }
+    
+    
     
 //    private double beregnSkurEnkelt(double skurLength, double skurWidth) throws NewException{
 //        double ekstraStolpePris= 4*LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
@@ -139,30 +141,13 @@ public class Calculator {
         Calculator calc = new Calculator();
 
         System.out.println(calc.calculateCarportSimple(480, 300, 225));
-        System.out.println(calc.afstandMellemSpær(240));
-        System.out.println(calc.afstandMellemSpær(300));
-        System.out.println(calc.afstandMellemSpær(330));
-        System.out.println(calc.afstandMellemSpær(360));
-        System.out.println(calc.afstandMellemSpær(390));
-        System.out.println(calc.afstandMellemSpær(420));
-        System.out.println(calc.afstandMellemSpær(450));
-        System.out.println(calc.afstandMellemSpær(480));
-        System.out.println(calc.afstandMellemSpær(510));
-        System.out.println(calc.afstandMellemSpær(540));
-        System.out.println(calc.afstandMellemSpær(570));
-        System.out.println(calc.afstandMellemSpær(600));
-        System.out.println(calc.afstandMellemSpær(630));
-        System.out.println(calc.afstandMellemSpær(660));
-        System.out.println(calc.afstandMellemSpær(690));
-        System.out.println(calc.afstandMellemSpær(720));
-        System.out.println(calc.afstandMellemSpær(750));
-         System.out.println(calc.afstandMellemSpær(780));
+      
     }
 
 }
 // hvis carporten 600 * 780
-//        totalPriceBase = 4 * 3.6 * brædt1pris + 4 * 5.4 * brædt1pris + 2 * 3.6 * brædt1pris 
-//                + 4 * 5.4 * brædt1pris + 2 * 6 * remme1pris + 1 * 4.8 * remme1pris
-//                + 15 * 6 * remme1pris + 6 * 3 * stolpePris1 + 4 * 5.4 * brædt2Pris 
+//        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 
+//                + 4 * 5.4 * plank1Price + 2 * 6 * strapsToCarryRoofPrice + 1 * 4.8 * strapsToCarryRoofPrice
+//                + 15 * 6 * strapsToCarryRoofPrice + 6 * 3 * postPrice1 + 4 * 5.4 * brædt2Pris 
 //                + 2 * 3.6 * brædt2Pris + 6 * plastmoTag1pris + 6  * plastmoTag2pris;
 //længde 

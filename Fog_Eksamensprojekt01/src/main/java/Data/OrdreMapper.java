@@ -45,7 +45,7 @@ public class OrdreMapper {
     }
 
     public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{ 
-        Ordre or = null; 
+        Ordre or = null ; 
         try {
           
             Connection con = DBConnector.connection();
@@ -54,77 +54,20 @@ public class OrdreMapper {
             
             while(rs.next()){
                 
-           int ordreId= or.getOrdre_id();
+          
             int user_id= or.getUser_id();
             String receiveddate=or.getReciveddate();
-            or= new Ordre(ordreId,receiveddate,user_id );
+            or= new Ordre(ordre_id,receiveddate,user_id );
             return or;
              }
         } catch (ClassNotFoundException | SQLException ex) {
-          Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+          throw new NewException(ex.getMessage());
 
         }
         return or;
      
     }
 
-    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer o = null;
-        try {
-
-            Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
-            
-            while(rs.next()){
-            int odetaljerId = rs.getInt("odetaljer_id");
-            int ordreId = rs.getInt("ordre_id");
-            int vareId = rs.getInt("vareid");
-            int linjelisteId = rs.getInt("linjeliste_id");
-            String ordreStatus = rs.getString("ordre_status");
-            double carportLength = rs.getDouble("carport_length");
-            double carportWidth = rs.getDouble("carport_width");
-            double carportHeight = rs.getDouble("carport_height");
-            double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-            double widthRedskabsrum = rs.getDouble("width_redskabsrum");
-            int tagType = rs.getInt("tagtype");
-
-            o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
-                    carportLength, carportWidth,
-                    carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
-            }
-            return o;
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return o;
-    }
- public static void AddOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
-
-        try {
-
-            Connection con = DBConnector.connection();
-            String SQL;
-            SQL = "INSERT INTO odetaljer( ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
-            ps.setString(1, ods.getOrdreStatus());
-            ps.setDouble(2, ods.getCarportLength());
-            ps.setDouble(3, ods.getCarportWidth());
-            ps.setDouble(4, ods.getCarportHeight());
-            ps.setDouble(5, ods.getLengthRedskabsrum());
-            ps.setDouble(6, ods.getWidthRedskabsrum());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            ods.setOrdreId(id);
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new NewException(ex.getMessage());
-        }
-
-    }
  
   public static int getLastInvoiceId() throws NewException {
        
@@ -158,7 +101,7 @@ public static void main(String[] args) throws NewException {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OrdreMapper.getOrderList().get(0));
+        System.out.println(OrdreMapper.getLastInvoiceId());
         System.out.println("ordre detalje liste:");
 
 //            System.out.println(orderList.getOrdersByOrderId(2));

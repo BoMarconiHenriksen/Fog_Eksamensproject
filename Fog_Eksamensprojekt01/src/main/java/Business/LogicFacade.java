@@ -29,7 +29,7 @@ public class LogicFacade {
     }
 
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        return OrdreMapper.getOrderByOrderId(ordre_id);
+        return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }
 
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
