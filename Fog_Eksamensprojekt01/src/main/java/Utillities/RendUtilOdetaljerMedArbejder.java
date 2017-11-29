@@ -47,7 +47,6 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><th>InvoiceId</th><th>Date</th><th>status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-       
         sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
 
         sb.append("</table>\n>");
