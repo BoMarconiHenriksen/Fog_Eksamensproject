@@ -45,16 +45,12 @@
 
 
         <%
-            
-         
-       
-
             out.println("<h3>Pris</h3><p>" + df.format(pris) + "</p>");
 
         %>
 
-   <%= RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer)request.getAttribute("od"))%>
-         <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer)request.getAttribute("od"))%>
+        <%= RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
+        <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
         <br> <br>
         <div>
             <%String styk = rusl.getStykListeBaseSimpel(length, width, skurlength, skurWidth);

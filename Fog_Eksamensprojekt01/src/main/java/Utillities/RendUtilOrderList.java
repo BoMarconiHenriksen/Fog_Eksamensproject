@@ -17,10 +17,11 @@ public class RendUtilOrderList {
         ordreList = LogicFacade.getOrderList();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("<table>\n"
+    
+      sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>InvoiceId</th><th>Date</th><th>Kundens fornavn</th><th>Telefon nr</th><th>status</th></tr>\n");
-        for (Ordre o : ordreList) {
+        for (Ordre o : ordreList)  {  
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");

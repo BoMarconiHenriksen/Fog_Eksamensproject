@@ -23,20 +23,67 @@ import java.util.List;
  */
 public class LogicFacade {
 
-    public static List<Materiale> getMaterial() throws NewException {
-        return MaterialeMapper.getMaterial();
+   
 
+ 
+
+   
+
+  
+//////////////////////////////OrdreMapperMetoder////////////////////////////////////////
+
+    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
+        Ordre theOrdered = new Ordre(user_id, receiveddate);
+        LineItemMapper.addOrdertoOrderList(theOrdered);
+        return theOrdered;
     }
 
-    public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
+    public static List<Ordre> getOrderList() throws NewException {
+        return OrdreMapper.getOrderList();
+    }
+
+    public static Ordre getOrdreByOrderId(int ordre_id) throws NewException {
+        return OrdreMapper.getOrdreByOrdreId(ordre_id);
+    }
+
+    public static int getLastInvoiceId() throws NewException {
+        return OrdreMapper.getLastInvoiceId();
+    }
+
+    //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
+    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+            throws NewException {
+        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
+    }
+
+    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)  throws NewException {
+        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
+    }
+
+    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
+        OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
+    }
+
+    public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
+
+        OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
+    }
+       public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }
 
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
+      //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
 
-    public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
+    public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
+        Materiale mat = new Materiale(vareid, enhedspris);
+        MaterialeMapper.changeMaterialePris(vareid, enhedspris);
+        return mat;
+    }
+    
+     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
         String materialetype = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialetype();
         String materialenavn = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialenavn();
         double enhedspris = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhedspris();
@@ -45,68 +92,30 @@ public class LogicFacade {
         Materiale mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
         return mat;
     }
-
-    public static List<StykLinje> getStykLinje() throws NewException {
+      public static List<Materiale> getMaterial() throws NewException {
+        return MaterialeMapper.getMaterial();
+    }
+       //////////////////////////////StykLinjeMapperMetoder////////////////////////////////////////  
+      
+        public static List<StykLinje> getStykLinje() throws NewException {
         return StykLinjeMapper.getStykLinje();
     }
+       //////////////////////////////LineItemMapperMetoder////////////////////////////////////////  
 
     public static List<LineItem> getLineItem() throws NewException {
         return LineItemMapper.getLineItems();
     }
+     
+       //////////////////////////////UserMapperMetoder////////////////////////////////////////  
 
-    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
-        Ordre theOrdered = new Ordre(user_id, receiveddate);
-        LineItemMapper.addOrdertoOrderList(theOrdered);
-        return theOrdered;
-
-    }
-
-   public static List<Ordre> getOrderList() throws NewException{
-        return OrdreMapper.getOrderList();
-    }
-
-    public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
-        Materiale mat = new Materiale(vareid, enhedspris);
-        MaterialeMapper.changeMaterialePris(vareid, enhedspris);
-        return mat;
-    }
-
-    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
-            throws NewException {
-        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
-    }
-
-    
-     public static User getUserByUserId(int user_id) throws NewException {
+    public static User getUserByUserId(int user_id) throws NewException {
         return UserMapper.getUserByUserId(user_id);
     }
-
-
-
-    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
-            throws NewException {
-        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
-    }
-
-    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
-
-        OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
-    }
-public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{ 
-    return OrdreMapper.getOrdreByOrdreId(ordre_id);
- 
-}
-
- public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
     
-     OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
- }
- 
- 
- public static int getLastInvoiceId() throws NewException {
-     return OrdreMapper.getLastInvoiceId();
- }
-    public static void main(String[] args) throws NewException, ClassNotFoundException, SQLException {
+    
+   
+
+    public static void main(String[] args) throws NewException{
 
         System.out.println(LogicFacade.getOdetaljerByOrderId(3));
         System.out.println(LogicFacade.getOrderByOrderId2(3));
@@ -132,7 +141,4 @@ public static Ordre getOrdreByOrderId(int ordre_id) throws NewException{
 //    public static List<User> getAllUsers() throws BenedikteEvasNewException {
 //        return UserMapper.getAllUsers();
 //    }
-
-   
-   
 }
