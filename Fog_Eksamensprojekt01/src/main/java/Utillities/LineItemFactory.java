@@ -45,9 +45,9 @@ public class LineItemFactory {
 
         baseMetal[0] = new LineItem2("Skuer til tagplader", Business.LogicFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
         baseMetal[1] = new LineItem2("Til vindkryds på spær", Business.LogicFacade.getMaterialeByVarenummer(14).getMaterialenavn(), 0, 2, "Stk");
-        baseMetal[2] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(15).getMaterialenavn(), length, Calculator.numberOfRafters(length), "Rulle");
-        baseMetal[3] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(16).getMaterialenavn(), length, 2, "Stk");
-        baseMetal[4] = new LineItem2("Til montering af stern & vandbrædt", Business.LogicFacade.getMaterialeByVarenummer(17).getMaterialenavn(), length, 2, "Stk");
+        baseMetal[2] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(15).getMaterialenavn(), Calculator.numberOfRafters(length), "Rulle");
+        baseMetal[3] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(16).getMaterialenavn(), 2, "Stk");
+        baseMetal[4] = new LineItem2("Til montering af stern & vandbrædt", Business.LogicFacade.getMaterialeByVarenummer(17).getMaterialenavn(), 2, "Stk");
         return baseMetal;
 
     }  
@@ -57,14 +57,14 @@ public class LineItemFactory {
         LineItem2[] ecoliteRoof = new LineItem2[1];
 
         if (length <= 300) {
-            ecoliteRoof[0] =new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), length, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] =new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 480) {
-            ecoliteRoof[0] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), length, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 600) {
-            ecoliteRoof[0] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn(), length, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length > 600) {
             //OBS! Skal laves færdig!
-            ecoliteRoof[0] = new LineItem2("Ring til supporten", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), length, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem2("Ring til supporten", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, calculateNumberOfEcoliteRoof(width), "Stk");
           
         }
 

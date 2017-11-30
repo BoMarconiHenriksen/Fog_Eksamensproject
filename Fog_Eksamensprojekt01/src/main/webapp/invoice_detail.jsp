@@ -55,7 +55,7 @@
         <div>
             <%   StringBuilder sb= new StringBuilder();
        
-            out.println("<p>"+(String)rusl.createLineItemList(  sb,length, width, skurlength, skurWidth)+"</p>");%>   
+            out.println("<p>"+(String)rusl.createLineItemList(sb, length, width, skurLength, skurWidth)+"</p>");%>   
 
 
         </div>
