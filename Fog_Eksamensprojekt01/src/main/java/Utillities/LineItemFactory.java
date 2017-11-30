@@ -41,7 +41,7 @@ public class LineItemFactory {
     
       public static LineItem2[] carportBaseMetal(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
       
-        LineItem2[] baseMetal = new LineItem2[8];
+        LineItem2[] baseMetal = new LineItem2[5];
 
         baseMetal[0] = new LineItem2("Skuer til tagplader", Business.LogicFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
         baseMetal[1] = new LineItem2("Til vindkryds på spær", Business.LogicFacade.getMaterialeByVarenummer(14).getMaterialenavn(), 0, 2, "Stk");
