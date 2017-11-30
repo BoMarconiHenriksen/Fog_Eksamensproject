@@ -3,6 +3,7 @@ package Utillities;
 import Business.Calculator;
 import Business.LogicFacade;
 import Domain.LineItem;
+import Domain.LineItem2;
 import Presentation.NewException;
 import java.util.List;
 
@@ -31,6 +32,23 @@ public class XXRendUtilStykListe {
         return sb.toString();
 
     }
+    
+    public static String createLineItemList(StringBuilder sb,LineItem2[] limes){
+        
+       headLinesStykListe(sb);
+       for (LineItem2 lim: limes){
+        
+        sb.append("<tr><td>" +lim.getMaterial_name() + "</td>");
+        sb.append("<td>" + lim.getDimension()+ "</td>");
+        sb.append("<td>" + lim.getAmount()+ "</td>");
+        sb.append("<td>" +lim.getUnit() + "</td>");
+        sb.append("<td>" + lim.getDescription()+ "</td>");
+        sb.append("</tr>");
+       }
+        return sb.toString();
+//         sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
+    }
+    
 
     private static void headLinesStykListe(StringBuilder sb) {
         sb.append("<h2>Stykliste</h2>\n"
@@ -264,6 +282,14 @@ public class XXRendUtilStykListe {
 
         sb.append("</tr>");
 
+    }
+
+ public static void main(String[] args) throws NewException {
+     StringBuilder sb = new StringBuilder();
+  LineItem2 []limes=  LineItemFactory.baseTree(480, 300);
+
+        System.out.println(XXRendUtilStykListe.createLineItemList( sb, limes));
+      
     }
 
 }
