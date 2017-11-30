@@ -35,6 +35,10 @@ public class LineItemMapper {
             orderPstmt.setInt(1, or.getUser_id());
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
+            ResultSet ids = orderPstmt.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            or.setOrdre_id(id);
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
@@ -75,7 +79,7 @@ public class LineItemMapper {
             String SQL;
             SQL = "INSERT INTO odetaljer( ordre_id, ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            
+
             ps.setInt(1, ordre_id);
             ps.setString(2, ods.getOrdreStatus());
             ps.setDouble(3, ods.getCarportLength());
@@ -84,7 +88,6 @@ public class LineItemMapper {
             ps.setDouble(6, ods.getLengthRedskabsrum());
             ps.setDouble(7, ods.getWidthRedskabsrum());
             ps.executeUpdate();
-         
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());

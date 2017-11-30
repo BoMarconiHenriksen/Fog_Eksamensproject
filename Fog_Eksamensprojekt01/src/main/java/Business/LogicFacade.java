@@ -67,7 +67,12 @@ public class LogicFacade {
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
+
       //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
+
+    public static List<Ordre> getOrderListByUserId(int user_id) throws NewException {
+        return OrdreMapper.getOrderListByUserID(user_id);
+    }
 
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
         Materiale mat = new Materiale(vareid, enhedspris);
