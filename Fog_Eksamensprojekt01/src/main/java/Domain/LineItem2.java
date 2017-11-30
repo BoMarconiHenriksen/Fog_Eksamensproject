@@ -27,6 +27,13 @@ public class LineItem2 {
         this.unit = unit;
     }
 
+    public LineItem2(String description, String material_name, int amount, String unit) {
+        this.description = description;
+        this.material_name = material_name;
+        this.amount = amount;
+        this.unit = unit;
+    }
+    
     public String getDescription() {
         return description;
     }

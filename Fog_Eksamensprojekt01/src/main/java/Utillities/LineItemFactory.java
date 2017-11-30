@@ -37,7 +37,7 @@ public class LineItemFactory {
     }
 
     public static LineItem2[] ecoliteRoof(double width, double length) throws NewException {
-        LineItem2[] ecoliteRoof = new LineItem2[3];
+        LineItem2[] ecoliteRoof = new LineItem2[1];
 
         if (length <= 300) {
             ecoliteRoof[0] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, calculateNumberOfEcoliteRoof(width), "Stk");
@@ -48,10 +48,43 @@ public class LineItemFactory {
         } else if (length > 600) {
             //OBS! Skal laves færdig!
             ecoliteRoof[2] = new LineItem2("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, calculateNumberOfEcoliteRoof(width), "Stk");
-            System.out.println("Ring til supporten!");
         }
 
         return ecoliteRoof;
+    }
+    
+    public static LineItem2[] woodForShed(double skurLængde, double skurBredde) throws NewException {
+        LineItem2[] woodForShed = new LineItem2[5];
+        
+        //Fast størrelse
+        woodForShed[0] = new LineItem2("Til z på bagside af dør", Business.LogicFacade.getMaterialeByVarenummer(3).getMaterialenavn(), 420, 1, "Stk");
+        //OBS! Denne skal rettes til i forbindelse med antal!
+        woodForShed[1] = new LineItem2("Løsholter til skurgavle", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurLængde, 4, "Stk");
+        //OBS! Denne skal rettes til
+        woodForShed[2] = new LineItem2("Løsholter til skur sider", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
+        woodForShed[3] = new LineItem2("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
+        woodForShed[4] = new LineItem2("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), CalculateWidthBeklædningShed(skurBredde), 4, "Stk");
+        
+        return woodForShed;
+    }
+    
+    public static LineItem2[] screwsAndBracketShed(double skurLængde, double skurBredde) throws NewException {
+        LineItem2[] screwsAndBracketShed = new LineItem2[3];
+        
+        screwsAndBracketShed[0] = new LineItem2("Til lås på dør i skur", Business.LogicFacade.getMaterialeByVarenummer(23).getMaterialenavn(), 1, "Sæt");
+        screwsAndBracketShed[1] = new LineItem2("Til skurdør", Business.LogicFacade.getMaterialeByVarenummer(24).getMaterialenavn(), 2, "Stk");
+        //OBS! Høre sammen med antal løsholter til skur. Skal udregnes på baggrund af løsholter til skur
+        screwsAndBracketShed[2] = new LineItem2("Til montering af løsholter i skur", Business.LogicFacade.getMaterialeByVarenummer(25).getMaterialenavn(), 32, "Stk");
+        
+        return screwsAndBracketShed;
+    }
+
+    private static double CalculateWidthBeklædningShed(double skurBredde) {
+        return skurBredde-30;
+    }
+
+    private static double CalculateWidthForRemmeISiderSkur(double skurBredde) {
+        return skurBredde*2;
     }
 
     private static int calculateNumberOfEcoliteRoof(double width) {
