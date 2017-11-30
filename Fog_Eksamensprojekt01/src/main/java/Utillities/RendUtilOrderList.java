@@ -35,13 +35,13 @@ public class RendUtilOrderList {
 //        double skurlength = LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getLengthRedskabsrum();
 //        double skurwidth = LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getWidthRedskabsrum();
 //        double carportTotal = calc.calculateCarportSimple(length, width, height) + scalc.skurPrisBeregner(skurlength, skurwidth);
-//          double carportTotalTwoDecimals = calculatePriceShowTwoDecimals(o, calc, scalc);
+////          double carportTotalTwoDecimals = calculatePriceShowTwoDecimals(o, calc, scalc);
             
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
             sb.append("<td>").append("" + (o.getOrdre_id())).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-            sb.append("<td>").append("" + "kommer senere").append("</td>");
+            sb.append("<td>").append("" +"Kommer").append("</td>");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId((o.getUser_id())).getFirstname()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
