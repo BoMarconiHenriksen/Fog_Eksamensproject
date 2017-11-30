@@ -113,9 +113,9 @@
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
 
-   <%   StringBuilder sb = new StringBuilder();
-  LineItem2 []limes=  LineItemFactory.baseTree(length, width);
-  out.println("<p>"+(String)rusl.createLineItemList(sb, limes, length, width)+"</p>");%>        
+   <%   StringBuilder sb= new StringBuilder();
+       
+            out.println("<p>"+(String)rusl.createLineItemList(  sb,length, width, skurlength, skurWidth)+"</p>");%>        
 
 
     </body>

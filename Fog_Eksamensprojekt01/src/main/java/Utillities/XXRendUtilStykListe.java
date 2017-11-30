@@ -33,16 +33,20 @@ public class XXRendUtilStykListe {
 //
 //    }
     
-    public static String createLineItemList(StringBuilder sb, LineItem2[] limes, double length, double width) throws NewException {
-        limes = LineItemFactory.baseTree(length, width);
+    public static String createLineItemList(StringBuilder sb, double length, double width, double skurLength, double skurWidth) throws NewException {
+        LineItem2 []limes = LineItemFactory.baseTree(length, width);
         headLinesStykListe(sb);
-        createLineItemListTree(sb, limes, length, width);
+        createLineItemListTree(sb,  length, width);
+       lineItemEcoliteRoof(sb, length,width);
         return sb.toString();
-//         sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
+         
     }
 
-    public static String createLineItemListTree(StringBuilder sb, LineItem2[] limes, double length, double width) throws NewException {
+    public static String createLineItemListTree(StringBuilder sb,  double length, double width) throws NewException {
+       LineItem2[] limes=LineItemFactory.baseTree(width, length);
+        
         sb.append("<br><tr><th>Træ</th></tr>\n");
+        
         for (LineItem2 lim : limes) {
 
             sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
@@ -55,7 +59,8 @@ public class XXRendUtilStykListe {
         return sb.toString();
     }
 
-    public static String lineItemEcoliteRoof(StringBuilder sb, LineItem2[] limes, double length, double width) throws NewException {
+    public static String lineItemEcoliteRoof(StringBuilder sb,  double length, double width) throws NewException {
+        LineItem2[] limes=LineItemFactory.ecoliteRoof(width, length);
         sb.append("<br><tr><th>Tag</th></tr>\n");
         for (LineItem2 lim : limes) {
 
@@ -78,6 +83,20 @@ public class XXRendUtilStykListe {
                 + "<th>Enhed</th>"
                 + "<th>Beskrivelse</th>");
         sb.append("</tr>");
+    }
+
+    public static String createLineItemListMetal(StringBuilder sb, LineItem2[] baseMetal, double length, double width) throws NewException {
+        sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
+        for (LineItem2 limM : baseMetal) {
+
+            sb.append("<tr><td>" + limM.getMaterial_name() + "</td>");
+            sb.append("<td>" + limM.getDimension() + "</td>");
+            sb.append("<td>" + limM.getAmount() + "</td>");
+            sb.append("<td>" + limM.getUnit() + "</td>");
+            sb.append("<td>" + limM.getDescription() + "</td>");
+            sb.append("</tr>");
+        }
+        return sb.toString();
     }
 
 //    private static void stykListeBeslagOgSkruer(StringBuilder sb, List<LineItem> lim, double length) {
@@ -305,10 +324,10 @@ public class XXRendUtilStykListe {
     public static void main(String[] args) throws NewException {
         StringBuilder sb = new StringBuilder();
         LineItem2[] limes = LineItemFactory.baseTree(480, 300);
-
-        System.out.println(XXRendUtilStykListe.createLineItemList(sb, limes, 480, 300));
-        System.out.println(XXRendUtilStykListe.lineItemEcoliteRoof(sb, limes, 480, 300));
+        System.out.println(XXRendUtilStykListe.createLineItemList(sb, 480, 300, 210, 150));
 
     }
+
+    
 
 }
