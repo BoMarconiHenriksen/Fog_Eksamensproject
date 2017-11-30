@@ -15,10 +15,13 @@ import java.util.List;
 public class XXRendUtilStykListe {
 
     public static String createLineItemList(StringBuilder sb, double length, double width, double skurLength, double skurWidth) throws NewException {
-        LineItem2[] limes = LineItemFactory.baseTree(length, width);
+        
+   
+       
+        
         headLinesStykListe(sb);
-
         createLineItemListTree(sb, length, width);
+        
         if(skurLength>0){
         lineItemWoodForShed(sb, skurLength, skurWidth);
         }
@@ -54,13 +57,14 @@ public class XXRendUtilStykListe {
         LineItem2[] limes = LineItemFactory.woodForShed(skurwidth, skurlength);
         return forLoopLineItem(limes, sb);
     }
-
-    public static void main(String[] args) throws NewException {
-        StringBuilder sb = new StringBuilder();
-        LineItem2[] limes = LineItemFactory.baseTree(480, 300);
-
+    
+        public static String createLineItemListMetal(StringBuilder sb, double length, double width) throws NewException {
+        sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
+        LineItem2[] limes = LineItemFactory.carportBaseMetal(width, length);
+        return forLoopLineItem(limes, sb);
     }
 
+ 
     private static void headLinesStykListe(StringBuilder sb) {
         sb.append("<h2>Stykliste</h2>\n"
                 + "<table border=4>"
@@ -72,13 +76,7 @@ public class XXRendUtilStykListe {
         sb.append("</tr>");
     }
 
-    public static String createLineItemListMetal(StringBuilder sb, double length, double width) throws NewException {
-        sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
 
-        LineItem2[] limes = LineItemFactory.carportBaseMetal(width, length);
-       
-        return forLoopLineItem(limes, sb);
-    }
 
     private static String forLoopLineItem(LineItem2[] limes, StringBuilder sb) {
         for (LineItem2 lim : limes) {
@@ -99,6 +97,11 @@ public class XXRendUtilStykListe {
         } else {
             sb.append("<td>" + lim.getDimension() + "</td>");
         }
+    }
+   public static void main(String[] args) throws NewException {
+        StringBuilder sb = new StringBuilder();
+        LineItem2[] limes = LineItemFactory.baseTree(480, 300);
+
     }
 
    

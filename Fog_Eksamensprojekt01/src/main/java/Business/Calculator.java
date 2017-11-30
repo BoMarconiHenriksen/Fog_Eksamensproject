@@ -31,7 +31,7 @@ public class Calculator {
 
         double totalPriceSimpleCarport = 0;
         double totalPriceBase = calculateBaseCarport(length, width);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length, width);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
@@ -47,7 +47,7 @@ public class Calculator {
      * @return totalPriceScrewsAndSuch
      * @throws NewException
      */
-    private double calculatePriceScrewsAndSuch(double length) throws NewException {
+    private double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
 
         // dimser
         double totalPriceScrewsAndSuch = 0;
@@ -60,7 +60,7 @@ public class Calculator {
         double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
         double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
-        totalPriceScrewsAndSuch = 1 * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
+        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
                 + numberOfRafters(length) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
@@ -86,13 +86,13 @@ public class Calculator {
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
         double plastmoRoofPrice = 0;
         double totalPriceBase = 0;
-        if (length <= 3.00) {
+        if (length <= 300) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
-        } else if (length <= 4.80) {
+        } else if (length <= 480) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
-        } else if (length <= 6.00) {
+        } else if (length <= 600) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
@@ -133,7 +133,7 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.numberOfBottomScrewsPackageEcolite(520, 300));
+        System.out.println(calc.numberOfBottomScrewsPackageEcolite(480, 300));
 
     }
 
