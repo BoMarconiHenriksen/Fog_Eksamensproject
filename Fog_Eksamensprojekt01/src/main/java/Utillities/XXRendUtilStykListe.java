@@ -84,13 +84,21 @@ public class XXRendUtilStykListe {
         for (LineItem2 lim : limes) {
             
             sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
-            sb.append("<td>" + lim.getDimension() + "</td>");
+            removeNumberFromLengthForBrackets(lim, sb);
             sb.append("<td>" + lim.getAmount() + "</td>");
             sb.append("<td>" + lim.getUnit() + "</td>");
             sb.append("<td>" + lim.getDescription() + "</td>");
             sb.append("</tr>");
         }
         return sb.toString();
+    }
+
+    private static void removeNumberFromLengthForBrackets(LineItem2 lim, StringBuilder sb) {
+        if(lim.getDimension() == 0.0) {
+            sb.append("<td>" + "" + "</td>");
+        } else {
+            sb.append("<td>" + lim.getDimension() + "</td>");
+        }
     }
 
    
