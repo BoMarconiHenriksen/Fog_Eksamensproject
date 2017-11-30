@@ -1,14 +1,9 @@
 package Utillities;
 
-import Business.Calculator;
 import Business.LogicFacade;
-import Business.SkurCalculator;
 import Domain.Odetaljer;
 import Domain.Ordre;
-import Domain.User;
 import Presentation.NewException;
-import com.mysql.cj.mysqlx.protobuf.MysqlxCrud.Order;
-import java.util.List;
 
 /**
  *

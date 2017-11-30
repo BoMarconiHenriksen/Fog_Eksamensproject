@@ -1,5 +1,6 @@
 package Utillities;
 
+import Business.Calculator;
 import Business.LogicFacade;
 import Domain.LineItem;
 import Presentation.NewException;
@@ -60,14 +61,14 @@ public class XXRendUtilStykListe {
 
         sb.append("<tr><td>" + lim.get(14).getMat().getMaterialenavn() + "</td>");
         sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
+        sb.append("<td>" +  Calculator.numberOfRafters(length)+ "</td>");
         sb.append("<td>" + lim.get(14).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(18).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
 
         sb.append("<tr><td>" + lim.get(15).getMat().getMaterialenavn() + "</td>");
         sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
+        sb.append("<td>" +  Calculator.numberOfRafters(length) + "</td>");
         sb.append("<td>" + lim.get(15).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(19).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");
@@ -140,7 +141,7 @@ public class XXRendUtilStykListe {
 
         sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
         sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
+        sb.append("<td>" + Calculator.numberOfRafters(length) + "</td>");
         sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
         sb.append("<td>" + lim.get(9).getLin().getBeskrivelse() + "</td>");
         sb.append("</tr>");

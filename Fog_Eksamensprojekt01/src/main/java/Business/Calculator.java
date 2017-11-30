@@ -118,15 +118,6 @@ public class Calculator {
     }
     
     
-    
-//    private double beregnSkurEnkelt(double skurLength, double skurWidth) throws NewException{
-//        double ekstraStolpePris= 4*LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-//        double løsHolterSkurGavl=4*skurLength*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-//        double LøsHolterSkurSider=4*skurWidth*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-//        double remmeSiderSkurdel= 2*skurWidth*LogicFacade.ge
-//        
-//    }
-    
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
