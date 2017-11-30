@@ -81,7 +81,7 @@ public class LineItemFactory {
         //OBS! Denne skal rettes til
         woodForShed[2] = new LineItem2("Løsholter til skur sider", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
         woodForShed[3] = new LineItem2("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
-        woodForShed[4] = new LineItem2("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), CalculateWidthBeklædningShed(skurBredde), 4, "Stk");
+        woodForShed[4] = new LineItem2("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), CalculateBeklædningShed(skurBredde,skurLængde), 4, "Stk");
         
         return woodForShed;
     }
@@ -97,8 +97,8 @@ public class LineItemFactory {
         return screwsAndBracketShed;
     }
 
-    private static double CalculateWidthBeklædningShed(double skurBredde) {
-        return skurBredde-30;
+    private static double CalculateBeklædningShed(double skurBredde, double skurLængde) {
+        return 2*skurBredde/10+2*skurLængde/10;
     }
 
     private static double CalculateWidthForRemmeISiderSkur(double skurBredde) {

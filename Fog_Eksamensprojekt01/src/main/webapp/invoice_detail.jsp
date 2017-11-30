@@ -53,8 +53,9 @@
         <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
         <br> <br>
         <div>
-            <%String styk = rusl.getStykListeBaseSimpel(length, width, skurlength, skurWidth);
-                out.println("<a>" + styk + "</a>");%>
+            <%   StringBuilder sb= new StringBuilder();
+       
+            out.println("<p>"+(String)rusl.createLineItemList(  sb,length, width, skurlength, skurWidth)+"</p>");%>   
 
 
         </div>
