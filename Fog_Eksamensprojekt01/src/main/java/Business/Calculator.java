@@ -16,8 +16,6 @@ import Presentation.NewException;
  */
 public class Calculator {
 
-    
-
 //    LogicFacade mat = new LogicFacade();
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
@@ -99,25 +97,29 @@ public class Calculator {
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
         }
-        totalPriceBase = 2 * width/100 * plank1Price + 2 * length/100 * plank1Price + 1 * width/100 * plank2Price
-                + 2 * length/100 * plank2Price + 2 * (length/100 + 0.6) * strapsToCarryRoofPrice
-                + numberOfRafters(length) * width/100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length/100 * plank3Price
-                + 1 * length/100 * plank3Price + width/100 * plastmoRoofPrice;
+        totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
+                + 2 * length / 100 * plank2Price + 2 * (length / 100 + 0.6) * strapsToCarryRoofPrice
+                + numberOfRafters(length) * width / 100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length / 100 * plank3Price
+                + 1 * length / 100 * plank3Price + width / 100 * plastmoRoofPrice;
         return totalPriceBase;
     }
-    
+
     public static int numberOfRafters(double length) {
         int approxNumberOfRafts = (int) Math.round(length / 57);
         return approxNumberOfRafts;
     }
 
     public static int spaceBetweenRafters(double length) {
-      
+
         double spaceBetweenRafters = ((int) Math.round(length / (numberOfRafters(length)))) - ((int) length % numberOfRafters(length)) / (numberOfRafters(length));
         return (int) spaceBetweenRafters;
     }
-    
-    
+
+    public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
+        int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
+        int numberOfPckScrews = numberOfScrews / 200;
+        return numberOfPckScrews;
+    }
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
@@ -131,8 +133,8 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(480, 300, 225));
-      
+        System.out.println(calc.numberOfBottomScrewsPackageEcolite(520, 300));
+
     }
 
 }
