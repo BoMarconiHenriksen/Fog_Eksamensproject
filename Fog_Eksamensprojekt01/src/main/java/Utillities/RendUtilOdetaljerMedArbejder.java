@@ -1,14 +1,9 @@
 package Utillities;
 
-import Business.Calculator;
 import Business.LogicFacade;
-import Business.SkurCalculator;
 import Domain.Odetaljer;
 import Domain.Ordre;
-import Domain.User;
 import Presentation.NewException;
-import com.mysql.cj.mysqlx.protobuf.MysqlxCrud.Order;
-import java.util.List;
 
 /**
  *
@@ -17,7 +12,7 @@ import java.util.List;
 public class RendUtilOdetaljerMedArbejder {
 
     public static String customerDetailsForOrder(Odetaljer od) throws NewException {
-   Ordre o=  LogicFacade.getOrdreByOrderId(od.getOrdreId());
+        Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         sb.append("<table border=1>\n");
 
@@ -34,12 +29,10 @@ public class RendUtilOdetaljerMedArbejder {
     }
 
     public static String odetailsForOrder(Odetaljer od) throws NewException {
-      
-         Ordre o=  LogicFacade.getOrdreByOrderId(od.getOrdreId());
-        
-         
-         
-         StringBuilder sb = new StringBuilder();
+
+        Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
+
+        StringBuilder sb = new StringBuilder();
         sb.append("<form name=\"InvoiceSetStatus\" action=\"FrontController\" method=\"POST\">");
         sb.append("<input type=\"hidden\" name=\"command\" value=\"InvoiceSetStatus\">");
         sb.append("<table border=1>\n");

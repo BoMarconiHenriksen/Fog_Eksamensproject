@@ -1,6 +1,5 @@
 package Data;
 
-import Domain.Odetaljer;
 import Domain.Ordre;
 import Presentation.NewException;
 import java.sql.ResultSet;
@@ -8,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,37 +18,32 @@ import java.util.logging.Logger;
 public class OrdreMapper {
 
     public static List<Ordre> getOrderList() throws NewException {
-       List<Ordre> ordreList = new ArrayList<>(); 
-       
-       try {
-   
+        List<Ordre> ordreList = new ArrayList<>();
+
+        try {
+
             Ordre o;
-            
+
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
-            while(rs.next()) {
+            while (rs.next()) {
                 int ordre_id = rs.getInt("ordre_id");
                 int user_id = rs.getInt("user_id");
                 String reciveddate = rs.getString("receiveddate");
                 if (ordre_id != lastId) {
-  
+
                     o = new Ordre(ordre_id, reciveddate, user_id);
-               
+
                     ordreList.add(o);
-                }   
+                }
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return ordreList;
-}
-
-      
-   
-
-  
+        return ordreList;
+    }
 
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
         Ordre or = null;

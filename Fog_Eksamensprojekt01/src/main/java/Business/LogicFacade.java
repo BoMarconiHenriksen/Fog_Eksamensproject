@@ -13,7 +13,6 @@ import Domain.StykLinje;
 import Domain.Odetaljer;
 import Domain.User;
 import Presentation.NewException;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -23,13 +22,6 @@ import java.util.List;
  */
 public class LogicFacade {
 
-   
-
- 
-
-   
-
-  
 //////////////////////////////OrdreMapperMetoder////////////////////////////////////////
 
     public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {

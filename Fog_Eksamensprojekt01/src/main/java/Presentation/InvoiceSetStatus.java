@@ -15,11 +15,10 @@ public class InvoiceSetStatus extends Command{
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
         String status=request.getParameter("status");
-//        
+        
         int ordreId =Integer.parseInt(request.getParameter("id"));
         
         LogicFacade.updateOrdreStatus(ordreId, status);
-//      request.setAttribute("Ny status", status);
         
         return "ordre_liste";
        

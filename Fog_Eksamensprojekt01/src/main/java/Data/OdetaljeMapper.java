@@ -113,25 +113,6 @@ public class OdetaljeMapper {
 
     }
 
-//    Bruges til test
-    public static void main(String[] args) throws NewException {
-
-        OdetaljeMapper orderList = new OdetaljeMapper();
-        Odetaljer od = new Odetaljer(1, 480.00, 300.00, 225.00);
-        orderList.addOdetaljertoOdetaljeListe(1, od);
-        String ordre_status = "Afsendt";
-        orderList.updateOrdreStatus(2, ordre_status);
-//        System.out.println("ordre liste:");
-//        try {
-//            System.out.println(orderList.getOrderList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
-        System.out.println("ordre detalje liste:");
-
-    }
-
     public static void AddOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -179,5 +160,24 @@ public class OdetaljeMapper {
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return o;
+    }
+    
+    //    Bruges til test
+    public static void main(String[] args) throws NewException {
+
+        OdetaljeMapper orderList = new OdetaljeMapper();
+        Odetaljer od = new Odetaljer(1, 480.00, 300.00, 225.00);
+        orderList.addOdetaljertoOdetaljeListe(1, od);
+        String ordre_status = "Afsendt";
+        orderList.updateOrdreStatus(2, ordre_status);
+//        System.out.println("ordre liste:");
+//        try {
+//            System.out.println(orderList.getOrderList());
+//        } catch (Exception ex) {
+//            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
+        System.out.println("ordre detalje liste:");
+
     }
 }

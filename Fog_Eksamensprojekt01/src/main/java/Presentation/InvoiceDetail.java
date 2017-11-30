@@ -2,9 +2,6 @@ package Presentation;
 
 import Business.LogicFacade;
 import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
-import Utillities.RendUtilOdetaljerMedArbejder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,8 +21,6 @@ public class InvoiceDetail extends Command {
         Odetaljer od = LogicFacade.getOdetaljerByOrderId(orderid);
         String status = od.getOrdreStatus();
       
-     
-
         request.setAttribute("length", (Double) od.getCarportLength());
         request.setAttribute("width", (Double) od.getCarportWidth());
         request.setAttribute("height", (Double) od.getCarportHeight());
