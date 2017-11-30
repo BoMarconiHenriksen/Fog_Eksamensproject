@@ -33,9 +33,16 @@ public class XXRendUtilStykListe {
 
     }
     
-    public static String createLineItemList(StringBuilder sb,LineItem2[] limes){
-        
+    public static String createLineItemList(StringBuilder sb,LineItem2[] limes, double length, double width) throws NewException{
+        limes=LineItemFactory.baseTree(length,width);
        headLinesStykListe(sb);
+       createLineItemListTree(sb, limes, length, width);
+        return sb.toString();
+//         sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
+    }
+    
+    public static String createLineItemListTree(StringBuilder sb,LineItem2[] limes, double length, double width) throws NewException{
+     sb.append("<br><tr><th>Træ</th></tr>\n");
        for (LineItem2 lim: limes){
         
         sb.append("<tr><td>" +lim.getMaterial_name() + "</td>");
@@ -46,9 +53,7 @@ public class XXRendUtilStykListe {
         sb.append("</tr>");
        }
         return sb.toString();
-//         sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
     }
-    
 
     private static void headLinesStykListe(StringBuilder sb) {
         sb.append("<h2>Stykliste</h2>\n"
@@ -288,7 +293,7 @@ public class XXRendUtilStykListe {
      StringBuilder sb = new StringBuilder();
   LineItem2 []limes=  LineItemFactory.baseTree(480, 300);
 
-        System.out.println(XXRendUtilStykListe.createLineItemList( sb, limes));
+        System.out.println(XXRendUtilStykListe.createLineItemList( sb, limes, 480,300));
       
     }
 

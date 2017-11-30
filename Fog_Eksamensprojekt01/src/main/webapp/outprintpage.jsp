@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.LineItemFactory"%>
 <%@page import="Domain.LineItem2"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
@@ -94,14 +95,12 @@
     double skurlength = (Double) request.getAttribute("redskabsskur_length");
     double skurWidth = (Double) request.getAttribute("redskabsskur_width");
     DecimalFormat df = new DecimalFormat("#0.00");
-    LineItem2[]limes=null;
-    StringBuilder sb=null;
-
+  
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
 ;%>
 
 <br> <br><div>
-    <%out.println("<p>"+(String)rusl.createLineItemList(sb, limes)+"</p>");%>
+  
     <%
         XXRendSvg svag = new XXRendSvg();
 
@@ -114,7 +113,9 @@
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
 
-            
+   <%   StringBuilder sb = new StringBuilder();
+  LineItem2 []limes=  LineItemFactory.baseTree(length, width);
+  out.println("<p>"+(String)rusl.createLineItemList(sb, limes, length, width)+"</p>");%>        
 
 
     </body>

@@ -22,7 +22,7 @@ public class LineItemFactory {
 
     public static LineItem2[] baseTree(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
        LineItem2 lim2;
-    LineItem2[] baseTree = null;
+    LineItem2[] baseTree = new LineItem2[5];
         
         baseTree[0] = new LineItem2("Understern brædder til for- og bagende", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), width, 2, "Stk");
         baseTree[1] = new LineItem2("Oversternbrædder til for- og bagende", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
