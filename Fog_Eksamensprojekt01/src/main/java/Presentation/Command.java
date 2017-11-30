@@ -25,9 +25,8 @@ abstract class Command {
         commands.put("OrdreList", new OrdreList());
         commands.put("OrdreList_Customer", new OrdreList_Customer());
         commands.put("InvoiceDetail", new InvoiceDetail());
+        commands.put("InvoiceSetStatus", new InvoiceSetStatus());
         commands.put("InvoiceDetail_Customer", new InoiceDetail_Customer());
-
-
     }
 
     static Command from(HttpServletRequest request) {

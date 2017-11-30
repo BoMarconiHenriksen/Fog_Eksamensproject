@@ -1,30 +1,27 @@
+
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.Ordre;
-import Utillities.RendUtilOrderList;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Bo
+ * @author Ejer
  */
-public class OrdreList extends Command {
+public class InvoiceSetStatus extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
-            
-        List<Ordre> invoiceList = LogicFacade.getOrderList();
+        String status=request.getParameter("status");
         
-        RendUtilOrderList.invoiceList(invoiceList);
+        int ordreId =Integer.parseInt(request.getParameter("id"));
         
-        
-        request.setAttribute("invoiceList", invoiceList);
+        LogicFacade.updateOrdreStatus(ordreId, status);
         
         return "ordre_liste";
-
+       
     }
- }
+    
+}
