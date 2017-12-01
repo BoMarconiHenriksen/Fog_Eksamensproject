@@ -1,6 +1,6 @@
 package Data;
 
-import Domain.Odetaljer;
+
 import Domain.Ordre;
 import Presentation.NewException;
 import java.sql.ResultSet;
@@ -21,18 +21,46 @@ public class OrdreMapper {
 
     public static List<Ordre> getOrderList() throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
-        Ordre o;
+
         try {
+
+            Ordre o;
+
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
-
+            int lastId = -1;
             while (rs.next()) {
                 int ordre_id = rs.getInt("ordre_id");
                 int user_id = rs.getInt("user_id");
                 String reciveddate = rs.getString("receiveddate");
+                if (ordre_id != lastId) {
 
-                o = new Ordre(ordre_id, reciveddate, user_id);
+                    o = new Ordre(ordre_id, reciveddate, user_id);
+
+                    ordreList.add(o);
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ordreList;
+    }
+
+    public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
+        List<Ordre> ordreList = new ArrayList<>();
+        Ordre o;
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM ordreliste WHERE user_id=" + user_id;
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            while (rs.next()) {
+                int ordre_id = rs.getInt("ordre_id");
+                int userId = rs.getInt("user_id");
+                String reciveddate = rs.getString("receiveddate");
+
+                o = new Ordre(ordre_id, reciveddate, userId);
                 ordreList.add(o);
             }
 
@@ -43,56 +71,30 @@ public class OrdreMapper {
 
     }
 
-    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer o = null;
+
+    public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
+       
         try {
-
             Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            String sql = "DELETE FROM ordreliste WHERE ordre_id=" + ordre_id;
+            PreparedStatement ps = con.prepareStatement(sql);
 
-            int odetaljerId = rs.getInt("odetaljer_id");
-            int ordreId = rs.getInt("ordre_id");
-            int vareId = rs.getInt("vareid");
-            int linjelisteId = rs.getInt("linjeliste_id");
-            String ordreStatus = rs.getString("ordre_status");
-            double carportLength = rs.getDouble("carport_length");
-            double carportWidth = rs.getDouble("carport_width");
-            double carportHeight = rs.getDouble("carport_height");
-            double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-            double widthRedskabsrum = rs.getDouble("width_redskabsrum");
-            int tagType = rs.getInt("tagtype");
+            ps.execute();
 
-            o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
-                    carportLength, carportWidth,
-                    carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
-
-            return o;
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
         }
-        return o;
+
     }
- public static void AddOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
-
+    
+        public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
+       
         try {
-
             Connection con = DBConnector.connection();
-            String SQL;
-            SQL = "INSERT INTO odetaljer( ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            String sql = "DELETE FROM odetaljer WHERE ordre_id=" + ordre_id;
+            PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1, ods.getOrdreStatus());
-            ps.setDouble(2, ods.getCarportLength());
-            ps.setDouble(3, ods.getCarportWidth());
-            ps.setDouble(4, ods.getCarportHeight());
-            ps.setDouble(5, ods.getLengthRedskabsrum());
-            ps.setDouble(6, ods.getWidthRedskabsrum());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            ods.setOrdreId(id);
+            ps.execute();
 
         } catch (SQLException | ClassNotFoundException ex) {
             throw new NewException(ex.getMessage());
@@ -101,20 +103,76 @@ public class OrdreMapper {
     }
 
 
-//    Bruges til test
-public static void main(String[] args) throws NewException {
+                
 
-      
-//        System.out.println("ordre liste:");
-//        try {
-//            System.out.println(orderList.getOrderList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        System.out.println(OrdreMapper.getOrderByOrderId(2));
-        System.out.println("ordre detalje liste:");
+    public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
+        Ordre or = null;
 
-//            System.out.println(orderList.getOrdersByOrderId(2));
+        try {
+
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM ordreliste WHERE ordre_id=?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setInt(1, ordre_id);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                int user_id = rs.getInt("user_id");
+                String receiveddate = rs.getString("receiveddate");
+                or = new Ordre(ordre_id, receiveddate, user_id);
+
+
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new NewException(ex.getMessage());
+        }
+        return or;
     }
 
+    
+    public static int getLastInvoiceId() throws NewException {
+       
+      
+      int invoiceid = 0;
+        try {
+ Connection con = DBConnector.connection();
+            String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            if (rs.next()) {
+
+                invoiceid = rs.getInt("ordre_id");
+
+            }
+        }  catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return invoiceid;
+}
+
+//    Bruges til test
+    public static void main(String[] args) throws NewException {
+
+        OrdreMapper.deleteOrderDetailsByOrderID(4);
+        OrdreMapper.deleteOrderListByOrderID(4);
+
+}
+
+    public static void addOrdertoOrderList(Ordre or) throws NewException {
+        try {
+            Connection conn = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO ordreliste (user_id, receiveddate) VALUES (?, ?)";
+            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            orderPstmt.setInt(1, or.getUser_id());
+            orderPstmt.setString(2, or.getReciveddate());
+            orderPstmt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+    }
 }

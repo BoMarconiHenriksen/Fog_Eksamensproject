@@ -40,7 +40,7 @@
 
     <form name="basisCarport" action="FrontController" method="POST">
         <input type="hidden" name="command" value="basisCarport">
-        <input type="hidden" name="command" value="basisCarportChecud">
+        <input type="hidden" name="command" value="basisCarportCheckud">
         <input type="hidden" name="command" value="CarportGemDesign">
 
 
@@ -53,7 +53,7 @@
                     <th>Carport Højde<br>(Standard)</th>
 
                 </tr>
-
+              
                 <tr>
 
                     <td>

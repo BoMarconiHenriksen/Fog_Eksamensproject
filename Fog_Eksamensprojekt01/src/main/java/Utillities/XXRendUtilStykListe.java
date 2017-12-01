@@ -1,6 +1,8 @@
 package Utillities;
 
+import Business.Calculator;
 import Business.LogicFacade;
+import Domain.LineItem;
 import Domain.LineItem;
 import Presentation.NewException;
 import java.util.List;
@@ -12,25 +14,55 @@ import java.util.List;
  */
 public class XXRendUtilStykListe {
 
-    public static String getStykListeBaseSimpel(double length, double width, double skurlength, double skurwidth) throws NewException {
-        List<LineItem> lim;
-        lim = LogicFacade.getLineItem();
-        StringBuilder sb = new StringBuilder();
+    public static String createLineItemList(StringBuilder sb, double length, double width, double skurLength, double skurWidth) throws NewException {
+        
+   
+       
+        
         headLinesStykListe(sb);
-        stykListeTræ(sb, lim, width, length);
-        if (skurlength!=0){
-        stykListeTræSkur(sb,lim,skurlength, skurwidth);
+        
+        createLineItemListTree(sb, length, width);
+        if(skurLength>0){
+        lineItemWoodForShed(sb, skurLength, skurWidth);
         }
-        stykListeFladtTag(sb, length, width, lim);
-        stykListeBeslagOgSkruer(sb, lim, length);
-          if (skurwidth!=0){
-        stykListeBeslagOgSkruerSkur( sb,  lim,   skurlength,  skurwidth);
-          }
-        sb.append("</table></ui>");
+        createLineItemListMetal(sb, length, width);
+        if (skurLength>0){
+        lineItemMetalForShed(sb, skurLength, skurWidth);
+        }
+        lineItemEcoliteRoof(sb, length, width);
         return sb.toString();
 
     }
 
+    public static String createLineItemListTree(StringBuilder sb, double length, double width) throws NewException {
+        LineItem[] limes = LineItemFactory.baseTree(width, length);
+        sb.append("<br><tr><th>Træ</th></tr>\n");
+        return forLoopLineItem(limes, sb);
+    }
+
+    public static String lineItemEcoliteRoof(StringBuilder sb, double length, double width) throws NewException {
+        LineItem[] limes = LineItemFactory.ecoliteRoof(width, length);
+        sb.append("<br><tr><th>Tag</th></tr>\n");
+        return forLoopLineItem(limes, sb);
+    }
+    
+     public static String lineItemMetalForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
+        LineItem[] limes = LineItemFactory.screwsAndBracketShed(skurwidth, skurlength);
+        return forLoopLineItem(limes, sb);
+    }
+
+    public static String lineItemWoodForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
+        LineItem[] limes = LineItemFactory.woodForShed(skurwidth, skurlength);
+        return forLoopLineItem(limes, sb);
+    }
+    
+        public static String createLineItemListMetal(StringBuilder sb, double length, double width) throws NewException {
+        sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
+        LineItem[] limes = LineItemFactory.carportBaseMetal(width, length);
+        return forLoopLineItem(limes, sb);
+    }
+
+ 
     private static void headLinesStykListe(StringBuilder sb) {
         sb.append("<h2>Stykliste</h2>\n"
                 + "<table border=4>"
@@ -42,231 +74,34 @@ public class XXRendUtilStykListe {
         sb.append("</tr>");
     }
 
-    private static void stykListeBeslagOgSkruer(StringBuilder sb, List<LineItem> lim, double length) {
-        sb.append("<br><tr><th>Beslag & Skruer</th></tr>\n");
-        sb.append("<tr><td>" + lim.get(12).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 1 + "</td>");
-        sb.append("<td>" + lim.get(12).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(16).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
 
-        sb.append("<tr><td>" + lim.get(13).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 2 + "</td>");
-        sb.append("<td>" + lim.get(13).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(17).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
 
-        sb.append("<tr><td>" + lim.get(14).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
-        sb.append("<td>" + lim.get(14).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(18).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-
-        sb.append("<tr><td>" + lim.get(15).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
-        sb.append("<td>" + lim.get(15).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(19).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-
-        sb.append("<tr><td>" + lim.get(16).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 1 + "</td>");
-        sb.append("<td>" + lim.get(16).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(20).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-
-        sb.append("<tr><td>" + lim.get(17).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 3 + "</td>");
-        sb.append("<td>" + lim.get(17).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(21).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-
-        sb.append("<tr><td>" + lim.get(18).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 6 + "</td>");
-        sb.append("<td>" + lim.get(18).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(22).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-
-        sb.append("<tr><td>" + lim.get(19).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + 6 + "</td>");
-        sb.append("<td>" + lim.get(19).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(23).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-    }
-
-    private static void stykListeTræ(StringBuilder sb, List<LineItem> lim, double width, double length) {
-        sb.append("<tr><th>Træ</th></tr>\n");
-        sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width + "</td>");
-        sb.append("<td>" + lim.get(0).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(0).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(1).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + lim.get(1).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(1).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width + "</td>");
-        sb.append("<td>" + lim.get(2).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(2).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(0).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + lim.get(3).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(0).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(3).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + lim.get(7).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(7).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + (int) Math.round(length / 55) + "</td>");
-        sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(9).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(5).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + 300 + "</td>");
-        sb.append("<td>" + 4 + "</td>");
-        sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(10).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(6).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + length + "</td>");
-        sb.append("<td>" + lim.get(12).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(6).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(12).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(6).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + width + "</td>");
-        sb.append("<td>" + lim.get(13).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(6).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(13).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-    }
-
-    private static void stykListeFladtTag(StringBuilder sb, double length, double width, List<LineItem> lim) throws NewException {
-        sb.append("<br><tr><th>Tag</th></tr>\n");
-        String plastmoTag = null;
-        String plastmoTagEnhed = null;
-        
-        if (length <= 300) {
+    private static String forLoopLineItem(LineItem[] limes, StringBuilder sb) {
+        for (LineItem lim : limes) {
             
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(); //300 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(9).getEnhed();
-        } else if (length <= 480) {
-            
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(); //480 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(33).getEnhed();
-        } else if (length <= 600) {
-            
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// 600 cm
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-        } else if (length > 600) {
-            
-            plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
-            plastmoTag = LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn();// skal ændres så der kommer 2 tagplader istedet             plastmoTagEnhed = LogicFacade.getMaterialeByVarenummer(8).getEnhed();
+            sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
+            removeNumberFromLengthForBrackets(lim, sb);
+            sb.append("<td>" + lim.getAmount() + "</td>");
+            sb.append("<td>" + lim.getUnit() + "</td>");
+            sb.append("<td>" + lim.getDescription() + "</td>");
+            sb.append("</tr>");
         }
-        
-        sb.append("<tr><td>" + plastmoTag + "</td>");
-        sb.append("<td>" + length + "</td>");
-        if (width % 100>0 && width%100<50) {
-            sb.append("<td>" + ((int) Math.round(width / 100) + 1) + "</td>");
+        return sb.toString();
+    }
+
+    private static void removeNumberFromLengthForBrackets(LineItem lim, StringBuilder sb) {
+        if(lim.getDimension() == 0.0) {
+            sb.append("<td>" + "" + "</td>");
         } else {
-            sb.append("<td>" + ((int) Math.round(width / 100)) + "</td>");
+            sb.append("<td>" + lim.getDimension() + "</td>");
         }
-        sb.append("<td>" + plastmoTagEnhed + "</td>");
-        sb.append("<td>" + lim.get(14).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
     }
-    
-  private static void stykListeTræSkur(StringBuilder sb, List<LineItem> lim,  double skurlength, double skurwidth) {
- 
-        sb.append("<tr><td>" + lim.get(4).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + lim.get(4).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(4).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(4).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(5).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + skurlength + "</td>");
-        sb.append("<td>" + lim.get(5).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(5).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(5).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(6).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + skurwidth + "</td>");
-        sb.append("<td>" + lim.get(6).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(6).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(6).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-      
+   public static void main(String[] args) throws NewException {
+        StringBuilder sb = new StringBuilder();
+        LineItem[] limes = LineItemFactory.baseTree(480, 300);
+
     }
 
-  
-  
-  private static void stykListeBeslagOgSkruerSkur(StringBuilder sb, List<LineItem> lim,  double skurlength, double skurwidth) {
-
-        sb.append("<tr><td>" + lim.get(24).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + lim.get(24).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(24).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(24).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(25).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + lim.get(25).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(25).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(25).getLin().getBeskrivelse() + "</td>");
-        sb.append("</tr>");
-        
-        sb.append("<tr><td>" + lim.get(26).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "" + "</td>");
-        sb.append("<td>" + lim.get(26).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(26).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(26).getLin().getBeskrivelse() + "</td>");
-        
-        sb.append("<tr><td>" + lim.get(27).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "2" + "</td>");
-        sb.append("<td>" + lim.get(27).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(27).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(27).getLin().getBeskrivelse() + "</td>");
-        
-         sb.append("<tr><td>" + lim.get(28).getMat().getMaterialenavn() + "</td>");
-        sb.append("<td>" + "32" + "</td>");
-        sb.append("<td>" + lim.get(28).getLin().getAntal() + "</td>");
-        sb.append("<td>" + lim.get(28).getMat().getEnhed() + "</td>");
-        sb.append("<td>" + lim.get(28).getLin().getBeskrivelse() + "</td>");
-        
-        sb.append("</tr>");
-        
-      
-    }
+   
 
 }

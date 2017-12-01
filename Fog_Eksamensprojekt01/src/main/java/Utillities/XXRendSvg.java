@@ -20,9 +20,9 @@ public class XXRendSvg {
         sb.append(remme(length, width));
 
         sb.append(ydreSpær(width, length));
-        for (int i = 0; i <= Calculator.antalSpær(length); i++) {
+        for (int i = 0; i <= Calculator.numberOfRafters(length); i++) {
 
-            sb.append(spærX(width, i, (int) Calculator.afstandMellemSpær(length)));
+            sb.append(spærX(width, i, (int) Calculator.spaceBetweenRafters(length)));
         }
 
         sb.append(stolper(length, width, skurwidth));
@@ -81,13 +81,13 @@ public class XXRendSvg {
     }
 
     private String stolper(double length, double width, double skurwidth) {
-        String stolper = " <rect x=\""+(1*Calculator.afstandMellemSpær(length)-5)+"\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
+        String stolper = " <rect x=\""+(1*Calculator.spaceBetweenRafters(length)-5)+"\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length)-(skurwidth-Calculator.afstandMellemSpær(length)))+"\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(length-5-2*Calculator.spaceBetweenRafters(length)-(skurwidth-Calculator.spaceBetweenRafters(length)))+"\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\""+(length-5-2*Calculator.afstandMellemSpær(length)-(skurwidth-Calculator.afstandMellemSpær(length)))+"\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(length-5-2*Calculator.spaceBetweenRafters(length)-(skurwidth-Calculator.spaceBetweenRafters(length)))+"\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\""+(1*Calculator.afstandMellemSpær(length)-5)+"\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\""+(1*Calculator.spaceBetweenRafters(length)-5)+"\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
         return stolper;
     }
@@ -110,19 +110,19 @@ public class XXRendSvg {
    
 
     private String hulBånd(double length, double width, double skurwidth) {
-        String hulbaand = " <line x1=\""+(Calculator.afstandMellemSpær(length)-2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
+        String hulbaand = " <line x1=\""+(Calculator.spaceBetweenRafters(length)-2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)+2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.spaceBetweenRafters(length)+2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>  \n"
                 + "\n"
-                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)-2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.spaceBetweenRafters(length)-2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\""+(Calculator.afstandMellemSpær(length)+2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
+                + "        <line x1=\""+(Calculator.spaceBetweenRafters(length)+2)+"\"x2=\"" + (length -skurwidth-15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "        </svg>";

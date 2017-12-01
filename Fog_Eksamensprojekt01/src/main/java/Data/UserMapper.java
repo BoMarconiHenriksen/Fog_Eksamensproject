@@ -40,9 +40,7 @@ public class UserMapper {
 
                 return u;
             }
-//        } catch (ClassNotFoundException | SQLException ex) {
-//      ex.getLocalizedMessage();
-//        }return u;
+
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }

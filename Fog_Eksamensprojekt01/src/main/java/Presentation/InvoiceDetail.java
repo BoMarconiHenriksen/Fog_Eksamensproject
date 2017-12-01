@@ -16,17 +16,18 @@ public class InvoiceDetail extends Command {
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
-        Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
-//        List<Odetaljer> oDetaljerList = LogicFacade.getOrdersByOrderId2(orderid);
-//        request.setAttribute("oDetaljerList", oDetaljerList);
         
 
-        request.setAttribute("length", (Double)od.getCarportLength());
-        request.setAttribute("width", (Double)od.getCarportWidth());
-        request.setAttribute("height", (Double)od.getCarportHeight());
-        request.setAttribute("redskabsskur_length",(Double) od.getLengthRedskabsrum());
-        request.setAttribute("redskabsskur_width", (Double)od.getWidthRedskabsrum());
+        Odetaljer od = LogicFacade.getOdetaljerByOrderId(orderid);
+        String status = od.getOrdreStatus();
+      
+        request.setAttribute("length", (Double) od.getCarportLength());
+        request.setAttribute("width", (Double) od.getCarportWidth());
+        request.setAttribute("height", (Double) od.getCarportHeight());
+        request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
+        request.setAttribute("status", status);
         return "invoice_detail";
     }
 }

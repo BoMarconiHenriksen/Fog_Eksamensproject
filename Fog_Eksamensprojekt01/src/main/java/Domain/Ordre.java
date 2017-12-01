@@ -5,7 +5,7 @@ package Domain;
  * @author Bo
  */
 public class Ordre {
-    
+
     private int ordre_id;
     private int user_id;
     private String reciveddate;
@@ -26,7 +26,7 @@ public class Ordre {
     }
 
     public Ordre() {
-       
+
     }
 
     public int getOrdre_id() {
@@ -55,9 +55,7 @@ public class Ordre {
 
     @Override
     public String toString() {
-        return "Order nr.  " + ordre_id + ", Modtaget:  " + reciveddate + ", Bruger_id:  " + user_id ;
+        return "Order nr.  " + ordre_id + ", Modtaget:  " + reciveddate + ", Bruger_id:  " + user_id;
     }
-    
-    
-    
+
 }

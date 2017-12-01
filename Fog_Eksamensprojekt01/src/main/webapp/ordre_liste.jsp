@@ -34,10 +34,10 @@
         
         <div>
             
-            <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+            <% out.println(RendUtilOrderList.invoiceList( (List)request.getAttribute("invoiceList")));%>
 
         </div>
-            
+        
 
 
     </body>
