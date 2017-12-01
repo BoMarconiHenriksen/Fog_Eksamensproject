@@ -206,4 +206,43 @@ public class OdetaljeMapper {
         }
         return null;
     }
+
+    public static void AddOdetailstoOrderudenSkur(Odetaljer od) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO odetaljer( ordre_status, carport_length, carport_width, carport_height) VALUES ( ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, od.getOrdreStatus());
+            ps.setDouble(2, od.getCarportLength());
+            ps.setDouble(3, od.getCarportWidth());
+            ps.setDouble(4, od.getCarportHeight());
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            od.setOrdreId(id);
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+    }
+
+    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO odetaljer( ordre_id, ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, ordre_id);
+            ps.setString(2, ods.getOrdreStatus());
+            ps.setDouble(3, ods.getCarportLength());
+            ps.setDouble(4, ods.getCarportWidth());
+            ps.setDouble(5, ods.getCarportHeight());
+            ps.setDouble(6, ods.getLengthRedskabsrum());
+            ps.setDouble(7, ods.getWidthRedskabsrum());
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+    }
 }

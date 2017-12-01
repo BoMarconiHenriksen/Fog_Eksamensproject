@@ -6,7 +6,7 @@ import Presentation.NewException;
 import java.util.List;
 
 /**
- * Klassen bruges til at lave et udprint af styklisten
+ * Skal måske bruges 
  *
  * @author Ticondrus
  */

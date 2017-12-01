@@ -1,15 +1,12 @@
 package Business;
 
-import Data.LineItemMapper;
+
 import Data.MaterialeMapper;
 import Data.OrdreMapper;
-import Data.StykLinjeMapper;
 import Data.OdetaljeMapper;
 import Data.UserMapper;
-import Domain.LineItem;
 import Domain.Materiale;
 import Domain.Ordre;
-import Domain.StykLinje;
 import Domain.Odetaljer;
 import Domain.User;
 import Presentation.NewException;
@@ -26,7 +23,7 @@ public class LogicFacade {
 
     public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
         Ordre theOrdered = new Ordre(user_id, receiveddate);
-        LineItemMapper.addOrdertoOrderList(theOrdered);
+        OrdreMapper.addOrdertoOrderList(theOrdered);
         return theOrdered;
     }
 
@@ -58,7 +55,7 @@ public class LogicFacade {
     //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
     public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
             throws NewException {
-        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
+        OdetaljeMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
 
     public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)  throws NewException {
@@ -107,16 +104,7 @@ public class LogicFacade {
         return MaterialeMapper.getMaterial();
 
     }
-       //////////////////////////////StykLinjeMapperMetoder////////////////////////////////////////  
-      
-        public static List<StykLinje> getStykLinje() throws NewException {
-        return StykLinjeMapper.getStykLinje();
-    }
-       //////////////////////////////LineItemMapperMetoder////////////////////////////////////////  
-
-    public static List<LineItem> getLineItem() throws NewException {
-        return LineItemMapper.getLineItems();
-    }
+ 
      
        //////////////////////////////UserMapperMetoder////////////////////////////////////////  
 
