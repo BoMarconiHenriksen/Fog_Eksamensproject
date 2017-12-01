@@ -20,8 +20,11 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"setOrderStatus\">");
         sb.append("<tr><h3>Kundeoplysninger</h3></tr>\n");
         sb.append("<tr><th></th><th></th></tr>\n"
-                + "<tr><th>Fornavn</th><th>Telefon nr</th></tr>\n");
-        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
+                + "<tr><th>Fornavn</th><th>Adresse</th><th>Postnummer</th><th>Telefon nr</th></tr>\n");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname() + " " 
+                + LogicFacade.getUserByUserId(o.getUser_id()).getLastname() ).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getAddress()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getZip()).append("</td>");
         sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
 
         sb.append("</table>\n");

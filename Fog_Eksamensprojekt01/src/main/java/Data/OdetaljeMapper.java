@@ -180,4 +180,30 @@ public class OdetaljeMapper {
         System.out.println("ordre detalje liste:");
 
     }
+
+    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+        Odetaljer o = null;
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            while (rs.next()) {
+                int odetaljerId = rs.getInt("odetaljer_id");
+                int ordreId = rs.getInt("ordre_id");
+                int vareId = rs.getInt("vareid");
+                int linjelisteId = rs.getInt("linjeliste_id");
+                String ordreStatus = rs.getString("ordre_status");
+                double carportLength = rs.getDouble("carport_length");
+                double carportWidth = rs.getDouble("carport_width");
+                double carportHeight = rs.getDouble("carport_height");
+                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
+                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
+                int tagType = rs.getInt("tagtype");
+                o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+        return null;
+    }
 }

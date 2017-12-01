@@ -16,8 +16,6 @@ import Presentation.NewException;
  */
 public class Calculator {
 
-    
-
 //    LogicFacade mat = new LogicFacade();
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
@@ -33,7 +31,7 @@ public class Calculator {
 
         double totalPriceSimpleCarport = 0;
         double totalPriceBase = calculateBaseCarport(length, width);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length);
+        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length, width);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
 
@@ -49,7 +47,7 @@ public class Calculator {
      * @return totalPriceScrewsAndSuch
      * @throws NewException
      */
-    private double calculatePriceScrewsAndSuch(double length) throws NewException {
+    private double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
 
         // dimser
         double totalPriceScrewsAndSuch = 0;
@@ -62,7 +60,7 @@ public class Calculator {
         double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
         double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
-        totalPriceScrewsAndSuch = 1 * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
+        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
                 + numberOfRafters(length) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
@@ -88,45 +86,40 @@ public class Calculator {
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
         double plastmoRoofPrice = 0;
         double totalPriceBase = 0;
-        if (length <= 3.00) {
+        if (length <= 300) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
-        } else if (length <= 4.80) {
+        } else if (length <= 480) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
-        } else if (length <= 6.00) {
+        } else if (length <= 600) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
         }
-        totalPriceBase = 2 * width/100 * plank1Price + 2 * length/100 * plank1Price + 1 * width/100 * plank2Price
-                + 2 * length/100 * plank2Price + 2 * (length/100 + 0.6) * strapsToCarryRoofPrice
-                + numberOfRafters(length) * width/100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length/100 * plank3Price
-                + 1 * length/100 * plank3Price + width/100 * plastmoRoofPrice;
+        totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
+                + 2 * length / 100 * plank2Price + 2 * (length / 100 + 0.6) * strapsToCarryRoofPrice
+                + numberOfRafters(length) * width / 100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length / 100 * plank3Price
+                + 1 * length / 100 * plank3Price + width / 100 * plastmoRoofPrice;
         return totalPriceBase;
     }
-    
+
     public static int numberOfRafters(double length) {
         int approxNumberOfRafts = (int) Math.round(length / 57);
         return approxNumberOfRafts;
     }
 
     public static int spaceBetweenRafters(double length) {
-      
+
         double spaceBetweenRafters = ((int) Math.round(length / (numberOfRafters(length)))) - ((int) length % numberOfRafters(length)) / (numberOfRafters(length));
         return (int) spaceBetweenRafters;
     }
-    
-    
-    
-//    private double beregnSkurEnkelt(double skurLength, double skurWidth) throws NewException{
-//        double ekstraStolpePris= 4*LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-//        double løsHolterSkurGavl=4*skurLength*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-//        double LøsHolterSkurSider=4*skurWidth*LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-//        double remmeSiderSkurdel= 2*skurWidth*LogicFacade.ge
-//        
-//    }
-    
+
+    public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
+        int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
+        int numberOfPckScrews = numberOfScrews / 200;
+        return numberOfPckScrews;
+    }
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
@@ -140,8 +133,8 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(480, 300, 225));
-      
+        System.out.println(calc.numberOfBottomScrewsPackageEcolite(480, 300));
+
     }
 
 }

@@ -1,5 +1,6 @@
 package Data;
 
+
 import Domain.Ordre;
 import Presentation.NewException;
 import java.sql.ResultSet;
@@ -100,30 +101,8 @@ public class OrdreMapper {
 
     }
 
-    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer o = null;
-        try {
 
-            Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
-
-            while (rs.next()) {
-                int odetaljerId = rs.getInt("odetaljer_id");
-                int ordreId = rs.getInt("ordre_id");
-                int vareId = rs.getInt("vareid");
-                int linjelisteId = rs.getInt("linjeliste_id");
-                String ordreStatus = rs.getString("ordre_status");
-                double carportLength = rs.getDouble("carport_length");
-                double carportWidth = rs.getDouble("carport_width");
-                double carportHeight = rs.getDouble("carport_height");
-                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
-                int tagType = rs.getInt("tagtype");
-
-                o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
-                        carportLength, carportWidth,
-                        carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
+                
 
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
         Ordre or = null;
@@ -180,15 +159,4 @@ public class OrdreMapper {
         OrdreMapper.deleteOrderDetailsByOrderID(4);
         OrdreMapper.deleteOrderListByOrderID(4);
 
-//    Bruges til test
-    public static void main(String[] args) throws NewException {
-
-//        System.out.println("ordre liste:");
-//        try {
-//            System.out.println(orderList.getOrderList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        System.out.println(OrdreMapper.getOrderList());
-        System.out.println("ordre detalje liste:");
 }}
