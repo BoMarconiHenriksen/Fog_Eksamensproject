@@ -96,7 +96,7 @@ public class basisCarport extends Command {
 
         if (CheckUd != null) {
 
-            ordre_status = "Ordren afventer kundens bekræftigelse.";
+            ordre_status = "Afventer kundens bekraeftigelse.";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter
@@ -121,6 +121,7 @@ public class basisCarport extends Command {
             request.setAttribute("od", ods);
 
             request.setAttribute("KundensOID", or);
+            session.setAttribute("SessionIOD", or);
             
             
 
@@ -129,7 +130,7 @@ public class basisCarport extends Command {
 
         if (GemDesign != null) {
 
-            ordre_status = "Ordren er gemt, men endnu ikke bestilt.";
+            ordre_status = "Gemt Design";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter

@@ -14,34 +14,52 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Fuldfør Bestilling</title>
+        <title>Bestilling fuldført.</title>
     </head>
     <body>
-        <h1>Køb din Ordre</h1>
+        <h1>Din ordre er nu bestilt.</h1>
+        
+        
         
          <%Calculator calc = new Calculator();
-            SkurCalculator scalc = new SkurCalculator();
+    SkurCalculator scalc = new SkurCalculator();
 
-            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
-            double length = (Double) request.getAttribute("length");
-            double width = (Double) request.getAttribute("width");
-            double heigth = (Double) request.getAttribute("height");
-            double skurlength = (Double) request.getAttribute("redskabsskur_length");
-            double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-            DecimalFormat df = new DecimalFormat("#0.00");
+    double length = (Double) request.getAttribute("length");
+    double width = (Double) request.getAttribute("width");
+    double heigth = (Double) request.getAttribute("height");
+    double skurlength = (Double) request.getAttribute("redskabsskur_length");
+    double skurWidth = (Double) request.getAttribute("redskabsskur_width");
+    DecimalFormat df = new DecimalFormat("#0.00");
+    double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
 
-            double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-            ;%>
+    out.println("<p>" + "Carportens samlede pris: " + df.format(pris) + "</p> \n");
+    
+    out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+    out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+    out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+    
+    if ( (Double) request.getAttribute("redskabsskur_length") != 0){
+    out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+    out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+    out.println("<p>" + "Skurets ønskede højde: 210" + "</p>");
+    
+    }else{
+        out.println("<p>" + "Carporten er uden skur." + "</p>");
+    }
+    
+         %>
+<br> <br><div>
 
-        <br> <br><div>
+    <%
+        XXRendSvg svag = new XXRendSvg();
 
-            <%
-                XXRendSvg svag = new XXRendSvg();
+        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
 
-                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-
-                out.println("<a>" + carportTegning + "</a>");
-            %>  
+        out.println("<a>" + carportTegning + "</a>");
+    %>  
         </div>
+        
+        <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+        
     </body>
 </html>

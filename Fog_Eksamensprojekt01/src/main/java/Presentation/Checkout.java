@@ -17,7 +17,7 @@ public class Checkout extends Command {
 
         HttpSession session = request.getSession();
         
-        int or = (int) (request.getAttribute("KundensOID"));
+        int or = (int) (session.getAttribute("SessionIOD"));
         
         LogicFacade.getOrderByOrderId2(or);
         Odetaljer od = LogicFacade.getOdetaljerByOrderId(or);
@@ -30,6 +30,11 @@ public class Checkout extends Command {
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
         request.setAttribute("status", status);
+        
+        status = "Bestilt. Afventer Behandling.";
+        
+        
+        LogicFacade.updateOrdreStatus(or, status);
 
         
 
