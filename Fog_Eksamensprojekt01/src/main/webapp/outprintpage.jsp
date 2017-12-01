@@ -85,7 +85,7 @@
         <%Calculator calc = new Calculator();
             SkurCalculator scalc = new SkurCalculator();
 
-            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+          
             double length = (Double) request.getAttribute("length");
             double width = (Double) request.getAttribute("width");
             double heigth = (Double) request.getAttribute("height");
