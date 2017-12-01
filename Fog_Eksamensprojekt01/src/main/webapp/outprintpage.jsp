@@ -111,9 +111,7 @@
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
 
-        <%   StringBuilder sb = new StringBuilder();
-
-       out.println("<p>" + (String) rusl.createLineItemList(sb, length, width, skurlength, skurWidth) + "</p>");%>        
+             
 
 
     </body>
