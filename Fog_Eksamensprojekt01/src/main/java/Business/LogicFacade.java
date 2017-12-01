@@ -81,14 +81,8 @@ public class LogicFacade {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
-  public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
-            throws NewException {
-        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
-    }
-  
-     public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
-            throws NewException {
-        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
+ 
+ 
       //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
 
 
