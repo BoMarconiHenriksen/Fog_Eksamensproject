@@ -6,8 +6,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author BenedikteEva This DBConnector should connect to my remote server and a
- * database called legohouses
+ * @author BenedikteEva 
  *
  */
 public class DBConnector {

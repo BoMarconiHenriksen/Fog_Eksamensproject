@@ -5,7 +5,6 @@ import Business.LogicFacade;
 import Business.SkurCalculator;
 import Domain.Odetaljer;
 import Domain.Ordre;
-import Domain.User;
 import Presentation.NewException;
 import java.text.DecimalFormat;
 import java.util.List;

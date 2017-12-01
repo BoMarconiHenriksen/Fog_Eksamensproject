@@ -20,18 +20,16 @@ public class XXRendUtilStykListe {
        
         
         headLinesStykListe(sb);
-        createLineItemListTree(sb, length, width);
         
+        createLineItemListTree(sb, length, width);
         if(skurLength>0){
         lineItemWoodForShed(sb, skurLength, skurWidth);
         }
-        
         createLineItemListMetal(sb, length, width);
         if (skurLength>0){
         lineItemMetalForShed(sb, skurLength, skurWidth);
         }
         lineItemEcoliteRoof(sb, length, width);
-
         return sb.toString();
 
     }

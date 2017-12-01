@@ -30,7 +30,7 @@ public class LineItemFactory {
         baseTree[1] = new LineItem2("Understernbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
         baseTree[2] = new LineItem2("Oversternbrædder til forenden", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
         baseTree[3] = new LineItem2("Oversternbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
-        baseTree[4] = new LineItem2("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, calculateNumberOfRafters(length), "Stk");
+        baseTree[4] = new LineItem2("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, calculateNumberOfRafters(length), "Stk");       
         baseTree[5] = new LineItem2("Stolper, nedgraves i 90 cm. jord", Business.LogicFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
         baseTree[6] = new LineItem2("Vandbrædt på stern i sider", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
         baseTree[7] = new LineItem2("Vandbrædt på stern i forenden", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
@@ -43,11 +43,11 @@ public class LineItemFactory {
       
         LineItem2[] baseMetal = new LineItem2[5];
 
-        baseMetal[0] = new LineItem2("Skuer til tagplader", Business.LogicFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
+        baseMetal[0] = new LineItem2("Skruer til tagplader", Business.LogicFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
         baseMetal[1] = new LineItem2("Til vindkryds på spær", Business.LogicFacade.getMaterialeByVarenummer(14).getMaterialenavn(), 0, 2, "Rulle");
         baseMetal[2] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(15).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
         baseMetal[3] = new LineItem2("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(16).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
-        baseMetal[4] = new LineItem2("Til montering af stern & vandbrædt", Business.LogicFacade.getMaterialeByVarenummer(17).getMaterialenavn(), 2, "Stk");
+        baseMetal[4] = new LineItem2("Til montering af stern & vandbrædt", Business.LogicFacade.getMaterialeByVarenummer(17).getMaterialenavn(), 2, "Pakke");
         return baseMetal;
 
     }  
@@ -97,6 +97,8 @@ public class LineItemFactory {
         return screwsAndBracketShed;
     }
 
+    
+    //Regnemetoder
     private static double CalculateBeklædningShed(double skurBredde, double skurLængde) {
         return 2*skurBredde/10+2*skurLængde/10;
     }

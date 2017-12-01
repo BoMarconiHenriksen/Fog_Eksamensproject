@@ -23,9 +23,7 @@
 
     <body>
 
-
         <br>
-
 
         <%Calculator calc = new Calculator();
             SkurCalculator scalc = new SkurCalculator();
@@ -39,10 +37,6 @@
             DecimalFormat df = new DecimalFormat("#0.00");
             double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
         %>
-
-
-
-
 
         <%
             out.println("<h3>Pris</h3><p>" + df.format(pris) + "</p>");

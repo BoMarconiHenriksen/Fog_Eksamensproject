@@ -23,7 +23,7 @@
                 <script type="text/javascript" src="jquery-1.8.3.js"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
         
-        <title>Fog Trælast - velkomstside</title>
+        <title>Fog Trælast - Velkomstside</title>
     </head>
     <body>
         <h1>Fog Trælast</h1>
@@ -32,6 +32,15 @@
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>
         <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedskurpage.jsp';" >Bestil en simpel carport med skur</button>
+        
+        <form name="OrdreList_Customer" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="OrdreList_Customer">
+        
+        <button type="submit" name="OrdreList_Customer" value="Submit">Se Dine Ordre </button>
+        
+        </form>
+        
+
      
   </body>
 

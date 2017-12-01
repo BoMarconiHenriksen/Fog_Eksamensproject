@@ -13,7 +13,6 @@ import Domain.StykLinje;
 import Domain.Odetaljer;
 import Domain.User;
 import Presentation.NewException;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -23,13 +22,6 @@ import java.util.List;
  */
 public class LogicFacade {
 
-   
-
- 
-
-   
-
-  
 //////////////////////////////OrdreMapperMetoder////////////////////////////////////////
 
     public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
@@ -49,6 +41,19 @@ public class LogicFacade {
     public static int getLastInvoiceId() throws NewException {
         return OrdreMapper.getLastInvoiceId();
     }
+  
+   public static List<Ordre> getOrderListByUserId(int user_id) throws NewException {
+        return OrdreMapper.getOrderListByUserID(user_id);
+    }
+
+    public static void deleteOrderListByUserId(int order_id) throws NewException {
+        OrdreMapper.deleteOrderListByOrderID(order_id);
+    }
+
+    public static void deleteOrderDetailsByUserId(int order_id) throws NewException {
+        OrdreMapper.deleteOrderDetailsByOrderID(order_id);
+    }
+
 
     //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
     public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
@@ -75,13 +80,25 @@ public class LogicFacade {
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
+
+  public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+            throws NewException {
+        LineItemMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
+    }
+  
+     public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)
+            throws NewException {
+        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
       //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
 
+
+   
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
         Materiale mat = new Materiale(vareid, enhedspris);
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
     }
+
     
      public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
         String materialetype = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialetype();
@@ -94,6 +111,7 @@ public class LogicFacade {
     }
       public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
+
     }
        //////////////////////////////StykLinjeMapperMetoder////////////////////////////////////////  
       
@@ -111,9 +129,12 @@ public class LogicFacade {
     public static User getUserByUserId(int user_id) throws NewException {
         return UserMapper.getUserByUserId(user_id);
     }
-    
+       
+   
+
     
    
+
 
     public static void main(String[] args) throws NewException{
 
