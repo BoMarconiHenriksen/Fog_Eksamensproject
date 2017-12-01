@@ -96,7 +96,7 @@ public class basisCarport extends Command {
 
         if (CheckUd != null) {
 
-            ordre_status = "Ny Ordre";
+            ordre_status = "Afventer kundens bekraeftigelse.";
 
             LocalDate today = LocalDate.now();
             //Kalder dateTimeFormatter
@@ -121,16 +121,40 @@ public class basisCarport extends Command {
             request.setAttribute("od", ods);
 
             request.setAttribute("KundensOID", or);
+            session.setAttribute("SessionIOD", or);
+            
+            
 
             return "outprintpage";
         }
 
         if (GemDesign != null) {
 
-            ordre_status = "Ordren er gemt i din Kurv.";
+            ordre_status = "Gemt Design";
 
-            Odetaljer OdG = new Odetaljer(ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
-            LogicFacade.saveOdetajlertoDB(user_id, OdG);
+            LocalDate today = LocalDate.now();
+            //Kalder dateTimeFormatter
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            //Sætter Stringen til d.d.
+            String formatDateTime = today.format(formatter);
+
+            //Sætter datoen på ordren
+            order.setReciveddate(formatDateTime);
+
+            LogicFacade.placeAnOrder(user_id, formatDateTime);
+            int or = LogicFacade.getLastInvoiceId();
+            Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
+            LogicFacade.updatereOdetajlermedSkur(or, ods);
+            LogicFacade.getOrderByOrderId2(or);
+
+            request.setAttribute("length", (Double) ods.getCarportLength());
+            request.setAttribute("width", (Double) ods.getCarportWidth());
+            request.setAttribute("height", (Double) ods.getCarportHeight());
+            request.setAttribute("redskabsskur_length", (Double) ods.getLengthRedskabsrum());
+            request.setAttribute("redskabsskur_width", (Double) ods.getWidthRedskabsrum());
+            request.setAttribute("od", ods);
+
+            request.setAttribute("KundensOID", or);
 
             return "index";
 
