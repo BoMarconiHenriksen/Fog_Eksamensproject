@@ -4,13 +4,10 @@ import Business.Calculator;
 import Business.LogicFacade;
 import Business.SkurCalculator;
 import Domain.Ordre;
-import Domain.User;
 import Domain.Odetaljer;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,7 +21,7 @@ public class basisCarport extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(); //Skal bruges til user senere
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
 
@@ -38,6 +35,7 @@ public class basisCarport extends Command {
 //        session.getAttribute("user");
 
         int user_id = 2;
+
         order.setUser_id(user_id);
 
         String ordre_status = null;
@@ -79,7 +77,6 @@ public class basisCarport extends Command {
         request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
 
         //Skuret 
-        //  if (lentghinputskur != 0){
         SkurCalculator calcskur = new SkurCalculator();
 
         double skurTotaludenCarport = calcskur.skurPrisBeregner(lentghinputskur, widthinputskur);
@@ -90,7 +87,7 @@ public class basisCarport extends Command {
         request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
         request.setAttribute("widthInputSkuret", (Double) widthinputskur);
         request.setAttribute("heightInputSkuret", (Double) heightputskur);
-        //   }
+      
         request.setAttribute("lentghInput", (Double) lentghinput);
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);

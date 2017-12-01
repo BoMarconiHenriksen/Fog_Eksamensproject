@@ -139,7 +139,7 @@ public class LineItemMapper {
                 String dimension = rs.getString("dimension");
                 double baseLength = rs.getDouble("baselength");
 
-                int linjelisteid = rs.getInt("linjeliste_id");
+              
 
                 int antal = rs.getInt("antal");
                 int id = rs.getInt("linjeliste_id");

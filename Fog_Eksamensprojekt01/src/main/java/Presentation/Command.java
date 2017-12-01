@@ -28,7 +28,8 @@ abstract class Command {
         commands.put("InvoiceDetail_Customer", new InvoiceDetail_Customer());
         commands.put("InvoiceDetail_Customer_DeleteOrder", new InvoiceDetail_Customer());
         commands.put("NavigatetoIndex", new NavigatetoIndex());
-
+        commands.put("InvoiceSetStatus", new InvoiceSetStatus());
+        commands.put("InvoiceDetail_Customer", new InoiceDetail_Customer());
 
     }
 
