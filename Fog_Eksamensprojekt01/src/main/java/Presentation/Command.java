@@ -19,7 +19,6 @@ abstract class Command {
       
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
-        commands.put("basisCarportmedSkur", new basisCarportMedSkur());
         commands.put("OrdertheOrder", new Checkout());
         commands.put("XXtegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
