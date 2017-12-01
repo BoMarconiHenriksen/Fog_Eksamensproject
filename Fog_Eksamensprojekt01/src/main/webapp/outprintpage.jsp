@@ -5,13 +5,12 @@
 --%>
 
 <%@page import="Utillities.LineItemFactory"%>
-<%@page import="Domain.LineItem2"%>
+<%@page import="Domain.LineItem"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="Business.Calculator"%>
-<%@page import="Domain.StykLinje"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
