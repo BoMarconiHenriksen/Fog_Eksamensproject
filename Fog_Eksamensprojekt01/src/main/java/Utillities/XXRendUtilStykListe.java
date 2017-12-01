@@ -3,7 +3,7 @@ package Utillities;
 import Business.Calculator;
 import Business.LogicFacade;
 import Domain.LineItem;
-import Domain.LineItem2;
+import Domain.LineItem;
 import Presentation.NewException;
 import java.util.List;
 
@@ -35,30 +35,30 @@ public class XXRendUtilStykListe {
     }
 
     public static String createLineItemListTree(StringBuilder sb, double length, double width) throws NewException {
-        LineItem2[] limes = LineItemFactory.baseTree(width, length);
+        LineItem[] limes = LineItemFactory.baseTree(width, length);
         sb.append("<br><tr><th>Træ</th></tr>\n");
         return forLoopLineItem(limes, sb);
     }
 
     public static String lineItemEcoliteRoof(StringBuilder sb, double length, double width) throws NewException {
-        LineItem2[] limes = LineItemFactory.ecoliteRoof(width, length);
+        LineItem[] limes = LineItemFactory.ecoliteRoof(width, length);
         sb.append("<br><tr><th>Tag</th></tr>\n");
         return forLoopLineItem(limes, sb);
     }
     
      public static String lineItemMetalForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
-        LineItem2[] limes = LineItemFactory.screwsAndBracketShed(skurwidth, skurlength);
+        LineItem[] limes = LineItemFactory.screwsAndBracketShed(skurwidth, skurlength);
         return forLoopLineItem(limes, sb);
     }
 
     public static String lineItemWoodForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
-        LineItem2[] limes = LineItemFactory.woodForShed(skurwidth, skurlength);
+        LineItem[] limes = LineItemFactory.woodForShed(skurwidth, skurlength);
         return forLoopLineItem(limes, sb);
     }
     
         public static String createLineItemListMetal(StringBuilder sb, double length, double width) throws NewException {
         sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
-        LineItem2[] limes = LineItemFactory.carportBaseMetal(width, length);
+        LineItem[] limes = LineItemFactory.carportBaseMetal(width, length);
         return forLoopLineItem(limes, sb);
     }
 
@@ -76,8 +76,8 @@ public class XXRendUtilStykListe {
 
 
 
-    private static String forLoopLineItem(LineItem2[] limes, StringBuilder sb) {
-        for (LineItem2 lim : limes) {
+    private static String forLoopLineItem(LineItem[] limes, StringBuilder sb) {
+        for (LineItem lim : limes) {
             
             sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
             removeNumberFromLengthForBrackets(lim, sb);
@@ -89,7 +89,7 @@ public class XXRendUtilStykListe {
         return sb.toString();
     }
 
-    private static void removeNumberFromLengthForBrackets(LineItem2 lim, StringBuilder sb) {
+    private static void removeNumberFromLengthForBrackets(LineItem lim, StringBuilder sb) {
         if(lim.getDimension() == 0.0) {
             sb.append("<td>" + "" + "</td>");
         } else {
@@ -98,7 +98,7 @@ public class XXRendUtilStykListe {
     }
    public static void main(String[] args) throws NewException {
         StringBuilder sb = new StringBuilder();
-        LineItem2[] limes = LineItemFactory.baseTree(480, 300);
+        LineItem[] limes = LineItemFactory.baseTree(480, 300);
 
     }
 

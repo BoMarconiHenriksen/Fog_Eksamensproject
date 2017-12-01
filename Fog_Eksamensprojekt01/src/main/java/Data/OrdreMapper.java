@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -159,4 +160,19 @@ public class OrdreMapper {
         OrdreMapper.deleteOrderDetailsByOrderID(4);
         OrdreMapper.deleteOrderListByOrderID(4);
 
-}}
+}
+
+    public static void addOrdertoOrderList(Ordre or) throws NewException {
+        try {
+            Connection conn = DBConnector.connection();
+            String SQL;
+            SQL = "INSERT INTO ordreliste (user_id, receiveddate) VALUES (?, ?)";
+            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            orderPstmt.setInt(1, or.getUser_id());
+            orderPstmt.setString(2, or.getReciveddate());
+            orderPstmt.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+    }
+}
