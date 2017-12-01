@@ -11,17 +11,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Ordre Liste</title>
+        <title>Ordre Liste - Kunde</title>
     </head>
     <body>
         <h1>Liste af alle dine Ordre</h1>
-        
-         <div>
-            
-            <% out.println(RendUtilOrderList_Customer.invoiceList((List) request.getAttribute("invoiceList")));%>
+
+        <div>
+
+            <% out.println(RendUtilOrderList_Customer.invoiceList_Customer((List) request.getAttribute("invoiceList_Customer")));%>
 
         </div>
-        
-        
+
+        <form name="NavigatetoIndex" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="NavigatetoIndex">
+
+            <button type="submit" name="NavigatetoIndex" value="Submit">Tilbage til Index </button>
+        </form>
+
+       
+
+
     </body>
 </html>

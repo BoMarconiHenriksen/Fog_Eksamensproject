@@ -44,8 +44,8 @@ public class OrdreMapper {
         }
         return ordreList;
     }
-    
-        public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
+
+    public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
         Ordre o;
         try {
@@ -69,6 +69,62 @@ public class OrdreMapper {
 
     }
 
+
+    public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
+       
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "DELETE FROM ordreliste WHERE ordre_id=" + ordre_id;
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.execute();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+    
+        public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
+       
+        try {
+            Connection con = DBConnector.connection();
+            String sql = "DELETE FROM odetaljer WHERE ordre_id=" + ordre_id;
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.execute();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+
+    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
+        Odetaljer o = null;
+        try {
+
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+
+            while (rs.next()) {
+                int odetaljerId = rs.getInt("odetaljer_id");
+                int ordreId = rs.getInt("ordre_id");
+                int vareId = rs.getInt("vareid");
+                int linjelisteId = rs.getInt("linjeliste_id");
+                String ordreStatus = rs.getString("ordre_status");
+                double carportLength = rs.getDouble("carport_length");
+                double carportWidth = rs.getDouble("carport_width");
+                double carportHeight = rs.getDouble("carport_height");
+                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
+                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
+                int tagType = rs.getInt("tagtype");
+
+                o = new Odetaljer(odetaljerId, ordreId, vareId, linjelisteId, ordreStatus,
+                        carportLength, carportWidth,
+                        carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType);
+
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
         Ordre or = null;
 
@@ -87,6 +143,7 @@ public class OrdreMapper {
                 String receiveddate = rs.getString("receiveddate");
                 or = new Ordre(ordre_id, receiveddate, user_id);
 
+
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
@@ -95,11 +152,13 @@ public class OrdreMapper {
         return or;
     }
 
+    
     public static int getLastInvoiceId() throws NewException {
-
-        int invoiceid = 0;
+       
+      
+      int invoiceid = 0;
         try {
-            Connection con = DBConnector.connection();
+ Connection con = DBConnector.connection();
             String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
@@ -108,12 +167,18 @@ public class OrdreMapper {
                 invoiceid = rs.getInt("ordre_id");
 
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        }  catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return invoiceid;
-    }
+}
+
+//    Bruges til test
+    public static void main(String[] args) throws NewException {
+
+        OrdreMapper.deleteOrderDetailsByOrderID(4);
+        OrdreMapper.deleteOrderListByOrderID(4);
 
 //    Bruges til test
     public static void main(String[] args) throws NewException {
@@ -126,8 +191,4 @@ public class OrdreMapper {
 //        }
         System.out.println(OrdreMapper.getOrderList());
         System.out.println("ordre detalje liste:");
-
-//            System.out.println(orderList.getOrdersByOrderId(2));
-    }
-
-}
+}}

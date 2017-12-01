@@ -4,11 +4,12 @@
     Author     : Ticondrus
 --%>
 
-<%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Business.Calculator"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendSvg"%>
+<%@page import="Business.LogicFacade"%>
+<%@page import="Presentation.FrontController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,6 @@
 <%Calculator calc = new Calculator();
     SkurCalculator scalc = new SkurCalculator();
 
-    XXRendUtilStykListe rusl = new XXRendUtilStykListe();
     double length = (Double) request.getAttribute("length");
     double width = (Double) request.getAttribute("width");
     double heigth = (Double) request.getAttribute("height");
@@ -46,17 +46,11 @@
     %>  
 
 
-
-
-
-
-
-
-    <%String styk = rusl.getStykListeBaseSimpel(length, width,skurlength, skurWidth);
-    out.println("<a>" + styk + "</a>");%>
-
-
-
+    <form name="OrdreList_Customer" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="OrdreList_Customer">
+        
+        <button type="submit" name="OrdreList_Customer" value="Submit">Tilbage til din Ordre Liste </button>
+    </form>
         
         
     </body>

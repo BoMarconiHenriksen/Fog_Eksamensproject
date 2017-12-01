@@ -31,8 +31,6 @@ public class basisCarport extends Command {
 
         Ordre order = new Ordre();
 
-
-        Ordre order = new Ordre();
 //        User user = new User();
 //        session.getAttribute("user");
 
