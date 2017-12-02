@@ -4,6 +4,8 @@
     Author     : Ejer
 --%>
 
+<%@page import="Utillities.RendUtilOrderList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,7 @@
 
 
 
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
 
 
 
@@ -40,14 +42,38 @@
 <body>
 
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+ <img class="background-image" src=" https://www.johannesfog.dk/globalassets/forsiden/forside-carport.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport" width="100%" height="100%"float="right">
    
   <div class="w3-display-middle w3-margin-top w3-center">
   </div>
 </header>
     <br><br>
-    <h1>Om dette eksamensprojekt</h1>
-
-
+     <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Om projektet</h3>
+  </div>
+ 
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+        <img src="/w3images/house5.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+        <img src="/w3images/house4.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+        <img src="/w3images/house3.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+  </div>
+    
+  
 
 
 </body>
