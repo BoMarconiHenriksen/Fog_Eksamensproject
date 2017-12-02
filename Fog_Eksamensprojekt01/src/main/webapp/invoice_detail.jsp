@@ -28,7 +28,7 @@
 
 
         <%
-            out.println("<h3>Pris</h3><p>" + request.getAttribute("pris") + "</p>");
+            out.println("<h3>Pris</h3><p>" + request.getAttribute("priceTwoDecimal") + "</p>");
         %>
 
         
