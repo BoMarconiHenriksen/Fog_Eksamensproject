@@ -25,22 +25,22 @@
 
         <br>
 
-
+ <div>
 
         <%
             out.println("<h3>Pris</h3><p>" + request.getAttribute("priceTwoDecimal") + "</p>");
         %>
 
-        
+
         <%= RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
         <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
-      
+
         <br> <br>
-        <div>
+        
+       
             <%
                 out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
             %>   
-
 
         </div>
         <div class="w3-display-bottomleft">
