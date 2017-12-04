@@ -22,11 +22,9 @@
 
         </div>
 
-        <form name="NavigatetoIndex" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="NavigatetoIndex">
 
-            <button type="submit" name="NavigatetoIndex" value="Submit">Tilbage til Index </button>
-        </form>
+           <button type="button"  onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+
 
        
 

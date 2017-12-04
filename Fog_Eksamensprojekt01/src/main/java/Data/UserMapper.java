@@ -4,8 +4,10 @@ import java.sql.ResultSet;
 import Domain.User;
 import Presentation.NewException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +48,53 @@ public class UserMapper {
         }
         return u;
     }
-
     
+    public static void createUser( User user ) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL = "INSERT INTO user (email, password, role, firstname, lastname, address, zipcode, tlfnummer) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
+            ps.setString( 1, user.getEmail() );
+            ps.setString( 2, user.getPassword() );
+            ps.setString( 3, user.getRole());
+            ps.setString( 4, user.getFirstname());
+            ps.setString( 5, user.getLastname());
+            ps.setString( 6, user.getAddress());
+            ps.setInt( 7, user.getZip());
+            ps.setInt( 8, user.getTlfnummer());
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt( 1 );
+            user.setUser_id(id);
+        } catch ( SQLException | ClassNotFoundException ex ) {
+            throw new NewException( ex.getMessage() );
+        }
+    }
+
+    public static User login( String email, String password ) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL = "SELECT id, role FROM user "
+                    + "WHERE email=? AND password=?";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setString( 1, email );
+            ps.setString( 2, password );
+            ResultSet rs = ps.executeQuery();
+            if ( rs.next() ) {
+                String role = rs.getString( "role" );
+                int id = rs.getInt( "id" );
+                User user = new User( email, password, role );
+                user.setUser_id(id);
+                return user;
+            } else {
+                throw new NewException( "Could not validate user" );
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new NewException(ex.getMessage());
+        }
+    }
+
 }
+
+ 

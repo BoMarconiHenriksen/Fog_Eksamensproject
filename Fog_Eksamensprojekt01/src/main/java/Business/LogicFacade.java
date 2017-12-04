@@ -78,6 +78,15 @@ public class LogicFacade {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
+    public static User login( String email, String password ) throws NewException {
+        return UserMapper.login( email, password );
+    } 
+
+    public static User createUser(String email, String password, String firstname, String lastname, String address, int zipcode, int tlfnummer) throws NewException {
+        User user = new User(email, password, "Kunde", firstname, lastname, address, zipcode, tlfnummer);
+        UserMapper.createUser( user );
+        return user;
+    }
  
  
       //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
