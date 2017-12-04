@@ -52,7 +52,7 @@ public class UserMapper {
     public static void createUser( User user ) throws NewException {
         try {
             Connection con = DBConnector.connection();
-            String SQL = "INSERT INTO user (email, password, role, firstname, lastname, address, zipcode, tlfnummer) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO userlist (email, password, role, firstname, lastname, address, zipcode, tlfnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getEmail() );
             ps.setString( 2, user.getPassword() );
@@ -63,10 +63,7 @@ public class UserMapper {
             ps.setInt( 7, user.getZip());
             ps.setInt( 8, user.getTlfnummer());
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt( 1 );
-            user.setUser_id(id);
+            
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new NewException( ex.getMessage() );
         }
