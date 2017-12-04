@@ -6,11 +6,17 @@ import Domain.Ordre;
 import Presentation.NewException;
 
 /**
- *
- * @author Bo
+ * Klassen udskriver tabeller om kunden, kundens ordre og status til medarbejderen
+ * 
  */
 public class RendUtilOdetaljerMedArbejder {
-
+    
+    /**
+     * Metoden laver en tabel, der indeholder kundens oplysninger
+     * @param od bruges til at hente kundens id
+     * @return en tabel, der indeholder kundens navn, adresse, postnummer og telefonnummer.
+     * @throws NewException 
+     */
     public static String customerDetailsForOrder(Odetaljer od) throws NewException {
         Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
@@ -31,6 +37,12 @@ public class RendUtilOdetaljerMedArbejder {
         return sb.toString();
     }
 
+    /**
+     * Metoden bruges til at hente status på en ordre, og til at sætte en ny ordre status.
+     * @param od bruges til at hente ordre id.
+     * @return en tabel, der indeholder ordre id, dato for ordre modtagelse, ordrestatus og en dropdown med de ordre statusser, der kan sættes. 
+     * @throws NewException 
+     */
     public static String odetailsForOrder(Odetaljer od) throws NewException {
 
         Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());

@@ -6,11 +6,19 @@ import Presentation.NewException;
 import java.util.List;
 
 /**
+ * Klassen viser en liste af kundens ordre.
  *
- * @author Bo
  */
 public class RendUtilOrderList_Customer {
 
+    /**
+     * Metoden laver en tabel, der viser en liste med kundens ordre id, navn,
+     * telefonnummer og ordrestatus.
+     *  
+     * @param ordreList er en liste af kundens ordre.
+     * @return en tabel med alle kundens ordrer.
+     * @throws NewException
+     */
     public static String invoiceList_Customer(List<Ordre> ordreList) throws NewException {
 
         ordreList = LogicFacade.getOrderListByUserId(2);
