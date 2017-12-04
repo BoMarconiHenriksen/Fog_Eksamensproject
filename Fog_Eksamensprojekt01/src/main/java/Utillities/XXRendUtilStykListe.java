@@ -120,6 +120,12 @@ public class XXRendUtilStykListe {
         sb.append("</tr>");
     }
 
+    /**
+     * Metoden laver en stykliste
+     * @param limes er et array af LineItems
+     * @param sb stringbuilder, der laver tabellen.
+     * @return en tabel, der indeholder styklisten.
+     */
     private static String forLoopLineItem(LineItem[] limes, StringBuilder sb) {
         for (LineItem lim : limes) {
 
@@ -134,9 +140,9 @@ public class XXRendUtilStykListe {
     }
 
     /**
-     * Metoden fjerner 0.0 de steder i tabellen, hvor der står 0.0.
-     * @param lim 
-     * @param sb 
+     * Metoden fjerner 0.0 de steder i tabellen, hvor der står 0.0, da feltet skal være tomt.
+     * @param lim er en liste af LineItems
+     * @param sb er stringbuilderen
      */
     private static void removeNumberFromLengthForBrackets(LineItem lim, StringBuilder sb) {
         if (lim.getDimension() == 0.0) {
@@ -146,6 +152,11 @@ public class XXRendUtilStykListe {
         }
     }
 
+    /**
+     * Bruges til test.
+     * @param args
+     * @throws NewException 
+     */
     public static void main(String[] args) throws NewException {
         StringBuilder sb = new StringBuilder();
         LineItem[] limes = LineItemFactory.baseTree(480, 300);
