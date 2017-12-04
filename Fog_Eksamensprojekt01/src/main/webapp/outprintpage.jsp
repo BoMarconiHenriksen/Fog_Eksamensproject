@@ -85,7 +85,7 @@
         <%Calculator calc = new Calculator();
             SkurCalculator scalc = new SkurCalculator();
 
-            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+          
             double length = (Double) request.getAttribute("length");
             double width = (Double) request.getAttribute("width");
             double heigth = (Double) request.getAttribute("height");
@@ -109,7 +109,12 @@
 
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+        
+         <form name="Checkout" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="OrdertheOrder">
 
+        <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
+         </form>
              
 
 

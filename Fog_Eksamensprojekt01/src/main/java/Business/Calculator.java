@@ -60,8 +60,8 @@ public class Calculator {
         double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
         double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
-        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * universalHøjre
-                + numberOfRafters(length) * universalVenstre + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
+        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * (universalHøjre
+                +  universalVenstre) + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
 
@@ -80,9 +80,9 @@ public class Calculator {
         //træ og tag
         double plank1Price = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
         double plank2Price = LogicFacade.getMaterialeByVarenummer(2).getEnhedspris();
-        double strapsToCarryRoofPrice = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
+        double RaftsAndStrapsPrice = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
         double postPrice1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-        double plank3Price = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();
+        double plank3Price = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();//waterboard
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
         double plastmoRoofPrice = 0;
         double totalPriceBase = 0;
@@ -98,9 +98,9 @@ public class Calculator {
 
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
-                + 2 * length / 100 * plank2Price + 2 * (length / 100 + 0.6) * strapsToCarryRoofPrice
-                + numberOfRafters(length) * width / 100 * strapsToCarryRoofPrice + 4 * postPrice1 + 2 * length / 100 * plank3Price
-                + 1 * length / 100 * plank3Price + width / 100 * plastmoRoofPrice;
+                + 2 * length / 100 * plank2Price + 2 * (length / 100 ) * RaftsAndStrapsPrice
+                + numberOfRafters(length) * width / 100 * RaftsAndStrapsPrice + 4 * postPrice1 + 2 * length / 100 * plank3Price
+                + 1 * length / 100 * plank3Price + Math.ceil(width / 100) * plastmoRoofPrice;
         return totalPriceBase;
     }
 
@@ -133,14 +133,14 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.numberOfBottomScrewsPackageEcolite(480, 300));
+        System.out.println(calc.calculateCarportSimple(480, 300,225));
 
     }
 
 }
 // hvis carporten 600 * 780
 //        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 
-//                + 4 * 5.4 * plank1Price + 2 * 6 * strapsToCarryRoofPrice + 1 * 4.8 * strapsToCarryRoofPrice
-//                + 15 * 6 * strapsToCarryRoofPrice + 6 * 3 * postPrice1 + 4 * 5.4 * brædt2Pris 
+//                + 4 * 5.4 * plank1Price + 2 * 6 * RaftsAndStrapsPrice + 1 * 4.8 * RaftsAndStrapsPrice
+//                + 15 * 6 * RaftsAndStrapsPrice + 6 * 3 * postPrice1 + 4 * 5.4 * brædt2Pris 
 //                + 2 * 3.6 * brædt2Pris + 6 * plastmoTag1pris + 6  * plastmoTag2pris;
 //længde 
