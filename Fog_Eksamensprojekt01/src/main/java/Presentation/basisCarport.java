@@ -14,7 +14,11 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ejer
+ * @author The DataBuilders
+ * This class is one of the commands. The execute method takes a bunch of parameters from 
+ * the viewpage 'bestilbasiscarportpage' and then put them though various methods 
+ * a calculator that calculates the price. The parameters is also used to place an order
+ * and some odetails in the database. 
  */
 public class basisCarport extends Command {
 
@@ -26,8 +30,6 @@ public class basisCarport extends Command {
         String CheckUd = request.getParameter("basisCarportCheckud");
 
         String GemDesign = request.getParameter("CarportGemDesign");
-
-        int count;
 
         Ordre order = new Ordre();
 
@@ -82,18 +84,23 @@ public class basisCarport extends Command {
         }
     }
 /**
- * 
- * @param lentghinputskur
- * @param widthinput
- * @param request
- * @param lentghinput
- * @param heightinput
- * @param df
- * @param widthinputskur
- * @param heightputskur
- * @param skurellerej
- * @return
- * @throws NewException 
+ * This method makes sure the shed can be placed under the carport roof with regards
+ * to shed length and carportwidth.  it also uses the calculator and skurcalculator to 
+ * se a price for the carport with shed. 
+ * @param lentghinputskur chosen length of shed
+ * @param widthinput chosen width of carport
+ * @param request servlet request to get the input
+ * @param lentghinput chosen length of carport
+ * @param heightinput heigth of carport (not a choice)
+ * @param df decimalformatter
+ * @param widthinputskur chosen width of shed
+ * @param heightputskur height of shed (not a choice)
+ * @param skurellerej shed or no shed
+ * @param ditSkurErForLangt returns a message to the customer that the shed length 
+ * has been set to 30 cm lesser than the width of the carport
+ * @return lengthinput shed. If the shed is to big for the carport then a new shed length is set
+ * @throws NewException an exception thrown back in the mappers. we will deal 
+ * with it in the FrontController servlet
  */
     private double calculatePriceSetAttrubtes(double lentghinputskur, double widthinput, HttpServletRequest request, double lentghinput, double heightinput, DecimalFormat df, double widthinputskur, double heightputskur, String skurellerej) throws NewException {
         int count;
@@ -131,17 +138,17 @@ public class basisCarport extends Command {
         return lentghinputskur;
     }
 /**
- * 
- * @param order
- * @param user_id
- * @param ordre_status
- * @param lentghinput
- * @param widthinput
- * @param heightinput
- * @param lentghinputskur
- * @param widthinputskur
- * @param request
- * @param session
+ * This method places an order and orderdetails in the database and set som attributes
+ * @param order make an instance of an order object
+ * @param user_id the unique id of the user who is currently logged in 
+ * @param ordre_status the status of the order
+ * @param lentghinput parameter from the userinterface requested in the method 'execute'
+ * @param widthinput parameter from the userinterface requested in the method 'execute'
+ * @param heightinput parameter from the userinterface requested in the method 'execute'
+ * @param lentghinputskur  parameter from the userinterface requested in the method 'execute'
+ * @param widthinputskur parameter from the userinterface requested in the method 'execute'
+ * @param request  to call parameters and set attributes in http.servlet request and response
+ * @param session to call parameters like 'user' that are stored in session in login
  * @throws NewException 
  */
     private void placeOrderOdetailsSetAttributes(Ordre order, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, HttpServletRequest request, HttpSession session) throws NewException {
