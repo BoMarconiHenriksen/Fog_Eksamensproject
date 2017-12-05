@@ -18,32 +18,39 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-                <script type="text/javascript" src="jquery-1.8.3.js"></script>
+
+        <script type="text/javascript" src="jquery-1.8.3.js"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
-        
+
         <title>Fog Trælast - Velkomstside</title>
     </head>
     <body>
         <h1>Fog Trælast</h1>
 
-        <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
-        
+        <h2>Velkommen <%= (String) session.getAttribute("username")%> </h2>
+
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>
-                <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedrejsning.jsp';" >Bestil en carport med rejsnings tag </button>
-    
-        
+        <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedrejsning.jsp';" >Bestil en carport med rejsnings tag </button>
+
+
         <form name="OrdreList_Customer" action="FrontController" method="POST">
-        <input type="hidden" name="command" value="OrdreList_Customer">
-        
-        <button type="submit" name="OrdreList_Customer" value="Submit">Se Dine Ordre </button>
-        
+            <input type="hidden" name="command" value="OrdreList_Customer">
+
+            <button type="submit" name="OrdreList_Customer" value="Submit">Se Dine Ordre </button>
+
         </form>
         
+        <form name="LogOut" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="logout">
+        
+        <button type="submit" name="logout" value="Submit">Log af </button>
+        
+        </form>
 
-     
-  </body>
+
+
+    </body>
 
 
 

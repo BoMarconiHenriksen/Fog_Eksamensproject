@@ -11,6 +11,13 @@ import java.util.List;
  * @author Ticondrus
  */
 public class RendUtilGetMaterials {
+    
+    /**
+     * Metoden udsrkiver en en linje med oplysninger om et specifikt materiale.
+     * @param mats
+     * @return sb.toString()
+     * @throws NewException 
+     */
 
     public static String getSpecifikMaterial(List<Materiale> mats) throws NewException {
 
