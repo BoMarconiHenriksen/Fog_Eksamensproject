@@ -1,5 +1,6 @@
 package Presentation;
 
+import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,6 @@ abstract class Command {
         return commands.getOrDefault(commandName, new ErrorMsg());
     }
 
-    abstract String execute(HttpServletRequest request, HttpServletResponse response) throws NewException;
+    abstract String execute(HttpServletRequest request, HttpServletResponse response) throws NewException, IOException;
 
 }
