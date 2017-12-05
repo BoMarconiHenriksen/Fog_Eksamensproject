@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws BusinessLayer.BenedikteEvasNewException
+     * @throws Presentation.NewException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NewException {
@@ -56,9 +56,8 @@ public class FrontController extends HttpServlet {
                 request.setAttribute("view", view);
                 request.getRequestDispatcher(view + ".jsp").forward(request, response);
 
-                Business.LogicFacade.getMaterial();
             } catch (NewException ex) {
-                Configuration.myLogger.log(Level.SEVERE, null, ex);
+                Configuration.myLogger.log(Level.FINEST, null, ex);
                 request.getSession().setAttribute("error", ex.getMessage());
                 request.getRequestDispatcher("errorview.jsp").forward(request, response);
 
