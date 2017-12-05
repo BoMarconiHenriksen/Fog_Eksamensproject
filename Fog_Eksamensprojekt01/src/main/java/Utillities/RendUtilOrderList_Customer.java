@@ -9,11 +9,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Klassen viser en liste af kundens ordre.
- *
  */
 public class RendUtilOrderList_Customer {
 
-    /**
+    /*
      * Metoden laver en tabel, der viser en liste med kundens ordre id, navn,
      * telefonnummer og ordrestatus.
      *  
@@ -21,7 +20,9 @@ public class RendUtilOrderList_Customer {
      * @return en tabel med alle kundens ordrer.
      * @throws NewException
      */
+
     public static String invoiceList_Customer(List<Ordre> ordreList, User user) throws NewException {
+
 
         
         ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
