@@ -16,6 +16,8 @@
     </head>
     <body>
         <h1>Liste af alle dine Ordre</h1>
+        
+         <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
 
         <div>
 
@@ -24,7 +26,7 @@
         </div>
 
 
-           <button type="button"  onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+           <button type="button"  onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til velkomstsiden</button>
 
 
        

@@ -18,6 +18,7 @@ public class Checkout extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+        request.setAttribute("userNr", user.getUser_id());
         
         int or = (int) (session.getAttribute("SessionIOD"));
         

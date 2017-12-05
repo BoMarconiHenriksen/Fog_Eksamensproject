@@ -46,11 +46,7 @@
     %>  
 
 
-    <form name="OrdreList_Customer" action="FrontController" method="POST">
-        <input type="hidden" name="command" value="OrdreList_Customer">
-        
-        <button type="submit" name="OrdreList_Customer" value="Submit">Tilbage til din Ordre Liste </button>
-    </form>
+    <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
         
         
     </body>
