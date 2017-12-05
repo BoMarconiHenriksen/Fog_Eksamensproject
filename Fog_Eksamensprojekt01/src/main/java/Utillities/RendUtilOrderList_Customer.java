@@ -49,7 +49,7 @@ public class RendUtilOrderList_Customer {
 
         sb.append("</table>\n");
         sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail_Customer\">Se Ordren</button> ");
-        sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail_Customer_DeleteOrder\">Slet Orderen</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" onclick=\"javascript:return show_confirmDeletetheOrder();\" name=\"InvoiceDetail_Customer_DeleteOrder\">Slet Orderen</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }

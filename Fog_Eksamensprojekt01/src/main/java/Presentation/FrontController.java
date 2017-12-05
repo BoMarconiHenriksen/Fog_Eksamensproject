@@ -34,10 +34,15 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException, NewException {
+        try {
         Command action = Command.from( request );
         String view = action.execute( request, response );
         request.setAttribute("view", view);
         request.getRequestDispatcher( view + ".jsp" ).forward( request, response );
+        } catch ( NewException ex ) {
+            request.setAttribute( "error", ex.getMessage() );
+            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
