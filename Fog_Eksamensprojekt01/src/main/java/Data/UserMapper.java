@@ -5,7 +5,6 @@ import Domain.User;
 import Presentation.NewException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -72,7 +71,7 @@ public class UserMapper {
     public static User login( String email, String password ) throws NewException {
         try {
             Connection con = DBConnector.connection();
-            String SQL = "SELECT id, role FROM user "
+            String SQL = "SELECT id, role FROM userlist "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
