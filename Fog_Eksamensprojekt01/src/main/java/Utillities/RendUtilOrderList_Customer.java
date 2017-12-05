@@ -23,8 +23,8 @@ public class RendUtilOrderList_Customer {
      */
     public static String invoiceList_Customer(List<Ordre> ordreList, User user) throws NewException {
 
-        ordreList = LogicFacade.getOrderListByUserId(2);
-       
+        
+        ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
 
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
@@ -32,6 +32,7 @@ public class RendUtilOrderList_Customer {
                 + "<tr><th>Dit Navn</th><th>Telefonnummer</th><th>Ordre ID</th><th>Date</th><th> Ordre Status</th><th></th></tr>\n");
         for (Ordre o : ordreList) {
 
+           
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
