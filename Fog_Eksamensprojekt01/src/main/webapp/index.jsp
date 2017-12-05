@@ -17,7 +17,7 @@
         <table>
             <tr><td>Login</td>
                 <td>
-                    <form name="Login" action="FrontController" method="POST">
+                    <form name="rogin" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">
                         Email:<br>
                         <input type="text" name="email" value="">
@@ -31,7 +31,7 @@
                 
                 <td>Eller Register</td>
                 <td>
-                    <form name="Register" action="FrontController" method="POST">
+                    <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="register">
                         Email:<br>
                         <input type="text" name="email" value="someone@nowhere.com">
