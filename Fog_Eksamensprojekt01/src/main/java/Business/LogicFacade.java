@@ -5,6 +5,7 @@ import Data.MaterialeMapper;
 import Data.OrdreMapper;
 import Data.OdetaljeMapper;
 import Data.UserMapper;
+import Domain.Exception.FogException;
 import Domain.Materiale;
 import Domain.Ordre;
 import Domain.Odetaljer;

@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Domain.Exception.FogException;
 import Domain.Materiale;
 import Presentation.NewException;
 import java.sql.Connection;
@@ -22,14 +23,19 @@ import java.util.logging.Logger;
  * @author BenedikteEva
  */
 public class MaterialeMapper {
-
+//    Presentation.NewException ex = new Presentation.NewException();
+    //Domain.Exception.FogException ex = new Domain.Exception.FogException();
+    
+    public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+    
     public static List<Materiale> getMaterial() throws NewException {
+                
         List<Materiale> mats = new ArrayList<>();
         try {
 
             Materiale mat;
             Connection con = DBConnector.connection();
-            String sql = "select * from materialeliste";
+            String sql = "select  from materialeliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
 
@@ -51,7 +57,8 @@ public class MaterialeMapper {
             }
             return mats;
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new NewException(ex.getMessage());
+            logger.log(Level.SEVERE, "Fejl i getMaterial", ex);
+            throw new NewException(ex.getMessage().toString());
         }
 
     }
