@@ -44,8 +44,8 @@ public class OrdreList_Customer extends Command {
         User user = (User) session.getAttribute("user");
         
        List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
-       String customer_orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
-       request.setAttribute("customer_orderlist", customer_orderlist);
+       String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
+       request.setAttribute("customer_orderlist", customer_Orderlist);
        
         return "ordrelist_customer";
     }

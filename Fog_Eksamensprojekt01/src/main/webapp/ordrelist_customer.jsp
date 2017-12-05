@@ -21,7 +21,7 @@
 
         <div>
 
-            <% = request.getAttribute("customer_orderlist")); %>
+            <% out.println(request.getAttribute("customer_orderlist")); %>
 
         </div>
 
