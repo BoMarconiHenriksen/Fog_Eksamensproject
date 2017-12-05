@@ -6,7 +6,7 @@ import Presentation.NewException;
 import java.util.List;
 
 /**
- * Klassen viser en liste af kundens ordre.
+ * Klassen viser kunden en liste af sine ordre.
  *
  */
 public class RendUtilOrderList_Customer {
