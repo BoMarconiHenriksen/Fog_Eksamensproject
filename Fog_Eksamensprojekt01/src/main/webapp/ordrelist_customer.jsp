@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Domain.User"%>
 <%@page import="Utillities.RendUtilOrderList_Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +19,7 @@
 
         <div>
 
-            <% out.println(RendUtilOrderList_Customer.invoiceList_Customer((List) request.getAttribute("invoiceList_Customer")));%>
+            <% out.println(request.getAttribute("customer_orderlist")); %>
 
         </div>
 

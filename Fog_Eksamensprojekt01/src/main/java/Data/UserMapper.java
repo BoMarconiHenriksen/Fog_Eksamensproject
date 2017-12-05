@@ -70,8 +70,9 @@ public class UserMapper {
 
     public static User login( String email, String password ) throws NewException {
         try {
+            User user;
             Connection con = DBConnector.connection();
-            String SQL = "SELECT id, role FROM userlist "
+            String SQL = "SELECT user_id, role, firstname FROM userlist "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
@@ -79,8 +80,9 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
                 String role = rs.getString( "role" );
-                int id = rs.getInt( "id" );
-                User user = new User( email, password, role );
+                int id = rs.getInt( "user_id" );
+                String username = rs.getString( "firstname" );
+                user = new User( email, password, role, username );
                 user.setUser_id(id);
                 return user;
             } else {

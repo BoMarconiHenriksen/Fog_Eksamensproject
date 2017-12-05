@@ -2,8 +2,10 @@ package Utillities;
 
 import Business.LogicFacade;
 import Domain.Ordre;
+import Domain.User;
 import Presentation.NewException;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  * Klassen viser en liste af kundens ordre.
@@ -19,9 +21,10 @@ public class RendUtilOrderList_Customer {
      * @return en tabel med alle kundens ordrer.
      * @throws NewException
      */
-    public static String invoiceList_Customer(List<Ordre> ordreList) throws NewException {
+    public static String invoiceList_Customer(List<Ordre> ordreList, User user) throws NewException {
 
         ordreList = LogicFacade.getOrderListByUserId(2);
+       
 
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"

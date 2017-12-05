@@ -49,6 +49,13 @@ public class User {
         this.role = role;
     }
 
+    public User(String email, String password, String role, String firstname) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.firstname = firstname;
+    }
+
     public int getTlfnummer() {
         return tlfnummer;
     }

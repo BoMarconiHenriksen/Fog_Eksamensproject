@@ -2,6 +2,7 @@ package Presentation;
 
 import Business.LogicFacade;
 import Domain.Odetaljer;
+import Domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,6 +17,7 @@ public class Checkout extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
         
         int or = (int) (session.getAttribute("SessionIOD"));
         

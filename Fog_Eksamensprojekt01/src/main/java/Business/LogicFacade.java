@@ -78,7 +78,7 @@ public class LogicFacade {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
-    public static User login( String email, String password ) throws NewException {
+    public static User login( String email, String password) throws NewException {
         return UserMapper.login( email, password );
     } 
 

@@ -27,7 +27,7 @@
     <body>
         <h1>Fog Trælast</h1>
 
-        <h2>Velkommen <%=request.getParameter( "firstname" )%> </h2>
+        <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
         
 
         <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>

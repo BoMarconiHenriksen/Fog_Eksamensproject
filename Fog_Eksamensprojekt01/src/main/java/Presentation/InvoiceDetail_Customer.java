@@ -7,6 +7,7 @@ package Presentation;
 
 import Business.LogicFacade;
 import Domain.Odetaljer;
+import Domain.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,6 +28,7 @@ public class InvoiceDetail_Customer extends Command {
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
         String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
         String DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
         
