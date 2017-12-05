@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
+ *
  *
  * @author BenedikteEva
  */
@@ -16,7 +16,8 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
 
-      
+        commands.put("login", new Login());
+        commands.put("register", new Register());
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
         commands.put("OrdertheOrder", new Checkout());
@@ -27,7 +28,6 @@ abstract class Command {
         commands.put("InvoiceDetail_Customer", new InvoiceDetail_Customer());
         commands.put("InvoiceDetail_Customer_DeleteOrder", new InvoiceDetail_Customer());
         commands.put("InvoiceSetStatus", new InvoiceSetStatus());
-    
 
     }
 

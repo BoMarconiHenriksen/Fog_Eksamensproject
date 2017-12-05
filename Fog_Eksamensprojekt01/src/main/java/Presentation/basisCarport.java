@@ -5,6 +5,7 @@ import Business.LogicFacade;
 import Business.SkurCalculator;
 import Domain.Ordre;
 import Domain.Odetaljer;
+import Domain.User;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,7 +26,9 @@ public class basisCarport extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession(); //Skal bruges til user senere
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
 
@@ -36,15 +39,20 @@ public class basisCarport extends Command {
 //        User user = new User();
 //        session.getAttribute("user");
 
-        int user_id = 2;
+        int user_id = user.getUser_id();
 
         order.setUser_id(user_id);
+        session.setAttribute("userNr", user_id);
 
         String ordre_status = null;
 
+
+      //  request.setAttribute("userNr", user_id);
+
+        double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
+
         request.setAttribute("userNr", user_id);
-        
-        double lentghinput = Double.parseDouble(request.getParameter("lentgChoice"));
+
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
 

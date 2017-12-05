@@ -1,50 +1,72 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 09-11-2017, 12:08:28
-    Author     : Ticondrus
+    Document   : index
+    Created on : Aug 22, 2017, 2:01:06 PM
+    Author     : kasper
 --%>
-
-
-<%@page import="Business.LogicFacade"%>
-<%@page import="Utillities.RendUtilGetMaterials"%>
-<%@page import="Utillities.RendUtilCustomerPresentation"%>
-<%@page import="Domain.Materiale"%>
-<%@page import="java.util.List"%>
-<%@page import="Presentation.FrontController"%>
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-                <script type="text/javascript" src="jquery-1.8.3.js"></script>
-        <script src="script/javascript.js" type="text/javascript"></script>
-        
-        <title>Fog Trælast - Velkomstside</title>
+        <title>Velkomst side</title>
     </head>
     <body>
-        <h1>Fog Trælast</h1>
-
-        <h2>Velkommen. Vælg her en carport type.</h2>
-
-        <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>
-                <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedrejsning.jsp';" >Bestil en carport med rejsnings tag </button>
-    
+        <h1>Velkommen til Fog Trælast</h1>
         
-        <form name="OrdreList_Customer" action="FrontController" method="POST">
-        <input type="hidden" name="command" value="OrdreList_Customer">
-        
-        <button type="submit" name="OrdreList_Customer" value="Submit">Se Dine Ordre </button>
-        
-        </form>
-        
-
-     
-  </body>
-
-
-
+        <table>
+            <tr><td>Login</td>
+                <td>
+                    <form name="rogin" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="login">
+                        Email:<br>
+                        <input type="text" name="email" value="">
+                        <br>
+                        Password:<br>
+                        <input type="password" name="password" value="">
+                        <br>
+                        <button type="submit" name="login" value="Submit">Login </button>
+                    </form>
+                </td>
+                
+                <td>Eller Register</td>
+                <td>
+                    <form name="register" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="register">
+                        Email:<br>
+                        <input type="text" name="email" value="someone@nowhere.com">
+                        <br>
+                        Password:<br>
+                        <input type="password" name="password1" pattern=".{6,}" title="7 eller flere karakter">
+                        <br>
+                        Retype Password:<br>
+                        <input type="password" name="password2" pattern=".{6,}" title="7 eller flere karakter">
+                        <br>
+                        Fornavn:<br>
+                        <input type="text" name="firstname" value="Peter">
+                        <br>
+                        Efternavn:<br>
+                        <input type="text" name="lastname" value="Jensen">
+                        <br>
+                        Addresse:<br>
+                        <input type="text" name="addresse" value="Jensen">
+                        <br>
+                        Post Nummer (0001):<br>
+                        <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre" >
+                        <br>
+                        Telefon nummer <br>
+                        <input type="number" name="telefonnummer" min="1" max="99999999999" >
+                        <br>
+                        <button type="submit" name="register" value="Submit">Opret Bruger </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <% String error = (String) request.getAttribute( "error");
+           if ( error != null) { %>
+           <H2>Error!!</h2>
+           <p><%= error %>
+        <% }
+        %>
+    </body>
 </html>
