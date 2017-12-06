@@ -37,7 +37,20 @@
     DecimalFormat df = new DecimalFormat("#0.00");
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
 
-    out.println("<p>" + df.format(pris) + "</p>");%>
+    out.println("<p>" + "Carportens samlede pris: " + df.format(pris) + "</p> \n");
+    
+    out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+    out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+    out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+    
+    if ( (Double) request.getAttribute("redskabsskur_length") != 0){
+    out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+    out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+    out.println("<p>" + "Skurets ønskede højde: 210" + "</p>");
+     }else{
+        out.println("<p>" + "Carporten er uden skur." + "</p>");
+    }
+%>
 <br> <br><div>
 
     <%

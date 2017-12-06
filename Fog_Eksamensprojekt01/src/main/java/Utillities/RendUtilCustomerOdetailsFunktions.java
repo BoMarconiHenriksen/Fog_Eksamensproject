@@ -19,13 +19,18 @@ public class RendUtilCustomerOdetailsFunktions {
     public static String odetailsForOrder_Customer(Odetaljer od) throws NewException {
 
         Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
-
         StringBuilder sb = new StringBuilder();
+        
+        String theOStatus = od.getOrdreStatus();
+        String ItsBestilt = "Bestilt";
+        
+        if (theOStatus != ItsBestilt){
+        
         sb.append("<form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
         sb.append("<input type=\"hidden\" name=\"command\" value=\"InvSetOrderStatusbyCustomer\">");
         sb.append("<table border=1>\n");
         sb.append("<tr><h3>Ordre detaljer</h3></tr>\n");
-        sb.append("<tr><th>Ordre Id</th><th>Date</th><th>status</th></tr>\n");
+        sb.append("<tr><th>Ordre Id</th><th>Dato</th><th>Status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
         sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
@@ -42,6 +47,10 @@ public class RendUtilCustomerOdetailsFunktions {
         sb.append("<button type=\"submit\" value=\"action\" name=\"InvSetOrderStatusbyCustomer\">Sæt Ordre Status</button> ");
         sb.append("</form>\n");
 
-        return sb.toString();
-    }
+       
+    } else{ sb.append("<tr><h3>Ordren er bestilt, og du kan derfor ikke ændre dens status mere. Kontakt os hvis du har spørgsmål.</h3></tr>\n");
+            }
+    
+    return sb.toString();
+}
 }
