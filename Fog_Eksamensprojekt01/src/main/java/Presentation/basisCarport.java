@@ -80,7 +80,7 @@ public class basisCarport extends Command {
 
             placeOrderOdetailsSetAttributes(order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, request, session);
 
-            return "index";
+            return "Kundepage";
 
         }
 

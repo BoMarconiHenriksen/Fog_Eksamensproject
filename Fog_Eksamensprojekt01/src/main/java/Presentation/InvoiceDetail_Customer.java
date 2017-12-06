@@ -7,9 +7,12 @@ package Presentation;
 
 import Business.LogicFacade;
 import Domain.Odetaljer;
+import Domain.Ordre;
 import Domain.User;
+import Utillities.RendUtilOrderList_Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,14 +34,10 @@ public class InvoiceDetail_Customer extends Command {
         User user = (User) session.getAttribute("user");
         String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
         String DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
-        
-       
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
-        
-         
-         
+
         Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
 
         request.setAttribute("length", (Double) od.getCarportLength());
@@ -47,17 +46,22 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
-        
-        if (DeletetheOrder != null){
+
+        if (DeletetheOrder != null) {
             LogicFacade.deleteOrderDetailsByUserId(orderid);
             LogicFacade.deleteOrderListByUserId(orderid);
+
+            //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
+            List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
+            String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
+            request.setAttribute("customer_orderlist", customer_Orderlist);
             return "ordrelist_customer";
         }
-        if ( LockIntoOrder != null){
-       
-        return "invoice_detail_customer";
-    } else {
-            return "index";
+        if (LockIntoOrder != null) {
+
+            return "invoice_detail_customer";
+        } else {
+            return "Kundepage";
         }
-}
+    }
 }
