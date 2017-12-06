@@ -24,6 +24,7 @@ public class Login extends Command {
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );
         session.setAttribute("username", user.getFirstname());
+        session.setAttribute("userid", user.getUser_id());
         return user.getRole() + "page";
     }
 

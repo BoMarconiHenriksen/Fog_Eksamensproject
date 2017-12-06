@@ -61,3 +61,6 @@ function show_confirmLogOff()
      return false;
   }
 }
+function myFunctionDeleteOrder() {
+    document.getElementById("demo").innerHTML = "Hello World";
+}

@@ -13,5 +13,7 @@
     </head>
     <body>
         <h1>Error View!</h1>
+        
+        <% out.println("<a>"+session.getAttribute("error")+"</a>");%>
     </body>
 </html>

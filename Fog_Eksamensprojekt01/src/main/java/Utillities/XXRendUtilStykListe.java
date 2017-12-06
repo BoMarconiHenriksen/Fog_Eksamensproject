@@ -9,7 +9,7 @@ import Domain.Exception.NewException;
  * @author Ticondrus
  */
 public class XXRendUtilStykListe {
-    
+    StringBuilder sb = new StringBuilder();
     /**
      * Metoden laver en stykliste for den carport som er købt/designet.
      * @param sb bruges til at lave en tabel.
@@ -20,19 +20,19 @@ public class XXRendUtilStykListe {
      * @return carportens stykliste, som så kan printes.
      * @throws NewException 
      */
-    public static String createLineItemList(StringBuilder sb, double length, double width, double skurLength, double skurWidth) throws NewException {
+    public  String createLineItemList( double length, double width, double skurLength, double skurWidth) throws NewException {
 
-        headLinesStykListe(sb);
+        headLinesStykListe();
 
-        createLineItemListTree(sb, length, width);
+        createLineItemListTree( length, width);
         if (skurLength > 0) {
-            lineItemWoodForShed(sb, skurLength, skurWidth);
+            lineItemWoodForShed(skurLength, skurWidth);
         }
-        createLineItemListMetal(sb, length, width);
+        createLineItemListMetal(length, width);
         if (skurLength > 0) {
-            lineItemMetalForShed(sb, skurLength, skurWidth);
+            lineItemMetalForShed( skurLength, skurWidth);
         }
-        lineItemEcoliteRoof(sb, length, width);
+        lineItemEcoliteRoof( length, width);
         return sb.toString();
 
     }
@@ -45,10 +45,10 @@ public class XXRendUtilStykListe {
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public static String createLineItemListTree(StringBuilder sb, double length, double width) throws NewException {
+    public String createLineItemListTree( double length, double width) throws NewException {
         LineItem[] limes = LineItemFactory.baseTree(width, length);
         sb.append("<br><tr><th>Træ</th></tr>\n");
-        return forLoopLineItem(limes, sb);
+        return forLoopLineItem(limes);
     }
 
     /**
@@ -59,10 +59,10 @@ public class XXRendUtilStykListe {
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public static String lineItemEcoliteRoof(StringBuilder sb, double length, double width) throws NewException {
+    public  String lineItemEcoliteRoof( double length, double width) throws NewException {
         LineItem[] limes = LineItemFactory.ecoliteRoof(width, length);
         sb.append("<br><tr><th>Tag</th></tr>\n");
-        return forLoopLineItem(limes, sb);
+        return forLoopLineItem(limes);
     }
 
     /**
@@ -73,9 +73,9 @@ public class XXRendUtilStykListe {
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public static String lineItemMetalForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
+    public String lineItemMetalForShed( double skurlength, double skurwidth) throws NewException {
         LineItem[] limes = LineItemFactory.screwsAndBracketShed(skurwidth, skurlength);
-        return forLoopLineItem(limes, sb);
+        return forLoopLineItem(limes);
     }
 
     /**
@@ -86,9 +86,9 @@ public class XXRendUtilStykListe {
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public static String lineItemWoodForShed(StringBuilder sb, double skurlength, double skurwidth) throws NewException {
+    public  String lineItemWoodForShed( double skurlength, double skurwidth) throws NewException {
         LineItem[] limes = LineItemFactory.woodForShed(skurwidth, skurlength);
-        return forLoopLineItem(limes, sb);
+        return forLoopLineItem(limes);
     }
 
     /**
@@ -99,17 +99,17 @@ public class XXRendUtilStykListe {
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public static String createLineItemListMetal(StringBuilder sb, double length, double width) throws NewException {
+    public String createLineItemListMetal(double length, double width) throws NewException {
         sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
         LineItem[] limes = LineItemFactory.carportBaseMetal(width, length);
-        return forLoopLineItem(limes, sb);
+        return forLoopLineItem(limes);
     }
 
     /**
      * Metoden laver kolonne overskrifterne til tabellen.
      * @param sb laver tabellen.
      */
-    private static void headLinesStykListe(StringBuilder sb) {
+    private void headLinesStykListe() {
         sb.append("<h2>Stykliste</h2>\n"
                 + "<table border=4>"
                 + "<tr><th>Materiale</th>"
@@ -126,11 +126,11 @@ public class XXRendUtilStykListe {
      * @param sb stringbuilder, der laver tabellen.
      * @return en tabel, der indeholder styklisten.
      */
-    private static String forLoopLineItem(LineItem[] limes, StringBuilder sb) {
+    private  String forLoopLineItem(LineItem[] limes) {
         for (LineItem lim : limes) {
 
             sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
-            removeNumberFromLengthForBrackets(lim, sb);
+            removeNumberFromLengthForBrackets(lim);
             sb.append("<td>" + lim.getAmount() + "</td>");
             sb.append("<td>" + lim.getUnit() + "</td>");
             sb.append("<td>" + lim.getDescription() + "</td>");
@@ -144,7 +144,7 @@ public class XXRendUtilStykListe {
      * @param lim er en liste af LineItems
      * @param sb er stringbuilderen
      */
-    private static void removeNumberFromLengthForBrackets(LineItem lim, StringBuilder sb) {
+    private  void removeNumberFromLengthForBrackets(LineItem lim) {
         if (lim.getDimension() == 0.0) {
             sb.append("<td>" + "" + "</td>");
         } else {

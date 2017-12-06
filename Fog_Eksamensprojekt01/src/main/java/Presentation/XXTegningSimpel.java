@@ -27,9 +27,9 @@ public class XXTegningSimpel extends Command {
         Calculator calc = new Calculator();
         Double totalPris = calc.calculateCarportSimple(480, 300, 225);
         request.setAttribute("totalPris", totalPris);
-       StringBuilder sb =new StringBuilder();
       
-        String styk = XXRendUtilStykListe.createLineItemList(sb,480, 300,450,150);
+      XXRendUtilStykListe XXStykListe =new  XXRendUtilStykListe();
+        String styk = XXStykListe.createLineItemList(480, 300,450,150);
         request.setAttribute("styk", styk);
         
         XXRendSvg svag = new XXRendSvg();

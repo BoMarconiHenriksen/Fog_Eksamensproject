@@ -20,23 +20,31 @@ import javax.servlet.http.HttpSession;
 public class LogOut extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws NewException, IOException {
+    String execute(HttpServletRequest request, HttpServletResponse response) {
         
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
+        PrintWriter out = null;
         try {
-            request.getRequestDispatcher("index.jsp").include(request, response);
-            
+            response.setContentType("text/html");
+            out = response.getWriter();
+            try {
+                request.getRequestDispatcher("index.jsp").include(request, response);
+                
+                
+                HttpSession session = request.getSession();
+                session.invalidate();
+                
+                out.print("Du er nu logged af brugeren.");
+                out.close();
+                
+            } catch (ServletException | IOException ex) {
+                Logger.getLogger(LogOut.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return "index";
 
-            HttpSession session = request.getSession();
-            session.invalidate();
-
-            out.print("Du er nu logged af brugeren.");
-            out.close();
-
-        } catch (ServletException | IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(LogOut.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            out.close();
         }
         return "index";
     }
