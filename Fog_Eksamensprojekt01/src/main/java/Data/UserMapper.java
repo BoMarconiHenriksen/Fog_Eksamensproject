@@ -2,7 +2,7 @@ package Data;
 
 import java.sql.ResultSet;
 import Domain.User;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 import java.sql.Connection;
 
 import java.sql.SQLException;

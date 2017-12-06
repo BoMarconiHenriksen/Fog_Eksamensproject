@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Domain.Exception.NewException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

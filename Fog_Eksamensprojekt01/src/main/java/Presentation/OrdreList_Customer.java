@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Domain.Exception.NewException;
 import Domain.Ordre;
 import java.io.IOException;
 import java.io.PrintWriter;

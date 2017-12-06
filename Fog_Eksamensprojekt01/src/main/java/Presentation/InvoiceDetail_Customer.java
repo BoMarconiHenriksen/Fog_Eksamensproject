@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Domain.Exception.NewException;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import java.io.IOException;

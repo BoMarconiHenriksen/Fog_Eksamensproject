@@ -1,7 +1,7 @@
 package Data;
 
 import Domain.Materiale;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

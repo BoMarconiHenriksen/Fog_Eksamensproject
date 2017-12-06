@@ -2,7 +2,7 @@ package Utillities;
 
 import Business.LogicFacade;
 import Domain.Materiale;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 import java.util.List;
 
 /**

@@ -1,5 +1,6 @@
 package Presentation;
 
+import Domain.Exception.NewException;
 import Business.Calculator;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;

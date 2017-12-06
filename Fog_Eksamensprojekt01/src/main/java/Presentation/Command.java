@@ -1,5 +1,6 @@
 package Presentation;
 
+import Domain.Exception.NewException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

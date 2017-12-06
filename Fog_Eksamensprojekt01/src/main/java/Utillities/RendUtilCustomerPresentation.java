@@ -1,6 +1,6 @@
 package Utillities;
 
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  * Klasssen bruges til at vise kunden valgmuligheder køb af skur
