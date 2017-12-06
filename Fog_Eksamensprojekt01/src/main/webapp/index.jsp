@@ -36,7 +36,6 @@
          <!-- Navigation -->
          <div class="w3-side">
 
-
             <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
 
                 <!-- Float links to the right. Hide them on small screens -->
@@ -55,8 +54,13 @@
         </div>
 
 
-        <table>            
-            <tr>Fyld formen ud hvis du er ny kunde</tr>
+       <div class="bg-faded p-4 my-4">
+           <div class="text-center mt-4">
+                 <h2 class="text-left text-lg text-uppercase my-0">
+            Fyld formen ud hvis du er ny kunde
+            </h2>
+        <table>     
+          
             <td>
                 <form name="register" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="register">
@@ -87,14 +91,18 @@
                     <button type="submit" name="register" value="Submit">Opret Bruger </button>
                 </form>
             </td>
-            </tr>
+         
         </table>
+      </div>
+    </div>
         <% String error = (String) request.getAttribute("error");
             if (error != null) {%>
         <H2>Error!!</h2>
         <p><%= error%>
             <% }
             %>
+            
+            
             <footer class="bg-faded text-center py-5">
         <div class="container">
             <p class="m-0">
