@@ -30,15 +30,15 @@ public class RendUtilOrderList_Customer {
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
-                + "<tr><th>Dit Navn</th><th>Telefonnummer</th><th>Ordre ID</th><th>Dato</th><th> Ordre Status</th><th></th></tr>\n");
+                + "<tr><th>Ordre ID</th><th>Dato</th><th> Ordre Status</th><th></th></tr>\n");
         for (Ordre o : ordreList) {
 
            
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
-            sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
-            sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
+         //   sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
+        //    sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
             sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getOrdreStatus()).append("</td>");
