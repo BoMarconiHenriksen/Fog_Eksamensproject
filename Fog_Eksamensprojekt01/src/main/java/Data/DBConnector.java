@@ -16,6 +16,10 @@ public class DBConnector {
     private final static String USER = "testuser";
     private final static String PASSWORD = "password123";
     private static Connection conn;
+    
+    public static void setConnection( Connection con ) {
+        conn = con;
+}
 
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if (conn == null) {
