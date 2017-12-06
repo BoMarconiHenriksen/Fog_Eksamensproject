@@ -30,7 +30,7 @@ public class RendUtilOrderList_Customer {
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
-                + "<tr><th>Dit Navn</th><th>Telefonnummer</th><th>Ordre ID</th><th>Date</th><th> Ordre Status</th><th></th></tr>\n");
+                + "<tr><th>Dit Navn</th><th>Telefonnummer</th><th>Ordre ID</th><th>Dato</th><th> Ordre Status</th><th></th></tr>\n");
         for (Ordre o : ordreList) {
 
            

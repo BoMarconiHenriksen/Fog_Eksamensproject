@@ -72,7 +72,7 @@ public class UserMapper {
         try {
             User user;
             Connection con = DBConnector.connection();
-            String SQL = "SELECT user_id, role, firstname FROM userlist "
+            String SQL = "SELECT * FROM userlist "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
@@ -82,7 +82,11 @@ public class UserMapper {
                 String role = rs.getString( "role" );
                 int id = rs.getInt( "user_id" );
                 String username = rs.getString( "firstname" );
-                user = new User( email, password, role, username );
+                String usernameNd = rs.getString( "lastname" );
+                String useradress = rs.getString( "address" );
+                int zipcode = rs.getInt( "zipcode" );
+                int phoneNr = rs.getInt( "tlfnummer" );
+                user = new User( email, password, role, username, usernameNd, useradress, zipcode, phoneNr );
                 user.setUser_id(id);
                 return user;
             } else {
@@ -91,6 +95,21 @@ public class UserMapper {
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new NewException(ex.getMessage());
         }
+    }
+    
+    public static void updateUserPassword(int user_id, String password) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "update userlist set password=? where user_id=" + user_id;
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, password);
+
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new NewException(ex.getMessage());
+        }
+
     }
 
 }
