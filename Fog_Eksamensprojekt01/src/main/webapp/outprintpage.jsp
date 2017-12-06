@@ -27,7 +27,8 @@
     </head>
     <body>
 
-        <h1>Bekræft din bestilling</h1>
+        <h1>Hej: <%= (String) session.getAttribute("username" )%> </h1>
+        <h2>Bekræft din bestilling</h2>
         <p>Du kan her se hvad din ordre kommer til at koste samt en model af den.
             Tryk på bestil ordre i bunden af siden, for at fudlføre din bestilling.</p>
 
@@ -40,9 +41,8 @@
 
         </p>
 
-        <p>Dit bruger id: ${userNr}</p><br>
         <p>Dit Ordre id: ${KundensOID}</p><br>
-        <p>Din Ordre Status: Ordren er lige Bestilt.</p><br>
+        <p>Din Ordre Status: Ordren afventer din bekræftigelse.</p><br>
         <p>
 
         </p>

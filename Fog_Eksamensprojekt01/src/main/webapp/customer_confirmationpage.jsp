@@ -19,6 +19,8 @@
     <body>
         <h1>Din ordre er nu bestilt.</h1>
         
+        <h2>Tak for købet <%= (String) session.getAttribute("username" )%> </h2>
+        
         
         
          <%Calculator calc = new Calculator();

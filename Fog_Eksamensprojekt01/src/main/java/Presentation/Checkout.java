@@ -34,7 +34,7 @@ public class Checkout extends Command {
         request.setAttribute("od", od);
         request.setAttribute("status", status);
         
-        status = "Bestilt. Afventer Behandling.";
+        status = "Ny ordre. Afventer Behandling.";
         
         
         LogicFacade.updateOrdreStatus(or, status);

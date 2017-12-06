@@ -17,7 +17,7 @@
     <body>
         <h1>Liste af alle dine Ordre</h1>
         
-         <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
+         <h2>Hej <%= (String) session.getAttribute("username" )%> </h2>
 
         <div>
 

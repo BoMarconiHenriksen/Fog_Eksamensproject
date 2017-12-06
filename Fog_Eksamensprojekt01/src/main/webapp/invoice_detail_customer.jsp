@@ -4,6 +4,9 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.RendUtilCustomerOdetailsFunktions"%>
+<%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Domain.Odetaljer"%>
 <%@page import="Business.Calculator"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="java.text.DecimalFormat"%>
@@ -20,7 +23,7 @@
     <body>
         <h1>Din Ordre Detaljer samt Model af ønsket Carport</h1>
         
-        <h1>Pris</h1>
+        <h2>Hej <%= (String) session.getAttribute("username" )%> </h2>
 <br>
 
 <%Calculator calc = new Calculator();
@@ -46,7 +49,9 @@
     %>  
 
 
-    <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
+    <%= RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer((Odetaljer) request.getAttribute("od"))%>
+    
+    <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Velkomstsiden</button>
         
         
     </body>
