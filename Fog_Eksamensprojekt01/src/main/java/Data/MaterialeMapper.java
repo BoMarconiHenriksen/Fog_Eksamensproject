@@ -27,14 +27,14 @@ public class MaterialeMapper {
 
             Materiale mat;
             Connection con = DBConnector.connection();
-            String sql = "select  from materialeliste";
+            String sql = "select * from materialeliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
 
             while (rs.next()) {
                 int varenummer = rs.getInt("vareid");
                 String materialetype = rs.getString("materialetype");
-                String materialenavn = rs.getString("materiale_navn");
+                String materialenavn = rs.getString("materialenavn");
                 double enhedspris = rs.getDouble("enhedspris");
                 String enhed = rs.getString("enhed");
                 double msr = rs.getDouble("længde");
@@ -60,12 +60,12 @@ public class MaterialeMapper {
         try {
 
             Connection con = DBConnector.connection();
-            String sql = "select * from materialeliste where vareid=" + varenummer;
+            String sql = "select * from materialeliste where vareid="+ varenummer;
 
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
             if (rs.next()) {
-                String materialetype = rs.getString("materiale_type");
+                String materialetype = rs.getString("materialetype");
                 String materialenavn = rs.getString("materialenavn");
                 double enhedspris = rs.getDouble("enhedspris");
                 String enhed = rs.getString("enhed");

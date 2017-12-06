@@ -5,13 +5,9 @@
  */
 package Presentation;
 
-import Business.LogicFacade;
 import ConfigurationException.Configuration;
-import Domain.Exception.FogException;
-import Domain.Materiale;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -57,7 +53,7 @@ public class FrontController extends HttpServlet {
                 request.getRequestDispatcher(view + ".jsp").forward(request, response);
 
             } catch (NewException ex) {
-                Configuration.myLogger.log(Level.FINEST, null, ex);
+                Configuration.myLogger.log(Level.SEVERE, null, ex);
                 request.getSession().setAttribute("error", ex.getMessage());
                 request.getRequestDispatcher("errorview.jsp").forward(request, response);
 
