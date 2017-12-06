@@ -11,6 +11,10 @@ package Domain;
  */
 public class Dimensioner {
     
+    /**
+     * Domænet indeholde variable i form af længde, højde og bredde, til brug af beregning for en gieven carport med eller uden de ønskede combinationer.
+     */
+    
     private int length;
     private int width;
     private int height;

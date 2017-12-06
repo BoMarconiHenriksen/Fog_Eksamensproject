@@ -12,6 +12,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ejer
  */
 public class XXTegningSimpel extends Command {
+    
+    /**
+     * Metoden laver en tegning i form af den størrelse der er defineret i metoden.
+     * @param request
+     * @param response
+     * @return
+     * @throws NewException 
+     */
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {

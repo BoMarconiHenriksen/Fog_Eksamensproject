@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Domain.Exception.NewException;
@@ -22,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author kasper
+ * @author
  */
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
@@ -39,6 +35,7 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NewException {
+
         Configuration.myLogger.addHandler(new ConsoleHandler());
         if (Configuration.PRODUCTION) {
             FileHandler fileHandler = new FileHandler(Configuration.LOGFILEPATH);
@@ -59,6 +56,17 @@ public class FrontController extends HttpServlet {
                 request.getRequestDispatcher("errorview.jsp").forward(request, response);
 
             }
+        }
+
+
+        try {
+        Command action = Command.from( request );
+        String view = action.execute( request, response );
+        request.setAttribute("view", view);
+        request.getRequestDispatcher( view + ".jsp" ).forward( request, response );
+        } catch ( NewException ex ) {
+            request.setAttribute( "error", ex.getMessage() );
+            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         }
 
     }

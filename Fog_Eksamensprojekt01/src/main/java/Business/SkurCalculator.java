@@ -13,8 +13,20 @@ import Domain.Exception.NewException;
  * @author BenedikteEva
  */
 public class SkurCalculator {
+    
+    
 
   LogicFacade mat = new LogicFacade();
+  
+  /**
+   * Beregner en samlet pris på skuret, med alle grundelementer samt alle skurger m.m
+   * Prisen lægges så sammen med prisen på Carporten, som bliver beregnet i Calcualtor.java.
+   * 
+   * @param skurLængde lægnden af skuret
+   * @param skurBredde bredden af skuret
+   * @return totalPrisSkur
+   * @throws NewException 
+   */
 
     public double skurPrisBeregner(double skurLængde, double skurBredde) throws NewException {
 
@@ -45,6 +57,12 @@ public class SkurCalculator {
         return totalPrisSkur;
 
     }
+    
+    /**
+     *  Main metoden er kun brugt til tests i forbindelse med beregnerens udarbejdning.
+     * @param args
+     * @throws NewException 
+     */
 
     public static void main(String[] args) throws NewException {
 

@@ -27,10 +27,9 @@
     </head>
     <body>
 
-        <h1>Tak for din bestilling!</h1>
-        <p>Vi har nu modtaget din bestilling. En af vores dygtige medarbejdere vil hurtigst muligt tage kontakt til dig for at aftale et møde,
-            hvor vi kan gå igennem designet. På mødet er der også mulighed for at få rådgivning i forhold til byggetilladelse, afstand til skel og andre praktiske informationer.
-        </p>
+        <h1>Bekræft din bestilling</h1>
+        <p>Du kan her se hvad din ordre kommer til at koste samt en model af den.
+            Tryk på bestil ordre i bunden af siden, for at fudlføre din bestilling.</p>
 
         <p>De bedste hilsener</p>
         <p>Fog Tømmerhandel</p>
@@ -108,7 +107,7 @@
         </div>
 
 
-        <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button>
+        <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
         
          <form name="Checkout" action="FrontController" method="POST">
         <input type="hidden" name="command" value="OrdertheOrder">

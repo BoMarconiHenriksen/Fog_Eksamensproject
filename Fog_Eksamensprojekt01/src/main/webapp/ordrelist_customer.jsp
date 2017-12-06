@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Domain.User"%>
 <%@page import="Utillities.RendUtilOrderList_Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,19 +16,25 @@
     </head>
     <body>
         <h1>Liste af alle dine Ordre</h1>
+        
+         <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
 
         <div>
 
-            <% out.println(RendUtilOrderList_Customer.invoiceList_Customer((List) request.getAttribute("invoiceList_Customer")));%>
+            <% out.println(request.getAttribute("customer_orderlist")); %>
 
         </div>
 
-        <form name="NavigatetoIndex" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="NavigatetoIndex">
 
-            <button type="submit" name="NavigatetoIndex" value="Submit">Tilbage til Index </button>
-        </form>
+           <button type="button"  onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til velkomstsiden</button>
 
+           <div>
+               <%if (request.getAttribute("customerlist") == null ) {
+                    out.println("Din ordreliste er tom. Bestil en ordre, og den vil kunne fremvise her på siden.");
+                } else {
+                    out.println("");
+                }%>
+</div>
        
 
 

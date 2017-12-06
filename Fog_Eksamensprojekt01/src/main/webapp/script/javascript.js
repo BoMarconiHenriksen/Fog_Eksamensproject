@@ -35,3 +35,29 @@ var checkbox = $("#trigger");
         }
         });
         });
+
+function show_confirmDeletetheOrder()
+{
+  var r = confirm("Er du sikker på at du gerne vil slette denne ordre?");
+  if(r == true)
+  {
+     // do something
+     return true;
+  } else {
+     // do something
+     return false;
+  }
+}
+
+function show_confirmLogOff()
+{
+  var r = confirm("Tryk på OK for at logge af brugeren.");
+  if(r == true)
+  {
+     // do something
+     return true;
+  } else {
+     // do something
+     return false;
+  }
+}

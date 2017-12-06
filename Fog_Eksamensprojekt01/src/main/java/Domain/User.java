@@ -9,19 +9,18 @@ package Domain;
  * @author BenedikteEva
  */
 public class User {
-    
-    
-     private int user_id; // just used to demo retrieval of autogen keys in UserMapper
-     private int zip;
-     private String email;
+
+    private int user_id; // just used to demo retrieval of autogen keys in UserMapper
+    private int zip;
+    private String email;
     private String password; // Should be hashed and all
     private String role;
     private String firstname;
-     private String lastname;
-      private String address;
-      private int tlfnummer;
+    private String lastname;
+    private String address;
+    private int tlfnummer;
 
-    public User(int user_id, int zip, String email, String password, String role, String firstname, String lastname, String address,int tlfnummer) {
+    public User(int user_id, int zip, String email, String password, String role, String firstname, String lastname, String address, int tlfnummer) {
         this.user_id = user_id;
         this.zip = zip;
         this.email = email;
@@ -30,7 +29,31 @@ public class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
-         this.tlfnummer = tlfnummer;
+        this.tlfnummer = tlfnummer;
+    }
+
+    public User(String email, String password, String role, String firstname, String lastname, String address, int zip, int tlfnummer) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.zip = zip;
+        this.tlfnummer = tlfnummer;
+    }
+
+    public User(String email, String password, String role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(String email, String password, String role, String firstname) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.firstname = firstname;
     }
 
     public int getTlfnummer() {
@@ -81,15 +104,9 @@ public class User {
         this.address = address;
     }
 
-   
-
-   
-
-  
     public User() {
-    
-    }
 
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -99,17 +116,10 @@ public class User {
         this.password = password;
     }
 
-    
-
-       public User(int user_id) {
-          this.user_id = user_id;
+    public User(int user_id) {
+        this.user_id = user_id;
     }
 
- 
-
-   
-
-   
     public int getUser_id() {
         return user_id;
     }
@@ -117,9 +127,6 @@ public class User {
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
-
-   
-  
 
     public String getEmail() {
         return email;
@@ -135,9 +142,5 @@ public class User {
     public String toString() {
         return "User{" + "user_id=" + user_id + ", zip=" + zip + ", email=" + email + ", password=" + password + ", role=" + role + ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + '}';
     }
-
- 
-
-  
 
 }
