@@ -6,7 +6,7 @@
 package Business;
 
 import Data.MaterialeMapper;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  *

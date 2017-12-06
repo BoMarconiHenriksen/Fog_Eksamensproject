@@ -9,7 +9,7 @@ import Domain.Materiale;
 import Domain.Ordre;
 import Domain.Odetaljer;
 import Domain.User;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 import java.util.List;
 
 /**

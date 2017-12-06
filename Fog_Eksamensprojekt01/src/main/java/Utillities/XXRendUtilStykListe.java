@@ -1,7 +1,7 @@
 package Utillities;
 
 import Domain.LineItem;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  * Klassen bruges til at lave et udprint af styklisten

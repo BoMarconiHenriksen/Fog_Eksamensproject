@@ -3,7 +3,7 @@ package Utillities;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  * Klassen udskriver tabeller om kunden, kundens ordre og status til medarbejderen

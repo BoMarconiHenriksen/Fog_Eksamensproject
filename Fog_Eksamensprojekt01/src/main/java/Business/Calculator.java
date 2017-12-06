@@ -5,7 +5,7 @@
  */
 package Business;
 
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  *

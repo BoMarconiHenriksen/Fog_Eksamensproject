@@ -2,7 +2,7 @@ package Utillities;
 
 import Business.Calculator;
 import Domain.LineItem;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 
 /**
  * Klassen bruges til at lave styklinjerne i styklisten

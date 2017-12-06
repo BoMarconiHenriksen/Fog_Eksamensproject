@@ -2,8 +2,8 @@ package Utillities;
 
 import Business.LogicFacade;
 import Domain.Ordre;
+import Domain.Exception.NewException;
 import Domain.User;
-import Presentation.NewException;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
