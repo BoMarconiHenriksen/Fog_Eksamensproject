@@ -45,7 +45,7 @@
                
        
                 
-               <% out.println(request.getAttribute("customerlist")); %>
+               <% out.println(request.getAttribute("customer_orderlist")); %>
 
             
             </div>

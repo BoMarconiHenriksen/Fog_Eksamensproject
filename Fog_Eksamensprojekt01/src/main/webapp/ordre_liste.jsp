@@ -13,35 +13,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        
+
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="WEB-INF/CSS.css" rel="stylesheet" type="text/css"/>
-        <title>Ordre Liste</title>
-    </head>
-    <body>
-
-        <% //User user = (User) session.getAttribute("user");
-
-            //       if (user != null) {
-            //         out.println("Hello " + user.getUserName() + ". Which order do you want to see?");
-            //   }
-            // else{
-            //     out.println("Hello  You have to log in again to see history. Which order do you want to see?");
-            // }
-                        
-            //Spg til Thomas
-            //request.getAttribute("invoiceList");
-            //out.println(request.getAttribute("invoiceList"));
-        %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <div>
-            
-            <% out.println(RendUtilOrderList.invoiceList( (List)request.getAttribute("invoiceList")));%>
+    <title>Ordre Liste</title>
+</head>
+<body>
+    <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
-        </div>
-        
+    <% //User user = (User) session.getAttribute("user");
+
+        //       if (user != null) {
+        //         out.println("Hello " + user.getUserName() + ". Which order do you want to see?");
+        //   }
+        // else{
+        //     out.println("Hello  You have to log in again to see history. Which order do you want to see?");
+        // }
+        //Spg til Thomas
+        //request.getAttribute("invoiceList");
+        //out.println(request.getAttribute("invoiceList"));
+    %>
+
+    <div>
+
+        <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+
+    </div>
+
+    <div >
+        <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+    </div>
 
 
-    </body>
+</body>
 </html>
