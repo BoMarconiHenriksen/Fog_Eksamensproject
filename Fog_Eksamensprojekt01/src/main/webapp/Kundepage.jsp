@@ -21,11 +21,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script type="text/javascript" src="jquery-1.8.3.js"></script>
-        <script src="script/javascript.js" type="text/javascript"></script>
-<<<<<<< HEAD
-        
-=======
+
     <img class="w3-image" src=https://www.johannesfog.dk/globalassets/header/logo.png alt="FogLogo" onclick="location.href = 'https://www.johannesfog.dk/'" width="17%" height="17%" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -33,7 +29,6 @@
     <link href="startbootstrap-business-casual-gh-pages/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="startbootstrap-business-casual-gh-pages/css/business-casual.css" rel="stylesheet" type="text/css"/>
     <img class="background-image" src="https://www.johannesfog.dk/globalassets/inriver/resources/33529" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport" width="75%" height="75%"float="right">
->>>>>>> origin/Design
 
     <script type="text/javascript" src="jquery-1.8.3.js"></script>
     <script src="script/javascript.js" type="text/javascript"></script>
@@ -64,7 +59,7 @@
             <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
 
                 <!-- Float links to the right. Hide them on small screens -->
-                <a onclick="location.href = 'bestilbasiscarportpage.jsp'" class="w3-bar-item w3-button">Hjem</a>
+                <a onclick="location.href = 'https://www.johannesfog.dk/'" class="w3-bar-item w3-button">Hjem</a>
                 <a onclick="location.href = 'bestilbasiscarportpage.jsp'" class="w3-bar-item w3-button">Bestil carport</a>
                 <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="OrdreList_Customer">
@@ -73,36 +68,28 @@
                     </div>
                 </form>
                 <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="logout">
-            <div class="form-group">
-                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
-            </div>
-        </form>
-<<<<<<< HEAD
-        
-        <form name="LogOut" action="FrontController" method="POST">
-        <input type="hidden" name="command" value="logout">
-        
-        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit">Log af </button>
-        
-        </form>
-        
-        <div>
-        <form name="Customer_UserOptions" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="Customer_UserOptions">
-            
-            <button type="submit" name="Customer_UserOptions" value="Submit">Se eller ret dine kontooplysninger </button>
-        </form>
-        </div>
-=======
-               
+                    <input type="hidden" name="command" value="logout">
+                    <div class="form-group">
+                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
+                    </div>
+                </form>
+
+                    <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                    <div>     <input type="hidden" name="command" value="Customer_UserOptions">
+                        <div class="form-group">
+                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-bar-item w3-button"><a>Se eller ret dine kontooplysninger </a></button>
+                        </div>  </div>
+                    </form>
+              
+
+
             </div>
         </div>
 
-        <%--session.invalidate();--%>
+
         <div class="text-heading text-muted text-lg">
             <div class="bg-faded p-4 my-4">
->>>>>>> origin/Design
+
 
                 <div class="w3-display-container">
                     <div class="w3-display-topleft w3-blue w3-padding">Simpel Carport</div>
@@ -123,8 +110,8 @@
                 </div>                   
             </div>     
         </div>        
- 
-   
+
+
     </div> 
 
 </div>
