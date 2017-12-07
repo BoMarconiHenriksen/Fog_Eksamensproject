@@ -4,6 +4,8 @@
     Author     : Ticondrus
 --%>
 
+
+
 <%@page import="Utillities.LineItemFactory"%>
 <%@page import="Domain.LineItem"%>
 <%@page import="Utillities.XXRendSvg"%>
@@ -81,29 +83,16 @@
         </div>
 
 
-        <%Calculator calc = new Calculator();
-            SkurCalculator scalc = new SkurCalculator();
-
-          
-            double length = (Double) request.getAttribute("length");
-            double width = (Double) request.getAttribute("width");
-            double heigth = (Double) request.getAttribute("height");
-            double skurlength = (Double) request.getAttribute("redskabsskur_length");
-            double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-            DecimalFormat df = new DecimalFormat("#0.00");
-
-            double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-            ;%>
+       
 
         <br> <br><div>
 
-            <%
+         
+  <%
                 XXRendSvg svag = new XXRendSvg();
-
-                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-
+                String carportTegning = svag.simpelCarport((Double) request.getAttribute("lentghInput"),(Double) request.getAttribute("widthInput") , (Double) request.getAttribute("lentghInputSkuret"), (Double) request.getAttribute("widthInputSkuret") );
                 out.println("<a>" + carportTegning + "</a>");
-            %>  
+            %> 
         </div>
 
 
@@ -114,8 +103,7 @@
 
         <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
          </form>
-             
-
+   
 
     </body>
 
