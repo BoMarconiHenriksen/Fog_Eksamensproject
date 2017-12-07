@@ -119,9 +119,7 @@
                                     <div class="text-heading text-lg">Vores telefonnummer er 45 87 10 01.</div>
                                 </div>
 
-                                <div class="container"
-
-
+                                <div class="container">
 
                                      <div class="text-heading text-muted text-lg">
                                         <div class="bg-faded p-4 my-4">
@@ -148,7 +146,8 @@
                                                 <!--<p> Her kan du endnu ikke bestille en carport med tag med rejsning med eller uden skur</p>-->
                                             </div>                   
                                         </div>     
-                                    </div>        
+                                    </div> 
+                                </div>
 
 
                                 
