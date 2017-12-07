@@ -40,6 +40,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
+        
         <title>Din Bestilling</title>
     </head>
     <body>
