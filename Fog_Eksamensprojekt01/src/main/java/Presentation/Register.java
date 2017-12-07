@@ -3,6 +3,8 @@ package Presentation;
 import Business.LogicFacade;
 import Domain.Exception.NewException;
 import Domain.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpSession;
 public class Register extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws NewException {
+    String execute( HttpServletRequest request, HttpServletResponse response ) {
         
         String email = request.getParameter( "email" );
         String password = request.getParameter( "password1" );
@@ -21,14 +23,23 @@ public class Register extends Command {
         int zipcode = Integer.parseInt(request.getParameter("postnummer"));
         int tlfnummer = Integer.parseInt(request.getParameter("telefonnummer"));
         if ( password.equals( password2 ) ) {
-          User user =  LogicFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
-            HttpSession session = request.getSession();
-            session.setAttribute( "user", user );
-            session.setAttribute( "role", user.getRole() );
-            return user.getRole() + "page";
+            try {
+                User user =  LogicFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
+                HttpSession session = request.getSession();
+                session.setAttribute( "user", user );
+                session.setAttribute( "role", user.getRole() );
+                return user.getRole() + "page";
+            } catch (Domain.Exception.NewException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
-            throw new NewException( "De to passwords matcher ikke hinanden." );
+//            try {
+//                throw new NewException( "De to passwords matcher ikke hinanden." );
+//            } catch (NewException ex) {
+//                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
+        return null;
     }
 
 }

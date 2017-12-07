@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package Utillities;
-
+import Domain.Exception.NewException;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
-import Presentation.NewException;
+
 
 /**
  *

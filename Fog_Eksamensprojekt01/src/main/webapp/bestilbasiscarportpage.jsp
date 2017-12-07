@@ -47,70 +47,7 @@
 
         <div>
 
-            <table border=4>
-                <tr>
-                    <th>Carport Længde</th>
-                    <th>Carport Bredde</th>
-                    <th>Carport Højde<br>(Standard)</th>
-
-                </tr>
-              
-                <tr>
-
-                    <td>
-                        <select name="lentgchoice">
-                            <option number="240">240</option>
-                            <option number="270">270</option>
-                            <option number="300">300</option>
-                            <option number="330">330</option>
-                            <option number="360">360</option>
-                            <option number="390">390</option>
-                            <option number="420">420</option>
-                            <option number="450">450</option>
-                            <option number="480">480</option>
-                            <option number="510">510</option>
-                            <option number="540">540</option>
-                            <option number="570">570</option>
-                            <option number="600">600</option>
-                            <option number="630">630</option>
-                            <option number="660">660</option>
-                            <option number="660">690</option>
-                            <option number="720">720</option>
-                            <option number="750">750</option>
-                            <option number="780">780</option>
-                        </select>
-                    </td>
-
-                    <td>
-                        <select name="widthchoice">
-                            <option number="240">240</option>
-                            <option number="270">270</option>
-                            <option number="300">300</option>
-                            <option number="330">330</option>
-                            <option number="360">360</option>
-                            <option number="390">390</option>
-                            <option number="420">420</option>
-                            <option number="450">450</option>
-                            <option number="480">480</option>
-                            <option number="510">510</option>
-                            <option number="540">540</option>
-                            <option number="570">570</option>
-                            <option number="600">600</option>
-                            <option number="630">630</option>
-                            <option number="660">660</option>
-                            <option number="660">690</option>
-                            <option number="720">720</option>
-                            <option number="750">750</option>
-                        </select>
-                    </td>
-
-                    <td>
-                        <select name="heightchoice">
-                            <option number="225">225</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
+           
 
         </div>
 

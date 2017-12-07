@@ -40,8 +40,9 @@ public class InvoiceDetail extends Command {
         double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
         String priceTwoDecimal = df.format(pris);
         request.setAttribute("priceTwoDecimal", priceTwoDecimal);
-
-        String LineItemsList = XXRendUtilStykListe.createLineItemList(sb, length, width, skurlength, skurWidth);
+        XXRendUtilStykListe XXStykListe =new  XXRendUtilStykListe();
+        String LineItemsList;
+        LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);
         request.setAttribute("LineItemsList", LineItemsList);
 
         XXRendSvg svag = new XXRendSvg();

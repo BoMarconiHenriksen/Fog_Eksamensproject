@@ -19,7 +19,7 @@ import Presentation.NewException;
 public class Customer_UserOptions extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws  Domain.Exception.NewException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
