@@ -36,6 +36,8 @@ abstract class Command {
         commands.put("InvSetOrderStatusbyCustomer", new InvoiceDetail_Customer());
         commands.put("Customer_UserOptions", new Customer_UserOptions());
         commands.put("Customer_UserOptionsPasswordChange", new Customer_UserOptions());
+        commands.put("Employee_UserOptions", new Employee_UserOptions());
+        commands.put("Employee_UserOptionsPasswordChange", new Employee_UserOptions());
 
     }
 

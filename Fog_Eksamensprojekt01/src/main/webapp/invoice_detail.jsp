@@ -22,6 +22,7 @@
     </head>
 
     <body>
+        <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
         <br>
 
@@ -49,6 +50,10 @@
             %>  
 
         </div>     
+            
+            <div>
+                <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+            </div>
 
 
     </body>

@@ -14,9 +14,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        
+
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <link href="WEB-INF/CSS.css" rel="stylesheet" type="text/css"/>
         <title>Ordre Liste</title>
     </head>
@@ -33,14 +36,21 @@
                         
           
         %>
-        
-        <div>
-            
-            <% out.println(RendUtilOrderList.invoiceList( (List)request.getAttribute("invoiceList")));%>
 
-        </div>
         
 
 
-    </body>
+    <div>
+
+        <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+
+    </div>
+
+    <div >
+        <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+    </div>
+
+
+</body>
 </html>
