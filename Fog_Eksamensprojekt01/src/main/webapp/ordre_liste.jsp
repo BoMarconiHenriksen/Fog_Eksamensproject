@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="Domain.User"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Data.OrdreMapper"%>
 <%@page import="Utillities.RendUtilOrderList"%>
@@ -21,18 +22,16 @@
     </head>
     <body>
 
-        <% //User user = (User) session.getAttribute("user");
+        <% User user = (User) session.getAttribute("user");
 
-            //       if (user != null) {
-            //         out.println("Hello " + user.getUserName() + ". Which order do you want to see?");
-            //   }
-            // else{
-            //     out.println("Hello  You have to log in again to see history. Which order do you want to see?");
-            // }
+                  if (user != null) {
+                  out.println("Hej " + user.getFirstname() + "");
+            }
+             else{
+                out.println("Hmm der står du hedder null der må være sket en fejl");
+            }
                         
-            //Spg til Thomas
-            //request.getAttribute("invoiceList");
-            //out.println(request.getAttribute("invoiceList"));
+          
         %>
         
         <div>

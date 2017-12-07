@@ -47,7 +47,7 @@ public class OrdreList_Customer extends Command {
          if (ordreList.isEmpty()){
            request.setAttribute("customer_orderlist", "Du har ikke nogen ordre der afventer din bekræftigelse eller under behandling. Bestil en ordre, og den vil fremgå her på siden.");
 
-       request.setAttribute("customer_orderlist", customer_Orderlist);
+    
        
       
 
@@ -55,7 +55,7 @@ public class OrdreList_Customer extends Command {
 
            request.setAttribute("customer_orderlist", customer_Orderlist);
 
-           request.setAttribute("customerlist", customer_Orderlist);
+         
 
        }
        
