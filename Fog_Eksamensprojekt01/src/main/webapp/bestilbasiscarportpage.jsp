@@ -43,12 +43,11 @@
         <input type="hidden" name="command" value="CarportGemDesign">
 
 
-        <div>
-            <%=RendUtilCustomerPresentation.getMeasures()%>     
 
-        </div>
-        <p>
-        </p>
+        <%=RendUtilCustomerPresentation.getMeasures()%>     
+
+
+
         <!--Her starter vores hidden skur-->
         <!-- <form action="#" method="POST">-->
         <div>
@@ -58,9 +57,9 @@
             Hvor stort skal skuret være? 
 
             <br><br>
-            <body>
-                <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-                <!--Her slutter hidden skur-->    
+
+            <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
+            <!--Her slutter hidden skur-->    
 
         </div>
 
@@ -76,20 +75,14 @@
 
 
 
-    <%--  <form name="Checkout" action="FrontController" method="POST">
-          <input type="hidden" name="command" value="checkoutFunktion">
 
-
-            <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
-
-        </form>--%>
 
     <p>
         Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
         lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
         tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
     </p>
-    <%--   <button type="button" style="background-color: buttonface" onclick="location.href = 'index.jsp';" >Gå Tilbage til Index</button> --%>
+
 
 
 
@@ -97,6 +90,7 @@
     <%if (request.getAttribute("widthInput") == null) {
             out.println("");
         } else {
+
             out.println("<p> Hello User nr. " + request.getAttribute("userNr") + "</p><br>");
             out.println("<h2>Pris på valgt Carport: </h2><br>");
             out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
@@ -114,17 +108,19 @@
             } else {
                 out.println("");
             }
-
+         
         }%>
+  <%
+                XXRendSvg svag = new XXRendSvg();
+                String carportTegning = svag.simpelCarport((Double) request.getAttribute("lentghInput"),(Double) request.getAttribute("widthInput") , (Double) request.getAttribute("lentghInputSkuret"), (Double) request.getAttribute("widthInputSkuret") );
+                out.println("<a>" + carportTegning + "</a>");
+            %> 
 
-   
-      
-        <br> <br>
 
-            <%
-             out.println("<a>" + (String)request.getAttribute("carporttegning") + "</a>");  
-            %>  
-        </div>
+    <br> <br>
 
-        </body>
-        </html>
+     
+
+
+    </body>
+    </html>
