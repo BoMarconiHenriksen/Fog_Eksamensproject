@@ -43,11 +43,11 @@ public class OrdreList_Customer extends Command {
         
        List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
        String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
-       request.setAttribute("customer_orderlist", customer_Orderlist);
-       if (ordreList.isEmpty()){
-           request.setAttribute("customerlist", null);
+       
+         if (ordreList.isEmpty()){
+           request.setAttribute("customer_orderlist", "Du har ikke nogen ordre der afventer din bekræftigelse eller under behandling. Bestil en ordre, og den vil fremgå her på siden.");
        } else{
-           request.setAttribute("customerlist", 1);
+           request.setAttribute("customer_orderlist", customer_Orderlist);
        }
        
         return "ordrelist_customer";

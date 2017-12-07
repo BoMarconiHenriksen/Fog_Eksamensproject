@@ -36,6 +36,7 @@
     <body>
     <h1Bestilling af Carporte</h1>
 
+    <h2>Hej: <%= (String) session.getAttribute("username" )%> </h2>
     <h2>Her kan indtastes input til en ønsket carport med eller uden skur...</h2>
 
     <form name="basisCarport" action="FrontController" method="POST">
@@ -201,21 +202,13 @@
 
         <br><br>
 
+        <%-- Evt. input button og uden hidden. Lan enum key i status. --%>
         <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
         <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
         <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
 
     </form>
 
-
-
-    <%--  <form name="Checkout" action="FrontController" method="POST">
-          <input type="hidden" name="command" value="checkoutFunktion">
-
-
-            <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
-
-        </form>--%>
 
     <p>
         Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
@@ -230,7 +223,6 @@
     <%if (request.getAttribute("widthInput") == null) {
             out.println("");
         } else {
-            out.println("<p> Hello User nr. " + request.getAttribute("userNr") + "</p><br>");
             out.println("<h2>Pris på valgt Carport: </h2><br>");
             out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
 

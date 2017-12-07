@@ -4,6 +4,9 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.RendUtilCustomerOdetailsFunktions"%>
+<%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Domain.Odetaljer"%>
 <%@page import="Business.Calculator"%>
 <%@page import="Business.SkurCalculator"%>
 <%@page import="java.text.DecimalFormat"%>
@@ -20,7 +23,7 @@
     <body>
         <h1>Din Ordre Detaljer samt Model af ønsket Carport</h1>
         
-        <h1>Pris</h1>
+        <h2>Hej <%= (String) session.getAttribute("username" )%> </h2>
 <br>
 
 <%Calculator calc = new Calculator();
@@ -34,7 +37,20 @@
     DecimalFormat df = new DecimalFormat("#0.00");
     double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
 
-    out.println("<p>" + df.format(pris) + "</p>");%>
+    out.println("<p>" + "Carportens samlede pris: " + df.format(pris) + "</p> \n");
+    
+    out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+    out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+    out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+    
+    if ( (Double) request.getAttribute("redskabsskur_length") != 0){
+    out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+    out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+    out.println("<p>" + "Skurets ønskede højde: 210" + "</p>");
+     }else{
+        out.println("<p>" + "Carporten er uden skur." + "</p>");
+    }
+%>
 <br> <br><div>
 
     <%
@@ -46,7 +62,9 @@
     %>  
 
 
-    <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
+    <%= RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer((Odetaljer) request.getAttribute("od"))%>
+    
+    <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Velkomstsiden</button>
         
         
     </body>

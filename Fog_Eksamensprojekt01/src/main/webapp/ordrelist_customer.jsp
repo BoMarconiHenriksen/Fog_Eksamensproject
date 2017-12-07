@@ -17,7 +17,7 @@
     <body>
         <h1>Liste af alle dine Ordre</h1>
         
-         <h2>Velkommen <%= (String) session.getAttribute("username" )%> </h2>
+         <h2>Hej <%= (String) session.getAttribute("username" )%> </h2>
 
         <div>
 
@@ -28,13 +28,7 @@
 
            <button type="button"  onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til velkomstsiden</button>
 
-           <div>
-               <%if (request.getAttribute("customerlist") == null ) {
-                    out.println("Din ordreliste er tom. Bestil en ordre, og den vil kunne fremvise her på siden.");
-                } else {
-                    out.println("");
-                }%>
-</div>
+
        
 
 

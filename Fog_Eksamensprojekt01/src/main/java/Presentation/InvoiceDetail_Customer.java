@@ -35,6 +35,7 @@ public class InvoiceDetail_Customer extends Command {
         User user = (User) session.getAttribute("user");
         String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
         String DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
@@ -61,6 +62,18 @@ public class InvoiceDetail_Customer extends Command {
         if (LockIntoOrder != null) {
 
             return "invoice_detail_customer";
+        }
+        
+        if (SetOrderStatusbyCustomer != null){
+        
+        String status=request.getParameter("status");
+        
+        int ordreId =Integer.parseInt(request.getParameter("id"));
+        
+        LogicFacade.updateOrdreStatus(ordreId, status);
+        
+        return "invoice_detail_customer";
+        
         } else {
             return "Kundepage";
         }

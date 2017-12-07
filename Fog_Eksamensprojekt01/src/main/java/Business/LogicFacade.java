@@ -70,6 +70,12 @@ public class LogicFacade {
 
         OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
     }
+    
+    public static void updateUserPassword(int user_id, String password) throws NewException {
+
+        UserMapper.updateUserPassword(user_id, password);
+    }
+    
        public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }

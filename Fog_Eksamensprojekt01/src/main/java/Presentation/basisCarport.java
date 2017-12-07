@@ -68,7 +68,7 @@ public class basisCarport extends Command {
 
         if (CheckUd != null) {
 
-            ordre_status = "Ny ordre";
+            ordre_status = "Afventer kundens bekræftigelse";
 
             placeOrderOdetailsSetAttributes(order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, request, session);
    

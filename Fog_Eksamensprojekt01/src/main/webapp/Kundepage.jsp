@@ -22,11 +22,6 @@
         <script type="text/javascript" src="jquery-1.8.3.js"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
         
-        <script>
-function myFunctionDeleteOrder() {
-    document.getElementById("demo").innerHTML = "Hello World";
-}
-</script>
 
         <title>Fog Trælast - Velkomstside</title>
     </head>
@@ -53,7 +48,14 @@ function myFunctionDeleteOrder() {
         <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit">Log af </button>
         
         </form>
-
+        
+        <div>
+        <form name="Customer_UserOptions" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="Customer_UserOptions">
+            
+            <button type="submit" name="Customer_UserOptions" value="Submit">Se eller ret dine kontooplysninger </button>
+        </form>
+        </div>
 
 
     </body>
