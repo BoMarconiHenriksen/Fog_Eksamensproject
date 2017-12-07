@@ -21,8 +21,6 @@
     <link href="startbootstrap-business-casual-gh-pages/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="startbootstrap-business-casual-gh-pages/css/business-casual.css" rel="stylesheet" type="text/css"/>
     <img class="background-image" src="https://www.johannesfog.dk/globalassets/inriver/resources/33529" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport" width="75%" height="75%"float="right">
-
-    <script type="text/javascript" src="jquery-1.8.3.js"></script>
     <script src="script/javascript.js" type="text/javascript"></script>
     <title>Velkomst side</title>
 </head>

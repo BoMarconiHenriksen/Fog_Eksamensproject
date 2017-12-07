@@ -33,7 +33,7 @@ public class LogOut extends Command {
                 HttpSession session = request.getSession();
                 session.invalidate();
                 
-                out.print("Du er nu logged af brugeren.");
+                out.print("Du er nu logget af.");
                 out.close();
                 
             } catch (ServletException | IOException ex) {
