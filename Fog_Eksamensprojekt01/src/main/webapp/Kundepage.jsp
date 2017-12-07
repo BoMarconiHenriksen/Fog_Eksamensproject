@@ -59,7 +59,7 @@
             <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
 
                 <!-- Float links to the right. Hide them on small screens -->
-                <a onclick="location.href = 'bestilbasiscarportpage.jsp'" class="w3-bar-item w3-button">Hjem</a>
+                <a onclick="location.href = 'https://www.johannesfog.dk/'" class="w3-bar-item w3-button">Hjem</a>
                 <a onclick="location.href = 'bestilbasiscarportpage.jsp'" class="w3-bar-item w3-button">Bestil carport</a>
                 <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="OrdreList_Customer">
@@ -73,22 +73,14 @@
                         <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
                     </div>
                 </form>
-                <<<<<<< HEAD
 
-                <form name="LogOut" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="logout">
-
-                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit">Log af </button>
-
-                </form>
-
-                <div>
-                    <form name="Customer_UserOptions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Customer_UserOptions">
-
-                        <button type="submit" name="Customer_UserOptions" value="Submit">Se eller ret dine kontooplysninger </button>
+                    <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                    <div>     <input type="hidden" name="command" value="Customer_UserOptions">
+                        <div class="form-group">
+                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-bar-item w3-button"><a>Se eller ret dine kontooplysninger </a></button>
+                        </div>  </div>
                     </form>
-                </div>
+              
 
 
             </div>

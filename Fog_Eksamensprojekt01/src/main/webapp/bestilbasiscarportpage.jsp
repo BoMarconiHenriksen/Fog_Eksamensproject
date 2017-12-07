@@ -25,7 +25,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>For Carporte</title>
-
         <script
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -36,7 +35,6 @@
     <body>
     <h1Bestilling af Carporte</h1>
 
-    <h2>Hej: <%= (String) session.getAttribute("username" )%> </h2>
     <h2>Her kan indtastes input til en ønsket carport med eller uden skur...</h2>
 
     <form name="basisCarport" action="FrontController" method="POST">
@@ -46,15 +44,11 @@
 
 
         <div>
-
-           
+            <%=RendUtilCustomerPresentation.getMeasures()%>     
 
         </div>
-
         <p>
-
         </p>
-
         <!--Her starter vores hidden skur-->
         <!-- <form action="#" method="POST">-->
         <div>
@@ -65,72 +59,7 @@
 
             <br><br>
             <body>
-                <table border=4>
-                    <tr>
-                        <th>Skur Længde</th>
-                        <th>Skur Bredde</th>
-                        <th>Skur Højde<br>(Standard)</th>
-
-                    </tr>
-
-                    <tr>
-
-                        <td><select name="lentgchoiceskur">
-                                <option number="0" value="0"> Fravalgt</option>
-                                <option number="210">210</option>
-                                <option number="240">240</option>
-                                <option number="270">270</option>
-                                <option number="300">300</option>
-                                <option number="330">330</option>
-                                <option number="360">360</option>
-                                <option number="390">390</option>
-                                <option number="420">420</option>
-                                <option number="450">450</option>
-                                <option number="480">480</option>
-                                <option number="510">510</option>
-                                <option number="540">540</option>
-                                <option number="570">570</option>
-                                <option number="600">600</option>
-                                <option number="630">630</option>
-                                <option number="660">660</option>
-                                <option number="660">690</option>
-                                <option number="720">720</option>
-
-                            </select>
-
-                        </td>
-
-                        <td><select name="widthchoiceskur">
-                                <option number="0" value="0"> Fravalgt</option>
-                                <option number="150">150</option>
-                                <option number="180">180</option>
-                                <option number="210">210</option>
-                                <option number="240">240</option>
-                                <option number="270">270</option>
-                                <option number="300">300</option>
-                                <option number="330">330</option>
-                                <option number="360">360</option>
-                                <option number="390">390</option>
-                                <option number="420">420</option>
-                                <option number="450">450</option>
-                                <option number="480">480</option>
-                                <option number="510">510</option>
-                                <option number="540">540</option>
-                                <option number="570">570</option>
-                                <option number="600">600</option>
-                                <option number="630">630</option>
-                                <option number="660">660</option>
-                                <option number="660">690</option>
-
-                            </select></td>    
-
-                        <td> <select name="heightchoiceskur">
-                                <option number="0" value="0"> Fravalgt</option>
-                                <option number="210">210</option>
-                            </select></td>
-
-                    </tr>
-                </table>
+                <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
                 <!--Her slutter hidden skur-->    
 
         </div>
@@ -139,13 +68,21 @@
 
         <br><br>
 
-        <%-- Evt. input button og uden hidden. Lan enum key i status. --%>
         <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
         <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
         <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
 
     </form>
 
+
+
+    <%--  <form name="Checkout" action="FrontController" method="POST">
+          <input type="hidden" name="command" value="checkoutFunktion">
+
+
+            <button type="submit" name="checkoutFunktion" value="Submit">Bestil </button>        
+
+        </form>--%>
 
     <p>
         Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
@@ -160,6 +97,7 @@
     <%if (request.getAttribute("widthInput") == null) {
             out.println("");
         } else {
+            out.println("<p> Hello User nr. " + request.getAttribute("userNr") + "</p><br>");
             out.println("<h2>Pris på valgt Carport: </h2><br>");
             out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
 
@@ -179,26 +117,12 @@
 
         }%>
 
-    <div>
-        <%Calculator calc = new Calculator();
-            SkurCalculator scalc = new SkurCalculator();
-
-            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
-            double length = (Double) request.getAttribute("lentghInput");
-            double width = (Double) request.getAttribute("widthInput");
-            double heigth = (Double) request.getAttribute("heightInput");
-            double skurlength = (Double) request.getAttribute("lentghInputSkuret");
-            double skurWidth = (Double) request.getAttribute("widthInputSkuret");
-            DecimalFormat df = new DecimalFormat("#0.00");
-                             double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));%>
-        <br> <br><div>
+   
+      
+        <br> <br>
 
             <%
-                XXRendSvg svag = new XXRendSvg();
-
-                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-
-                out.println("<a>" + carportTegning + "</a>");
+             out.println("<a>" + (String)request.getAttribute("carporttegning") + "</a>");  
             %>  
         </div>
 
