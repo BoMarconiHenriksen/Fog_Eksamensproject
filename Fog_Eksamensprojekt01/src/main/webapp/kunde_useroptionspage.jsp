@@ -97,10 +97,9 @@
                                 </nav>
                                 <!-- Navigation slut -->
 
-                                <div class="text-center mt-4">
-                                    <h1>Ordre Historie</h1>
+                                <div class="container">
+                                    <div class="text-center mt-4">
 
-                                    <div class="container">
                                         <div class="bg-faded p-4 my-4">
                                             <hr class="divider">
                                             <h2 class="text-center text-lg text-uppercase my-0">
