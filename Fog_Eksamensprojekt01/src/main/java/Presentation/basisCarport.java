@@ -7,6 +7,8 @@ import Business.SkurCalculator;
 import Domain.Ordre;
 import Domain.Odetaljer;
 import Domain.User;
+import Utillities.XXRendSvg;
+import Utillities.XXRendUtilStykListe;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +34,6 @@ public class basisCarport extends Command {
         
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
-
         String GemDesign = request.getParameter("CarportGemDesign");
 
         Ordre order = new Ordre();
@@ -50,10 +51,10 @@ public class basisCarport extends Command {
 
       //  request.setAttribute("userNr", user_id);
 
-        double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
+      
 
         request.setAttribute("userNr", user_id);
-
+  double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
 
@@ -86,6 +87,23 @@ public class basisCarport extends Command {
         }
 
         if (SePris != null) {
+//            Calculator calc = new Calculator();
+//            SkurCalculator scalc = new SkurCalculator();
+//
+//            XXRendUtilStykListe rusl = new XXRendUtilStykListe();
+//            double length = (Double) request.getAttribute("lentghInput");
+//            double width = (Double) request.getAttribute("widthInput");
+//            double heigth = (Double) request.getAttribute("heightInput");
+//            double skurlength = (Double) request.getAttribute("lentghInputSkuret");
+//            double skurWidth = (Double) request.getAttribute("widthInputSkuret");
+//             df = new DecimalFormat("#0.00");
+//            double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
+            
+             XXRendSvg svag = new XXRendSvg();
+
+                String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
+                request.setAttribute("carporttegning", carportTegning);
+                
             return "bestilbasiscarportpage";
 
         } else {
@@ -119,8 +137,8 @@ public class basisCarport extends Command {
             count = 1;
 
             String ditSkurErForLangt = "Det valgte redskabsrum er for langt i forhold til carporten."
-                    + "Vi har sat lÃ¦ngden af Deres redskabsrum til at vÃ¦re 30 cm mindre end den valgte carport."
-                    + "hvis De Ã¸nsker en speciel carport bedes De venligst kontakte os pÃ¥ tlf nr. xxxxxx";
+                    + "Vi har sat længden af Deres redskabsrum til at være 30 cm mindre end den valgte carport."
+                    + "hvis De ønsker en speciel carport bedes De venligst kontakte os på tlf nr. xxxxxx";
             request.setAttribute("ditSkurErForLangt", ditSkurErForLangt);
             lentghinputskur = widthinput - 30;
 
