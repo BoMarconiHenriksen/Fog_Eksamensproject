@@ -15,10 +15,20 @@ import java.util.logging.Logger;
 /**
  *
  * @author BenedikteEva
+ * 
+ * MaterialleMapper: Håntere forbindelse til og fra databasen med alt vedr. materialer.
  */
 public class MaterialeMapper {
+    
+    
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+    
+    /**
+     *  Her hentes alle beskrivelser på et materiale fra materialeliste tabellen.
+     * @return mats
+     * @throws NewException 
+     */
 
     public static List<Materiale> getMaterial() throws NewException {
 
@@ -54,6 +64,14 @@ public class MaterialeMapper {
 
     }
 
+    /**
+     * Her fåes et materiale ud fra et angivet vareid.
+     * 
+     * @param varenummer
+     * @return mat
+     * @throws NewException 
+     */
+    
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
                 
         Materiale mat = null;
@@ -81,6 +99,13 @@ public class MaterialeMapper {
         }
 
     }
+    
+    /**
+     * Her ændres et materiales pris ud fra et angivet vareid.
+     * @param vareid
+     * @param enhedspris
+     * @throws NewException 
+     */
 
     public static void changeMaterialePris(int vareid, double enhedspris) throws NewException {
         try {
@@ -96,6 +121,12 @@ public class MaterialeMapper {
             throw new NewException(ex.getMessage());
         }
     }
+    
+    /**
+     * Dette er en mainmetode som kun benyttes til trst o forbindelse med mapperens virkegrad.
+     * @param args
+     * @throws NewException 
+     */
 
     public static void main(String[] args) throws NewException {
 
