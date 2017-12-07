@@ -18,7 +18,7 @@
 
         <!-- Skal nok slettes-->
         <!--<script type="text/javascript" src="jquery-1.8.3.js"></script>-->
-        
+
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
         <!-- Custom styles for this template -->
         <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
-        
+
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
@@ -97,10 +97,22 @@
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
 
-                
-                
+                <h1>Fog Trælast</h1>
+
+                <h2>Velkommen. Vælg her en carport type.</h2>
+
+                <button type="button" style="background-color: buttonface" onclick="location.href = 'bestilbasiscarportpage.jsp';" >Bestil en simpel carport</button>
+                <button type="button" style="background-color: threedshadow" onclick="location.href = 'basiscarportmedskurpage.jsp';" >Bestil en simpel carport med skur</button>
+
+                <form name="OrdreList_Customer" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="OrdreList_Customer">
+
+                    <button type="submit" name="OrdreList_Customer" value="Submit">Se Dine Ordre </button>
+
+                </form>
+
+
             </div> 
         </div>
 
@@ -112,7 +124,7 @@
 
 
 
-        <div class="bg-faded p-4 my-4">
+        <!--<div class="bg-faded p-4 my-4">
             <div class="text-center mt-4">
                 <h2 class="text-left text-lg text-uppercase my-0">
                     Fyld formen ud hvis du er ny kunde
@@ -152,7 +164,7 @@
 
                 </table>
             </div>
-        </div>
+        </div>-->
         <% String error = (String) request.getAttribute("error");
             if (error != null) {%>
         <H2>Error!!</h2>
