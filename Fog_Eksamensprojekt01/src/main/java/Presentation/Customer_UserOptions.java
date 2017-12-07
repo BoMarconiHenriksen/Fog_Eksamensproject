@@ -6,11 +6,11 @@
 package Presentation;
 
 import Business.LogicFacade;
+import Domain.Exception.NewException;
 import Domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import Presentation.NewException;
 
 /**
  *
@@ -19,7 +19,7 @@ import Presentation.NewException;
 public class Customer_UserOptions extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws  Domain.Exception.NewException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws  NewException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
