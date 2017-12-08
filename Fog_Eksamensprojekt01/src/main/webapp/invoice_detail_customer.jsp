@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.RendUtilCustomerOdetailsFunktions"%>
 <%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Domain.Odetaljer"%>
@@ -159,6 +160,19 @@
                                                 String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
 
                                                 out.println("<a>" + carportTegning + "</a>");
+                                            
+                                                XXRendUtilStykListe styk = new XXRendUtilStykListe();
+                                                
+                                                // Stykliste hvis kunde har bestilt.
+                                                Odetaljer od = (Odetaljer) request.getAttribute("od");
+                                                
+                                                if (od.getOrdreStatus().equals("Bestilt")){
+                                                String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
+
+                                                out.println("<p>" + stykListe + "</p>");
+                                                } 
+                                                else {out.println("");
+                                                }
                                             %>  
                                         </div>
                                     </div>
