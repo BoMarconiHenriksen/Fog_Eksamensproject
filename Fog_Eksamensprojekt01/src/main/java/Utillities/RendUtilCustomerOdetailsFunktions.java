@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Utillities;
 import Domain.Exception.NewException;
 import Business.LogicFacade;
@@ -11,20 +7,28 @@ import Domain.Ordre;
 
 
 /**
- *
+ * Klassen bruges til at lave en tabel over kundens ordrer og odredetaljer. 
+ * 
  * @author Ticondrus
  */
 public class RendUtilCustomerOdetailsFunktions {
+    
+    
+       /**
+     * Klassen bruges til at lave en tabel over kundens ordrer og odredetaljer. 
+     * @param o er et eksemplar af de order brugeren skal se
+     * @param sb den stringbuilder der skal bruges til lave den string der skal 
+     * rendere tabellen på jsp-siden hvor den skal bruges
+     * @throws NewException 
+     */
     
     public static String odetailsForOrder_Customer(Odetaljer od) throws NewException {
 
         Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         
-        String theOStatus = od.getOrdreStatus();
-        String ItsBestilt = "Bestilt";
-        
-        if (theOStatus != ItsBestilt){
+   
+        if (od.getOrdreStatus() != "Bestilt"){
         
         sb.append("<form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
         sb.append("<input type=\"hidden\" name=\"command\" value=\"InvSetOrderStatusbyCustomer\">");
@@ -34,7 +38,6 @@ public class RendUtilCustomerOdetailsFunktions {
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
         sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
-
         sb.append("</table>\n>");
         sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + od.getOrdreId() + "\"><br>\n\n</td>");
         sb.append(" <select name=\"status\">\n"
