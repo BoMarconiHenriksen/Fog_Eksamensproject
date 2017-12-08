@@ -64,7 +64,7 @@
 
                             <li class="nav-item px-lg-4">
 
-                                <a class="nav-link text-uppercase text-expanded" href="login.jsp">Opret Bruger</a>
+                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                             </li>
 
                             <li class="nav-item px-lg-4">
@@ -92,9 +92,9 @@
                 </h2>
                 <hr class="divider">
                 
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
+                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="32%">
+                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="32%">
+                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="32%">
                                
                 <!-- Show/hide based on login
                     https://bootsnipp.com/snippets/4RgK -->
