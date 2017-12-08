@@ -121,39 +121,59 @@
 
                                 <div class="container">
 
-                                     <div class="text-heading text-muted text-lg">
-                                        <div class="bg-faded p-4 my-4">
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <a href="bestilbasiscarportpage.jsp">
+                                            <strong>Basis Carport</strong>
+                                            </a>
+                                        </h2>
+                                        <hr class="divider">
+                                        <a href="bestilbasiscarportpage.jsp">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="25%">
+                                        </a>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>
 
 
-                                            <div>
-                                                <div>Simpel Carport</div>
-                                                <a href="bestilbasiscarportpage.jsp">
-                                                    <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%"/>
-                                                </a>
 
-                                                <!--<p> Her kan du bestille en simpel carport med eller uden skur</p>-->
-                                            </div>
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Dobbelt Carport</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>  
 
-                                            <div>
-                                                <div>Dobbelt carport</div>
-                                                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%"/>
-                                                <!--<p> Her kan du endnu ikke bestille en dobbelt carport med eller uden skur</p>-->
-                                            </div>     
 
-                                            <div>
-                                                <div>Carport med rejsningstag</div>
-                                                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Tagrejsning" width="30%"/>
-                                                <!--<p> Her kan du endnu ikke bestille en carport med tag med rejsning med eller uden skur</p>-->
-                                            </div>                   
-                                        </div>     
-                                    </div> 
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Carport med Rejsningstag</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Tagrejsning" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>   
                                 </div>
 
 
-                                
 
-                               
-                                <br>
+
+
+
+
+
 
                                 <footer class="bg-faded text-center py-5">
                                     <div class="container">
