@@ -60,6 +60,8 @@ public class InvoiceDetail_Customer extends Command {
             return "ordrelist_customer";
         }
         if (LockIntoOrder != null) {
+            
+            
 
             return "invoice_detail_customer";
         }
@@ -68,9 +70,9 @@ public class InvoiceDetail_Customer extends Command {
         
         String status=request.getParameter("status");
         
-        int ordreId =Integer.parseInt(request.getParameter("id"));
+        LogicFacade.updateOrdreStatus(orderid, status);
         
-        LogicFacade.updateOrdreStatus(ordreId, status);
+        
         
         return "invoice_detail_customer";
         
