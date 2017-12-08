@@ -40,7 +40,7 @@ public class Register extends Command {
 //                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
 //            }
         }
-        return null;
+        return "index";
     }
 
 }
