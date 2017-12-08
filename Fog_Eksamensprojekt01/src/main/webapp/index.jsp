@@ -96,7 +96,8 @@
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
                                
-                
+                <!-- Show/hide based on login
+                    https://bootsnipp.com/snippets/4RgK -->
 
 
             </div> 
