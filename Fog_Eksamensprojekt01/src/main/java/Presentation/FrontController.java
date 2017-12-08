@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
 
             } catch (NewException ex) {
                 Configuration.myLogger.log(Level.SEVERE, ex.getMessage(), ex);
-                request.getSession().setAttribute("error", ex.getMessage());
+                request.setAttribute("error", ex.getMessage()); //Bruges til at skrive en meddelse ud ved fejl login
                 request.getRequestDispatcher("errorview.jsp").forward(request, response);
 
             }

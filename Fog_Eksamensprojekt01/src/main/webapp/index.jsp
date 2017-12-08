@@ -105,14 +105,6 @@
             </div> 
         </div>
 
-        <% String error = (String) request.getAttribute("error");
-            if (error != null) {%>
-        <H2>Error!!</h2>
-        <p><%= error%>
-            <% }
-            %>
-
-
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

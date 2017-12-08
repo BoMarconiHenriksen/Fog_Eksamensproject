@@ -90,7 +90,7 @@ public class UserMapper {
                 user.setUser_id(id);
                 return user;
             } else {
-                throw new NewException( "Could not validate user" );
+                throw new NewException( "Brugeren findes ikke i databasen. Prøv igen." );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new NewException(ex.getMessage());

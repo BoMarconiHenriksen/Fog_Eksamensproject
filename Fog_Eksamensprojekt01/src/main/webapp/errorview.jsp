@@ -31,13 +31,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -107,13 +107,21 @@
                                                 <strong>Error Page</strong>
                                             </h2>
                                             <hr class="divider">
-
+                                            
+                                            <!--OBS HER KUNNE VÆRE EN HIDE/SHOW PÅ p-->
                                             <p>Ups, noget gik galt. Prøv igen.</p>
-                                            <% out.println("<a>" + session.getAttribute("error") + "</a>");%>
+                                            
+                                            <!-- Udskriver ved fejl login-->
+                                            <% String error = (String) request.getAttribute("error");
+                                                if (error != null) {%>
+                                            <H2>Error!!</h2>
+                                            <p><%= error%>
+                                                <% }
+                                                %>
                                         </div>
                                     </div>
                                 </div>
-                                        
+
                                 <footer class="bg-faded text-center py-5">
                                     <div class="container">
                                         <p class="m-0">
@@ -124,7 +132,7 @@
                                         </p>
                                     </div>
                                 </footer>        
-                                        
+
                                 <script src="script/jquery/jquery.js" type="text/javascript"></script>
                                 <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
                                 <script src="script/popper/popper.min.js" type="text/javascript"></script>
