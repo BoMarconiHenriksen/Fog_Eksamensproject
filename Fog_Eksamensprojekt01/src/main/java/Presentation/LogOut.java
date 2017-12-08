@@ -1,6 +1,5 @@
 /*
  * BenedikteEva
- * Lego Houses
  */
 package Presentation;
 
