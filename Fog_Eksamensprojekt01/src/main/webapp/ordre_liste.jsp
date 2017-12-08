@@ -142,25 +142,7 @@
             </div>
         </div>
 
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Se kundernes ordrer</strong>
-                    </h2>
-                    <hr class="divider">
-
-                    <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
-
-                </div>
-
-            </div>
-            <div >
-                <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
-            </div>
-        </div>
+      
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
@@ -183,7 +165,3 @@
 </html>
 
 
-
-
-</body>
-</html>
