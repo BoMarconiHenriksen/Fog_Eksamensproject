@@ -35,13 +35,15 @@
     </head>
     <body>
 
-        <!-- Logo og header billed-->
+       <!-- Logo og header billed-->
+       <div class="center-img">
         <a href="https://www.johannesfog.dk" target="_blank">
             <img class="logo" src="images/logo.png" alt="Fog Logo">
         </a>
 
         <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
-
+       </div>
+       
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -68,27 +70,26 @@
 
                             <li class="nav-item px-lg-4">
 
-                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                             </li>
 
                             <li class="nav-item px-lg-4">
-
-                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList_Customer">
+                                <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="OrdreList">
                                     <div class="form-group">
-                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
                                     </div>
                                 </form>
-
-                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Customer_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                        </div>
+                                
+                                
+                                <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="Employee_UserOptions">
+                                    <div class="form-group">
+                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
                                     </div>
                                 </form>
-
+                                
+                                
                                 <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                                     <input type="hidden" name="command" value="logout">
                                     <div class="form-group">
@@ -96,31 +97,50 @@
                                     </div>
                                 </form>
 
-                                </ul>
-                                </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                            </li>
+                        </form>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
 
-                                <!-- MANGLER CONTAINER OG DE HVIDE AFSNIT-->
+                                <!-- Welcome Message -->
+                                <div class="text-center mt-4">
+                                    <h1 class="my-2"><% User user = (User) session.getAttribute("user");
 
-                                <% User user = (User) session.getAttribute("user");
-
-                                    if (user != null) {
-                                        out.println("Hej " + user.getFirstname() + "");
-                                    } else {
-                                        out.println("Hmm der står du hedder null der må være sket en fejl");
-                                    }
+                                        if (user != null) {
+                                            out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
+                                        } else {
+                                            out.println("Hmm der står du hedder null der må være sket en fejl");
+                                        }
 
 
-                                %>
-
-                                <div>
-
-                                    <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
-
+                                        %></h1>
                                 </div>
 
+                                <div class="container">
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Ordre Historie</strong>
+                                        </h2>
+                                        <hr class="divider">
+
+                                        <div>
+
+                                            <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+
+                                        </div>
+
+                                        <div>
+                                            <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+                                        </div>
+
+                                    </div>
+                                </div>
 
                                 <footer class="bg-faded text-center py-5">
                                     <div class="container">
@@ -141,17 +161,4 @@
                                 <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
                                 </body>
                                 </html>
-    <div>
 
-        <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
-
-    </div>
-
-    <div >
-        <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
-    </div>
-
-
-</body>
-</html>
