@@ -22,19 +22,22 @@
 
 /*Sætter den rigtige størrelse på logoet*/
 .logo {
-    width: 18%;
-    height: 18%;
-    float: left;
+    width: 123%;
+    padding-right: 25px;
 }
 
 /*Sætter den rigtige størrelse på header image*/
 .header_image {
-    width: 82%;
-    height: 75%;
+    width: 48%;
 }
 
 /*Laver logoet i footeren mindre*/
 .fog_bottom_logo {
     width: 5%;
-    height: 5%;
+}
+
+/*Centrer logo og header image*/
+.center-img {
+  display: flex;
+  justify-content: center;
 }

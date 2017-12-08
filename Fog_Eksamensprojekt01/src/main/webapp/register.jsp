@@ -28,13 +28,15 @@
         <title>Registrering</title>
     </head>
     <body>
-       
-            <!-- Logo og header billed-->
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+        <!-- Logo og header billed-->
+        <div class="center-img">
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
+
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+        </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
@@ -81,13 +83,13 @@
                 </div>
             </div>
         </nav>
-        
-        
-        
-      <div class="container">
+
+
+
+        <div class="container">
             <div class="bg-faded p-4 my-4">
-              
-               <h2 class="text-center text-lg text-uppercase my-0"> Fyld formen ud hvis du er ny kunde
+
+                <h2 class="text-center text-lg text-uppercase my-0"> Fyld formen ud hvis du er ny kunde
                 </h2>
                 <table>     
 
