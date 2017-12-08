@@ -15,7 +15,7 @@ public class RendUtilCustomerOdetailsFunktions {
     
     
        /**
-     * Klassen bruges til at lave en tabel over kundens ordrer og odredetaljer. 
+     * metoden returnerer en tabel over kundens ordrer og odredetaljer. 
      * @param o er et eksemplar af de order brugeren skal se
      * @param sb den stringbuilder der skal bruges til lave den string der skal 
      * rendere tabellen på jsp-siden hvor den skal bruges
