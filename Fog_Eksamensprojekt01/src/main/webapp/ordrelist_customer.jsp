@@ -118,7 +118,7 @@
                                             <% out.println(request.getAttribute("customer_orderlist"));%>
                                             
                                             <div class="text-center mt-4">
-                                                <button type="button"  onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til velkomstsiden</button>
+                                                <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
 
                                             </div>
 
