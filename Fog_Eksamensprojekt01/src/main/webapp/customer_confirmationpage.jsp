@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
 
-                                <footer class="bg-faded text-center py-5">
+                               <!-- <footer class="bg-faded text-center py-5">
                                     <div class="container">
                                         <p class="m-0">
                                             <a href="https://www.johannesfog.dk" target="_blank">
@@ -187,7 +187,7 @@
                                             Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                                         </p>
                                     </div>
-                                </footer>
+                                </footer>-->
 
                                 <script src="script/jquery/jquery.js" type="text/javascript"></script>
                                 <script src="script/jquery/jquery.min.js" type="text/javascript"></script>

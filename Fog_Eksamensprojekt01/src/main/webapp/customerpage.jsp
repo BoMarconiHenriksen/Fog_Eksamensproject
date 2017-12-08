@@ -22,114 +22,177 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <img class="w3-image" src=https://www.johannesfog.dk/globalassets/header/logo.png alt="FogLogo" onclick="location.href = 'https://www.johannesfog.dk/'" width="17%" height="17%" >
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-    <link href="startbootstrap-business-casual-gh-pages/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="startbootstrap-business-casual-gh-pages/css/business-casual.css" rel="stylesheet" type="text/css"/>
-    <img class="background-image" src="https://www.johannesfog.dk/globalassets/inriver/resources/33529" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport" width="75%" height="75%"float="right">
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="jquery-1.8.3.js"></script>
-    <script src="script/javascript.js" type="text/javascript"></script>
+        <!-- Skal nok slettes-->
+        <!--<script type="text/javascript" src="jquery-1.8.3.js"></script>-->
 
-    <title>Fog Trælast - Velkomstside</title>
-</head>
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
+        <!-- Custom styles for this template -->
+        <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
+        <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
+        <!-- Our Own Custom styles for this template - Important for hidden fields -->
+        <script src="script/javascript.js" type="text/javascript"></script>
 
-<body>
-    <!-- Welcome Message -->
-    <div class="text-center mt-4">
-        <div class="text-heading  text-lg">Velkommen til</div>
-        <h1 class="my-2"><%= (String) session.getAttribute("username")%></h1>
+        <title>Fog Trælast - Velkomstside</title>
+    </head>
 
+    <body>
 
-    </div>
+        <!-- Logo og header billed-->
+        <a href="https://www.johannesfog.dk" target="_blank">
+            <img class="logo" src="images/logo.png" alt="Fog Logo">
+        </a>
 
+        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
 
-    <div class="container"
+        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+            <div class="container">
 
+                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Menu</a>
 
-         <!-- Navigation -->
-         <div class="w3-side">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mx-auto">
 
-            <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
-                <!-- Float links to the right. Hide them on small screens -->
-                <a onclick="location.href = 'https://www.johannesfog.dk/'" class="w3-bar-item w3-button">Hjem</a>
-                <a onclick="location.href = 'bestilbasiscarportpage.jsp'" class="w3-bar-item w3-button">Bestil carport</a>
-                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="OrdreList_Customer">
-                    <div class="form-group">
-                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-bar-item w3-button"><a>Ordreliste</a> </button>
-                    </div>
-                </form>
-                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="logout">
-                    <div class="form-group">
-                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
-                    </div>
-                </form>
+                            <li class="nav-item active px-lg-4">
+                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
 
-                    <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                    <div>     <input type="hidden" name="command" value="Customer_UserOptions">
-                        <div class="form-group">
-                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-bar-item w3-button"><a>Se eller ret dine kontooplysninger </a></button>
-                        </div>  </div>
-                    </form>
-              
+                            <li class="nav-item px-lg-4">
 
+                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            </li>
 
-            </div>
-        </div>
+                            <li class="nav-item px-lg-4">
 
+                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="OrdreList_Customer">
+                                    <div class="form-group">
+                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                    </div>
+                                </form>
 
-        <div class="text-heading text-muted text-lg">
-            <div class="bg-faded p-4 my-4">
+                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                                    <div>     
+                                        <input type="hidden" name="command" value="Customer_UserOptions">
+                                        <div class="form-group">
+                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                        </div>
+                                    </div>
+                                </form>
 
+                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="logout">
+                                    <div class="form-group">
+                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                    </div>
+                                </form>
 
-                <div class="w3-display-container">
-                    <div class="w3-display-topleft w3-blue w3-padding">Simpel Carport</div>
-                    <img onclick="location.href = 'bestilbasiscarportpage.jsp'"src="https://www.johannesfog.dk/globalassets/inriver/resources/9078632_carport_enkelt_300x480mtr_web.jpg/ProductPage" alt="House" style="width:25%">
-                    <a> Her kan du bestille en simpel carport med eller uden skur</a>
-                </div>
-
-                <div class="w3-display-container">
-                    <div class="w3-display-topleft w3-blue w3-padding">Dobbelt carport</div>
-                    <img src="https://www.johannesfog.dk/globalassets/inriver/resources/9078639_carport_dobbel_600x540mtr_web.jpg/ProductPage" alt="House" style="width:25%">
-                    <a> Her kan du endnu ikke bestille en dobbelt carport med eller uden skur</a>
-                </div>     
-
-                <div class="w3-display-container">
-                    <div class="w3-display-topleft w3-blue w3-padding">Carport med rejsningstag</div>
-                    <img src="https://www.johannesfog.dk/globalassets/inriver/resources/9078618_carport_car01h_540x360mtr_web.jpg/ProductPage" alt="House" style="width:25%">
-                    <a> Her kan du endnu ikke bestille en carport med tag med rejsning med eller uden skur</a>
-                </div>                   
-            </div>     
-        </div>        
-
-
-    </div> 
-
-</div>
-<br>
-
-<footer class="bg-faded text-center py-5">
-    <div class="container">
-        <p class="m-0">
-            <img class="w3-image" src=https://www.johannesfog.dk/globalassets/header/logo.png alt="FogLogo" onclick="location.href = 'https://www.johannesfog.dk/'" width="5%" height="5%" >        
-            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439                       Alle priser er inkl. moms
-        </p>
-    </div>
-</footer>            
-<script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="script/popper/popper.min.js" type="text/javascript"></script>
-<script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-</body>
+                                </ul>
+                                </div>
+                                </div>
+                                </nav>
+                                <!-- Navigation slut -->
 
 
+                                <!-- Welcome Message -->
+                                <div class="text-center mt-4">
+                                    <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1></h1>
+                                    <div class="text-heading text-lg">Hvis du har brug for rådgivning, så ring og aftale et møde.</div>
+                                    <div class="text-heading text-lg">Vores telefonnummer er 45 87 10 01.</div>
+                                </div>
 
-</html>
+                                <div class="container">
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <a href="bestilbasiscarportpage.jsp">
+                                            <strong>Basis Carport</strong>
+                                            </a>
+                                        </h2>
+                                        <hr class="divider">
+                                        <a href="bestilbasiscarportpage.jsp">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="25%">
+                                        </a>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>
+
+
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Dobbelt Carport</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>  
+
+
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Carport med Rejsningstag</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Tagrejsning" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>   
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <footer class="bg-faded text-center py-5">
+                                    <div class="container">
+                                        <p class="m-0">
+                                            <a href="https://www.johannesfog.dk" target="_blank">
+                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                                            </a>
+                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                                        </p>
+                                    </div>
+                                </footer>
+
+                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
+                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
+                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
+                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+
+                                </body>
+                                </html>
+  
