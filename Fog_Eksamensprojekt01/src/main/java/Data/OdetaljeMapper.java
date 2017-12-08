@@ -16,6 +16,8 @@ import java.util.logging.Logger;
  */
 public class OdetaljeMapper {
 
+    public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
 
         try {
@@ -34,6 +36,7 @@ public class OdetaljeMapper {
             orderPstmt.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i addOdetaljertoOdetaljeListe", ex);
             throw new NewException(ex.getMessage());
         }
 
@@ -58,6 +61,7 @@ public class OdetaljeMapper {
             orderPstmt.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i saveOdetaljertoDesignGemning", ex);
             throw new NewException(ex.getMessage());
         }
 
@@ -92,6 +96,7 @@ public class OdetaljeMapper {
                 return o;
             }
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderByOrderId2", ex);
             throw new NewException(ex.getMessage());
         }
         return o;
@@ -108,12 +113,13 @@ public class OdetaljeMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i updateOrdreStatus", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
 
-    public static void AddOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
+    public static void addOdetailstoOrdermedSkur(Odetaljer ods) throws NewException {
         try {
             Connection con = DBConnector.connection();
             String SQL;
@@ -131,6 +137,7 @@ public class OdetaljeMapper {
             int id = ids.getInt(1);
             ods.setOrdreId(id);
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i addOdetailstoOrdermedSkur", ex);
             throw new NewException(ex.getMessage());
         }
     }
@@ -157,11 +164,12 @@ public class OdetaljeMapper {
             }
             return o;
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Fejl i getOdetailsByOrderId", ex);
+            throw new NewException(ex.getMessage());
         }
-        return o;
+
     }
-    
+
     //    Bruges til test
     public static void main(String[] args) throws NewException {
 

@@ -1,6 +1,5 @@
 package Data;
 
-
 import Domain.Ordre;
 import Domain.Exception.NewException;
 import java.sql.ResultSet;
@@ -18,6 +17,8 @@ import java.util.logging.Logger;
  * @author Bo
  */
 public class OrdreMapper {
+
+    public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
 
     public static List<Ordre> getOrderList() throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
@@ -42,6 +43,7 @@ public class OrdreMapper {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderList", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ordreList;
@@ -66,14 +68,14 @@ public class OrdreMapper {
 
             return ordreList;
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderListByUserID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
 
-
     public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
-       
+
         try {
             Connection con = DBConnector.connection();
             String sql = "DELETE FROM ordreliste WHERE ordre_id=" + ordre_id;
@@ -82,13 +84,14 @@ public class OrdreMapper {
             ps.execute();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i deleteOrderListByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
-    
-        public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
-       
+
+    public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
+
         try {
             Connection con = DBConnector.connection();
             String sql = "DELETE FROM odetaljer WHERE ordre_id=" + ordre_id;
@@ -97,13 +100,11 @@ public class OrdreMapper {
             ps.execute();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i deleteOrderDetailsByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
-
-
-                
 
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
         Ordre or = null;
@@ -123,22 +124,20 @@ public class OrdreMapper {
                 String receiveddate = rs.getString("receiveddate");
                 or = new Ordre(ordre_id, receiveddate, user_id);
 
-
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrdreByOrdreId", ex);
             throw new NewException(ex.getMessage());
         }
         return or;
     }
 
-    
     public static int getLastInvoiceId() throws NewException {
-       
-      
-      int invoiceid = 0;
+
+        int invoiceid = 0;
         try {
- Connection con = DBConnector.connection();
+            Connection con = DBConnector.connection();
             String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
@@ -147,20 +146,13 @@ public class OrdreMapper {
                 invoiceid = rs.getInt("ordre_id");
 
             }
-        }  catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getLastInvoiceId", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return invoiceid;
-}
-
-//    Bruges til test
-    public static void main(String[] args) throws NewException {
-
-        OrdreMapper.deleteOrderDetailsByOrderID(4);
-        OrdreMapper.deleteOrderListByOrderID(4);
-
-}
+    }
 
     public static void addOrdertoOrderList(Ordre or) throws NewException {
         try {
@@ -172,7 +164,16 @@ public class OrdreMapper {
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i addOrdertoOrderList", ex);
             throw new NewException(ex.getMessage());
         }
+    }
+
+    //    Bruges til test
+    public static void main(String[] args) throws NewException {
+
+        OrdreMapper.deleteOrderDetailsByOrderID(4);
+        OrdreMapper.deleteOrderListByOrderID(4);
+
     }
 }

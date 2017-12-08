@@ -14,22 +14,19 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author BenedikteEva
- * 
- * MaterialleMapper: Håntere forbindelse til og fra databasen med alt vedr. materialer.
+ * MaterialleMapper: Håntere forbindelse til og fra databasen med alt vedr.
+ * materialer.
  */
 public class MaterialeMapper {
-    
-    
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
-    
-    /**
-     *  Her hentes alle beskrivelser på et materiale fra materialeliste tabellen.
-     * @return mats
-     * @throws NewException 
-     */
 
+    /**
+     * Her hentes alle beskrivelser på et materiale fra materialeliste tabellen.
+     *
+     * @return mats
+     * @throws NewException
+     */
     public static List<Materiale> getMaterial() throws NewException {
 
         List<Materiale> mats = new ArrayList<>();
@@ -66,19 +63,18 @@ public class MaterialeMapper {
 
     /**
      * Her fåes et materiale ud fra et angivet vareid.
-     * 
+     *
      * @param varenummer
      * @return mat
-     * @throws NewException 
+     * @throws NewException
      */
-    
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
-                
+
         Materiale mat = null;
         try {
 
             Connection con = DBConnector.connection();
-            String sql = "select * from materialeliste where vareid="+ varenummer;
+            String sql = "select * from materialeliste where vareid=" + varenummer;
 
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
@@ -99,14 +95,14 @@ public class MaterialeMapper {
         }
 
     }
-    
+
     /**
      * Her ændres et materiales pris ud fra et angivet vareid.
+     *
      * @param vareid
      * @param enhedspris
-     * @throws NewException 
+     * @throws NewException
      */
-
     public static void changeMaterialePris(int vareid, double enhedspris) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -118,16 +114,18 @@ public class MaterialeMapper {
             ps.executeUpdate();
 
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i changeMaterialePris", ex);
             throw new NewException(ex.getMessage());
         }
     }
-    
-    /**
-     * Dette er en mainmetode som kun benyttes til trst o forbindelse med mapperens virkegrad.
-     * @param args
-     * @throws NewException 
-     */
 
+    /**
+     * Dette er en mainmetode som kun benyttes til trst o forbindelse med
+     * mapperens virkegrad.
+     *
+     * @param args
+     * @throws NewException
+     */
     public static void main(String[] args) throws NewException {
 
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
