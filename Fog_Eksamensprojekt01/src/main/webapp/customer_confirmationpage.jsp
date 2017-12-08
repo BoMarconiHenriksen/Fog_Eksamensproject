@@ -60,7 +60,7 @@
                         <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>

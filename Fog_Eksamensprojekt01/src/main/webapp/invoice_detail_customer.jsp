@@ -172,7 +172,7 @@
 
                                             <%= RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer((Odetaljer) request.getAttribute("od"))%>
 
-                                            <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Velkomstsiden</button>
+                                            <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
                                         </div>
                                     </div>
                                 </div>

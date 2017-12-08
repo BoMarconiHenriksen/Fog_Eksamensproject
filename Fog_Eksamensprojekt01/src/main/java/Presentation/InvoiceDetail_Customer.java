@@ -75,7 +75,7 @@ public class InvoiceDetail_Customer extends Command {
         return "invoice_detail_customer";
         
         } else {
-            return "Kundepage";
+            return "customerpage";
         }
     }
 }
