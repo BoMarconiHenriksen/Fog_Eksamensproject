@@ -114,44 +114,50 @@
 
 
                                 %>
+                                <div class="text-center mt-4">
+                                    <h1>Alle Ordrer</h1>
 
-                                <div>
-
-                                    <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
-
-                                </div>
-
-
-                                <footer class="bg-faded text-center py-5">
                                     <div class="container">
-                                        <p class="m-0">
-                                            <a href="https://www.johannesfog.dk" target="_blank">
-                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                                            </a>
-                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                                        </p>
-                                    </div>
-                                </footer>        
+                                        <div class="bg-faded p-4 my-4">
+                                            <hr class="divider">
+                                            <h2 class="text-center text-lg text-uppercase my-0">
+                                                <strong>Se kundernes ordrer</strong>
+                                            </h2>
+                                            <hr class="divider">
 
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-                                </body>
-                                </html>
-    <div>
+                                            <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
 
-        <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+                                        </div>
+                                            
+</div>
+                                        <div >
+                                            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
 
-    </div>
+                                        </div>
+</div>
 
-    <div >
-        <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                                        <footer class="bg-faded text-center py-5">
+                                            <div class="container">
+                                                <p class="m-0">
+                                                    <a href="https://www.johannesfog.dk" target="_blank">
+                                                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                                                    </a>
+                                                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                                                </p>
+                                            </div>
+                                        </footer>        
 
-    </div>
+                                        <script src="script/jquery/jquery.js" type="text/javascript"></script>
+                                        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+                                        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+                                        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+                                        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+                                        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+                                        </body>
+                                        </html>
 
 
-</body>
-</html>
+
+
+                                        </body>
+                                        </html>
