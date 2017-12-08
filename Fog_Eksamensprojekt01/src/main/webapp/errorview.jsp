@@ -102,20 +102,15 @@
 
                                     <div class="container">
                                         <div class="bg-faded p-4 my-4">
+                                            
+                                            <% String error = (String) request.getAttribute("error");
+                                                if (error != null) {%>
                                             <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0">
+                                            <H2 class="text-center text-lg text-uppercase my-0">
                                                 <strong>Error Page</strong>
                                             </h2>
                                             <hr class="divider">
-                                            
-                                            <!--OBS HER KUNNE VÆRE EN HIDE/SHOW PÅ p-->
-                                            <p>Ups, noget gik galt. Prøv igen.</p>
-                                            
-                                            <!-- Udskriver ved fejl login-->
-                                            <% String error = (String) request.getAttribute("error");
-                                                if (error != null) {%>
-                                            <H2>Error!!</h2>
-                                            <p><%= error%>
+                                            <p><%= error%> <!--Printer fejlmeddelsen-->
                                                 <% }
                                                 %>
                                         </div>

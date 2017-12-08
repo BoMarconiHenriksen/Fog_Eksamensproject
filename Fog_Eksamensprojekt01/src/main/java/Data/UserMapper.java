@@ -94,7 +94,7 @@ public class UserMapper {
                 user.setUser_id(id);
                 return user;
             } else {
-                throw new NewException( "Brugeren findes ikke i databasen. Prøv igen." );
+                throw new NewException( "Fejl ved login!!! Prøv igen." );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             logger.log(Level.SEVERE, "Fejl i login", ex);
