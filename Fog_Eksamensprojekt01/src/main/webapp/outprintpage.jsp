@@ -190,7 +190,7 @@
                                             </div>
 
 
-                                            <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
+                                            <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
 
                                             <form name="Checkout" action="FrontController" method="POST">
                                                 <input type="hidden" name="command" value="OrdertheOrder">

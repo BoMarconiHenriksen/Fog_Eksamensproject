@@ -37,7 +37,7 @@
         <div>
  
            </div>             
-        <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til hovedmenuen</button>
+        <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
 
     </body>
 </html>

@@ -80,7 +80,7 @@ public class basisCarport extends Command {
 
             placeOrderOdetailsSetAttributes(order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, request, session);
 
-            return "Kundepage";
+            return "customerpage";
 
         }
 
@@ -92,7 +92,7 @@ public class basisCarport extends Command {
             return "bestilbasiscarportpage";
 
         } else {
-            return "index";
+            return "customerpage";
         }
     }
 
