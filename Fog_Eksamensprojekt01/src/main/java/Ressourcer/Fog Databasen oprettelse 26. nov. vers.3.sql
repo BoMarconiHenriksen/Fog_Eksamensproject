@@ -84,9 +84,9 @@ INSERT INTO zipcodelist VALUES (1000,'København K');
 
 -- Demo user data
 INSERT INTO userlist VALUES 
-	(1, 1000, 'ansat@ansat.dk', 'a', 'Ansat', 'Jens', 'Jensen', 'Flyvervej 1',40404040),
-    (2, 1000, 'kunde@kunde.dk', 'b', 'Kunde', 'Winnie', 'Hansen', 'Ved Søen 2', 50505050),
-    (4, 1000, 'kunde4@kunde.dk', 'b', 'Kunde', 'Hans', 'Hansen', 'Ved Søen 2', 50505050);
+	(1, 1000, 'ansat@ansat.dk', 'a', 'employee', 'Jens', 'Jensen', 'Flyvervej 1',40404040),
+    (2, 1000, 'kunde@kunde.dk', 'b', 'customer', 'Winnie', 'Hansen', 'Ved Søen 2', 50505050),
+    (4, 1000, 'kunde4@kunde.dk', 'b', 'customer', 'Hans', 'Hansen', 'Ved Søen 2', 50505050);
     
 -- Demo data ordreliste
 INSERT INTO ordreliste VALUES

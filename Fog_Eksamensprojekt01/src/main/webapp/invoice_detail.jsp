@@ -38,6 +38,7 @@
     </head>
 
     <body>
+        <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
         <!-- Logo og header billed-->
         <a href="https://www.johannesfog.dk" target="_blank">
@@ -131,6 +132,10 @@
             %>  
 
         </div>     
+            
+            <div>
+                <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+            </div>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">

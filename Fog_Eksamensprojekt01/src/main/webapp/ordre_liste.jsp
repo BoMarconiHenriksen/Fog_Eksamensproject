@@ -141,3 +141,17 @@
                                 <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
                                 </body>
                                 </html>
+    <div>
+
+        <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+
+    </div>
+
+    <div >
+        <button type="button"  onclick="location.href = 'Ansatpage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+    </div>
+
+
+</body>
+</html>

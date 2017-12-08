@@ -6,22 +6,20 @@
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.Exception.NewException;
 import Domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import Domain.Exception.NewException;
 
-
 /**
  *
  * @author Ticondrus
  */
-public class Customer_UserOptions extends Command {
+public class Employee_UserOptions extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws  NewException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws  Domain.Exception.NewException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
@@ -47,14 +45,14 @@ public class Customer_UserOptions extends Command {
             LogicFacade.updateUserPassword(user.getUser_id(), password);
             presentpasswordiscorrect = 1;
         request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-            return "kunde_useroptionspage";
+            return "employee_useroptionspage";
         } else if (UpdateUserPassword != null){
             presentpasswordiscorrect = 0;
             request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-             return "kunde_useroptionspage";
+             return "emplyoee_useroptionspage";
         } else{
 
-        return "kunde_useroptionspage";
+        return "employee_useroptionspage";
     }
     }
 }
