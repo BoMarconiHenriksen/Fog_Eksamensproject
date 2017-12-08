@@ -33,7 +33,7 @@ public class RendUtilOrderList {
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
             sb.append("<td>").append("" + (o.getOrdre_id())).append("</td>");
             sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-            sb.append("<td>").append("" + calculatePriceShowTwoDecimals(o, calc, scalc)).append("</td>");
+            sb.append("<td>").append("kommer snart").append("</td>");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId((o.getUser_id())).getFirstname()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
