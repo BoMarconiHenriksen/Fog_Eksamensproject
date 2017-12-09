@@ -53,13 +53,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -77,147 +77,149 @@
                     <ul class="navbar-nav mx-auto">
 
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <li class="nav-item px-lg-4">
 
-                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
-                            </li>
+                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <li class="nav-item px-lg-4">
 
-                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList_Customer">
+                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="OrdreList_Customer">
+                                <div class="form-group">
+                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                </div>
+                            </form>
+
+                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                                <div>     
+                                    <input type="hidden" name="command" value="Customer_UserOptions">
                                     <div class="form-group">
-                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Customer_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                                </ul>
-                                </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
-
-                                <div class="container">
-
-                                    <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-
-                                            <h1>Bestilling af Carporte</h1>
-
-                                            <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
-
-                                            <form name="basisCarport" action="FrontController" method="POST">
-                                                <input type="hidden" name="command" value="basisCarport">
-                                                <input type="hidden" name="command" value="basisCarportCheckud">
-                                                <input type="hidden" name="command" value="CarportGemDesign">
-
-
-
-                                                <%=RendUtilCustomerPresentation.getMeasures()%>     
-
-
-
-                                                <!--Her starter vores hidden skur-->
-                                                <!-- <form action="#" method="POST">-->
-                                                <div>
-                                                    Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
-                                                </div>
-                                                <div id="hidden_fields">
-                                                    Hvor stort skal skuret være? 
-
-                                                    <br><br>
-
-                                                    <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-                                                    <!--Her slutter hidden skur-->    
-
-                                                </div>
-
-
-
-                                                <br><br>
-
-                                                <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
-                                                <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
-                                                <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
-
-                                            </form>
-
-
-
-
-
-                                            <p>
-                                                Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
-                                                lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
-                                                tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
-                                            </p>
-
-
-
-
-                                            <!--Hvis basisCarport er null printes der ikke noget på siden-->
-                                            <%if (request.getAttribute("widthInput") == null) {
-                                                    out.println("");
-                                                } else {
-                                                    out.println("<p> Hello User nr. " + request.getAttribute("userNr") + "</p><br>");
-                                                    out.println("<h2>Pris på valgt Carport: </h2><br>");
-                                                    out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
-                                                    out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
-                                                    out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
-                                                    out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-                                                    if (request.getAttribute("skurInput")!= null) {
-                                                        out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
-                                                        out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
-                                                        out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
-                                                        out.println("<p> Standard Højde på Skuret: " + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
-                                                    } else {
-                                                        out.println("");
-                                                    }
-                                                }
-                                            %>
-                                            <!-- Virker ikke lige pt!-->
-                                            <%
-                                                //XXRendSvg svag = new XXRendSvg();
-                                                // String carportTegning = svag.simpelCarport((Double) request.getAttribute("lentghInput"), (Double) request.getAttribute("widthInput"), (Double) request.getAttribute("lentghInputSkuret"), (Double) request.getAttribute("widthInputSkuret"));
-                                              // out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                            %>    
-
-                                        </div>
+                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
                                     </div>
                                 </div>
+                            </form>
 
-                                <footer class="bg-faded text-center py-5">
-                                    <div class="container">
-                                        <p class="m-0">
-                                            <a href="https://www.johannesfog.dk" target="_blank">
-                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                                            </a>
-                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                                        </p>
-                                    </div>
-                                </footer>
+                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="logout">
+                                <div class="form-group">
+                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                </div>
+                            </form>
 
-                                </body>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
+
+        <div class="container">
+
+            <div class="text-heading text-lg">
+                <div class="bg-faded p-4 my-4">
+
+                    <h1>Bestilling af Carporte</h1>
+
+                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
+
+                    <form name="basisCarport" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="basisCarport">
+                        <input type="hidden" name="command" value="basisCarportCheckud">
+                        <input type="hidden" name="command" value="CarportGemDesign">
+
+
+
+                        <%=RendUtilCustomerPresentation.getMeasures()%>     
+
+
+
+                        <!--Her starter vores hidden skur-->
+                        <!-- <form action="#" method="POST">-->
+                        <div>
+                            Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
+                        </div>
+                        <div id="hidden_fields">
+                            Hvor stort skal skuret være? 
+
+                            <br><br>
+
+                            <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
+                            <!--Her slutter hidden skur-->    
+
+                        </div>
+
+
+
+                        <br><br>
+
+                        <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
+                        <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+
+                    </form>
+
+
+
+
+
+                    <p>
+                        Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
+                        lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
+                        tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
+                    </p>
+
+
+                    <div class="text-heading text-lg">
+                        <div class="bg-faded p-4 my-4">
+                            <hr class="divider">
+                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                            <hr class="divider">    
+
+                            <!--Hvis basisCarport er null printes der ikke noget på siden-->
+                            <%if (request.getAttribute("widthInput") == null) {
+                                    out.println("");
+                                } else {
+                                    out.println("<p> Hello  " + request.getAttribute("username") + "</p><br>");
+                                    out.println("<h2>Pris på valgt Carport: </h2><br>");
+                                    out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
+                                    out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
+                                    out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
+                                    out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
+                                    if (request.getAttribute("skurInput") != null) {
+                                        out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
+                                        out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
+                                        out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
+                                        out.println("<p> Standard Højde på Skuret: " + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
+                                    } else {
+                                        out.println("");
+                                    }
+
+                            %>
+                            <!-- Virker ikke lige pt!-->
+                            <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                                                }%>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>
+
+    </body>
 </html>
