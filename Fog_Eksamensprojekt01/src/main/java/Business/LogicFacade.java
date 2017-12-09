@@ -53,7 +53,7 @@ public class LogicFacade {
 
 
     //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
-    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods)
             throws NewException {
         OdetaljeMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }

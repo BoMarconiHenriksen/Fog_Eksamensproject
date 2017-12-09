@@ -32,10 +32,11 @@ public class Checkout extends Command {
         request.setAttribute("height", (Double) od.getCarportHeight());
         request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
+        request.setAttribute("price", (Double)od.getPrice());
         request.setAttribute("od", od);
         request.setAttribute("status", status);
         
-        status = "Ny ordre. Afventer Behandling.";
+        status = "Ny ordre";
         
         
         LogicFacade.updateOrdreStatus(or, status);

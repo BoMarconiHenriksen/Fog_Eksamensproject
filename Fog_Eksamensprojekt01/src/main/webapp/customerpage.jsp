@@ -69,7 +69,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem

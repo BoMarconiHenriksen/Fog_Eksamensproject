@@ -4,10 +4,10 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Domain.Odetaljer"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Business.SkurCalculator"%>
 <%@page import="Business.Calculator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                 
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -111,27 +111,28 @@
                                             <h2 class="text-center text-lg text-uppercase my-0"><strong>Tak for købet <%= (String) session.getAttribute("username")%></strong></h2>
                                             <hr class="divider">
 
-                                            <%Calculator calc = new Calculator();
-                                                SkurCalculator scalc = new SkurCalculator();
+                                            <%
+                                                Odetaljer od=(Odetaljer)request.getAttribute("od");
 
-                                                double length = (Double) request.getAttribute("length");
-                                                double width = (Double) request.getAttribute("width");
-                                                double heigth = (Double) request.getAttribute("height");
-                                                double skurlength = (Double) request.getAttribute("redskabsskur_length");
-                                                double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-                                                DecimalFormat df = new DecimalFormat("#0.00");
-                                                double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
+                                                double length = od.getCarportLength();
+                                                double width = od.getCarportWidth();
+                                                double heigth = od.getCarportHeight();
+                                                double skurlength = od.getLengthRedskabsrum();
+                                                double skurWidth = od.getWidthRedskabsrum();
+                                                double skurHeigth = 210;
+                                               
+                                                double price = od.getPrice();
 
-                                                out.println("<p>" + "Carportens samlede pris: " + df.format(pris) + "</p> \n");
+                                                out.println("<p>" + "Carportens samlede pris: " + price+ "</p> \n");
 
                                                 out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
                                                 out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
                                                 out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                                                if ((Double) request.getAttribute("redskabsskur_length") != 0) {
+                                                if (skurlength != 0.00) {
                                                     out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
                                                     out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede højde: 210" + "</p>");
+                                                    out.println("<p>" + "Skurets ønskede højde: "+skurHeigth + "</p>");
 
                                                 } else {
                                                     out.println("<p>" + "Carporten er uden skur." + "</p>");
@@ -146,7 +147,7 @@
                                             <hr class="divider">
                                             <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
                                             <hr class="divider">    
-                                            <%        XXRendSvg svag = new XXRendSvg();
+                                            <%     XXRendSvg svag = new XXRendSvg();
 
                                                 String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
 
@@ -166,21 +167,21 @@
 
                                                 String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
-                                                out.println("<p>" + stykListe + "</p>");
+                                             out.println("<p>" + stykListe + "</p>");
                                             %>  
 
                                             <div>
                                                 <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
                                                 <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
-                                                <button type="button" style="background-color: buttonface" onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til Index</button>
+                                                <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
 
-                               <!-- <footer class="bg-faded text-center py-5">
+                                <footer class="bg-faded text-center py-5">
                                     <div class="container">
                                         <p class="m-0">
                                             <a href="https://www.johannesfog.dk" target="_blank">
@@ -189,7 +190,7 @@
                                             Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                                         </p>
                                     </div>
-                                </footer>-->
+                                </footer>
 
                                 <script src="script/jquery/jquery.js" type="text/javascript"></script>
                                 <script src="script/jquery/jquery.min.js" type="text/javascript"></script>

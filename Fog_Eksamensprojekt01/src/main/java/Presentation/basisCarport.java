@@ -3,12 +3,10 @@ package Presentation;
 import Domain.Exception.NewException;
 import Business.Calculator;
 import Business.LogicFacade;
-import Business.SkurCalculator;
 import Domain.Ordre;
 import Domain.Odetaljer;
 import Domain.User;
 import Utillities.XXRendSvg;
-import Utillities.XXRendUtilStykListe;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -26,8 +24,6 @@ import javax.servlet.http.HttpSession;
  */
 public class basisCarport extends Command {
 
-    XXRendSvg svag = new XXRendSvg();
-
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
@@ -40,17 +36,12 @@ public class basisCarport extends Command {
 
         Ordre order = new Ordre();
 
-//        User user = new User();
-//        session.getAttribute("user");
         int user_id = user.getUser_id();
 
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
 
         String ordre_status = null;
-
-        //  request.setAttribute("userNr", user_id);
-        request.setAttribute("userNr", user_id);
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
@@ -60,16 +51,14 @@ public class basisCarport extends Command {
         double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
 
         String skurellerej = request.getParameter("skur");
-        DecimalFormat df = new DecimalFormat("#0.00");
 
-        lentghinputskur = calculatePriceSetAttrubtes(lentghinputskur, widthinput, request, lentghinput, heightinput, df, widthinputskur, heightputskur, skurellerej);
+        double totalPrice=calculatePriceSetAttrubtes(request, widthinput, lentghinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
         if (CheckUd != null) {
 
             ordre_status = "Afventer kundens bekræftigelse";
 
-            placeOrderOdetailsSetAttributes(order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, request, session);
-
+            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "outprintpage";
         }
@@ -78,7 +67,7 @@ public class basisCarport extends Command {
 
             ordre_status = "Gemt Design";
 
-            placeOrderOdetailsSetAttributes(order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, request, session);
+            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "customerpage";
 
@@ -86,9 +75,8 @@ public class basisCarport extends Command {
 
         if (SePris != null) {
 
-            calculatePriceSetAttrubtes(lentghinputskur, widthinput, request, lentghinput, heightinput, df, widthinputskur, heightputskur, skurellerej);
-            
-            
+            calculatePriceSetAttrubtes(request, widthinput, lentghinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+
             return "bestilbasiscarportpage";
 
         } else {
@@ -117,7 +105,8 @@ public class basisCarport extends Command {
      * @throws NewException an exception thrown back in the mappers. we will
      * deal with it in the FrontController servlet
      */
-    private double calculatePriceSetAttrubtes(double lentghinputskur, double widthinput, HttpServletRequest request, double lentghinput, double heightinput, DecimalFormat df, double widthinputskur, double heightputskur, String skurellerej) throws NewException {
+    private double calculatePriceSetAttrubtes(HttpServletRequest request, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej) throws NewException {
+
         int count;
         // denne skulle gerne gÃ¸re at skuret ikke bliver for langt samt at kunden
         //fÃ¥r at vide at skurlÃ¦ngden er rettet til
@@ -134,26 +123,28 @@ public class basisCarport extends Command {
             count = 0;
         }
         request.setAttribute("count", count);
+
+        DecimalFormat df = new DecimalFormat("#0.00");
         Calculator calc = new Calculator();
         double carportTotaludenSkur = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
         String carportTotalDecimaledudenSkur = df.format(carportTotaludenSkur);
         request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
 
-        String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
-        request.setAttribute("carporttegning", carportTegning);
         //Skuret 
-        SkurCalculator calcskur = new SkurCalculator();
-        double skurTotaludenCarport = calcskur.skurPrisBeregner(lentghinputskur, widthinputskur);
-        String carportTotalDecimaledmedSkur = df.format(carportTotaludenSkur + skurTotaludenCarport);
-        request.setAttribute("carportTotalmedSkur", carportTotalDecimaledmedSkur);
+        double skurTotaludenCarport = calc.calculatePriceShed(lentghinputskur, widthinputskur);
+        double totalPrice = carportTotaludenSkur + skurTotaludenCarport;
+        String carportTotal = df.format(totalPrice);
+       
+        request.setAttribute("carportTotalmedSkur", (String)carportTotal);
         request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
         request.setAttribute("widthInputSkuret", (Double) widthinputskur);
         request.setAttribute("heightInputSkuret", (Double) heightputskur);
         request.setAttribute("lentghInput", (Double) lentghinput);
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
-        request.setAttribute("skurInput", skurellerej);
-        return lentghinputskur;
+        request.setAttribute("skurInput", (String)skurellerej);
+       
+        return totalPrice;
     }
 
     /**
@@ -179,7 +170,7 @@ public class basisCarport extends Command {
      * in login
      * @throws NewException
      */
-    private void placeOrderOdetailsSetAttributes(Ordre order, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, HttpServletRequest request, HttpSession session) throws NewException {
+    private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session, Ordre order, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
 
         LocalDate today = LocalDate.now();
         //Kalder dateTimeFormatter
@@ -189,16 +180,18 @@ public class basisCarport extends Command {
 
         //SÃ¦tter datoen pÃ¥ ordren
         order.setReciveddate(formatDateTime);
-
+        double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getLastInvoiceId();
-        Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur);
-        LogicFacade.updatereOdetajlermedSkur(or, ods);
+  request.setAttribute("KundensOID", or);
+        session.setAttribute("SessionIOD", or);
+        Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
+        LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
         LogicFacade.getOrderByOrderId2(or);
-
+        XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
-
+        ods=LogicFacade.getOdetaljerByOrderId(or);
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());
@@ -206,7 +199,8 @@ public class basisCarport extends Command {
         request.setAttribute("redskabsskur_width", (Double) ods.getWidthRedskabsrum());
         request.setAttribute("od", ods);
 
-        request.setAttribute("KundensOID", or);
-        session.setAttribute("SessionIOD", or);
+      
+
     }
+
 }

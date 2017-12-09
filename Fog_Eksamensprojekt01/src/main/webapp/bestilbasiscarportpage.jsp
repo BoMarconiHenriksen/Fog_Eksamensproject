@@ -8,7 +8,6 @@
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Business.SkurCalculator"%>
 <%@page import="Business.Calculator"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
@@ -77,7 +76,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
@@ -183,17 +181,13 @@
                                             <%if (request.getAttribute("widthInput") == null) {
                                                     out.println("");
                                                 } else {
-
                                                     out.println("<p> Hello User nr. " + request.getAttribute("userNr") + "</p><br>");
                                                     out.println("<h2>Pris på valgt Carport: </h2><br>");
                                                     out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
-
                                                     out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
                                                     out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
                                                     out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
-
-                                                    if (Double.parseDouble(request.getParameter("lentgchoiceskur")) != 0) {
-
+                                                    if (request.getAttribute("skurInput")!= null) {
                                                         out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
                                                         out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
                                                         out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
@@ -201,14 +195,13 @@
                                                     } else {
                                                         out.println("");
                                                     }
-
                                                 }
                                             %>
                                             <!-- Virker ikke lige pt!-->
                                             <%
                                                 //XXRendSvg svag = new XXRendSvg();
                                                 // String carportTegning = svag.simpelCarport((Double) request.getAttribute("lentghInput"), (Double) request.getAttribute("widthInput"), (Double) request.getAttribute("lentghInputSkuret"), (Double) request.getAttribute("widthInputSkuret"));
-                                                // out.println("<a>" + carportTegning + "</a>");
+                                              // out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                                             %>    
 
                                         </div>
@@ -227,4 +220,4 @@
                                 </footer>
 
                                 </body>
-                                </html>
+</html>

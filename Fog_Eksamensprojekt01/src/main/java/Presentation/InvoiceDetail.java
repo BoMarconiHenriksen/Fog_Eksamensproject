@@ -3,7 +3,6 @@ package Presentation;
 import Domain.Exception.NewException;
 import Business.Calculator;
 import Business.LogicFacade;
-import Business.SkurCalculator;
 import Domain.Odetaljer;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;
@@ -20,10 +19,8 @@ public class InvoiceDetail extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
-        Calculator calc = new Calculator();
-        SkurCalculator scalc = new SkurCalculator();
-        DecimalFormat df = new DecimalFormat("#0.00");
-        StringBuilder sb = new StringBuilder();
+    
+      
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
@@ -33,13 +30,11 @@ public class InvoiceDetail extends Command {
 
         double length = (Double) od.getCarportLength();
         double width = (Double) od.getCarportWidth();
-        double heigth = (Double) od.getCarportHeight();
         double skurlength = (Double) od.getLengthRedskabsrum();
         double skurWidth = (Double) od.getWidthRedskabsrum();
 
-        double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
-        String priceTwoDecimal = df.format(pris);
-        request.setAttribute("priceTwoDecimal", priceTwoDecimal);
+        double price = od.getPrice();
+        request.setAttribute("priceTwoDecimal", price);
         XXRendUtilStykListe XXStykListe =new  XXRendUtilStykListe();
         String LineItemsList;
         LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);

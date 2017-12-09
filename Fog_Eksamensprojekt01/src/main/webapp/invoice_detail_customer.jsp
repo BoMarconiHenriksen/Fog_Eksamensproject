@@ -9,7 +9,6 @@
 <%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Domain.Odetaljer"%>
 <%@page import="Business.Calculator"%>
-<%@page import="Business.SkurCalculator"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="Business.LogicFacade"%>
@@ -64,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                      
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
@@ -118,27 +117,25 @@
                                             </h2>
                                             <hr class="divider">
 
-                                            <%Calculator calc = new Calculator();
-                                                SkurCalculator scalc = new SkurCalculator();
-
+                                            <%
                                                 double length = (Double) request.getAttribute("length");
                                                 double width = (Double) request.getAttribute("width");
                                                 double heigth = (Double) request.getAttribute("height");
                                                 double skurlength = (Double) request.getAttribute("redskabsskur_length");
                                                 double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-                                                DecimalFormat df = new DecimalFormat("#0.00");
-                                                double pris = ((Double) calc.calculateCarportSimple(length, width, heigth) + (Double) scalc.skurPrisBeregner(skurlength, skurWidth));
+                                                Odetaljer od= (Odetaljer)request.getAttribute("od");
+                                                double price =od.getPrice() ;
 
-                                                out.println("<p>" + "Carportens samlede pris: " + df.format(pris) + "</p> \n");
+                                                out.println("<p>" + "Carportens samlede pris: " +price + "</p> \n");
 
                                                 out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
                                                 out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
                                                 out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                                                if ((Double) request.getAttribute("redskabsskur_length") != 0) {
+                                                if (request.getAttribute("redskabsskur_length") != null) {
                                                     out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
                                                     out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede højde: 210" + "</p>");
+                                                    out.println("<p>" + "Skurets standard højde: 210" + "</p>");
                                                 } else {
                                                     out.println("<p>" + "Carporten er uden skur." + "</p>");
                                                 }
@@ -164,7 +161,7 @@
                                                 XXRendUtilStykListe styk = new XXRendUtilStykListe();
                                                 
                                                 // Stykliste hvis kunde har bestilt.
-                                                Odetaljer od = (Odetaljer) request.getAttribute("od");
+                                               
                                                 
                                                 if (od.getOrdreStatus().equals("Bestilt")){
                                                 String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
@@ -186,7 +183,7 @@
                                             </h2>
                                             <hr class="divider">
 
-                                            <%= RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer((Odetaljer) request.getAttribute("od"))%>
+                                            <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(od)%>
 
                                             <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
                                         </div>

@@ -79,7 +79,7 @@ public class MaterialeMapper {
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
             if (rs.next()) {
-                String materialetype = rs.getString("materiale_type");
+                String materialetype = rs.getString("materialetype");
                 String materialenavn = rs.getString("materialenavn");
                 double enhedspris = rs.getDouble("enhedspris");
                 String enhed = rs.getString("enhed");

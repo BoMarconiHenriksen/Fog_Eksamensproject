@@ -50,7 +50,7 @@ public class XXRendSvg {
     public String setSvgCanvas(double length, double width) {
         sb.append(" <SVG width=\"75%\"  \n"
                 + "\n"
-                + "             <svg x=\"200\" y=\"200\" width=\"" + length * 2 + "\" height=\"" + width * 2 + "\" \n"
+                + "            <svg x=\"200\" y=\"200\" width=\"" + length * 2 + "\" height=\"" + width * 2 + "\" \n"
                 + "             viewBox=\"0 0 " + (length + 200) + " " + (width + 200) + "\"\n"
                 + "        viewBox=\"0 0 " + length + " " + width + "\">\n"
                 + "\n"
@@ -277,7 +277,7 @@ public class XXRendSvg {
         int rigtigSpærAntal = (int) length - restSpærAntal;
         double afstandMellemSpær = (((int) Math.round(length / (spærAntalCirka))) - ((int) length % spærAntalCirka) / (spærAntalCirka));
         int spærAntal = (int) Math.round(length / (afstandMellemSpær));
-        System.out.println(afstandMellemSpær);
+        System.out.println(rsvg.simpelCarport(480,300, 270,150));
 //        System.out.println(rsvg.simpelCarport(480, 300, 210, 150));
 
     }
