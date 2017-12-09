@@ -35,6 +35,7 @@
     </head>
 
     <body>
+      
 
 
         <!-- Logo og header billed-->
@@ -110,7 +111,7 @@
         <div class="container">
             <div class="text-center mt-4">
 
-
+  <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -140,9 +141,11 @@
                 </div>
             </div>
         </div>     
+
         <div>
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
         </div>
+
 
 
 

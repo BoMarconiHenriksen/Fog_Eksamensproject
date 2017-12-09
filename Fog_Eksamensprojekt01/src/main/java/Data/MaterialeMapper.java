@@ -21,15 +21,18 @@ public class MaterialeMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
 
+
     /**
      * Her hentes alle beskrivelser på et materiale fra materialeliste tabellen.
      *
      * @return mats
      * @throws NewException
      */
+
+
     public static List<Materiale> getMaterial() throws NewException {
 
-        List<Materiale> mats = new ArrayList<>();
+        List<Materiale> mats = new ArrayList();
         try {
 
             Materiale mat;
