@@ -35,8 +35,7 @@ public class Calculator {
      * @throws NewException
      */
     
-    
-    
+
     
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
 

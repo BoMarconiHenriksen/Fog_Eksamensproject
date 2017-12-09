@@ -12,7 +12,6 @@ public class XXRendUtilStykListe {
     StringBuilder sb = new StringBuilder();
     /**
      * Metoden laver en stykliste for den carport som er købt/designet.
-     * @param sb bruges til at lave en tabel.
      * @param length er carportens længde.
      * @param width er carportens bredde.
      * @param skurLength er skurets længde.
@@ -24,7 +23,7 @@ public class XXRendUtilStykListe {
 
         headLinesStykListe();
 
-        createLineItemListTree( length, width);
+        createLineItemListWood( length, width);
         if (skurLength > 0) {
             lineItemWoodForShed(skurLength, skurWidth);
         }
@@ -39,21 +38,19 @@ public class XXRendUtilStykListe {
 
     /**
      * Metoden laver en tabel med basis information om træ til en carport.
-     * @param sb laver tabellen.
      * @param length er carportens længde.
      * @param width er carportens bredde.
      * @return en stykliste i en tabelform, der kan printes ud på en side.
      * @throws NewException 
      */
-    public String createLineItemListTree( double length, double width) throws NewException {
-        LineItem[] limes = LineItemFactory.baseTree(width, length);
+    public String createLineItemListWood( double length, double width) throws NewException {
+        LineItem[] limes = LineItemFactory.baseWood(width, length);
         sb.append("<br><tr><th>Træ</th></tr>\n");
         return forLoopLineItem(limes);
     }
 
     /**
      * Metoden laver en tabel med basis information om Ecolite tag til en carport med fladt tag.
-     * @param sb laver tabellen.
      * @param length er carportens længde.
      * @param width er carportens bredde.
      * @return en stykliste i en tabelform, der kan printes ud på en side.
@@ -67,7 +64,6 @@ public class XXRendUtilStykListe {
 
     /**
      * Metoden laver en tabel om beslag og skruer til carportens skur.
-     * @param sb laver tabellen.
      * @param skurlength er carportens længde.
      * @param skurwidth er carportens bredde.
      * @return en stykliste i en tabelform, der kan printes ud på en side.
@@ -80,7 +76,6 @@ public class XXRendUtilStykListe {
 
     /**
      * Metoden laver en tabel med information om træ til carportens skur.
-     * @param sb laver tabellen.
      * @param skurlength er carportens længde.
      * @param skurwidth er carportens bredde.
      * @return en stykliste i en tabelform, der kan printes ud på en side.
@@ -93,7 +88,6 @@ public class XXRendUtilStykListe {
 
     /**
      * Metoden laver en stykliste tabel med information om træ til carportens skur.
-     * @param sb laver tabellen.
      * @param length er carportens længde.
      * @param width er carportens bredde.
      * @return en stykliste i en tabelform, der kan printes ud på en side.
@@ -158,8 +152,8 @@ public class XXRendUtilStykListe {
      * @throws NewException 
      */
     public static void main(String[] args) throws NewException {
-        StringBuilder sb = new StringBuilder();
-        LineItem[] limes = LineItemFactory.baseTree(480, 300);
+    
+        LineItem[] limes = LineItemFactory.baseWood(480, 300);
 
     }
 

@@ -6,12 +6,9 @@
 
 <%@page import="Domain.Odetaljer"%>
 <%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
-<%@page import="Business.SkurCalculator"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
-
 <%@page import="java.text.DecimalFormat"%>
-
 <%@page import="Business.Calculator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,22 +30,22 @@
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
-        
+
         <title>Ordre Detaljer</title>
     </head>
 
     <body>
-        <h1>Hej <%= (String) session.getAttribute("username")%></h1>
+
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -65,81 +62,98 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
 
-                            <li class="nav-item px-lg-4">
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
-                            </li>
+                        <li class="nav-item px-lg-4">
 
-                            <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                        </li>
 
-                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList_Customer">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                    </div>
-                                </form>
+                        <li class="nav-item px-lg-4">
 
-                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Customer_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                                </ul>
+                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="OrdreList_Customer">
+                                <div class="form-group">
+                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
                                 </div>
+                            </form>
+
+                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                                <div>     
+                                    <input type="hidden" name="command" value="Customer_UserOptions">
+                                    <div class="form-group">
+                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                    </div>
                                 </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                            </form>
 
-                                <!-- MANGLER CSS TIL CONTAINER OG DE HVIDE AFSNIT-->
-        <div>
+                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="logout">
+                                <div class="form-group">
+                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                </div>
+                            </form>
 
-            <%
-                out.println("<h3>Pris</h3><p>" + request.getAttribute("priceTwoDecimal") + "</p>");
-            %>
-
-
-            <%= RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
-            <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
-
-            <br> <br>
-
-
-            <%
-                out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
-            %>   
-
-        </div>
-        <div class="w3-display-bottomleft">
-            <%
-                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-            %>  
-
-        </div>     
-            
-            <div>
-                <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                    </ul>
+                </div>
             </div>
+        </nav>
+        <!-- Navigation slut -->
 
-        <footer class="bg-faded text-center py-5">
+        <!-- MANGLER CSS TIL CONTAINER OG DE HVIDE AFSNIT-->
+        <div class="container">
+            <div class="text-center mt-4">
+
+
+
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2>Pris:  </h2>  
+                    <%
+                        out.println("<p>" + (Double) request.getAttribute("priceTwoDecimal") + "</p>");
+                    %>
+                    <hr class="divider">
+
+                    <%=RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
+                    <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
+                </div>
+
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+
+                    <%
+                        out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
+                    %>   
+                </div>
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+
+                    <%
+                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                    %>  
+                </div>
+            </div>
+        </div>     
+        <div>
+            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+        </div>
+
+
+
+       
+        <script src="script/jquery/jquery.js" type="text/javascript"></script>
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+ <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
                     <a href="https://www.johannesfog.dk" target="_blank">
@@ -149,13 +163,6 @@
                 </p>
             </div>
         </footer>        
-
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 
     </body>
 </html>

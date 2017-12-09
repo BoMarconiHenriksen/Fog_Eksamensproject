@@ -22,7 +22,7 @@ public class RendUtilOrderList {
         
         sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
-                + "<tr><th>Ordre Id  </th><th>Dato</th><th>Pris  </th><th>Kundens fornavn  </th><th>Telefon nr  </th><th>Status  </th></tr>\n");
+                + "<tr><th>Ordre Id  </th><th>Dato  </th><th>Pris  </th><th>Kundens fornavn  </th><th>Telefon nr  </th><th>Status  </th></tr>\n");
         for (Ordre o : ordreList) {
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
@@ -37,7 +37,7 @@ public class RendUtilOrderList {
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail\">See order</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail\">Se ordre</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }

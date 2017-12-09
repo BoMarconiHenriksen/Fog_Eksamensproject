@@ -1,12 +1,10 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.Calculator;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;
-import java.text.DecimalFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,16 +30,13 @@ public class InvoiceDetail extends Command {
         double width = (Double) od.getCarportWidth();
         double skurlength = (Double) od.getLengthRedskabsrum();
         double skurWidth = (Double) od.getWidthRedskabsrum();
-
         double price = od.getPrice();
         request.setAttribute("priceTwoDecimal", price);
         XXRendUtilStykListe XXStykListe =new  XXRendUtilStykListe();
         String LineItemsList;
         LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);
         request.setAttribute("LineItemsList", LineItemsList);
-
         XXRendSvg svag = new XXRendSvg();
-
         String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
         request.setAttribute("carportTegning", carportTegning);
 
