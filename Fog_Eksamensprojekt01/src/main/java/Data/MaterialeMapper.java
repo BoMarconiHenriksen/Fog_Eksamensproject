@@ -29,7 +29,7 @@ public class MaterialeMapper {
      * @return mats
      * @throws NewException 
      */
-
+    
     public static List<Materiale> getMaterial() throws NewException {
 
         List<Materiale> mats = new ArrayList<>();
