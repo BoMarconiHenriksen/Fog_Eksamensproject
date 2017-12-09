@@ -126,7 +126,7 @@
                                                 </form>
                                             </div>
 
-                                            <button type="button"  onclick="location.href = 'Kundepage.jsp';" >Gå Tilbage til velkomstsiden</button>
+                                            <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                                         </div>
                                     </div>
                                 </div>
