@@ -37,7 +37,7 @@ public class RendUtilOrderList {
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"action\" name=InvoiceDetail\">Se ordre</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail\">Se Ordre</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }
