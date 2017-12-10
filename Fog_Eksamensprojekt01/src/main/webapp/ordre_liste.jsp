@@ -129,7 +129,7 @@
 
                 <div>
 
-                    <% out.println(RendUtilOrderList.invoiceList((List) request.getAttribute("invoiceList")));%>
+                    <%=request.getAttribute("admin_orderlist")%>
 
                 </div>
 

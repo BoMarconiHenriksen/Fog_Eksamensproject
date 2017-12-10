@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.RendUtilUserList"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
@@ -46,7 +47,7 @@
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Bestil Carport</title>
+        <title>Bestil Carport for en kunde</title>
     </head>
     <body>
 
@@ -77,7 +78,7 @@
 
 
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -89,18 +90,18 @@
 
                         <li class="nav-item px-lg-4">
 
-                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="OrdreList_Customer">
                                 <div class="form-group">
-                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                    <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
                                 </div>
                             </form>
 
-                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
                                 <div>     
                                     <input type="hidden" name="command" value="Customer_UserOptions">
                                     <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
                                     </div>
                                 </div>
                             </form>
@@ -123,16 +124,17 @@
             <div class="text-heading text-lg">
                 <div class="bg-faded p-4 my-4">
 
-                    <h1>Bestilling af Carporte</h1>
+                    <h1>Bestil en Carport for en kunde</h1>
 
-                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
+                    <h2> Hej <%session.getAttribute("firstname");%> </h2>
+                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>            
 
                     <form name="basisCarport" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="basisCarport">
+                        <input type="hidden" name="command" value="Employee_OrderCarport">
                         <input type="hidden" name="command" value="basisCarportCheckud">
                         <input type="hidden" name="command" value="CarportGemDesign">
 
-
+                        <%=request.getAttribute("userLists")%>
 
                         <%=RendUtilCustomerPresentation.getMeasures()%>     
 
@@ -157,9 +159,8 @@
 
                         <br><br>
 
-                        <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
-                        <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
-                        <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+                        <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
 
                     </form>
 
@@ -184,7 +185,6 @@
                             <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
                                 } else {
-                                    out.println("<p> Hello  " + request.getAttribute("username") + "</p><br>");
                                     out.println("<h2>Pris på valgt Carport: </h2><br>");
                                     out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
                                     out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");

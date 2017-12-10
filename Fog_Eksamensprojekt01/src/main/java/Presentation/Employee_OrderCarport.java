@@ -11,12 +11,14 @@ import Domain.Exception.NewException;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
+import Utillities.RendUtilUserList;
 import Utillities.XXRendSvg;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +30,6 @@ import javax.servlet.http.HttpSession;
  *
  * @author Ticondrus
  */
-
 public class Employee_OrderCarport extends Command {
 
     @Override
@@ -36,18 +37,17 @@ public class Employee_OrderCarport extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        session.setAttribute("username", user.getFirstname());
 
-        String SePris = request.getParameter("basisCarport");
-        String CheckUd = request.getParameter("basisCarportCheckud");
-        String GemDesign = request.getParameter("CarportGemDesign");
+        String SePris = request.getParameter("Employee_OrderCarport");
+        String CheckUd = request.getParameter("Employee_OrderCarportPlaceOrder");
 
         Ordre order = new Ordre();
 
-        int user_id = user.getUser_id();
+        int user_id = Integer.parseInt(request.getParameter("kunde_id"));
 
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
+        request.setAttribute("kunde_ided", user_id);
 
         String ordre_status = null;
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
@@ -60,35 +60,29 @@ public class Employee_OrderCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
 
-        double totalPrice =  calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+        double totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
         if (CheckUd != null) {
 
-            ordre_status = "Afventer kundens bekræftigelse";
+            ordre_status = "Bestilt";
 
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
-            return "outprintpage";
-        }
-
-        if (GemDesign != null) {
-
-            ordre_status = "Gemt Design";
-
-            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
-
-            return "customerpage";
-
+            return "employee_orderconfirmationpage";
         }
 
         if (SePris != null) {
 
-            calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+            calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
-            return "bestilbasiscarportpage";
+            List<User> userList = LogicFacade.getUserList();
+            String userLists = RendUtilUserList.invoiceUserList(userList);
+            request.setAttribute("userLists", userLists);
+
+            return "employee_ordercarportpage";
 
         } else {
-            return "customerpage";
+            return "employeepage";
         }
     }
 

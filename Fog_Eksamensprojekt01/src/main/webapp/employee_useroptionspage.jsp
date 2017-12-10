@@ -132,7 +132,14 @@
                 </div>
 
                 <div>
-
+                                            <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0){
+                                                out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
+                                            } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1){
+                                                out.println("<p> Dit password er nu ændret. </p><br>");
+                                            }
+                                            else{ out.println("");
+                                            }
+                                            %>
                 </div>             
                 <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
             </div>

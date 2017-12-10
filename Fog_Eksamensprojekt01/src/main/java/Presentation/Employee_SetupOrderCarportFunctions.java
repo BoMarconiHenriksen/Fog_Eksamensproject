@@ -5,9 +5,15 @@
  */
 package Presentation;
 
+import Business.LogicFacade;
 import Domain.Exception.NewException;
+import Domain.Ordre;
+import Domain.User;
+import Utillities.RendUtilOrderList_Customer;
+import Utillities.RendUtilUserList;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +32,9 @@ public class Employee_SetupOrderCarportFunctions extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
         
+        List<User> userList = LogicFacade.getUserList();
+       String userLists = RendUtilUserList.invoiceUserList(userList);
+       request.setAttribute("userLists", userLists);
         
         return "employee_ordercarportpage";
     }
