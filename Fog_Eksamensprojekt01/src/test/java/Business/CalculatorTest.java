@@ -62,7 +62,7 @@ public class CalculatorTest {
      * Test of calculateCarportSimple method, of class Calculator.
      */
     @Test
-    public void testCalculateCarportSimple() throws Exception {
+    public void testCalculateCarportSimpleSmall() throws Exception {
         System.out.println("calculateCarportSimple");
         double length = 240.0;
         double width = 240.0;
@@ -74,7 +74,56 @@ public class CalculatorTest {
         // TODO review the generated test code and remove the default call to fail.
        
     }
+     /**
+     * Test of calculateCarportSimple method, of class Calculator.
+     */
+    @Test
+    public void testCalculateCarportSimpleMedium() throws Exception {
+        System.out.println("calculateCarportSimple");
+        double length = 480.0;
+        double width = 300.0;
+        double heigth = 225.0;
+        Calculator instance = new Calculator();
+        double expResult = 4300.26;
+        double result = instance.calculateCarportSimple(length, width, heigth);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+       
+    }
+     /**
+     * Test of calculateCarportSimple method, of class Calculator.
+     */
+    @Test
+    public void testCalculateCarportSimpleLarge() throws Exception {
+        System.out.println("calculateCarportSimple");
+        double length = 600.0;
+        double width = 480.0;
+        double heigth = 225.0;
+        Calculator instance = new Calculator();
+        double expResult = 6739.36;
+        double result = instance.calculateCarportSimple(length, width, heigth);
+        assertEquals(expResult, result, 0.01);
+        // TODO review the generated test code and remove the default call to fail.
+       
+    }
     
+      @Test
+    public void testCalculateCarportSimpleLongerThanAnyEcolite() throws Exception {
+        System.out.println("calculateCarportSimple");
+        double length = 660.0;
+        double width = 480.0;
+        double heigth = 225.0;
+        Calculator instance = new Calculator();
+        double expResult = 6959.85;
+        double result = instance.calculateCarportSimple(length, width, heigth);
+        assertEquals(expResult, result, 0.0);
+        // igen en god ting at teste det hele. Jeg fandt ud af at jeg ikke havde 
+        // for alle tre ecoliteTagUdregninger og derved fik jeg rettet så at der 
+        //skulle regnes to slags tagplader ind i regnestykket når carportens 
+        //længde var større end 600
+       
+    }
+ 
  
     /**
      * Test of numberOfRafters method, of class Calculator.
@@ -98,14 +147,9 @@ public class CalculatorTest {
         System.out.println("spaceBetweenRafters");
         double length = 480.0;
         boolean expResult=true;
-      boolean result=false;
+      boolean result;
         int space = Calculator.spaceBetweenRafters(length);
-        if (space >=54&&space<=60){
-           result=true;
-        }
-        else{
-            result=false;
-        }
+        result = space >=54&&space<=60;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
    
@@ -121,14 +165,9 @@ public class CalculatorTest {
         System.out.println("spaceBetweenRafters");
         double length = 120.5;
         boolean expResult=true;
-      boolean result=false;
+      boolean result;
         int space = Calculator.spaceBetweenRafters(length);
-        if (space >=54&&space<=60){
-           result=true;
-        }
-        else{
-            result=false;
-        }
+        result = space >=54&&space<=60;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
    
@@ -142,14 +181,9 @@ public class CalculatorTest {
         System.out.println("spaceBetweenRafters");
         double length = 1396.55;
         boolean expResult=true;
-      boolean result=false;
+      boolean result;
         int space = Calculator.spaceBetweenRafters(length);
-        if (space >=54&&space<=60){
-           result=true;
-        }
-        else{
-            result=false;
-        }
+        result = space >=54&&space<=60;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
    

@@ -107,6 +107,10 @@ public class Calculator {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
+        }else if (length > 600) {
+
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris()+LogicFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
+
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
                 + 2 * length / 100 * plank2Price + 2 * (length / 100 ) * RaftsAndStrapsPrice
