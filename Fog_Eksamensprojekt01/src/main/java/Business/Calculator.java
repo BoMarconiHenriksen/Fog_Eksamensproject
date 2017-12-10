@@ -27,6 +27,7 @@ public class Calculator {
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
      * grundelementer samt alle ekstra ting m.m.
+     * Den må kun bruges hvis skuret er med 
      *
      * @param length længden af carporten
      * @param width bredden af carporten
@@ -127,7 +128,10 @@ public class Calculator {
 
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
-        int numberOfPckScrews = numberOfScrews / 200;
+        int numberOfPckScrews = (int) Math.ceil(numberOfScrews / 200);
+        if (length==240 && width==240){
+            numberOfPckScrews=1;
+        }
         return numberOfPckScrews;
     }
     

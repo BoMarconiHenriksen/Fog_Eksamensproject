@@ -68,7 +68,7 @@ public class CalculatorTest {
         double width = 240.0;
         double heigth = 225.0;
         Calculator instance = new Calculator();
-        double expResult = 2790.60;
+        double expResult = 2988.55;
         double result = instance.calculateCarportSimple(length, width, heigth);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
@@ -103,26 +103,102 @@ public class CalculatorTest {
         if (space >=54&&space<=60){
            result=true;
         }
+        else{
+            result=false;
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
    
     }
 
     /**
+     * Test of spaceBetweenRafters method, of class Calculator.
+     */
+    
+      /**
+     * Test of spaceBetweenRafters method, of class Calculator.
+     */
+    @Test
+    public void testSpaceBetweenRaftersSmallerThanItCanBe() {
+        System.out.println("spaceBetweenRafters");
+        double length = 120.5;
+        boolean expResult=true;
+      boolean result=false;
+        int space = Calculator.spaceBetweenRafters(length);
+        if (space >=54&&space<=60){
+           result=true;
+        }
+        else{
+            result=false;
+        }
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+   
+    }
+
+    /**
+     * Test of spaceBetweenRafters method, of class Calculator.
+     */
+    @Test
+    public void testSpaceBetweenRaftersSizeNotDividableByThirty() {
+        System.out.println("spaceBetweenRafters");
+        double length = 1396.55;
+        boolean expResult=true;
+      boolean result=false;
+        int space = Calculator.spaceBetweenRafters(length);
+        if (space >=54&&space<=60){
+           result=true;
+        }
+        else{
+            result=false;
+        }
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+   
+    }
+    /**
      * Test of numberOfBottomScrewsPackageEcolite method, of class Calculator.
      */
     @Test
-    public void testNumberOfBottomScrewsPackageEcolite() {
+    public void testNumberOfBottomScrewsPackageEcoliteLargeCarport() {
         System.out.println("numberOfBottomScrewsPackageEcolite");
-        double length = 600.0;
-        double width = 300.0;
-        int expResult = 2;
+        double length = 930.0;
+        double width = 510.0;
+        int expResult = 3;
         int result = Calculator.numberOfBottomScrewsPackageEcolite(length, width);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
      
     }
-
+ /**
+     * Test of numberOfBottomScrewsPackageEcolite method, of class Calculator.
+     */
+   @Test
+    public void testNumberOfBottomScrewsPackageEcoliteSmallCarport() {
+        System.out.println("numberOfBottomScrewsPackageEcolite");
+        double length = 240.0;
+        double width = 240.0;
+        int expResult =1;
+        int result = Calculator.numberOfBottomScrewsPackageEcolite(length, width);
+        assertEquals(expResult, result);
+        // We found a really nice flaw by running this test the result was actually zero 
+        // But it it pretty obc´vious that we need at least som screws to hold the roof. 
+     
+    }
+/**
+     * Test of numberOfBottomScrewsPackageEcolite method, of class Calculator.
+     */
+    @Test
+    public void testNumberOfBottomScrewsPackageEcoliteAverageCarport() {
+        System.out.println("numberOfBottomScrewsPackageEcolite");
+        double length = 480.0;
+        double width = 300.0;
+        int expResult =1;
+        int result = Calculator.numberOfBottomScrewsPackageEcolite(length, width);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+     
+    }
     /**
      * Test of calculatePriceShed method, of class Calculator.
      */
