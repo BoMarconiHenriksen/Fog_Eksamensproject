@@ -186,7 +186,7 @@ public class basisCarport extends Command {
         String formatDateTime = today.format(formatter);
 
         //SÃ¦tter datoen pÃ¥ ordren
-        order.setReciveddate(formatDateTime);
+//        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getLastInvoiceId();
