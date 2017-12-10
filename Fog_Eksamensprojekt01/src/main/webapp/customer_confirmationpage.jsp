@@ -147,11 +147,8 @@
                                             <hr class="divider">
                                             <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
                                             <hr class="divider">    
-                                            <%     XXRendSvg svag = new XXRendSvg();
-
-                                                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-
-                                                out.println("<a>" + carportTegning + "</a>");
+                                            <%     
+                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                                             %>  
                                         </div>
                                     </div>

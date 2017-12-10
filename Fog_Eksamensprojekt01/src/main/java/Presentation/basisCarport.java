@@ -29,6 +29,7 @@ public class basisCarport extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+        session.setAttribute("username", user.getFirstname());
         XXRendSvg svag = new XXRendSvg();
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
@@ -130,16 +131,21 @@ public class basisCarport extends Command {
 
         DecimalFormat df = new DecimalFormat("#0.00");
         Calculator calc = new Calculator();
-        double carportTotaludenSkur = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
-        String carportTotalDecimaledudenSkur = df.format(carportTotaludenSkur);
+        double carportNoShed = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
+        String carportTotalDecimaledudenSkur = df.format(carportNoShed);
         request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
-
+        double totalPrice;
         //Skuret 
+        if (request.getParameter("skurellerej")!=null){
         double skurTotaludenCarport = calc.calculatePriceShed(lentghinputskur, widthinputskur);
-        double totalPrice = carportTotaludenSkur + skurTotaludenCarport;
-        String carportTotal = df.format(totalPrice);
-
-        request.setAttribute("carportTotalmedSkur", (String) carportTotal);
+        totalPrice = carportNoShed + skurTotaludenCarport;
+       
+        }else{
+            totalPrice=carportNoShed ;
+        }
+        
+  String totalPriceDF = df.format(totalPrice);
+        request.setAttribute("carportTotal", (String) totalPriceDF); 
         request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
         request.setAttribute("widthInputSkuret", (Double) widthinputskur);
         request.setAttribute("heightInputSkuret", (Double) heightputskur);

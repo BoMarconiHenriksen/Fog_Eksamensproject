@@ -203,7 +203,7 @@
                             %>
                             <!-- Virker ikke lige pt!-->
                             <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                                }%>    
+                                }%>    
                         </div>
                     </div>
                 </div>

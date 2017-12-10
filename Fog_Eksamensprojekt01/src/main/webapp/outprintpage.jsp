@@ -157,7 +157,7 @@
 
                             if (request.getAttribute("skurInput") != null) {
 
-                                out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
+                                out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotal") + "</p><br>");
                                 out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
                                 out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
                                 out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
@@ -178,19 +178,16 @@
             </div>
 
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din kommende carport</strong></h2>
-                    <hr class="divider">
-
-
-                    <%--
-                        XXRendSvg svag = new XXRendSvg();
-                        String carportTegning = svag.simpelCarport((Double) request.getAttribute("lentghInput"), (Double) request.getAttribute("widthInput"), (Double) request.getAttribute("lentghInputSkuret"), (Double) request.getAttribute("widthInputSkuret"));
-                        out.println("<a>" + carportTegning + "</a>");
-                    --%> 
-
+              <div class="text-heading text-lg">
+                                        <div class="bg-faded p-4 my-4">
+                                            <hr class="divider">
+                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                                            <hr class="divider">    
+                                            <%     
+                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                                            %>  
+                                        </div>
+                                    </div>
 
                     <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
                 </div>
@@ -200,9 +197,7 @@
                     <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
                 </form>
 
-            </div>                   
-
-        </div>
+        
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
