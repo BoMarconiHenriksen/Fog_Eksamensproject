@@ -11,9 +11,21 @@ import java.util.List;
 /**
  *
  * @author Bo
+ * Klassen bruger StringBuilder til at rendere en liste over alle ordrer ,med 
+ * med enkelte ordredetaljer fra odetalje klassen. 
  */
 public class RendUtilOrderList {
 
+/**
+  * Metoden bruger StringBuilder til at  skabe en streng der kan rendere en liste over 
+  * alle ordrer ,med med enkelte ordredetaljer fra odetalje klassen, samt en 
+  * htmlform med en submit knap der fører brugeren fra den jsp side ordrelisten 
+  * blever kaldt på gennem en command der hedder invoicedetail.jave. 
+  * Dette gøres  ved at at hente en liste af alle ordrer fra databasen gennem 
+ *  logicFacaden og derefter iterere igennem listen af ordrer, og hente
+ * forskellige af de gemte værdier. 
+ */
+    
     public static String invoiceList(List<Ordre> ordreList) throws NewException {
     
         ordreList = LogicFacade.getOrderList();
