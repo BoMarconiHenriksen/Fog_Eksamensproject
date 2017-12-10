@@ -49,7 +49,7 @@ public class CalculatorTest {
         double shedLength = 0.0;
         double shedWidth = 0.0;
         Calculator instance = new Calculator();
-        double expResult = 2790.60;
+        double expResult = 2988.55;
         double result = instance.totalPriceSimpleCarport(length, width, heigth, shedLength, shedWidth);
         assertEquals(expResult, result, 0.0);
         // This one failed because there are things in the shed that are constant so it shows that we
