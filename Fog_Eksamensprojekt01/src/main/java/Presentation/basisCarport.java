@@ -16,9 +16,11 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author The DataBuilders This class is one of the commands. The execute
+ * @author The DataBuilders 
+ * This class is one of the commands. The execute
  * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
- * and then put them though various methods a calculator that calculates the
+ * and then put them though various methods based on the specific button pushed
+ * a calculator that calculates the
  * price. The parameters is also used to place an order and some odetails in the
  * database.
  */
@@ -88,7 +90,7 @@ public class basisCarport extends Command {
     /**
      * This method makes sure the shed can be placed under the carport roof with
      * regards to shed length and carportwidth. it also uses the calculator and
-     * skurcalculator to se a price for the carport with shed.
+     * skurcalculator to set a price for the carport with shed.
      *
      * @param lentghinputskur chosen length of shed
      * @param widthinput chosen width of carport
@@ -196,8 +198,8 @@ public class basisCarport extends Command {
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
         LogicFacade.getOrderByOrderId2(or);
-
         ods = LogicFacade.getOdetaljerByOrderId(or);
+        
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());
