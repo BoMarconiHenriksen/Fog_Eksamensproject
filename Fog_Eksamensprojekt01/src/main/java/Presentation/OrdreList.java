@@ -25,7 +25,21 @@ public class OrdreList extends Command {
         
         request.setAttribute("invoiceList", invoiceList);
         
+         List<Ordre> ordreList = LogicFacade.getOrderList();
+       String admin_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+
+         if (ordreList.isEmpty()){
+
+           request.setAttribute("admin_orderlist", "Der er ikke nogen ordre."
+                   + "Hvis der er nogen der har bestilt en ordre, vil den fremgå her på siden.");      
+ 
+       } else{
+
+           request.setAttribute("admin_orderlist", admin_Orderlist);
+        
         return "ordre_liste";
 
     }
+        return "ordre_liste";
  }
+}

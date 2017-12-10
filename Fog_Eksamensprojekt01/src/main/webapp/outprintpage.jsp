@@ -147,7 +147,6 @@
                     <%if (request.getAttribute("lentghInput") == null) {
                             out.println("");
                         } else {
-                            out.println("<p> Hej user " + session.getAttribute("userNr") + "</p><br>");
                             out.println("<h2>Pris på valgt Carport: </h2><br>");
                             out.println("<p> Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
 

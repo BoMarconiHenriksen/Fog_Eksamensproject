@@ -78,7 +78,7 @@
 
 
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -126,7 +126,9 @@
 
                     <h1>Bestilling af Carporte</h1>
 
+                    <h2> Hello <%request.getAttribute("username");%> </h2>
                     <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
+                    
 
                     <form name="basisCarport" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="basisCarport">
@@ -185,7 +187,6 @@
                             <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
                                 } else {
-                                    out.println("<p> Hello  " + request.getAttribute("username") + "</p><br>");
                                     out.println("<h2>Pris på valgt Carport: </h2><br>");
                                     out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
                                     out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");

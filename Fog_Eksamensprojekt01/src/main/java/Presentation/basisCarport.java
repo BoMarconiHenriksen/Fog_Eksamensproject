@@ -29,7 +29,6 @@ public class basisCarport extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        session.setAttribute("username", user.getFirstname());
 
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
