@@ -16,13 +16,11 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author The DataBuilders 
- * This class is one of the commands. The execute
+ * @author The DataBuilders This class is one of the commands. The execute
  * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
  * and then put them though various methods based on the specific button pushed
- * a calculator that calculates the
- * price. The parameters is also used to place an order and some odetails in the
- * database.
+ * a calculator that calculates the price. The parameters is also used to place
+ * an order and some odetails in the database.
  */
 public class basisCarport extends Command {
 
@@ -54,12 +52,12 @@ public class basisCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
 
-        double totalPrice =  calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+        double totalPrice = 0;
 
         if (CheckUd != null) {
 
             ordre_status = "Afventer kundens bekræftigelse";
-
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "outprintpage";
@@ -68,7 +66,7 @@ public class basisCarport extends Command {
         if (GemDesign != null) {
 
             ordre_status = "Gemt Design";
-
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "customerpage";
@@ -77,7 +75,7 @@ public class basisCarport extends Command {
 
         if (SePris != null) {
 
-            calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+            calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
             return "bestilbasiscarportpage";
 
@@ -198,7 +196,7 @@ public class basisCarport extends Command {
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
         LogicFacade.getOrderByOrderId2(or);
         ods = LogicFacade.getOdetaljerByOrderId(or);
-        
+
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());

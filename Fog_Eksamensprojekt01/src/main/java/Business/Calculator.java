@@ -16,11 +16,11 @@ import Domain.Exception.NewException;
  */
 public class Calculator {
     
-    public double totalPriceSimpleCarport(double length, double width, double heigth,double shedLength, double shedWidth) throws NewException{
-        double totalPriceSimpleCarport= calculateCarportSimple( length, width, heigth) +calculatePriceShed(shedLength,  shedWidth);
-        return totalPriceSimpleCarport;
-    }
-    
+//    public double totalPriceSimpleCarport(double length, double width, double heigth,double shedLength, double shedWidth) throws NewException{
+//        double totalPriceSimpleCarport= calculateCarportSimple( length, width, heigth) +calculatePriceShed(shedLength,  shedWidth);
+//        return totalPriceSimpleCarport;
+//    }
+//    
     
 
 
@@ -188,7 +188,7 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(480, 300,225));
+        System.out.println(calc.calculateBaseCarport(480, 300));
 
     }
 

@@ -41,22 +41,22 @@ public class CalculatorTest {
      * Test of totalPriceSimpleCarport method, of class Calculator.
      */
     //@Test 
-    public void testTotalPriceSimpleCarport() throws Exception {
-        System.out.println("totalPriceSimpleCarport");
-        double length = 240.0;
-        double width = 240.0;
-        double heigth = 225.0;
-        double shedLength = 0.0;
-        double shedWidth = 0.0;
-        Calculator instance = new Calculator();
-        double expResult = 2988.55;
-        double result = instance.totalPriceSimpleCarport(length, width, heigth, shedLength, shedWidth);
-        assertEquals(expResult, result, 0.0);
+//    public void testTotalPriceSimpleCarport() throws Exception {
+//        System.out.println("totalPriceSimpleCarport");
+//        double length = 240.0;
+//        double width = 240.0;
+//        double heigth = 225.0;
+//        double shedLength = 0.0;
+//        double shedWidth = 0.0;
+//        Calculator instance = new Calculator();
+//        double expResult = 2988.55;
+//        double result = instance.totalPriceSimpleCarport(length, width, heigth, shedLength, shedWidth);
+//        assertEquals(expResult, result, 0.0);
         // This one failed because there are things in the shed that are constant so it shows that we
         // have to keep method for calculating shed price and method for calculating the carport apart
         
 
-    }
+//    }
 
     /**
      * Test of calculateCarportSimple method, of class Calculator.
@@ -111,9 +111,7 @@ public class CalculatorTest {
    
     }
 
-    /**
-     * Test of spaceBetweenRafters method, of class Calculator.
-     */
+  
     
       /**
      * Test of spaceBetweenRafters method, of class Calculator.
@@ -182,7 +180,7 @@ public class CalculatorTest {
         int result = Calculator.numberOfBottomScrewsPackageEcolite(length, width);
         assertEquals(expResult, result);
         // We found a really nice flaw by running this test the result was actually zero 
-        // But it it pretty obc´vious that we need at least som screws to hold the roof. 
+        // But it it pretty obc´vious that we need at least some screws to hold the roof. 
      
     }
 /**
