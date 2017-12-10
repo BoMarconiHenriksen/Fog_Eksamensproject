@@ -30,6 +30,10 @@ public class LogicFacade {
     public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
     }
+    
+    public static List<User> getUserList() throws NewException {
+        return UserMapper.getUserList();
+    }
 
     public static Ordre getOrdreByOrderId(int ordre_id) throws NewException {
         return OrdreMapper.getOrdreByOrdreId(ordre_id);

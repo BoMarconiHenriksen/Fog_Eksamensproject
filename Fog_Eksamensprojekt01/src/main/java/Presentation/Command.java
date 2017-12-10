@@ -38,6 +38,8 @@ abstract class Command {
         commands.put("Customer_UserOptionsPasswordChange", new Customer_UserOptions());
         commands.put("Employee_UserOptions", new Employee_UserOptions());
         commands.put("Employee_UserOptionsPasswordChange", new Employee_UserOptions());
+        commands.put("Employee_OrderCarport", new Employee_OrderCarport());
+        commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
 
     }
 

@@ -55,6 +55,12 @@ public class User {
         this.role = role;
         this.firstname = firstname;
     }
+    
+    public User(int user_id, String email, int tlfnummer) {
+        this.user_id = user_id;
+        this.email = email;
+        this.tlfnummer = tlfnummer;
+    }
 
     public int getTlfnummer() {
         return tlfnummer;

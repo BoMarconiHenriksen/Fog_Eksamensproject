@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -116,6 +118,35 @@ public class UserMapper {
             throw new NewException(ex.getMessage());
         }
 
+    }
+    
+    public static List<User> getUserList() throws NewException {
+        List<User> userList = new ArrayList<>();
+
+        try {
+
+            User u;
+
+            Connection con = DBConnector.connection();
+            String sql = "SELECT user_id, email, tlfnummer FROM userliste";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            int lastId = -1;
+            while (rs.next()) {
+                int user_id = rs.getInt("user_id");
+                String email = rs.getString("email");
+                int tlfnummer = rs.getInt("tlfnummer");
+                if (user_id != lastId) {
+
+                    u = new User(user_id, email, tlfnummer);
+
+                    userList.add(u);
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderList", ex);
+            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userList;
     }
 
 }

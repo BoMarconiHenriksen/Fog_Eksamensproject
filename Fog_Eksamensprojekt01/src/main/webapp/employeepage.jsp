@@ -129,6 +129,12 @@
                             <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
                         </div>
                     </form>
+                    
+                     <form name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">
+
+                        <button type="submit" name="Employee_SetupOrderCarportFunctions" value="Submit">Bestil en Carport for en kunde </button>
+                    </form>
 
                 </div>
             </div>

@@ -1,23 +1,21 @@
 <%-- 
-    Document   : outprintpage
-    Created on : 09-11-2017, 12:26:33
+    Document   : employee_ordercarportpage
+    Created on : 10-12-2017, 13:52:04
     Author     : Ticondrus
 --%>
 
-
-
-<%@page import="Utillities.LineItemFactory"%>
-<%@page import="Domain.LineItem"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Business.Calculator"%>
 <%@page import="Business.LogicFacade"%>
-<%@page import="Domain.User"%>
-<%@page import="java.util.List"%>
-<%@page import="Domain.Materiale"%>
-<%@page import="Presentation.FrontController"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
+<%@page import="Utillities.RendUtilCustomerPresentation"%>
+<%@page import="Domain.Materiale"%>
+<%@page import="java.util.List"%>
+<%@page import="Presentation.FrontController"%>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,6 +26,14 @@
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
+        <!--<script src="script/jquery/jquery.js" type="text/javascript"></script>-->
+        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
+        <!--<script src="script/jquery/jquery.min.js" type="text/javascript"></script>-->
+        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -40,7 +46,7 @@
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Din Bestilling</title>
+        <title>Bestil Carport</title>
     </head>
     <body>
 
@@ -70,9 +76,8 @@
                     <ul class="navbar-nav mx-auto">
 
 
-
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -108,8 +113,8 @@
                             </form>
 
                     </ul>
-
                 </div>
+            </div>
         </nav>
         <!-- Navigation slut -->
 
@@ -117,87 +122,92 @@
 
             <div class="text-heading text-lg">
                 <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Bekræft din bestilling</strong></h2>
-                    <hr class="divider">
 
-                    <p>Du kan her se hvad din ordre kommer til at koste samt en model af den.
-                        Tryk på bestil ordre i bunden af siden, for at fudlføre din bestilling.</p>
+                    <h1>Bestilling af Carporte</h1>
 
-                    <p>De bedste hilsener</p>
-                    <p>Fog Tømmerhandel</p>
-                </div>
-            </div>
+                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Information om din ordre</strong></h2>
-                    <hr class="divider">        
-
-                    <p>Dit Ordre id: ${KundensOID}</p><br>
-                    <p>Din Ordre Status: Ordren afventer din bekræftigelse.</p>
-                    <br>
+                    <form name="basisCarport" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="basisCarport">
+                        <input type="hidden" name="command" value="basisCarportCheckud">
+                        <input type="hidden" name="command" value="CarportGemDesign">
 
 
 
+                        <%=RendUtilCustomerPresentation.getMeasures()%>     
 
 
 
-                    <%if (request.getAttribute("lentghInput") == null) {
-                            out.println("");
-                        } else {
-                            out.println("<p> Hej user " + session.getAttribute("userNr") + "</p><br>");
-                            out.println("<h2>Pris på valgt Carport: </h2><br>");
-                            out.println("<p> Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
+                        <!--Her starter vores hidden skur-->
+                        <!-- <form action="#" method="POST">-->
+                        <div>
+                            Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
+                        </div>
+                        <div id="hidden_fields">
+                            Hvor stort skal skuret være? 
 
-                            out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("length") + "</p><br>");
-                            out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("width") + "</p><br>");
-                            out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("height") + "</p><br>");
+                            <br><br>
 
-                            if (request.getAttribute("lentghInputSkuret") != null) {
+                            <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
+                            <!--Her slutter hidden skur-->    
 
-                                out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotal") + "</p><br>");
-                                out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
-                                out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
-                                out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
-                                if ((int) request.getAttribute("count") != 0) {
-                                    out.println("<p>" + request.getAttribute("ditSkurErForLangt") + "</p>");
-                                } else {
+                        </div>
+
+
+
+                        <br><br>
+
+                        <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
+                        <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+
+                    </form>
+
+
+
+
+
+                    <p>
+                        Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
+                        lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
+                        tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
+                    </p>
+
+
+                    <div class="text-heading text-lg">
+                        <div class="bg-faded p-4 my-4">
+                            <hr class="divider">
+                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                            <hr class="divider">    
+
+                            <!--Hvis basisCarport er null printes der ikke noget på siden-->
+                            <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
-                                }
+                                } else {
+                                    out.println("<p> Hello  " + request.getAttribute("username") + "</p><br>");
+                                    out.println("<h2>Pris på valgt Carport: </h2><br>");
+                                    out.println("<p> Samlet Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
+                                    out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("lentghInput") + "</p><br>");
+                                    out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("widthInput") + "</p><br>");
+                                    out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("heightInput") + "</p><br>");
+                                    if (request.getAttribute("skurInput") != null) {
+                                        out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotalmedSkur") + "</p><br>");
+                                        out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
+                                        out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
+                                        out.println("<p> Standard Højde på Skuret: " + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
+                                    } else {
+                                        out.println("");
+                                    }
 
-                            } else {
-                                out.println("");
-                            }
-
-                                                    }%>
-
-
+                            %>
+                            <!-- Virker ikke lige pt!-->
+                            <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                                }%>    
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-              <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                                            <hr class="divider">    
-                                            <%     
-                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                            %>  
-                                        </div>
-                                    </div>
-
-                    <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
-                </div>
-                <form name="Checkout" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="OrdertheOrder">
-
-                    <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
-                </form>
-
-        
+        </div>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
@@ -210,13 +220,5 @@
             </div>
         </footer>
 
-
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
-
 </html>
