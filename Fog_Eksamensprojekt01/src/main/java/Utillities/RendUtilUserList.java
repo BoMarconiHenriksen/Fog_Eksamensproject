@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class RendUtilUserList {
     
-    public static String invoiceList(List<User> userList) throws NewException {
+    public static String invoiceUserList(List<User> userList) throws NewException {
     
         userList = LogicFacade.getUserList();
 

@@ -4,6 +4,7 @@
     Author     : Ticondrus
 --%>
 
+<%@page import="Utillities.RendUtilUserList"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
@@ -46,7 +47,7 @@
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Bestil Carport</title>
+        <title>Bestil Carport for en kunde</title>
     </head>
     <body>
 
@@ -123,7 +124,7 @@
             <div class="text-heading text-lg">
                 <div class="bg-faded p-4 my-4">
 
-                    <h1>Bestilling af Carporte</h1>
+                    <h1>Bestil en Carport for en kunde</h1>
 
                     <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
 
@@ -132,7 +133,7 @@
                         <input type="hidden" name="command" value="basisCarportCheckud">
                         <input type="hidden" name="command" value="CarportGemDesign">
 
-
+                        <%=request.getAttribute("userLists")%>
 
                         <%=RendUtilCustomerPresentation.getMeasures()%>     
 

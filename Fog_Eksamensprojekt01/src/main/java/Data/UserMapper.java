@@ -128,7 +128,7 @@ public class UserMapper {
             User u;
 
             Connection con = DBConnector.connection();
-            String sql = "SELECT user_id, email, tlfnummer FROM userliste";
+            String sql = "SELECT * FROM userlist";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
             int lastId = -1;
             while (rs.next()) {
@@ -143,8 +143,8 @@ public class UserMapper {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            logger.log(Level.SEVERE, "Fejl i getOrderList", ex);
-            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Fejl i getUserList", ex);
+            Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return userList;
     }
