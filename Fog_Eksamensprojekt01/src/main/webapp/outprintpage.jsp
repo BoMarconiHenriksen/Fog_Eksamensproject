@@ -155,7 +155,7 @@
                             out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("width") + "</p><br>");
                             out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("height") + "</p><br>");
 
-                            if (request.getAttribute("skurInput") != null) {
+                            if (request.getAttribute("lentghInputSkuret") != null) {
 
                                 out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotal") + "</p><br>");
                                 out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");

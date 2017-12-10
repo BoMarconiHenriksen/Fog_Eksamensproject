@@ -30,7 +30,7 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         session.setAttribute("username", user.getFirstname());
-        XXRendSvg svag = new XXRendSvg();
+
         String SePris = request.getParameter("basisCarport");
         String CheckUd = request.getParameter("basisCarportCheckud");
         String GemDesign = request.getParameter("CarportGemDesign");
@@ -53,11 +53,8 @@ public class basisCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
 
-        double totalPrice = calculatePriceSetAttrubtes(request, widthinput, lentghinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+        double totalPrice =  calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
-        String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
-        request.setAttribute("carportTegning", carportTegning);
-        
         if (CheckUd != null) {
 
             ordre_status = "Afventer kundens bekræftigelse";
@@ -79,9 +76,8 @@ public class basisCarport extends Command {
 
         if (SePris != null) {
 
-            calculatePriceSetAttrubtes(request, widthinput, lentghinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
-           
-           
+            calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+
             return "bestilbasiscarportpage";
 
         } else {
@@ -136,16 +132,16 @@ public class basisCarport extends Command {
         request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
         double totalPrice;
         //Skuret 
-        if (request.getParameter("skurellerej")!=null){
-        double skurTotaludenCarport = calc.calculatePriceShed(lentghinputskur, widthinputskur);
-        totalPrice = carportNoShed + skurTotaludenCarport;
-       
-        }else{
-            totalPrice=carportNoShed ;
+        if (heightputskur != 0.00) {
+            double skurTotaludenCarport = calc.calculatePriceShed(lentghinputskur, widthinputskur);
+            totalPrice = carportNoShed + skurTotaludenCarport;
+
+        } else {
+            totalPrice = carportNoShed;
         }
-        
-  String totalPriceDF = df.format(totalPrice);
-        request.setAttribute("carportTotal", (String) totalPriceDF); 
+
+        String totalPriceDF = df.format(totalPrice);
+        request.setAttribute("carportTotal", (String) totalPriceDF);
         request.setAttribute("lentghInputSkuret", (Double) lentghinputskur);
         request.setAttribute("widthInputSkuret", (Double) widthinputskur);
         request.setAttribute("heightInputSkuret", (Double) heightputskur);
@@ -153,7 +149,9 @@ public class basisCarport extends Command {
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
         request.setAttribute("skurInput", (String) skurellerej);
-
+        XXRendSvg svag = new XXRendSvg();
+        String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
+        request.setAttribute("carportTegning", carportTegning);
         return totalPrice;
     }
 
