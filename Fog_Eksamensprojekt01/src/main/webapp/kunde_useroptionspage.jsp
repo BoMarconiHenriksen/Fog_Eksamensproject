@@ -125,6 +125,15 @@
                                                     <button type="submit" name="Customer_UserOptionsPasswordChange" value="Submit">Udfør Password ændring </button>
                                                 </form>
                                             </div>
+                                            
+                                            <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0){
+                                                out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
+                                            } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1){
+                                                out.println("<p> Dit password er nu ændret. </p><br>");
+                                            }
+                                            else{ out.println("");
+                                            }       
+                                            %>
 
                                             <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                                         </div>

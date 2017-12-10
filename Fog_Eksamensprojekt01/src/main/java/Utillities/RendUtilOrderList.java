@@ -38,6 +38,7 @@ public class RendUtilOrderList {
         }
         sb.append("</table>\n");
         sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail\">Se Ordre</button> ");
+        sb.append("<button type=\"submit\" value=\"action\" onclick=\"javascript:return show_confirmDeletetheOrder();\" name=\"InvoiceDetail_Admin_DeleteOrder\">Slet Orderen</button> ");
         sb.append("</form>\n");
         return sb.toString();
     }
