@@ -1,19 +1,32 @@
 <%-- 
-    Document   : kunde_useroptionspage
-    Created on : 06-12-2017, 15:11:32
+    Document   : Kundepage
+    Created on : 05-12-2017, 11:00:25
     Author     : Ticondrus
 --%>
 
-<%@page import="Domain.User"%>
+<%@page import="Business.LogicFacade"%>
+<%@page import="Utillities.RendUtilGetMaterials"%>
+<%@page import="Utillities.RendUtilCustomerPresentation"%>
+<%@page import="Domain.Materiale"%>
+<%@page import="java.util.List"%>
+<%@page import="Presentation.FrontController"%>
+
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Skal nok slettes-->
+        <!--<script type="text/javascript" src="jquery-1.8.3.js"></script>-->
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -26,8 +39,9 @@
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Dine Brugeroplysninger</title>
+        <title>Fog Trælast - Velkomstside</title>
     </head>
+
     <body>
 
         <!-- Logo og header billed-->
@@ -55,7 +69,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                    
+                
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -99,46 +113,69 @@
                                 </nav>
                                 <!-- Navigation slut -->
 
-                                <div class="container">
-                                    <div class="text-center mt-4">
 
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0">
-                                                <strong>Dine konto oplysninger</strong>
-                                            </h2>
-                                            <hr class="divider">
-
-                                            <p>Dit Fornavn: ${yourFirstname}</p><br>
-                                            <p>Din Efternavn: ${yourLastname}</p><br>
-                                            <p>Din Email: ${yourEmail}</p><br>
-                                            <p>Din Adresse: ${yourAddress}</p><br>
-                                            <p>Dit Postnummer: ${yourZipcode}</p><br>
-                                            <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
-
-                                            <div>
-                                                <form name="Customer_UserOptionsPasswordChange" action="FrontController" method="POST">
-                                                    <input type="hidden" name="command" value="Customer_UserOptionsPasswordChange">
-
-                                                    Intast nuværende Password: <input type="password" name="passwordOld" ><br>
-                                                    Ændre Password: <input type="password" name="passwordNew" ><br>
-                                                    <button type="submit" name="Customer_UserOptionsPasswordChange" value="Submit">Udfør Password ændring </button>
-                                                </form>
-                                            </div>
-                                            
-                                            <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0){
-                                                out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
-                                            } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1){
-                                                out.println("<p> Dit password er nu ændret. </p><br>");
-                                            }
-                                            else{ out.println("");
-                                            }       
-                                            %>
-
-                                            <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
-                                        </div>
-                                    </div>
+                                <!-- Welcome Message -->
+                                <div class="text-center mt-4">
+                                    <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1></h1>
+                                    <div class="text-heading text-lg">Hvis du har brug for rådgivning, så ring og aftale et møde.</div>
+                                    <div class="text-heading text-lg">Vores telefonnummer er 45 87 10 01.</div>
                                 </div>
+
+                                <div class="container">
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <a href="bestilbasiscarportpage.jsp">
+                                            <strong>Basis Carport</strong>
+                                            </a>
+                                        </h2>
+                                        <hr class="divider">
+                                        <a href="bestilbasiscarportpage.jsp">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="25%">
+                                        </a>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>
+
+
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Dobbelt Carport</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>  
+
+
+
+                                    <div class="bg-faded p-4 my-4">
+                                        <hr class="divider">
+                                        <h2 class="text-center text-lg text-uppercase my-0">
+                                            <strong>Carport med Rejsningstag</strong>
+                                        </h2>
+                                        <hr class="divider">
+                                        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Tagrejsning" width="30%">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                                    </div>   
+                                </div>
+
+
+
+
+
+
+
+
 
                                 <footer class="bg-faded text-center py-5">
                                     <div class="container">
@@ -157,5 +194,7 @@
                                 <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
                                 <script src="script/popper/popper.min.js" type="text/javascript"></script>
                                 <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+
                                 </body>
                                 </html>
+  

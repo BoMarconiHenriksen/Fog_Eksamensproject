@@ -18,21 +18,21 @@ public class LineItemFactory {
      * @return et array, der indeholder alle styklinjerne for træ til en basiscarport.
      * @throws NewException 
      */
-    public static LineItem[] baseTree(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
+    public static LineItem[] baseWood(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
 //    (String description, String material_name, double dimension, int amount, String unit)
 
-        LineItem[] baseTree = new LineItem[8];
+        LineItem[] baseWood = new LineItem[8];
 
-        baseTree[0] = new LineItem("Understern brædder til for- og bagende", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), width, 2, "Stk");
-        baseTree[1] = new LineItem("Understernbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
-        baseTree[2] = new LineItem("Oversternbrædder til forenden", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
-        baseTree[3] = new LineItem("Oversternbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
-        baseTree[4] = new LineItem("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, calculateNumberOfRafters(length), "Stk");
-        baseTree[5] = new LineItem("Stolper, nedgraves i 90 cm. jord", Business.LogicFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
-        baseTree[6] = new LineItem("Vandbrædt på stern i sider", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
-        baseTree[7] = new LineItem("Vandbrædt på stern i forenden", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
+        baseWood[0] = new LineItem("Understern brædder til for- og bagende", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), width, 2, "Stk");
+        baseWood[1] = new LineItem("Understernbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
+        baseWood[2] = new LineItem("Oversternbrædder til forenden", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
+        baseWood[3] = new LineItem("Oversternbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
+        baseWood[4] = new LineItem("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, calculateNumberOfRafters(length), "Stk");
+        baseWood[5] = new LineItem("Stolper, nedgraves i 90 cm. jord", Business.LogicFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
+        baseWood[6] = new LineItem("Vandbrædt på stern i sider", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
+        baseWood[7] = new LineItem("Vandbrædt på stern i forenden", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
 
-        return baseTree;
+        return baseWood;
 
     }
 
@@ -98,7 +98,7 @@ public class LineItemFactory {
         //OBS! Denne skal rettes til
         woodForShed[2] = new LineItem("Løsholter til skur sider", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
         woodForShed[3] = new LineItem("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
-        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) CalculateBeklædningShed(skurBredde, skurLængde), "Stk");
+        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) CalculateCoverWoodShed(skurBredde, skurLængde), "Stk");
 
         return woodForShed;
     }
@@ -127,7 +127,7 @@ public class LineItemFactory {
      * @param skurLængde er skurets længde.
      * @return antal beklædningsbrædder, som skal bruges til et skur.
      */
-    private static double CalculateBeklædningShed(double skurBredde, double skurLængde) {
+    private static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
         return 2 * skurBredde / 10 + 2 * skurLængde / 10;
     }
 

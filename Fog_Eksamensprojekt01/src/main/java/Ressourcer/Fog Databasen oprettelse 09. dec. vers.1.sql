@@ -64,8 +64,6 @@ DROP TABLE IF EXISTS `odetaljer`;
 CREATE TABLE `odetaljer`(
 	`odetaljer_id`INT(11) NOT NULL AUTO_INCREMENT, 
     `ordre_id` INT(11),
-    `vareid`INT (20),
-    `linjeliste_id`INT(11),
     `ordre_status` VARCHAR(45) DEFAULT 'Ny ordre',
 	`carport_length`DOUBLE(9,2),
 	`carport_width`DOUBLE(9,2), 
@@ -73,10 +71,9 @@ CREATE TABLE `odetaljer`(
     `length_redskabsrum`DOUBLE(9,2),
     `width_redskabsrum`DOUBLE(9,2),
 	`tagtype`INT (11), 
+    `price`double(9,2),
     PRIMARY KEY (odetaljer_id),
-	FOREIGN KEY (`ordre_id`)REFERENCES ordreliste(`ordre_id`),
-    FOREIGN KEY (`vareid`)REFERENCES materialeliste(`vareid`),
-    FOREIGN KEY (`linjeliste_id`)REFERENCES linjeliste(`linjeliste_id`)
+	FOREIGN KEY (`ordre_id`)REFERENCES ordreliste(`ordre_id`)
 );
 
 -- Demo Data til zipcodelist
@@ -84,9 +81,9 @@ INSERT INTO zipcodelist VALUES (1000,'København K');
 
 -- Demo user data
 INSERT INTO userlist VALUES 
-	(1, 1000, 'ansat@ansat.dk', 'a', 'Ansat', 'Jens', 'Jensen', 'Flyvervej 1',40404040),
-    (2, 1000, 'kunde@kunde.dk', 'b', 'Kunde', 'Winnie', 'Hansen', 'Ved Søen 2', 50505050),
-    (4, 1000, 'kunde4@kunde.dk', 'b', 'Kunde', 'Hans', 'Hansen', 'Ved Søen 2', 50505050);
+	(1, 1000, 'ansat@ansat.dk', 'a', 'employee', 'Jens', 'Jensen', 'Flyvervej 1',40404040),
+    (2, 1000, 'kunde@kunde.dk', 'b', 'customer', 'Winnie', 'Hansen', 'Ved Søen 2', 50505050),
+    (4, 1000, 'kunde4@kunde.dk', 'b', 'customer', 'Hans', 'Hansen', 'Ved Søen 2', 50505050);
     
 -- Demo data ordreliste
 INSERT INTO ordreliste VALUES
@@ -96,9 +93,9 @@ INSERT INTO ordreliste VALUES
 
 -- Demo ordre data
 INSERT INTO odetaljer VALUES
-	(1,1,1,1,'Bestilt',240, 240, 225,210,150,1);
+	(1,1,'Bestilt',240, 240, 225,210,150,1,4600.00);
 INSERT INTO odetaljer VALUES
-	(2,2,2,2,'Godkendt',240, 240, 225,0,0,1);
+	(2,2,'Godkendt',240, 240, 225,0,0,1,2900.00);
 
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
@@ -174,6 +171,8 @@ INSERT INTO materialeliste values
 	(33, 'Tagpakken', 'Plastmo Ecolite blåtonet 480', 'Stk', 199.00, 1, 'Basis_tag');   
     
 commit;    
+
+select * from odetaljer;
     
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -8,8 +8,6 @@ public class Odetaljer {
 
     private int odetaljerId;
     private int ordre_id;
-    private int vareId;
-    private int linjelisteId;
     private String ordre_status;
     private double carport_length;
     private double carport_width;
@@ -17,12 +15,11 @@ public class Odetaljer {
     private double length_redskabsrum;
     private double width_redskabsrum;
     private int tagType;
+    private double price;
 
-    public Odetaljer(int odetaljerId, int ordre_id, int vareId, int linjelisteId, String ordreStatus, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, int tagType) {
+    public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, int tagType) {
         this.odetaljerId = odetaljerId;
         this.ordre_id = ordre_id;
-        this.vareId = vareId;
-        this.linjelisteId = linjelisteId;
         this.ordre_status = ordreStatus;
         this.carport_length = carport_length;
         this.carport_width = carport_width;
@@ -66,6 +63,52 @@ public class Odetaljer {
         this.length_redskabsrum = length_redskabsrum;
         this.width_redskabsrum = width_redskabsrum;
     }
+        
+        
+
+    public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, double price) {
+        this.ordre_id = ordre_id;
+        this.ordre_status = ordre_status;
+        this.carport_length = carport_length;
+        this.carport_width = carport_width;
+        this.carport_height = carport_height;
+        this.length_redskabsrum = length_redskabsrum;
+        this.width_redskabsrum = width_redskabsrum;
+        this.price = price;
+    }
+
+    public Odetaljer(int ordre_id,  String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType, double price) {
+      this.ordre_id = ordre_id;
+        this.ordre_status = ordreStatus;
+        this.carport_length = carportLength;
+        this.carport_width = carportWidth;
+        this.carport_height = carportHeight;
+        this.length_redskabsrum = lengthRedskabsrum;
+        this.width_redskabsrum = widthRedskabsrum;
+        this.tagType = tagType;
+        this.price = price;
+    }
+
+    public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType, double price) {
+       this.odetaljerId = odetaljerId;
+        this.ordre_id = ordre_id;
+        this.ordre_status = ordreStatus;
+        this.carport_length = carportLength;
+        this.carport_width = carportWidth;
+        this.carport_height = carportHeight;
+        this.length_redskabsrum = lengthRedskabsrum;
+        this.width_redskabsrum = widthRedskabsrum;
+        this.tagType = tagType;
+         this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
     
 
     public int getOdetaljerId() {
@@ -84,21 +127,6 @@ public class Odetaljer {
         this.ordre_id = ordreId;
     }
 
-    public int getVareId() {
-        return vareId;
-    }
-
-    public void setVareId(int vareId) {
-        this.vareId = vareId;
-    }
-
-    public int getLinjelisteId() {
-        return linjelisteId;
-    }
-
-    public void setLinjelisteId(int linjelisteId) {
-        this.linjelisteId = linjelisteId;
-    }
 
     public String getOrdreStatus() {
         return ordre_status;
@@ -158,7 +186,7 @@ public class Odetaljer {
 
     @Override
     public String toString() {
-        return "Odetaljer{" + "odetaljerId=" + odetaljerId + ", ordreId=" + ordre_id + ", vareId=" + vareId + ", linjelisteId=" + linjelisteId + ", ordreStatus=" + ordre_status + ", carportLength=" + carport_length + ", carportWidth=" + carport_width + ", carportHeight=" + carport_height + ", lengthRedskabsrum=" + length_redskabsrum + ", widthRedskabsrum=" + width_redskabsrum + ", tagType=" + tagType + '}';
+        return "Odetaljer{" + "odetaljerId=" + odetaljerId + ", ordreId=" + ordre_id + ", ordreStatus=" + ordre_status + ", carportLength=" + carport_length + ", carportWidth=" + carport_width + ", carportHeight=" + carport_height + ", lengthRedskabsrum=" + length_redskabsrum + ", widthRedskabsrum=" + width_redskabsrum + ", tagType=" + tagType + '}';
     }
 
 }

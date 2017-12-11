@@ -30,6 +30,10 @@ public class LogicFacade {
     public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
     }
+    
+    public static List<User> getUserList() throws NewException {
+        return UserMapper.getUserList();
+    }
 
     public static Ordre getOrdreByOrderId(int ordre_id) throws NewException {
         return OrdreMapper.getOrdreByOrdreId(ordre_id);
@@ -53,7 +57,7 @@ public class LogicFacade {
 
 
     //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
-    public static void updatereOdetajlermedSkur(int ordre_id, Odetaljer ods)
+    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods)
             throws NewException {
         OdetaljeMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
@@ -89,7 +93,7 @@ public class LogicFacade {
     } 
 
     public static User createUser(String email, String password, String firstname, String lastname, String address, int zipcode, int tlfnummer) throws NewException {
-        User user = new User(email, password, "Kunde", firstname, lastname, address, zipcode, tlfnummer);
+        User user = new User(email, password, "customer", firstname, lastname, address, zipcode, tlfnummer);
         UserMapper.createUser( user );
         return user;
     }

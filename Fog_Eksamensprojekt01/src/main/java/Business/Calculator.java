@@ -15,11 +15,19 @@ import Domain.Exception.NewException;
  * ønsket størrelse
  */
 public class Calculator {
+    
+//    public double totalPriceSimpleCarport(double length, double width, double heigth,double shedLength, double shedWidth) throws NewException{
+//        double totalPriceSimpleCarport= calculateCarportSimple( length, width, heigth) +calculatePriceShed(shedLength,  shedWidth);
+//        return totalPriceSimpleCarport;
+//    }
+//    
+    
 
-//    LogicFacade mat = new LogicFacade();
+
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
      * grundelementer samt alle ekstra ting m.m.
+     * Den må kun bruges hvis skuret er med 
      *
      * @param length længden af carporten
      * @param width bredden af carporten
@@ -27,6 +35,9 @@ public class Calculator {
      * @return totalPriceSimpleCarport
      * @throws NewException
      */
+    
+
+    
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
 
         double totalPriceSimpleCarport = 0;
@@ -96,6 +107,10 @@ public class Calculator {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
+        }else if (length > 600) {
+
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris()+LogicFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
+
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
                 + 2 * length / 100 * plank2Price + 2 * (length / 100 ) * RaftsAndStrapsPrice
@@ -117,9 +132,53 @@ public class Calculator {
 
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
-        int numberOfPckScrews = numberOfScrews / 200;
+        int numberOfPckScrews = (int) Math.ceil(numberOfScrews / 200);
+        if (length==240 && width==240){
+            numberOfPckScrews=1;
+        }
         return numberOfPckScrews;
     }
+    
+     /**
+   * Beregner en samlet pris på skuret, med alle grundelementer samt alle skurger m.m
+   * Prisen lægges så sammen med prisen på Carporten, som bliver beregnet i Calcualtor.java.
+   * 
+   * @param shedLength lægnden af skuret
+   * @param shedWidth bredden af skuret
+   * @return totalPrisSkur
+   * @throws NewException 
+   */
+
+    public double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
+
+        double LægteTilZ = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
+        double LøsholterSkurGavl = LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
+        double LøsholterSkurSider =LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
+        double BrædtSkurBeklædning = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();
+        double SkruerYdersteBeklædning = LogicFacade.getMaterialeByVarenummer(21).getEnhedspris();
+        double SkruerIndersteBeklædning =LogicFacade.getMaterialeByVarenummer(22).getEnhedspris();
+
+        // ekstra Stolper:
+        double stolpePris1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
+        double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
+        double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
+        double tilEkstraStolper = 4 * (firkantSkivePris + bræddeboltPris);
+        //Ting der bruges til døren udover beklædningsbrædder:
+        double StaldørsGreb = LogicFacade.getMaterialeByVarenummer(23).getEnhedspris();
+        double THængselSkur = LogicFacade.getMaterialeByVarenummer(24).getEnhedspris();
+        double VinkelBeslagSkur = LogicFacade.getMaterialeByVarenummer(25).getEnhedspris();
+        double dørTilbehørPris = LægteTilZ + StaldørsGreb + THængselSkur;
+        // Her lægges alle skurdelene sammen 
+        double totalPrisSkur = 12 * shedLength/100 * LøsholterSkurSider + 4 * shedWidth/100* LøsholterSkurGavl
+                + 4 * stolpePris1 + ((2 * shedLength + 2 * shedWidth) / 10) * BrædtSkurBeklædning+VinkelBeslagSkur+
+                + 2 * SkruerYdersteBeklædning + 2 * SkruerIndersteBeklædning + dørTilbehørPris + tilEkstraStolper;
+        
+       
+        
+        return totalPrisSkur;
+
+    }
+    
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
@@ -133,7 +192,7 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(480, 300,225));
+        System.out.println(calc.calculateBaseCarport(480, 300));
 
     }
 

@@ -28,6 +28,7 @@ public class Register extends Command {
                 HttpSession session = request.getSession();
                 session.setAttribute( "user", user );
                 session.setAttribute( "role", user.getRole() );
+                session.setAttribute("username", user.getFirstname());
                 return user.getRole() + "page";
             } catch (Domain.Exception.NewException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
@@ -39,7 +40,7 @@ public class Register extends Command {
 //                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
 //            }
         }
-        return null;
+        return "index";
     }
 
 }

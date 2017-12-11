@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +17,8 @@ import java.util.logging.Logger;
  * @author Ejer
  */
 public class UserMapper {
+    
+    public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
 
     public static User getUserByUserId(int user_id) {
 
@@ -43,6 +47,7 @@ public class UserMapper {
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getUserByUserId", ex);
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return u;
@@ -64,6 +69,7 @@ public class UserMapper {
             ps.executeUpdate();
             
         } catch ( SQLException | ClassNotFoundException ex ) {
+            logger.log(Level.SEVERE, "Fejl i createUser", ex);
             throw new NewException( ex.getMessage() );
         }
     }
@@ -90,9 +96,10 @@ public class UserMapper {
                 user.setUser_id(id);
                 return user;
             } else {
-                throw new NewException( "Could not validate user" );
+                throw new NewException( "Fejl ved login!!! Prøv igen." );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
+            logger.log(Level.SEVERE, "Fejl i login", ex);
             throw new NewException(ex.getMessage());
         }
     }
@@ -107,9 +114,39 @@ public class UserMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i updateUserPassword", ex);
             throw new NewException(ex.getMessage());
         }
 
+    }
+    
+    public static List<User> getUserList() throws NewException {
+        List<User> userList = new ArrayList<>();
+
+        try {
+
+            User u;
+
+            Connection con = DBConnector.connection();
+            String sql = "SELECT * FROM userlist";
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            int lastId = -1;
+            while (rs.next()) {
+                int user_id = rs.getInt("user_id");
+                String email = rs.getString("email");
+                int tlfnummer = rs.getInt("tlfnummer");
+                if (user_id != lastId) {
+
+                    u = new User(user_id, email, tlfnummer);
+
+                    userList.add(u);
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getUserList", ex);
+            Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userList;
     }
 
 }

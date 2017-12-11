@@ -13,6 +13,93 @@
     </head>
     <body>
         <h1>Dobbel Carport med skur fra oven</h1>
+        
+        
+        <SVG width="75%" <svg x="200" y="200" width="960.0" height="600.0" 
+             viewBox="0 0 680.0 500.0"
+        viewBox="0 0 480.0 300.0">
+
+        <svg x="200" y="0" width="480.0" height="300.0" 
+             viewBox="0 0 481.0 301.0">
+ <rect x="0" y="0" height="300.0" width="480.0" 
+style="stroke:#000000; fill: #ffffff"/> 
+ <rect x="0" y="15" height="2.5" width="480.0"
+              style="stroke:#000000; fill: #ffffff"/>
+        <rect x="0" y="285.0" height="2.5" width="480.0"
+              style="stroke:#000000; fill: #ffffff"/> 
+        <rect x="0" y="0" height="300.0" width="2.5"
+              style="stroke:#000000; fill: #ffffff"/>
+        <rect x="477.5" y="0" height="300.0" width="2.5"
+              style="stroke:#000000; fill: #ffffff"/> 
+        <rect x="0.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="60.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="120.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="180.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="240.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="300.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="360.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="420.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="480.0" y="0" height="300.0" width="2.5"
+  style="stroke:#000000; fill: #ffffff"/> <rect x="55" y="13" height="9.7" width="9.7"
+              style="stroke:#000000; fill: #000000;  opacity: 0.6"/>
+        <rect x="265.0" y="13" height="9.7" width="9.7"
+              style="stroke:#000000; fill: #000000;  opacity: 0.6"/>
+        <rect x="265.0" y="283.0" height="9.7" width="9.7"
+              style="stroke:#000000; fill: #000000;  opacity: 0.6"/>
+        <rect x="55" y="283.0" height="9.7" width="9.7"
+              style="stroke:#000000; fill: #000000;  opacity: 0.6"/>     <rect x="315.0" y="15" height="270.0" width="150.0"
+              style="stroke:#000000; fill: #gg0000;  opacity: 0.2"/> <line x1="58"x2="315.0" y1="15" y2="285.0" width="10"
+              stroke-dasharray="10,10"
+              style="stroke:#000000;   opacity: 0.6 "/>
+
+        <line x1="62"x2="315.0" y1="285.0" y2="15" width="10"
+              stroke-dasharray="10,10"
+              style="stroke:#000000; opacity: 0.6 "/>  
+
+        <line x1="58"x2="315.0" y1="285.0" y2="15" width="10"
+              stroke-dasharray="10,10"
+              style="stroke:#000000; opacity: 0.6 "/>
+
+        <line x1="62"x2="315.0" y1="15" y2="285.0" width="10"
+              stroke-dasharray="10,10"
+              style="stroke:#000000;   opacity: 0.6 "/>
+        </svg> <defs>
+    <marker id="beginArrow" 
+            markerWidth="18" markerHeight="18" 
+            refX="0" refY="9" 
+            orient="auto">
+        <path d="M0,9 L16,0 L16,16 L0,9" style="fill: #000000;" />
+        
+    </marker>
+    <marker id="endArrow" 
+            markerWidth="18" markerHeight="18" 
+            refX="18" refY="9" 
+            orient="auto">
+        <path d="M0,0 L16,9 L0,16 L0,0" style="fill: #000000;" />
+    </marker>
+    </defs>
+
+         <!-- Vertical line -->
+            <line x1="100"  y1="0" x2="100" y2="300.0" 
+                style="stroke:#006600;
+                       marker-start: url(#beginArrow);
+                       marker-end: url(#endArrow);"/>
+            <text x="140" y="150.0"
+                  font-size="30px"
+                  text-anchor="middle"
+                  style="writing-mode: tb;">Bredde: 300.0</text>
+            <!-- Horizontal line %-->
+            <line x1="200"  y1="400.0" x2="680.0"   y2="400.0" 
+                style="stroke:#006600;
+                       marker-start: url(#beginArrow);
+                       marker-end: url(#endArrow);"/>
+            <text x="440.0" y="380.0"
+                  font-size="30px"
+                  text-anchor="middle">Længde: 480.0</text>
+</svg>
+</SVG>
+        
+        
 
         <SVG width="75%"  
 

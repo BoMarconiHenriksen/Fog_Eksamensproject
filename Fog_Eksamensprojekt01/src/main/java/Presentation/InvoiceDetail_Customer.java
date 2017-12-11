@@ -33,8 +33,8 @@ public class InvoiceDetail_Customer extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
-        String DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        String LockIntoOrder = request.getParameter("InvoiceDetail");
+        String DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
         String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
@@ -60,6 +60,8 @@ public class InvoiceDetail_Customer extends Command {
             return "ordrelist_customer";
         }
         if (LockIntoOrder != null) {
+            
+            
 
             return "invoice_detail_customer";
         }
@@ -68,14 +70,14 @@ public class InvoiceDetail_Customer extends Command {
         
         String status=request.getParameter("status");
         
-        int ordreId =Integer.parseInt(request.getParameter("id"));
+        LogicFacade.updateOrdreStatus(orderid, status);
         
-        LogicFacade.updateOrdreStatus(ordreId, status);
+        
         
         return "invoice_detail_customer";
         
         } else {
-            return "Kundepage";
+            return "customerpage";
         }
     }
 }

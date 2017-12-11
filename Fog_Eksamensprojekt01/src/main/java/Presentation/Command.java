@@ -25,11 +25,12 @@ abstract class Command {
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
         commands.put("OrdertheOrder", new Checkout());
-        commands.put("XXtegningSimpel", new XXTegningSimpel());
+//        commands.put("XXtegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
         commands.put("OrdreList_Customer", new OrdreList_Customer());
         commands.put("OrdreList_Customer_DeleteOrder", new OrdreList_Customer());
         commands.put("InvoiceDetail", new InvoiceDetail());
+        commands.put("InvoiceDetail_Admin_DeleteOrder", new InvoiceDetail());
         commands.put("InvoiceDetail_Customer", new InvoiceDetail_Customer());
         commands.put("InvoiceDetail_Customer_DeleteOrder", new InvoiceDetail_Customer());
         commands.put("InvoiceSetStatus", new InvoiceSetStatus());
@@ -38,6 +39,9 @@ abstract class Command {
         commands.put("Customer_UserOptionsPasswordChange", new Customer_UserOptions());
         commands.put("Employee_UserOptions", new Employee_UserOptions());
         commands.put("Employee_UserOptionsPasswordChange", new Employee_UserOptions());
+        commands.put("Employee_OrderCarport", new Employee_OrderCarport());
+        commands.put("Employee_OrderCarportPlaceOrder", new Employee_OrderCarport());
+        commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
 
     }
 

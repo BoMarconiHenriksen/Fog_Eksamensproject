@@ -1,28 +1,36 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Presentation;
 
-import Domain.Exception.NewException;
 import Business.Calculator;
 import Business.LogicFacade;
-import Domain.Ordre;
+import Domain.Exception.NewException;
 import Domain.Odetaljer;
+import Domain.Ordre;
 import Domain.User;
+import Utillities.RendUtilUserList;
 import Utillities.XXRendSvg;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author The DataBuilders This class is one of the commands. The execute
- * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
- * and then put them though various methods based on the specific button pushed
- * a calculator that calculates the price. The parameters is also used to place
- * an order and some odetails in the database.
+ * @author Ticondrus
  */
-public class basisCarport extends Command {
+public class Employee_OrderCarport extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
@@ -30,16 +38,16 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        String SePris = request.getParameter("basisCarport");
-        String CheckUd = request.getParameter("basisCarportCheckud");
-        String GemDesign = request.getParameter("CarportGemDesign");
+        String SePris = request.getParameter("Employee_OrderCarport");
+        String CheckUd = request.getParameter("Employee_OrderCarportPlaceOrder");
 
         Ordre order = new Ordre();
 
-        int user_id = user.getUser_id();
+        int user_id = Integer.parseInt(request.getParameter("kunde_id"));
 
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
+        request.setAttribute("kunde_ided", user_id);
 
         String ordre_status = null;
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
@@ -52,42 +60,36 @@ public class basisCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
 
-        double totalPrice = 0;
+        double totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
         if (CheckUd != null) {
 
-            ordre_status = "Afventer kundens bekræftigelse";
-            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+            ordre_status = "Bestilt";
+
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
-            return "outprintpage";
-        }
-
-        if (GemDesign != null) {
-
-            ordre_status = "Gemt Design";
-            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
-            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
-
-            return "customerpage";
-
+            return "employee_orderconfirmationpage";
         }
 
         if (SePris != null) {
 
             calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
-            return "bestilbasiscarportpage";
+            List<User> userList = LogicFacade.getUserList();
+            String userLists = RendUtilUserList.invoiceUserList(userList);
+            request.setAttribute("userLists", userLists);
+
+            return "employee_ordercarportpage";
 
         } else {
-            return "customerpage";
+            return "employeepage";
         }
     }
 
     /**
      * This method makes sure the shed can be placed under the carport roof with
      * regards to shed length and carportwidth. it also uses the calculator and
-     * skurcalculator to set a price for the carport with shed.
+     * skurcalculator to se a price for the carport with shed.
      *
      * @param lentghinputskur chosen length of shed
      * @param widthinput chosen width of carport
@@ -186,7 +188,7 @@ public class basisCarport extends Command {
         String formatDateTime = today.format(formatter);
 
         //SÃ¦tter datoen pÃ¥ ordren
-//        order.setReciveddate(formatDateTime);
+        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getLastInvoiceId();
@@ -195,8 +197,8 @@ public class basisCarport extends Command {
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
         LogicFacade.getOrderByOrderId2(or);
-        ods = LogicFacade.getOdetaljerByOrderId(or);
 
+        ods = LogicFacade.getOdetaljerByOrderId(or);
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());

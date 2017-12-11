@@ -1,19 +1,14 @@
 <%-- 
-    Document   : ordre_liste
-    Created on : 18-11-2017, 14:21:47
-    Author     : Bo
+    Document   : register
+    Created on : 07-12-2017, 16:20:16
+    Author     : Ejer
 --%>
 
-<%@page import="Domain.User"%>
-<%@page import="Business.LogicFacade"%>
-<%@page import="Data.OrdreMapper"%>
-<%@page import="Utillities.RendUtilOrderList"%>
-<%@page import="Domain.Ordre"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,8 +25,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
-
-        <title>Ordre Liste</title>
+        <title>Registrering</title>
     </head>
     <body>
 
@@ -60,9 +54,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
+                    
 
                             <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
+                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -73,28 +68,14 @@
                             </li>
 
                             <li class="nav-item px-lg-4">
-                                <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="Employee_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
+                                <div class="form-group nav-link text-uppercase text-expanded">
+                                    <input type="hidden" name="command" value="login">
+                                    <a> Email:</a> 
+                                    <input type="text" name="email" value=""  >
+                                    <a>Password:</a> 
+                                    <input type="password" name="password" value="">
+                                    <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
+                                </div>
 
                             </li>
                         </form>  
@@ -102,46 +83,56 @@
                 </div>
             </div>
         </nav>
-        <!-- Navigation slut -->
-
-        <!-- Welcome Message -->
-        <div class="text-center mt-4">
-            <h1 class="my-2"><% User user = (User) session.getAttribute("user");
-
-                if (user != null) {
-                    out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
-                } else {
-                    out.println("Hmm der står du hedder null der må være sket en fejl");
-                }
 
 
-                %></h1>
-        </div>
 
         <div class="container">
-
             <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Ordre Historie</strong>
+
+                <h2 class="text-center text-lg text-uppercase my-0"> Fyld formen ud hvis du er ny kunde
                 </h2>
-                <hr class="divider">
+                <table>     
 
-                <div>
+                    <td>
+                        <form name="register" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="register">
+                            Email:<br>
+                            <input type="text" name="email" value="someone@nowhere.com">
+                            <br>
+                            Password:<br>
+                            <input type="password" name="password1" pattern=".{6,}" title="7 eller flere karakter">
+                            <br>
+                            Retype Password:<br>
+                            <input type="password" name="password2" pattern=".{6,}" title="7 eller flere karakter">
+                            <br>
+                            Fornavn:<br>
+                            <input type="text" name="firstname" value="Peter">
+                            <br>
+                            Efternavn:<br>
+                            <input type="text" name="lastname" value="Jensen">
+                            <br>
+                            Addresse:<br>
+                            <input type="text" name="addresse" value="Jensen">
+                            <br>
+                            Post Nummer (0001):<br>
+                            <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre" >
+                            <br>
+                            Telefon nummer <br>
+                            <input type="number" name="telefonnummer" min="1" max="99999999999" >
+                            <br>
+                            <button type="submit" name="register" value="Submit">Opret Bruger </button>
+                        </form>
+                    </td>
 
-                    <%=request.getAttribute("admin_orderlist")%>
-
-                </div>
-
-                <div>
-                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
-                </div>
-
+                </table>
             </div>
-        </div>
-
-      
+        </div>     
+        <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+        <H2>Error!!</h2>
+        <p><%= error%>
+            <% }
+            %>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
@@ -152,15 +143,14 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>        
+        </footer>      
+    </div>
 
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="script/jquery/jquery.js" type="text/javascript"></script>
+    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="script/popper/popper.min.js" type="text/javascript"></script>
+    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="script/popper/popper.min.js" type="text/javascript"></script>
+    <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
-
-
