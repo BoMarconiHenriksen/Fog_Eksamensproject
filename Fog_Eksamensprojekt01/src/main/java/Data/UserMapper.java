@@ -120,6 +120,30 @@ public class UserMapper {
 
     }
     
+    public static void updateWholeUserbutID(int user_id, int zip, String email, String password, 
+            String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
+        try {
+            Connection con = DBConnector.connection();
+            String SQL;
+            SQL = "update userlist set zipcode=?, email=?, password=?, role=?, firstname=?, lastname=?, address=?, tlfnummer=? where user_id=" + user_id;
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, zip);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ps.setString(3, role);
+            ps.setString(4, firstname);
+            ps.setString(5, lastname);
+            ps.setString(6, address);
+            ps.setInt(7, tlfnummer);
+
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i updateUserPassword", ex);
+            throw new NewException(ex.getMessage());
+        }
+
+    }
+    
     public static List<User> getUserList() throws NewException {
         List<User> userList = new ArrayList<>();
 
@@ -133,11 +157,17 @@ public class UserMapper {
             int lastId = -1;
             while (rs.next()) {
                 int user_id = rs.getInt("user_id");
+                int zip = rs.getInt("zipcode");
                 String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String address = rs.getString("address");
                 int tlfnummer = rs.getInt("tlfnummer");
                 if (user_id != lastId) {
 
-                    u = new User(user_id, email, tlfnummer);
+                    u = new User(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
 
                     userList.add(u);
                 }

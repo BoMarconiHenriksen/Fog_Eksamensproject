@@ -31,6 +31,7 @@ abstract class Command {
         commands.put("OrdreList_Customer_DeleteOrder", new OrdreList_Customer());
         commands.put("InvoiceDetail", new InvoiceDetail());
         commands.put("InvoiceDetail_Admin_DeleteOrder", new InvoiceDetail());
+        commands.put("InvoiceDetail_Admin_UserEdit", new InvoiceDetail());
         commands.put("InvoiceDetail_Customer", new InvoiceDetail_Customer());
         commands.put("InvoiceDetail_Customer_DeleteOrder", new InvoiceDetail_Customer());
         commands.put("InvoiceSetStatus", new InvoiceSetStatus());
@@ -42,6 +43,7 @@ abstract class Command {
         commands.put("Employee_OrderCarport", new Employee_OrderCarport());
         commands.put("Employee_OrderCarportPlaceOrder", new Employee_OrderCarport());
         commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
+        commands.put("Admin_UserAdministration", new Admin_UserAdministration());
 
     }
 

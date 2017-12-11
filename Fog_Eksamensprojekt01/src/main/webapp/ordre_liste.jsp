@@ -140,6 +140,29 @@
 
             </div>
         </div>
+                    
+                    <div class="container">
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Medarbejdere og Kunder</strong>
+                </h2>
+                <hr class="divider">
+
+                <div>
+
+                    <%=request.getAttribute("admin_userlist")%>
+
+                </div>
+
+                <div>
+                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+                </div>
+
+            </div>
+        </div>
 
       
 
