@@ -114,7 +114,7 @@ public class MaterialeMapperIT {
         double expResult = 14.95;
         MaterialeMapper.changeMaterialePris(vareid, expResult);
         double result = MaterialeMapper.getMaterialeByVarenummer(7).getEnhedspris();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result, 0.0);
     }
 
 }

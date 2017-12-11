@@ -132,7 +132,7 @@ public class MaterialeMapper {
     public static void main(String[] args) throws NewException {
 
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
-        MaterialeMapper.changeMaterialePris(7, 14.95);
+        MaterialeMapper.changeMaterialePris(7, 6.95);
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7).getEnhedspris());
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
 
