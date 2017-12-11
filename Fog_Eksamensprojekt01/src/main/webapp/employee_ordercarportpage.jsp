@@ -31,11 +31,7 @@
         <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
-        <!--<script src="script/jquery/jquery.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/jquery/jquery.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
-
+        
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -143,7 +139,6 @@
 
 
                         <!--Her starter vores hidden skur-->
-                        <!-- <form action="#" method="POST">-->
                         <div>
                             Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
                         </div>
@@ -153,11 +148,9 @@
                             <br><br>
 
                             <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-                            <!--Her slutter hidden skur-->    
 
                         </div>
-
-
+                        <!--Her slutter hidden skur-->    
 
                         <br><br>
 
@@ -166,16 +159,11 @@
 
                     </form>
 
-
-
-
-
                     <p>
                         Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
                         lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
                         tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
                     </p>
-
 
                     <div class="text-heading text-lg">
                         <div class="bg-faded p-4 my-4">
@@ -202,7 +190,7 @@
                                     }
 
                             %>
-                            <!-- Virker ikke lige pt!-->
+                            
                             <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                                 }%>    
                         </div>

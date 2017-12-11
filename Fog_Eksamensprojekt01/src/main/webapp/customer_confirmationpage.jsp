@@ -36,13 +36,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -112,7 +112,7 @@
                                             <hr class="divider">
 
                                             <%
-                                                Odetaljer od=(Odetaljer)request.getAttribute("od");
+                                                Odetaljer od = (Odetaljer) request.getAttribute("od");
 
                                                 double length = od.getCarportLength();
                                                 double width = od.getCarportWidth();
@@ -120,10 +120,10 @@
                                                 double skurlength = od.getLengthRedskabsrum();
                                                 double skurWidth = od.getWidthRedskabsrum();
                                                 double skurHeigth = 210;
-                                               
+
                                                 double price = od.getPrice();
 
-                                                out.println("<p>" + "Carportens samlede pris: " + price+ "</p> \n");
+                                                out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
                                                 out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
                                                 out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
@@ -132,7 +132,7 @@
                                                 if (skurlength != 0.00) {
                                                     out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
                                                     out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede højde: "+skurHeigth + "</p>");
+                                                    out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
 
                                                 } else {
                                                     out.println("<p>" + "Carporten er uden skur." + "</p>");
@@ -147,8 +147,7 @@
                                             <hr class="divider">
                                             <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
                                             <hr class="divider">    
-                                            <%     
-                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                                            <%                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                                             %>  
                                         </div>
                                     </div>
@@ -164,7 +163,7 @@
 
                                                 String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
-                                             out.println("<p>" + stykListe + "</p>");
+                                                out.println("<p>" + stykListe + "</p>");
                                             %>  
 
                                             <div>
@@ -189,11 +188,5 @@
                                     </div>
                                 </footer>
 
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
                                 </body>
                                 </html>

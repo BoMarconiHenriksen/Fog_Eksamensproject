@@ -17,10 +17,6 @@ var checkbox = $("#trigger");
         // Viser tabellen
         hidden.show();
         
-        
-
-
-
         } else {
         // Være sikker på at tabellen er gemt
         hidden.hide();

@@ -68,7 +68,6 @@
                             </li>
 
                             <li class="nav-item px-lg-4">
-
                                 <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
                             </li>
 
@@ -104,53 +103,38 @@
                                 <!-- Navigation slut -->
 
 
-        <div class="container">
+                                <div class="container">
 
-            <div class="text-center mt-4">
-                <h1>Ordre Historie</h1>
+                                    <div class="text-center mt-4">
+                                        <h1>Ordre Historie</h1>
 
+                                        <div class="bg-faded p-4 my-4">
+                                            <hr class="divider">
+                                            <h2 class="text-center text-lg text-uppercase my-0">
+                                                <strong>Se dine ordre og følge status på ordren</strong>
+                                            </h2>
 
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Se dine ordre og følge status på ordren</strong>
-                    </h2>
-                    
-                    
-                    <hr class="divider">
+                                            <hr class="divider">
 
-                    <%=request.getAttribute("customer_orderlist")%>
-                </div>
-                
-                
-                <div class="text-center mt-4">
-                    <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
-                </div>
+                                            <%=request.getAttribute("customer_orderlist")%>
+                                        </div>
 
+                                        <div class="text-center mt-4">
+                                            <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-            </div>
+                                <footer class="bg-faded text-center py-5">
+                                    <div class="container">
+                                        <p class="m-0">
+                                            <a href="https://www.johannesfog.dk" target="_blank">
+                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                                            </a>
+                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                                        </p>
+                                    </div>
+                                </footer>  
 
-
-        </div>
-
-
-
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer>  
-
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-    </body>
-</html>
+                                </body>
+                                </html>

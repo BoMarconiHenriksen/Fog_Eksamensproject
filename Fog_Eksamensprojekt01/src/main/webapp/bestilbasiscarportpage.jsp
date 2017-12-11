@@ -31,20 +31,16 @@
         <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
-        <!--<script src="script/jquery/jquery.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/jquery/jquery.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
-        <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
+        <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
-        <!-- Our Own Custom styles for this template - Important for hidden fields -->
+        <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
         <title>Bestil Carport</title>
@@ -127,10 +123,8 @@
 
                                             <h1>Bestilling af Carporte</h1>
 
-                                            <h2>Hello <%request.getAttribute("username");%> </h2>
                                             <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>
-
-
+                                            <br>
                                             <form name="basisCarport" action="FrontController" method="POST">
                                                 <input type="hidden" name="command" value="basisCarport">
                                                 <input type="hidden" name="command" value="basisCarportCheckud">
@@ -138,6 +132,7 @@
 
                                                 <%=RendUtilCustomerPresentation.getMeasures()%>     
 
+                                                <br>
                                                 <!--Her starter vores hidden skur-->
                                                 <div>
                                                     Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
@@ -152,14 +147,14 @@
                                                 </div>
                                                 <!--Her slutter hidden skur-->    
 
-                                                <br><br><!--Mellemrum mellem Ønsker du carport med skur? og knapper-->
+                                                <br><br><!--Mellemrum mellem: Ønsker du carport med skur? og knapper-->
 
                                                 <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
                                                 <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
                                                 <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
 
                                             </form>
-
+                                            <br>
                                             <p>
                                                 Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
                                                 lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 

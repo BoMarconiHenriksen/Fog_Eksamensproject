@@ -54,37 +54,33 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                    
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
 
-                            <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                        </li>
 
-                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
-                            </li>
+                        <li class="nav-item px-lg-4">
+                            <div class="form-group nav-link text-uppercase text-expanded">
+                                <input type="hidden" name="command" value="login">
+                                <a> Email:</a> 
+                                <input type="text" name="email" value=""  >
+                                <a>Password:</a> 
+                                <input type="password" name="password" value="">
+                                <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
+                            </div>
 
-                            <li class="nav-item px-lg-4">
-                                <div class="form-group nav-link text-uppercase text-expanded">
-                                    <input type="hidden" name="command" value="login">
-                                    <a> Email:</a> 
-                                    <input type="text" name="email" value=""  >
-                                    <a>Password:</a> 
-                                    <input type="password" name="password" value="">
-                                    <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
-                                </div>
-
-                            </li>
+                        </li>
                         </form>  
                     </ul>
                 </div>
             </div>
         </nav>
-
-
 
         <div class="container">
             <div class="bg-faded p-4 my-4">
@@ -146,11 +142,5 @@
         </footer>      
     </div>
 
-    <script src="script/jquery/jquery.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

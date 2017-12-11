@@ -161,7 +161,6 @@
                                                 XXRendUtilStykListe styk = new XXRendUtilStykListe();
                                                 
                                                 // Stykliste hvis kunde har bestilt.
-                                               
                                                 
                                                 if (od.getOrdreStatus().equals("Bestilt")){
                                                 String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
@@ -201,11 +200,5 @@
                                     </div>
                                 </footer>        
 
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>       
                                 </body>
                                 </html>

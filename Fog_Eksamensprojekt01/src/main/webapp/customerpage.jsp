@@ -169,14 +169,6 @@
                                     </div>   
                                 </div>
 
-
-
-
-
-
-
-
-
                                 <footer class="bg-faded text-center py-5">
                                     <div class="container">
                                         <p class="m-0">
@@ -187,13 +179,6 @@
                                         </p>
                                     </div>
                                 </footer>
-
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 
                                 </body>
                                 </html>

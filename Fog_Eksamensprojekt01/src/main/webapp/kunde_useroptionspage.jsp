@@ -150,11 +150,5 @@
                                     </div>
                                 </footer>
 
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
                                 </body>
                                 </html>

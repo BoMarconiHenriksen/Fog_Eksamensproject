@@ -86,6 +86,7 @@
             </div>
         </nav>
         <!-- Navigation slut -->
+        
         <div class="container">
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -98,10 +99,6 @@
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
                                
-                <!-- Show/hide based on login
-                    https://bootsnipp.com/snippets/4RgK -->
-
-
             </div> 
         </div>
 
@@ -117,11 +114,5 @@
         </footer>      
     </div>
 
-    <script src="script/jquery/jquery.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

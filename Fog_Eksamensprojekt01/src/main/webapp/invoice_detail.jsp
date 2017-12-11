@@ -35,8 +35,6 @@
     </head>
 
     <body>
-      
-
 
         <!-- Logo og header billed-->
         <div class="center-img">
@@ -62,8 +60,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
-
-
 
                         <li class="nav-item active px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -111,7 +107,7 @@
         <div class="container">
             <div class="text-center mt-4">
 
-  <h1>Hej <%= (String) session.getAttribute("username")%></h1>
+                <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -146,17 +142,13 @@
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
         </div>
 
-
-
-
-       
         <script src="script/jquery/jquery.js" type="text/javascript"></script>
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/popper/popper.min.js" type="text/javascript"></script>
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/popper/popper.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
- <footer class="bg-faded text-center py-5">
+        <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
                     <a href="https://www.johannesfog.dk" target="_blank">

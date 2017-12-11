@@ -112,9 +112,8 @@
                 if (user != null) {
                     out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
                 } else {
-                    out.println("Hmm der står du hedder null der må være sket en fejl");
+                    out.println("Hmm... der står du hedder null, der må være sket en fejl");
                 }
-
 
                 %></h1>
         </div>
@@ -129,14 +128,11 @@
                 <hr class="divider">
 
                 <div>
-
                     <%=request.getAttribute("admin_orderlist")%>
-
                 </div>
 
                 <div>
                     <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
                 </div>
 
             </div>
@@ -155,12 +151,6 @@
             </div>
         </footer>        
 
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
 
