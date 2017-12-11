@@ -1,4 +1,3 @@
-
 package Presentation;
 
 import Domain.Exception.NewException;
@@ -43,7 +42,7 @@ public class FrontController extends HttpServlet {
             Configuration.myLogger.addHandler(fileHandler);
         }
         try (PrintWriter out = response.getWriter()) {
-            
+
             try {
                 Command action = Command.from(request);
                 String view = action.execute(request, response);
@@ -58,15 +57,14 @@ public class FrontController extends HttpServlet {
             }
         }
 
-
         try {
-        Command action = Command.from( request );
-        String view = action.execute( request, response );
-        request.setAttribute("view", view);
-        request.getRequestDispatcher( view + ".jsp" ).forward( request, response );
-        } catch ( NewException ex ) {
-            request.setAttribute( "error", ex.getMessage() );
-            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+            Command action = Command.from(request);
+            String view = action.execute(request, response);
+            request.setAttribute("view", view);
+            request.getRequestDispatcher(view + ".jsp").forward(request, response);
+        } catch (NewException ex) {
+            request.setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
     }
