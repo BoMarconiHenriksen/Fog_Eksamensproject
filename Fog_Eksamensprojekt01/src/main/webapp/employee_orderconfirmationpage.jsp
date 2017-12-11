@@ -47,7 +47,7 @@
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
-        <!-- Navigation -->
+         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
             <div class="container">
 
@@ -60,37 +60,36 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                 
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
+                                <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
 
                             <li class="nav-item px-lg-4">
 
-                                <a class="nav-link text-uppercase text-expanded" href="employee_ordercarportpage.jsp">Bestil Carport</a>
+                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                             </li>
 
                             <li class="nav-item px-lg-4">
-
                                 <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                                     <input type="hidden" name="command" value="OrdreList">
                                     <div class="form-group">
-                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie for alle kunder</a> </button>
+                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
                                     </div>
                                 </form>
-
+                                
+                                
                                 <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Employee_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                        </div>
+                                    <input type="hidden" name="command" value="Employee_UserOptions">
+                                    <div class="form-group">
+                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
                                     </div>
                                 </form>
-
+                                
+                                
                                 <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                                     <input type="hidden" name="command" value="logout">
                                     <div class="form-group">
@@ -98,11 +97,13 @@
                                     </div>
                                 </form>
 
-                                </ul>
-                                </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                            </li>
+                        </form>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
 
                                 <div class="container">
 

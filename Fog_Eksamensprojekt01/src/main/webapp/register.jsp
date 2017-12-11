@@ -89,7 +89,7 @@
         <div class="container">
             <div class="bg-faded p-4 my-4">
 
-                <h2 class="text-center text-lg text-uppercase my-0"> Fyld formen ud hvis du er ny kunde
+                <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud hvis du er ny kunde
                 </h2>
                 <table>     
 

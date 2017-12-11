@@ -69,7 +69,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -95,7 +95,7 @@
                                     <div>     
                                         <input type="hidden" name="command" value="Customer_UserOptions">
                                         <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                         </div>
                                     </div>
                                 </form>
@@ -116,7 +116,7 @@
 
                                 <!-- Welcome Message -->
                                 <div class="text-center mt-4">
-                                    <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1></h1>
+                                    <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1>
                                     <div class="text-heading text-lg">Hvis du har brug for rådgivning, så ring og aftale et møde.</div>
                                     <div class="text-heading text-lg">Vores telefonnummer er 45 87 10 01.</div>
                                 </div>

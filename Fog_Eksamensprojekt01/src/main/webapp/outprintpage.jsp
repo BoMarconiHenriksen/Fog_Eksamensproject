@@ -95,7 +95,7 @@
                                 <div>     
                                     <input type="hidden" name="command" value="Customer_UserOptions">
                                     <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                     </div>
                                 </div>
                             </form>

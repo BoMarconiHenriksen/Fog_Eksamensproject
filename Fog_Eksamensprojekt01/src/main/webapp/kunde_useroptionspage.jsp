@@ -55,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                    
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -64,7 +64,6 @@
                             </li>
 
                             <li class="nav-item px-lg-4">
-
                                 <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
                             </li>
 
@@ -81,7 +80,7 @@
                                     <div>     
                                         <input type="hidden" name="command" value="Customer_UserOptions">
                                         <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger</a></button>
                                         </div>
                                     </div>
                                 </form>
@@ -89,7 +88,7 @@
                                 <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                                     <input type="hidden" name="command" value="logout">
                                     <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af</a></button>
                                     </div>
                                 </form>
 

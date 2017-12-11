@@ -54,7 +54,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                     
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
@@ -112,7 +112,7 @@
                 <form name="OrdreList" action="FrontController" method="POST">
                     <input type="hidden" name="command" value="OrdreList">
 
-                    <button type="submit" name="OrdreList" value="Submit">Se og administrer kundernes ordre </button>
+                    <button type="submit" name="OrdreList" value="Submit">Administrer Ordre</button>
 
                 </form>
 
@@ -120,16 +120,9 @@
                     <form name="Employee_UserOptions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_UserOptions">
 
-                        <button type="submit" name="Employee_UserOptions" value="Submit">Se eller ret dine kontooplysninger </button>
+                        <button type="submit" name="Employee_UserOptions" value="Submit">Kontooplysninger </button>
                     </form>
 
-                    <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="logout">
-                        <div class="form-group">
-                            <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-bar-item w3-button"><a>Log af </a></button>
-                        </div>
-                    </form>
-                    
                      <form name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">
 

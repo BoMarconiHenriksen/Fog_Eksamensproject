@@ -66,7 +66,7 @@
 
 
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -81,7 +81,7 @@
                             <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="OrdreList_Customer">
                                 <div class="form-group">
-                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
                                 </div>
                             </form>
 
@@ -89,7 +89,7 @@
                                 <div>     
                                     <input type="hidden" name="command" value="Customer_UserOptions">
                                     <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
+                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                     </div>
                                 </div>
                             </form>
