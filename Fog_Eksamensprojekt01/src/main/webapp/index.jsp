@@ -73,9 +73,9 @@
                                 <div class="form-group nav-link text-uppercase text-expanded">
                                     <input type="hidden" name="command" value="login">
                                     <a> Email:</a> 
-                                    <input type="text" name="email" value=""  >
+                                    <input type="text" name="email">
                                     <a>Password:</a> 
-                                    <input type="password" name="password" value="">
+                                    <input type="password" name="password">
                                     <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
                                 </div>
 
