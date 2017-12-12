@@ -129,7 +129,7 @@
 
                 <div>
 
-                    <%=request.getAttribute("admin_orderlist")%>
+                    <%=request.getAttribute("employee_orderlist")%>
 
                 </div>
 
@@ -152,8 +152,9 @@
 
                 <div>
 
-                    <%=request.getAttribute("admin_userlist")%>
+                    <%=request.getAttribute("employee_userlist")%>
 
+                    
                 </div>
 
                 <div>

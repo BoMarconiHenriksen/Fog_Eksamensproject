@@ -53,15 +53,15 @@ public class Admin_UserAdministration extends Command {
             
             userNotifyValue = 1;
             request.setAttribute("outprintnotifystatus", userNotifyValue);
-            return "admin_usercontrolpage";
+            return "employee_usercontrolpage";
             
         } else if (UpdateUser != null) {
             userNotifyValue = 2;
             request.setAttribute("outprintnotifystatus", userNotifyValue);
-            return "admin_usercontrolpage";
+            return "employee_usercontrolpage";
         } else {
 
-            return "admin_usercontrolpage";
+            return "employee_usercontrolpage";
 
         }
     }

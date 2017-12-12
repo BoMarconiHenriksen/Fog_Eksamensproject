@@ -26,6 +26,7 @@ public class InvoiceDetail extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+        User us = new User();
         String LockIntoOrder = request.getParameter("InvoiceDetail");
         String DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
         String EditUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
@@ -36,20 +37,20 @@ public class InvoiceDetail extends Command {
             
             LogicFacade.getUserByUserId(choseUser);
 
-            request.setAttribute("userID", user.getUser_id());
-            request.setAttribute("userRole", user.getRole());
-            request.setAttribute("userEmail", user.getEmail());
-            request.setAttribute("userFirstname", user.getFirstname());
-            request.setAttribute("userLastname", user.getLastname());
-            request.setAttribute("userPostcode", user.getZip());
-            request.setAttribute("userAddress", user.getAddress());
-            request.setAttribute("userTlfnummer", user.getTlfnummer());
-            request.setAttribute("userPassword", user.getPassword());
+            request.setAttribute("userID", us.getUser_id());
+            request.setAttribute("userRole", us.getRole());
+            request.setAttribute("userEmail", us.getEmail());
+            request.setAttribute("userFirstname", us.getFirstname());
+            request.setAttribute("userLastname", us.getLastname());
+            request.setAttribute("userPostcode", us.getZip());
+            request.setAttribute("userAddress", us.getAddress());
+            request.setAttribute("userTlfnummer", us.getTlfnummer());
+            request.setAttribute("userPassword", us.getPassword());
 
             int userNotifyValue = 0;
             request.setAttribute("outprintnotifystatus", userNotifyValue);
 
-            return "admin_usercontrolpage";
+            return "employee_usercontrolpage";
         }
 
         int orderid = Integer.parseInt(request.getParameter("id"));
@@ -79,11 +80,11 @@ public class InvoiceDetail extends Command {
             //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
             List<Ordre> ordreList = LogicFacade.getOrderList();
             String customer_Orderlist = RendUtilOrderList.invoiceList(ordreList);
-            request.setAttribute("admin_orderlist", customer_Orderlist);
+            request.setAttribute("employee_orderlist", customer_Orderlist);
 
             List<User> userList = LogicFacade.getUserList();
-            String admin_Userlist = RendUtilUserList.invoiceUserList(userList);
-            request.setAttribute("admin_userlist", admin_Userlist);
+            String employee_Userlist = RendUtilUserList.invoiceUserList(userList);
+            request.setAttribute("employee_userlist", employee_Userlist);
 
             return "ordre_liste";
         }

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : admin_usercontrolpage
+    Document   : employee_usercontrolpage
     Created on : 11-12-2017, 19:29:26
     Author     : Ticondrus
 --%>
@@ -133,14 +133,7 @@
                 </form>
                 </div>
 
-                <% if ((int) request.getAttribute("outprintnotifystatus") == 2) {
-                        out.println("<p> Noget gik galt. Prøv igen. </p><br>");
-                    } else if ((int) request.getAttribute("outprintnotifystatus") == 1) {
-                        out.println("<p> Brugeren blev ændret med succes.. </p><br>");
-                    } else {
-                        out.println("");
-                    }
-                %>
+                
 
 
             </div>

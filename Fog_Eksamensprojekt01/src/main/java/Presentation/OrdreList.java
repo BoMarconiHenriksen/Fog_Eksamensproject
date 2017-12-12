@@ -28,12 +28,12 @@ public class OrdreList extends Command {
         //   RendUtilOrderList.invoiceList(invoiceList);
         //   request.setAttribute("invoiceList", invoiceList);
         List<User> userList = LogicFacade.getUserList();
-        String admin_Userlist = RendUtilUserlist_FullDiscription.UserListAdmin(userList);
+        String employee_Userlist = RendUtilUserlist_FullDiscription.UserListAdmin(userList);
 
         List<Ordre> ordreList = LogicFacade.getOrderList();
-        String admin_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+        String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
 
-        request.setAttribute("admin_userlist", admin_Userlist);
+        request.setAttribute("employee_userlist", employee_Userlist);
 
         if (ordreList.isEmpty()) {
 
@@ -42,7 +42,7 @@ public class OrdreList extends Command {
 
         } else {
 
-            request.setAttribute("admin_orderlist", admin_Orderlist);
+            request.setAttribute("employee_orderlist", employee_Orderlist);
 
         }
         return "ordre_liste";
