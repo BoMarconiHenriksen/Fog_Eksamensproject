@@ -28,7 +28,7 @@ public class OrdreList extends Command {
         //   RendUtilOrderList.invoiceList(invoiceList);
         //   request.setAttribute("invoiceList", invoiceList);
         List<User> userList = LogicFacade.getUserList();
-        String employee_Userlist = RendUtilUserlist_FullDiscription.UserListAdmin(userList);
+        String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
 
         List<Ordre> ordreList = LogicFacade.getOrderList();
         String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);

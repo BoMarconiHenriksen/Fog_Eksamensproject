@@ -8,6 +8,7 @@ import Domain.User;
 import Utillities.RendUtilOrderList;
 import Utillities.RendUtilOrderList_Customer;
 import Utillities.RendUtilUserList;
+import Utillities.RendUtilUserlist_FullDiscription;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;
 import java.util.List;
@@ -83,7 +84,7 @@ public class InvoiceDetail extends Command {
             request.setAttribute("employee_orderlist", customer_Orderlist);
 
             List<User> userList = LogicFacade.getUserList();
-            String employee_Userlist = RendUtilUserList.invoiceUserList(userList);
+            String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
             request.setAttribute("employee_userlist", employee_Userlist);
 
             return "ordre_liste";

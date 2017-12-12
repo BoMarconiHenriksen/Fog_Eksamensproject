@@ -149,13 +149,18 @@
                     <strong>Medarbejdere og Kunder</strong>
                 </h2>
                 <hr class="divider">
+                
+                  <div class="text-heading text-lg">
+                                        <div class="bg-faded p-4 my-4">
+                                            <hr class="divider">
+                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                                            <hr class="divider">    
+                                            <%     
+                                                out.println("<a>" + request.getAttribute("employee_userlist") + "</a>");
+                                            %>  
+                                        </div>
+                                    </div>
 
-                <div>
-
-                    <%=request.getAttribute("employee_userlist")%>
-
-                    
-                </div>
 
                 <div>
                     <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>

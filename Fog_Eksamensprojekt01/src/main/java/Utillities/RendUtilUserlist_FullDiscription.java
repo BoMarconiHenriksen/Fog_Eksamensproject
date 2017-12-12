@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class RendUtilUserlist_FullDiscription {
     
-    public static String UserListAdmin(List<User> userList) throws NewException {
+    public static String invoiceList(List<User> userList) throws NewException {
     
         userList = LogicFacade.getUserList();
 
@@ -26,7 +26,7 @@ public class RendUtilUserlist_FullDiscription {
                 + "<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Bruger ID </th><br><th>Bruger Type   </th> <th>Bruger Email   </th> <th>Bruger Fornavn </th> <th>Bruger Efternavn  </th> <th>Bruger Postnummer  </th>"
-                + " <th>Bruger Addresse  </th> </tr>\n");
+                + " <th>Bruger Addresse  </th> <th>Bruger Tlf Nummer  </th></tr>\n");
         for (User u : userList) {
 
             sb.append("<tr><form name=\"InvoiceDetail_Admin_UserEdit\" action=\"FrontController\" method=\"POST\">");
