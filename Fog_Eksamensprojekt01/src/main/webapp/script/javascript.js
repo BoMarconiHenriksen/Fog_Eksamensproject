@@ -104,7 +104,7 @@ function checkNotnullOrEmpty()
     } 
 }
 
-function isDigit(telefonnummer) {
+function validatePhoneNumber(telefonnummer) {
     if(telefonnummer === null || telefonnummer === "") {
         alert("Husk at udfylde dit telefonnummer.");
         return false;

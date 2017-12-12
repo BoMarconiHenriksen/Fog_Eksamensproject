@@ -80,7 +80,7 @@
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
-                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logOut" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
                             </div>
                         </form>
                     </ul>

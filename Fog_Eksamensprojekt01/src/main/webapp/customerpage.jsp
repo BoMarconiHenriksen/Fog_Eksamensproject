@@ -3,6 +3,7 @@
     Created on : 05-12-2017, 11:00:25
 --%>
 
+<%@page import="Domain.User"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
 <%@page import="Utillities.RendUtilCustomerPresentation"%>
@@ -107,7 +108,7 @@
         </nav>
         <!-- Navigation slut -->
 
-
+                
         <!-- Welcome Message -->
         <div class="text-center mt-4">
             <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1>
