@@ -38,7 +38,7 @@ public class InvoiceDetail extends Command {
             
             LogicFacade.getUserByUserId(choseUser);
 
-            request.setAttribute("userID", us.getUser_id());
+            request.setAttribute("customerID", us.getUser_id());
             request.setAttribute("userRole", us.getRole());
             request.setAttribute("userEmail", us.getEmail());
             request.setAttribute("userFirstname", us.getFirstname());

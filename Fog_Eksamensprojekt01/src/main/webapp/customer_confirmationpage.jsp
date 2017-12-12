@@ -125,7 +125,7 @@
 
                                                 out.println("<p>" + "Carportens samlede pris: " + price+ "</p> \n");
 
-                                                out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+                                                out.println("<p>" + "Carportens ønskede længde: " + od.getCarportLength() + "</p>");
                                                 out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
                                                 out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
