@@ -19,7 +19,7 @@ import Domain.Exception.NewException;
 public class Employee_UserOptions extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws  Domain.Exception.NewException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

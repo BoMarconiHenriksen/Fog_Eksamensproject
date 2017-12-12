@@ -1,5 +1,5 @@
 /*
- * BenedikteEva
+ * 
  */
 package Presentation;
 
@@ -15,37 +15,23 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ejer
+ *
  */
 public class LogOut extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) {
-        
-        PrintWriter out = null;
-        try {
-            response.setContentType("text/html");
-            out = response.getWriter();
-            try {
-                request.getRequestDispatcher("index.jsp").include(request, response);
-                
-                
-                HttpSession session = request.getSession();
-                session.invalidate();
-                
-                out.print("Du er nu logget af.");
-                out.close();
-                
-            } catch (ServletException | IOException ex) {
-                Logger.getLogger(LogOut.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return "index";
+    String execute(HttpServletRequest request, HttpServletResponse response) throws NewException, IOException {
 
-        } catch (IOException ex) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        
+        try {
+            request.getRequestDispatcher("index.jsp").include(request, response);
+        } catch (ServletException ex) {
             Logger.getLogger(LogOut.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            out.close();
         }
+
         return "index";
+
     }
 }
