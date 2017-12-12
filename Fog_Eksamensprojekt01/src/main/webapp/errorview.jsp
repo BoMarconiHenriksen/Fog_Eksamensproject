@@ -1,7 +1,6 @@
 <%-- 
     Document   : errorview
     Created on : 04-12-2017, 20:49:45
-    Author     : Bo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -63,7 +62,6 @@
                             </li>
 
                             <li class="nav-item px-lg-4">
-
                                 <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                             </li>
 
@@ -76,7 +74,6 @@
                                     <input type="password" name="password">
                                     <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
                                 </div>
-
                             </li>
                         </form>  
                     </ul>
@@ -91,7 +88,7 @@
                 <div class="bg-faded p-4 my-4">
 
                     <% String error = (String) request.getAttribute("error");
-                                                if (error != null) {%>
+                        if (error != null) {%>
                     <hr class="divider">
                     <H2 class="text-center text-lg text-uppercase my-0">
                         <strong>Error Page</strong>

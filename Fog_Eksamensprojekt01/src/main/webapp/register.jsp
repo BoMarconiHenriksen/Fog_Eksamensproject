@@ -1,7 +1,6 @@
 <%-- 
     Document   : register
     Created on : 07-12-2017, 16:20:16
-    Author     : Ejer
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -74,9 +73,7 @@
                                 <input type="password" name="password">
                                 <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
                             </div>
-
                         </li>
-                        </form>  
                     </ul>
                 </div>
             </div>

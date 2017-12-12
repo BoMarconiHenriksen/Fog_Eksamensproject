@@ -1,7 +1,6 @@
 <%-- 
     Document   : invoice_detail_customer
     Created on : 28-11-2017, 11:22:00
-    Author     : Ticondrus
 --%>
 
 <%@page import="Utillities.XXRendUtilStykListe"%>
@@ -13,6 +12,7 @@
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Presentation.FrontController"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,13 +40,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -63,142 +63,136 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
 
-                            <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                        </li>
 
-                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
-                            </li>
+                        <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList_Customer">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                            </div>
+                        </form>
 
-                            <li class="nav-item px-lg-4">
-
-                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList_Customer">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Customer_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                                </ul>
+                        <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <div>     
+                                <input type="hidden" name="command" value="Customer_UserOptions">
+                                <div class="form-group">
+                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                 </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                            </div>
+                        </form>
 
-                                <div class="container">
-                                    <div class="text-center mt-4">
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
 
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0">
-                                                <strong>Din Ordre Detaljer samt Model af ønsket Carport</strong>
-                                            </h2>
-                                            <hr class="divider">
+        <div class="container">
+            <div class="text-center mt-4">
 
-                                            <%
-                                                double length = (Double) request.getAttribute("length");
-                                                double width = (Double) request.getAttribute("width");
-                                                double heigth = (Double) request.getAttribute("height");
-                                                double skurlength = (Double) request.getAttribute("redskabsskur_length");
-                                                double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-                                                Odetaljer od= (Odetaljer)request.getAttribute("od");
-                                                double price =od.getPrice() ;
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Din Ordre Detaljer samt Model af ønsket Carport</strong>
+                    </h2>
+                    <hr class="divider">
 
-                                                out.println("<p>" + "Carportens samlede pris: " +price + "</p> \n");
+                    <%
+                        double length = (Double) request.getAttribute("length");
+                        double width = (Double) request.getAttribute("width");
+                        double heigth = (Double) request.getAttribute("height");
+                        double skurlength = (Double) request.getAttribute("redskabsskur_length");
+                        double skurWidth = (Double) request.getAttribute("redskabsskur_width");
+                        Odetaljer od = (Odetaljer) request.getAttribute("od");
+                        double price = od.getPrice();
 
-                                                out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
-                                                out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
-                                                out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+                        out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
-                                                if (request.getAttribute("redskabsskur_length") != null) {
-                                                    out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                                                    out.println("<p>" + "Skurets standard højde: 210" + "</p>");
-                                                } else {
-                                                    out.println("<p>" + "Carporten er uden skur." + "</p>");
-                                                }
-                                            %>
+                        out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+                        out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+                        out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-4">
+                        if (request.getAttribute("redskabsskur_length") != null) {
+                            out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+                            out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+                            out.println("<p>" + "Skurets standard højde: 210" + "</p>");
+                        } else {
+                            out.println("<p>" + "Carporten er uden skur." + "</p>");
+                        }
+                    %>
 
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0">
-                                                <strong>Tegning af din carport</strong>
-                                            </h2>
-                                            <hr class="divider">
-                                            <%
-                                                XXRendSvg svag = new XXRendSvg();
+                </div>
+            </div>
+            <div class="text-center mt-4">
 
-                                                String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Tegning af din carport</strong>
+                    </h2>
+                    <hr class="divider">
+                    <%
+                        XXRendSvg svag = new XXRendSvg();
 
-                                                out.println("<a>" + carportTegning + "</a>");
-                                            
-                                                XXRendUtilStykListe styk = new XXRendUtilStykListe();
-                                                
-                                                // Stykliste hvis kunde har bestilt.
-                                                
-                                                if (od.getOrdreStatus().equals("Bestilt")){
-                                                String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
+                        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
 
-                                                out.println("<p>" + stykListe + "</p>");
-                                                } 
-                                                else {out.println("");
-                                                }
-                                            %>  
-                                        </div>
-                                    </div>
+                        out.println("<a>" + carportTegning + "</a>");
 
-                                    <div class="text-center mt-4">
+                        XXRendUtilStykListe styk = new XXRendUtilStykListe();
 
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0">
-                                                <strong>Ordre Detaljer</strong>
-                                            </h2>
-                                            <hr class="divider">
+                        // Stykliste hvis kunde har bestilt.
+                        if (od.getOrdreStatus().equals("Bestilt")) {
+                            String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
-                                            <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(od)%>
+                            out.println("<p>" + stykListe + "</p>");
+                        } else {
+                            out.println("");
+                        }
+                    %>  
+                </div>
+            </div>
 
-                                            <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="text-center mt-4">
 
-                                <footer class="bg-faded text-center py-5">
-                                    <div class="container">
-                                        <p class="m-0">
-                                            <a href="https://www.johannesfog.dk" target="_blank">
-                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                                            </a>
-                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                                        </p>
-                                    </div>
-                                </footer>        
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Ordre Detaljer</strong>
+                    </h2>
+                    <hr class="divider">
 
-                                </body>
-                                </html>
+                    <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(od)%>
+
+                    <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>        
+
+    </body>
+</html>

@@ -1,7 +1,6 @@
 <%-- 
     Document   : index
     Created on : Aug 22, 2017, 2:01:06 PM
-    Author     : kasper
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,13 +32,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -86,7 +85,7 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        
+
         <div class="container">
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -94,11 +93,11 @@
                     <strong>Drømme</strong>
                 </h2>
                 <hr class="divider">
-                
+
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-                               
+
             </div> 
         </div>
 
