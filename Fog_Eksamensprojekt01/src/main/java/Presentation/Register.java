@@ -1,7 +1,6 @@
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.Exception.NewException;
 import Domain.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,14 +14,14 @@ public class Register extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) {
 
         String email = request.getParameter("email");
-        String password = request.getParameter("password1");
-        String password2 = request.getParameter("password2");
+        String password = request.getParameter("password");
+        String passwordRetype = request.getParameter("passwordRetype");
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String address = request.getParameter("addresse");
         int zipcode = Integer.parseInt(request.getParameter("postnummer"));
         int tlfnummer = Integer.parseInt(request.getParameter("telefonnummer"));
-        if (password.equals(password2)) {
+        if (password.equals(passwordRetype)) {
             try {
                 User user = LogicFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
                 HttpSession session = request.getSession();
@@ -34,13 +33,9 @@ public class Register extends Command {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-//            try {
-//                throw new NewException( "De to passwords matcher ikke hinanden." );
-//            } catch (NewException ex) {
-//                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+           
         }
-        return "index";
+        return "register";
     }
 
 }

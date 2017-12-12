@@ -20,13 +20,7 @@ var checkbox = $("#trigger");
         } else {
         // Være sikker på at tabellen er gemt
         hidden.hide();
-                // You may also want to clear the value of the 
-                // hidden fields here. Just in case somebody 
-                // shows the fields, enters data to them and then 
-                // unticks the checkbox.
-                //
-                // This would do the job:
-                //
+                //Bruges til at fjerne evt. input i et felt
 //             $("#checkbox").val("");
         }
         });
@@ -34,7 +28,7 @@ var checkbox = $("#trigger");
 
 function show_confirmDeletetheOrder()
 {
-  var r = confirm("Er du sikker på at du gerne vil slette denne ordre?");
+  var r = confirm("Er du sikker på, at du gerne vil slette denne ordre?");
   if(r === true)
   {
      // do something
@@ -47,7 +41,7 @@ function show_confirmDeletetheOrder()
 
 function show_confirmLogOff()
 {
-  var r = confirm("Tryk på OK for at logge af brugeren.");
+  var r = confirm("Tryk OK for at logge af.");
   if(r === true)
   {
      // do something
@@ -57,7 +51,62 @@ function show_confirmLogOff()
      return false;
   }
 }
+
+function checkNotnullOrEmpty()
+{
+    var firstname = document.register.firstname.value;
+    var lastname = document.register.lastname.value;
+    var addresse = document.register.addresse.value;
+    var postnummer = document.register.postnummer.value;
+    var telefonnummer = document.register.telefonnummer.value;
+    var email = document.register.email.value;
+    var password = document.register.password.value;
+    var passwordRetype = document.register.passwordRetype.value;
+    
+    if (firstname === null || firstname === "")
+    {
+        alert("Husk at udfylde dit fornavn.");
+        return false;
+    } else if (password === null || password === "")
+    {
+        alert("Husk at udfylde dit password.");
+        return false;
+    } else if (lastname === null || lastname === "")
+    {
+        alert("Husk at udfylde dit efternavn.");
+        return false;
+    } else if (addresse === null || addresse === "")
+    {
+        alert("Husk at udfylde din adresse.");
+        return false;
+    } else if (postnummer === null || postnummer === "")
+    {
+        alert("Husk at udfylde dit postnummer.");
+        return false;
+    } else if (telefonnummer === null || telefonnummer === "")
+    {
+        alert("Husk at udfylde dit telefonnummer.");
+        return false;
+    } else if (isNaN(telefonnummer)) { //isNan tjekker om der kun er tal
+        alert("Telefonnummeret må kun består af tal, og ikke have tomme felter mellem tallene.");
+        return false;
+    }  else if (telefonnummer.length !== 8) {
+        alert("Telefonnummeret skal have en længde på 8 cifre.");
+        return false;
+    } else if (email === null || email === "")
+    {
+        alert("Husk at udfylde din email.");
+        return false;
+    } else if (password !== passwordRetype)
+    {
+        alert("Password og password retype er ikke ens. Prøv igen!");
+        return false;
+    } 
+}
+
+// Til test
 function myFunctionDeleteOrder() {
     document.getElementById("demo").innerHTML = "Hello World";
 }
+
 

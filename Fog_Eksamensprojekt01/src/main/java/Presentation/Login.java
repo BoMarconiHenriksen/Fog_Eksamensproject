@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author BenedikteEva
+ *
  */
 public class Login extends Command {
 
