@@ -104,6 +104,19 @@ function checkNotnullOrEmpty()
     } 
 }
 
+function isDigit(telefonnummer) {
+    if(telefonnummer === null || telefonnummer === "") {
+        alert("Husk at udfylde dit telefonnummer.");
+        return false;
+    } else if (isNaN(telefonnummer)) { //isNan tjekker om der kun er tal
+        alert("Telefonnummeret må kun består af tal, og ikke have tomme felter mellem tallene.");
+        return false;
+    }  else if (telefonnummer.length !== 8) {
+        alert("Telefonnummeret skal have en længde på 8 cifre.");
+        return false;
+    }
+}
+
 // Til test
 function myFunctionDeleteOrder() {
     document.getElementById("demo").innerHTML = "Hello World";
