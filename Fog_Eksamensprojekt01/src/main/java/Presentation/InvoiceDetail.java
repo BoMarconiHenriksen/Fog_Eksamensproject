@@ -87,13 +87,13 @@ public class InvoiceDetail extends Command {
             String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
             request.setAttribute("employee_userlist", employee_Userlist);
 
-            return "ordre_liste";
+            return "employee_ordre_list";
         }
         if (LockIntoOrder != null) {
 
-            return "invoice_detail";
+            return "employee_invoice_detail";
         }
 
-        return "invoice_detail";
+        return "emplyee_invoice_detail";
     }
 }

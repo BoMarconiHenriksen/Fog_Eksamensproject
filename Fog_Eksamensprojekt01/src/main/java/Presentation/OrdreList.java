@@ -45,6 +45,6 @@ public class OrdreList extends Command {
             request.setAttribute("employee_orderlist", employee_Orderlist);
 
         }
-        return "ordre_liste";
+        return "employee_ordre_list";
     }
 }

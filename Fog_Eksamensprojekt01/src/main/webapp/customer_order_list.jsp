@@ -1,15 +1,13 @@
 <%-- 
-    Document   : ordre_liste
-    Created on : 18-11-2017, 14:21:47
+    Document   : ordrelist_customer
+    Created on : 28-11-2017, 11:28:13
 --%>
 
-<%@page import="Domain.User"%>
-<%@page import="Business.LogicFacade"%>
-<%@page import="Data.OrdreMapper"%>
-<%@page import="Utillities.RendUtilOrderList"%>
-<%@page import="Domain.Ordre"%>
-<%@page import="java.util.List"%>
 
+<%@page import="Business.LogicFacade"%>
+<%@page import="Domain.User"%>
+<%@page import="Utillities.RendUtilOrderList_Customer"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +29,7 @@
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Ordre Liste</title>
+        <title>Ordre Historie</title>
     </head>
     <body>
 
@@ -41,7 +39,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -67,20 +65,22 @@
                         </li>
 
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                            <a class="nav-link text-uppercase text-expanded" href="customer_order_carport.jsp">Bestil Carport</a>
                         </li>
 
-                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="OrdreList">
+                        <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList_Customer">
                             <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                                <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
                             </div>
                         </form>
 
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                        <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <div>     
+                                <input type="hidden" name="command" value="Customer_UserOptions">
+                                <div class="form-group">
+                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
+                                </div>
                             </div>
                         </form>
 
@@ -90,78 +90,34 @@
                                 <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
                             </div>
                         </form>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Navigation slut -->
 
-        <!-- Welcome Message -->
-        <div class="text-center mt-4">
-            <h1 class="my-2"><% User user = (User) session.getAttribute("user");
-
-                if (user != null) {
-                    out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
-                } else {
-                    out.println("Hmm... der står du hedder null, der må være sket en fejl");
-                }
-
-                %></h1>
-        </div>
 
         <div class="container">
 
-            <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Ordre Historie</strong>
-                </h2>
-                <hr class="divider">
+            <div class="text-center mt-4">
+                <h1>Ordre Historie</h1>
 
-                <div>
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Se dine ordre og følge status på ordren</strong>
+                    </h2>
 
-                    <%=request.getAttribute("employee_orderlist")%>
+                    <hr class="divider">
 
+                    <%=request.getAttribute("customer_orderlist")%>
                 </div>
 
-                <div>
-                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                <div class="text-center mt-4">
+                    <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                 </div>
-
             </div>
         </div>
-                    
-                    <div class="container">
-
-            <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Medarbejdere og Kunder</strong>
-                </h2>
-                <hr class="divider">
-                
-                  <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                                            <hr class="divider">    
-                                            <%     
-                                                out.println("<a>" + request.getAttribute("employee_userlist") + "</a>");
-                                            %>  
-                                        </div>
-                                    </div>
-
-
-                <div>
-                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
-                </div>
-
-            </div>
-        </div>
-
-
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
@@ -172,9 +128,7 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>        
+        </footer>  
 
     </body>
 </html>
-
-

@@ -53,6 +53,6 @@ public class OrdreList_Customer extends Command {
 
        }
        
-        return "ordrelist_customer";
+        return "customer_order_list";
     }
 }

@@ -44,7 +44,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -71,7 +71,7 @@
 
                         <li class="nav-item px-lg-4">
 
-                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            <a class="nav-link text-uppercase text-expanded" href="customer_order_carport.jsp">Bestil Carport</a>
                         </li>
 
                         <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">

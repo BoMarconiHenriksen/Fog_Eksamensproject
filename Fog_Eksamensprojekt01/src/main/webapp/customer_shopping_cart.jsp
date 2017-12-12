@@ -149,7 +149,7 @@
                                 out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
                                 out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
                                 if ((int) request.getAttribute("count") != 0) {
-                                    out.println("<p>" + request.getAttribute("ditSkurErForLangt") + "</p>");
+                                    out.println("<p>" + request.getAttribute("yourShedsToBig") + "</p>");
                                 } else {
                                     out.println("");
                                 }

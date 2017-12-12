@@ -30,7 +30,7 @@ public class InvoiceSetStatus extends Command{
         
         LogicFacade.updateOrdreStatus(ordreId, status);
         
-        return "ordre_liste";
+        return "employee_ordre_list";
        
     }
     

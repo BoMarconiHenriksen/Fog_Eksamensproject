@@ -50,7 +50,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -77,7 +77,7 @@
 
                         <li class="nav-item px-lg-4">
 
-                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            <a class="nav-link text-uppercase text-expanded" href="customer_order_carport.jsp">Bestil Carport</a>
                         </li>
 
                         <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
@@ -120,8 +120,9 @@
                     <br>
                     <form name="basisCarport" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="basisCarport">
-                        <input type="hidden" name="command" value="basisCarportCheckud">
-                        <input type="hidden" name="command" value="CarportGemDesign">
+                        <%-- vi har ingen commands der hedder følgende derfor har vi ikke brug for dem
+             <input type="hidden" name="command" value="basisCarportCheckud">
+                         <input type="hidden" name="command" value="CarportGemDesign">--%>
 
                         <%=RendUtilCustomerPresentation.getMeasures()%>     
 
@@ -144,7 +145,7 @@
 
                         <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
                         <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
-                        <button type="submit" name="CarportGemDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+                        <button type="submit" name="CarportSaveDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
 
                     </form>
                     <br>
