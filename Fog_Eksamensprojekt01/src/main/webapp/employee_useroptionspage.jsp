@@ -55,45 +55,36 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                  
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
-                            </li>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <li class="nav-item px-lg-4">
-                                <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="Employee_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                            </li>
-                        </form>  
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -132,14 +123,14 @@
                 </div>
 
                 <div>
-                                            <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0){
-                                                out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
-                                            } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1){
-                                                out.println("<p> Dit password er nu ændret. </p><br>");
-                                            }
-                                            else{ out.println("");
-                                            }
-                                            %>
+                    <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0) {
+                            out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
+                        } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1) {
+                            out.println("<p> Dit password er nu ændret. </p><br>");
+                        } else {
+                            out.println("");
+                        }
+                    %>
                 </div>             
                 <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
             </div>
@@ -156,13 +147,5 @@
             </div>
         </footer>        
 
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-
-      
     </body>
 </html>

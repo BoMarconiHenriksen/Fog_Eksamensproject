@@ -1,7 +1,6 @@
 <%-- 
     Document   : invoice_detail
     Created on : 19-11-2017, 14:29:23
-    Author     : Bo
 --%>
 
 <%@page import="Domain.Odetaljer"%>
@@ -9,7 +8,8 @@
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,8 +35,6 @@
     </head>
 
     <body>
-      
-
 
         <!-- Logo og header billed-->
         <div class="center-img">
@@ -63,44 +61,36 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-
-
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
 
                         <li class="nav-item px-lg-4">
-
-                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                         </li>
 
-                        <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="OrdreList_Customer">
-                                <div class="form-group">
-                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                </div>
-                            </form>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                <div>     
-                                    <input type="hidden" name="command" value="Customer_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="logout">
-                                <div class="form-group">
-                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                </div>
-                            </form>
-
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -111,7 +101,7 @@
         <div class="container">
             <div class="text-center mt-4">
 
-  <h1>Hej <%= (String) session.getAttribute("username")%></h1>
+                <h1>Hej <%= (String) session.getAttribute("username")%></h1>
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -146,17 +136,13 @@
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
         </div>
 
-
-
-
-       
         <script src="script/jquery/jquery.js" type="text/javascript"></script>
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/popper/popper.min.js" type="text/javascript"></script>
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/popper/popper.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
- <footer class="bg-faded text-center py-5">
+        <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
                     <a href="https://www.johannesfog.dk" target="_blank">

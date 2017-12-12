@@ -1,7 +1,6 @@
 <%-- 
     Document   : ordre_liste
     Created on : 18-11-2017, 14:21:47
-    Author     : Bo
 --%>
 
 <%@page import="Domain.User"%>
@@ -10,6 +9,7 @@
 <%@page import="Utillities.RendUtilOrderList"%>
 <%@page import="Domain.Ordre"%>
 <%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,44 +60,37 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
-                            </li>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <li class="nav-item px-lg-4">
-                                <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="Employee_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                                    </div>
-                                </form>
-
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                            </li>
-                        </form>  
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -111,9 +104,8 @@
                 if (user != null) {
                     out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
                 } else {
-                    out.println("Hmm der står du hedder null der må være sket en fejl");
+                    out.println("Hmm... der står du hedder null, der må være sket en fejl");
                 }
-
 
                 %></h1>
         </div>
@@ -135,7 +127,6 @@
 
                 <div>
                     <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-
                 </div>
 
             </div>
@@ -170,7 +161,7 @@
             </div>
         </div>
 
-      
+
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
@@ -183,13 +174,7 @@
             </div>
         </footer>        
 
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-</body>
+    </body>
 </html>
 
 

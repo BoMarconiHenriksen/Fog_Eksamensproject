@@ -1,7 +1,6 @@
 <%-- 
     Document   : employee_orderconfirmationpage
     Created on : 10-12-2017, 19:58:54
-    Author     : Ticondrus
 --%>
 
 <%@page import="Domain.Ordre"%>
@@ -9,7 +8,8 @@
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,13 +37,13 @@
 
         <!-- Logo og header billed-->
         <div class="center-img">
-        <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
-        </a>
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="logo" src="images/logo.png" alt="Fog Logo">
+            </a>
 
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
         </div>
-        
+
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
@@ -60,144 +60,129 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                 
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                                <a class="nav-link text-uppercase text-expanded" href="employee_ordercarportpage.jsp">Bestil Carport</a>
-                            </li>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
 
-                                <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie for alle kunder</a> </button>
-                                    </div>
-                                </form>
+        <div class="container">
 
-                                <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Employee_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                        </div>
-                                    </div>
-                                </form>
+            <div class="text-heading text-lg">
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Ordren er nu placeret med den valgte status.</strong></h2>
+                    <hr class="divider">
 
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
+                    <%
+                        Odetaljer od = (Odetaljer) request.getAttribute("od");
 
-                                </ul>
-                                </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                        double length = od.getCarportLength();
+                        double width = od.getCarportWidth();
+                        double heigth = od.getCarportHeight();
+                        double skurlength = od.getLengthRedskabsrum();
+                        double skurWidth = od.getWidthRedskabsrum();
+                        double skurHeigth = 210;
 
-                                <div class="container">
+                        out.println("<p>" + "Bestilling for kunde nr.:  " + request.getAttribute("kunde_ided") + "</p> \n");
+                        out.println("<p>" + "Bestillings id: " + od.getOrdreId() + "</p> \n");
 
-                                    <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Ordren er nu placeret med den valgte status.</strong></h2>
-                                            <hr class="divider">
+                        double price = od.getPrice();
 
-                                            <%
-                                                Odetaljer od=(Odetaljer)request.getAttribute("od");
+                        out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
-                                                double length = od.getCarportLength();
-                                                double width = od.getCarportWidth();
-                                                double heigth = od.getCarportHeight();
-                                                double skurlength = od.getLengthRedskabsrum();
-                                                double skurWidth = od.getWidthRedskabsrum();
-                                                double skurHeigth = 210;
-                                                
-                                                out.println("<p>" + "Bestilling for kunde nr.:  " + request.getAttribute("kunde_ided") + "</p> \n");
-                                                out.println("<p>" + "Bestillings id: " + od.getOrdreId() + "</p> \n");
-                                               
-                                                double price = od.getPrice();
+                        out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+                        out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+                        out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                                                out.println("<p>" + "Carportens samlede pris: " + price+ "</p> \n");
+                        if (skurlength != 0.00) {
+                            out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+                            out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+                            out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
 
-                                                out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
-                                                out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
-                                                out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+                        } else {
+                            out.println("<p>" + "Carporten er uden skur." + "</p>");
+                        }
 
-                                                if (skurlength != 0.00) {
-                                                    out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                                                    out.println("<p>" + "Skurets ønskede højde: "+skurHeigth + "</p>");
+                    %>
+                </div>
+            </div>
 
-                                                } else {
-                                                    out.println("<p>" + "Carporten er uden skur." + "</p>");
-                                                }
+            <div class="text-heading text-lg">
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                    <hr class="divider">    
+                    <%                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                    %>  
+                </div>
+            </div>
 
-                                            %>
-                                        </div>
-                                    </div>
+            <div class="text-heading text-lg">
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
+                    <hr class="divider"> 
 
-                                    <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                                            <hr class="divider">    
-                                            <%     
-                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                            %>  
-                                        </div>
-                                    </div>
+                    <%
+                        XXRendUtilStykListe styk = new XXRendUtilStykListe();
 
-                                    <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                                            <hr class="divider"> 
+                        String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
-                                            <%
-                                                XXRendUtilStykListe styk = new XXRendUtilStykListe();
+                        out.println("<p>" + stykListe + "</p>");
+                    %>  
 
-                                                String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
+                    <div>
+                        <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
+                        <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
-                                             out.println("<p>" + stykListe + "</p>");
-                                            %>  
+                        <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                    </div>
 
-                                            <div>
-                                                <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
-                                                <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
+                </div>
+            </div>
+        </div>
 
-                                                <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-                                            </div>
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>
 
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <footer class="bg-faded text-center py-5">
-                                    <div class="container">
-                                        <p class="m-0">
-                                            <a href="https://www.johannesfog.dk" target="_blank">
-                                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                                            </a>
-                                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                                        </p>
-                                    </div>
-                                </footer>
-
-                                <script src="script/jquery/jquery.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-                                <script src="script/popper/popper.min.js" type="text/javascript"></script>
-                                <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-                                </body>
-                                </html>
+    </body>
+</html>

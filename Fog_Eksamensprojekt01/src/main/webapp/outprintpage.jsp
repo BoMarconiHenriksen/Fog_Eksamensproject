@@ -1,7 +1,6 @@
 <%-- 
     Document   : outprintpage
     Created on : 09-11-2017, 12:26:33
-    Author     : Ticondrus
 --%>
 
 
@@ -11,7 +10,7 @@
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
@@ -69,8 +68,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-
-
                         <li class="nav-item active px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
@@ -78,38 +75,34 @@
                         </li>
 
                         <li class="nav-item px-lg-4">
-
                             <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
                         </li>
 
-                        <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList_Customer">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="OrdreList_Customer">
+                        <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <div>     
+                                <input type="hidden" name="command" value="Customer_UserOptions">
                                 <div class="form-group">
-                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                <div>     
-                                    <input type="hidden" name="command" value="Customer_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="logout">
-                                <div class="form-group">
-                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                </div>
-                            </form>
-
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
                     </ul>
-
                 </div>
+            </div>
         </nav>
         <!-- Navigation slut -->
 
@@ -122,7 +115,7 @@
                     <hr class="divider">
 
                     <p>Du kan her se hvad din ordre kommer til at koste samt en model af den.
-                        Tryk på bestil ordre i bunden af siden, for at fudlføre din bestilling.</p>
+                        Tryk på bestil ordre i bunden af siden, for at fuldføre din bestilling.</p>
 
                     <p>De bedste hilsener</p>
                     <p>Fog Tømmerhandel</p>
@@ -138,11 +131,6 @@
                     <p>Dit Ordre id: ${KundensOID}</p><br>
                     <p>Din Ordre Status: Ordren afventer din bekræftigelse.</p>
                     <br>
-
-
-
-
-
 
                     <%if (request.getAttribute("lentghInput") == null) {
                             out.println("");
@@ -170,52 +158,37 @@
                                 out.println("");
                             }
 
-                                                    }%>
-
+                        }%>
 
                 </div>
             </div>
 
+            <div class="text-heading text-lg">
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
+                    <hr class="divider">    
+                    <%
+                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                    %>  
 
-              <div class="text-heading text-lg">
-                                        <div class="bg-faded p-4 my-4">
-                                            <hr class="divider">
-                                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                                            <hr class="divider">    
-                                            <%     
-                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                            %>  
-                                        </div>
-                                    </div>
+                    <form name="Checkout" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="OrdertheOrder">
 
-                    <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
+                        <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
+                    </form>
                 </div>
-                <form name="Checkout" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="OrdertheOrder">
 
-                    <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
-                </form>
+                <footer class="bg-faded text-center py-5">
+                    <div class="container">
+                        <p class="m-0">
+                            <a href="https://www.johannesfog.dk" target="_blank">
+                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                            </a>
+                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                        </p>
+                    </div>
+                </footer>
 
-        
-
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer>
-
-
-        <script src="script/jquery/jquery.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/popper/popper.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-    </body>
-
-</html>
+                </body>
+                </html>

@@ -25,10 +25,10 @@ public class UserMapper {
         User u = null;
         try {
 
-            Connection con = DBConnector.connection();
+//            Connection con = DBConnector.connection();
 
             String sql = "SELECT * FROM userlist WHERE user_id=" + user_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
+            ResultSet rs = DBConnector.connection().prepareStatement(sql).executeQuery();
             while (rs.next()) {
                 int userId = rs.getInt("user_id");
                 int zipcode = rs.getInt("zipcode");

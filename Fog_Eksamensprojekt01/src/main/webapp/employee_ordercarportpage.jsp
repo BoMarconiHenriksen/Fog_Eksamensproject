@@ -1,22 +1,19 @@
 <%-- 
     Document   : employee_ordercarportpage
     Created on : 10-12-2017, 13:52:04
-    Author     : Ticondrus
 --%>
 
 <%@page import="Utillities.RendUtilUserList"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
 <%@page import="Utillities.RendUtilCustomerPresentation"%>
 <%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>
 <%@page import="Presentation.FrontController"%>
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,10 +28,6 @@
         <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
-        <!--<script src="script/jquery/jquery.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/jquery/jquery.min.js" type="text/javascript"></script>-->
-        <!--<script src="script/popper/popper.min.js" type="text/javascript"></script>-->
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -76,43 +69,36 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
 
                         <li class="nav-item px-lg-4">
-
-                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                         </li>
 
-                        <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="OrdreList_Customer">
-                                <div class="form-group">
-                                    <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                </div>
-                            </form>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                                <div>     
-                                    <input type="hidden" name="command" value="Customer_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Se eller ret dine kontooplysninger </a></button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="logout">
-                                <div class="form-group">
-                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                </div>
-                            </form>
-
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -141,7 +127,6 @@
 
 
                         <!--Her starter vores hidden skur-->
-                        <!-- <form action="#" method="POST">-->
                         <div>
                             Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
                         </div>
@@ -151,11 +136,9 @@
                             <br><br>
 
                             <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-                            <!--Her slutter hidden skur-->    
 
                         </div>
-
-
+                        <!--Her slutter hidden skur-->    
 
                         <br><br>
 
@@ -164,16 +147,11 @@
 
                     </form>
 
-
-
-
-
                     <p>
                         Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
                         lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
                         tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
                     </p>
-
 
                     <div class="text-heading text-lg">
                         <div class="bg-faded p-4 my-4">
@@ -200,7 +178,7 @@
                                     }
 
                             %>
-                            <!-- Virker ikke lige pt!-->
+
                             <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                                 }%>    
                         </div>

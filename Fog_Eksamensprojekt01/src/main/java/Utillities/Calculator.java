@@ -3,30 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business;
+package Utillities;
 
+import Business.LogicFacade;
 import Domain.Exception.NewException;
 
 /**
  *
- * @author BenedikteEva
- *
  * Calculator class. Udfører beregninger på priser og materialer ud fra kundens
- * ønsket størrelse
+ * ønskede størrelse
  */
 public class Calculator {
-    
-    public double totalPriceSimpleCarport(double length, double width, double heigth,double shedLength, double shedWidth) throws NewException{
-        double totalPriceSimpleCarport= calculateCarportSimple( length, width, heigth) +calculatePriceShed(shedLength,  shedWidth);
-        return totalPriceSimpleCarport;
-    }
-    
-    
 
+  
 
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
      * grundelementer samt alle ekstra ting m.m.
+     * Den må kun bruges hvis skuret er med 
      *
      * @param length længden af carporten
      * @param width bredden af carporten
@@ -38,13 +32,16 @@ public class Calculator {
 
     
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
-
-        double totalPriceSimpleCarport = 0;
+double totalPriceSimpleCarport = 0;
+        if (length==0.00){
+             totalPriceSimpleCarport = 0;
+        }
+        else{
         double totalPriceBase = calculateBaseCarport(length, width);
         double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length, width);
 
         totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
-
+        }
         return totalPriceSimpleCarport;
 
     }
@@ -86,7 +83,7 @@ public class Calculator {
      */
     private double calculateBaseCarport(double length, double width) throws NewException {
 
-        // DecimalFormat df = new DecimalFormat("0.00");
+ 
         //træ og tag
         double plank1Price = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
         double plank2Price = LogicFacade.getMaterialeByVarenummer(2).getEnhedspris();
@@ -105,6 +102,10 @@ public class Calculator {
         } else if (length <= 600) {
 
             plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
+
+        }else if (length > 600) {
+
+            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris()+LogicFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
 
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
@@ -127,7 +128,10 @@ public class Calculator {
 
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
-        int numberOfPckScrews = numberOfScrews / 200;
+        int numberOfPckScrews = (int) Math.ceil(numberOfScrews / 200);
+        if (length==240 && width==240){
+            numberOfPckScrews=1;
+        }
         return numberOfPckScrews;
     }
     
@@ -184,10 +188,54 @@ public class Calculator {
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculateCarportSimple(480, 300,225));
+        System.out.println(calc.calculateBaseCarport(480, 300));
 
     }
 
+
+
+  /**
+     * Metoden udregner antallet af spær, der skal bruges til carporten.
+     * @param length er carportens længde.
+     * @return antallet af spær, der skal bruges til carporten.
+     */
+    static int calculateNumberOfRafters(double length) {
+        return Calculator.numberOfRafters(length);
+    }
+
+    /**
+     * Udregner den sammenlagte bredde for skurets rem.
+     * @param skurBredde er skuret bredde.
+     * @return den sammenlagte bredde for skurets rem.
+     */
+    static double CalculateWidthForRemmeISiderSkur(double skurBredde) {
+        return skurBredde * 2;
+    }
+
+    /**
+     * Metoden udregner, antallet af Ecolite tagplast, der skal bruges.
+     * @param width er carportens bredde.
+     * @return antallet af Ecolite tagplast, der skal bruges.
+     */
+    static int calculateNumberOfEcoliteRoof(double width) {
+        int numberOfRoof;
+        if (width % 100 > 0 && width % 100 < 50) {
+            numberOfRoof = ((int) Math.round(width / 100) + 1);
+        } else {
+            numberOfRoof = ((int) Math.round(width / 100));
+        }
+        return numberOfRoof;
+    }
+
+    /**
+     * Metoden udregner, hvor mange beklædningsbrædder der skal bruges til et skur.
+     * @param skurBredde er skurets bredde.
+     * @param skurLængde er skurets længde.
+     * @return antal beklædningsbrædder, som skal bruges til et skur.
+     */
+    static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
+        return 2 * skurBredde / 10 + 2 * skurLængde / 10;
+    }
 }
 // hvis carporten 600 * 780
 //        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 

@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.Calculator;
+import Utillities.Calculator;
 import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.Odetaljer;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author The DataBuilders This class is one of the commands. The execute
  * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
- * and then put them though various methods a calculator that calculates the
- * price. The parameters is also used to place an order and some odetails in the
- * database.
+ * and then put them though various methods based on the specific button pushed
+ * a calculator that calculates the price. The parameters is also used to place
+ * an order and some odetails in the database.
  */
 public class basisCarport extends Command {
 
@@ -52,12 +52,12 @@ public class basisCarport extends Command {
 
         String skurellerej = request.getParameter("skur");
 
-        double totalPrice =  calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+        double totalPrice = 0;
 
         if (CheckUd != null) {
 
             ordre_status = "Afventer kundens bekræftigelse";
-
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "outprintpage";
@@ -66,7 +66,7 @@ public class basisCarport extends Command {
         if (GemDesign != null) {
 
             ordre_status = "Gemt Design";
-
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
             return "customerpage";
@@ -75,7 +75,7 @@ public class basisCarport extends Command {
 
         if (SePris != null) {
 
-            calculatePriceSetAttrubtes(request,  lentghinput, widthinput,heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+            calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
             return "bestilbasiscarportpage";
 
@@ -87,7 +87,7 @@ public class basisCarport extends Command {
     /**
      * This method makes sure the shed can be placed under the carport roof with
      * regards to shed length and carportwidth. it also uses the calculator and
-     * skurcalculator to se a price for the carport with shed.
+     * skurcalculator to set a price for the carport with shed.
      *
      * @param lentghinputskur chosen length of shed
      * @param widthinput chosen width of carport
@@ -186,7 +186,7 @@ public class basisCarport extends Command {
         String formatDateTime = today.format(formatter);
 
         //SÃ¦tter datoen pÃ¥ ordren
-        order.setReciveddate(formatDateTime);
+//        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getLastInvoiceId();
@@ -195,8 +195,8 @@ public class basisCarport extends Command {
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
         LogicFacade.getOrderByOrderId2(or);
-
         ods = LogicFacade.getOdetaljerByOrderId(or);
+
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());
