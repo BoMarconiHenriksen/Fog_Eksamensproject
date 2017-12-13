@@ -83,8 +83,8 @@
 
         <div class="container">
             <div class="bg-faded p-4 my-4">
-                
-                
+
+
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud, hvis du er ny kunde</h2>
                 <hr class="divider">
@@ -117,7 +117,7 @@
                             <input type="text" name="addresse">
                             <br>
                             PostNummer:<br>
-                            <input type="text" name="postnummer" pattern="[0-9]{4}"title="4 Cifre">
+                            <input type="text" name="postnummer" pattern="[0-9]{4}"title="4 Cifre" value="1000">
                             <br>
                             Telefonnummer <br>
                             <input type="tel" name="telefonnummer">
@@ -140,7 +140,7 @@
                 </p>
             </div>
         </footer>      
-    </div>
 
-</body>
+
+    </body>
 </html>

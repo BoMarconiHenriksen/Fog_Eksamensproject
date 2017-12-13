@@ -66,7 +66,7 @@ function checkNotnullOrEmpty()
     if (firstname === null || firstname === "")
     {
         alert("Husk at udfylde dit fornavn.");
-        return false;
+        return false; //Forhindrer at formen bliver submittet
     } else if (password === null || password === "")
     {
         alert("Husk at udfylde dit password.");
@@ -82,6 +82,9 @@ function checkNotnullOrEmpty()
     } else if (postnummer === null || postnummer === "")
     {
         alert("Husk at udfylde dit postnummer.");
+        return false;
+    } else if (postnummer < 1000 || postnummer > 1000) {
+        alert("Husk at udfylde dit postnummer. Da det eneste postnummer, der er sat ned i databasen er 1000. Er det pt det eneste postnummer, der kan bruges. Dette skal ændres på lændere sigt.");
         return false;
     } else if (telefonnummer === null || telefonnummer === "")
     {
