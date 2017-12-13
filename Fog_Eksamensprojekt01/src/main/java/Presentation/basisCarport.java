@@ -196,7 +196,6 @@ public class basisCarport extends Command {
         session.setAttribute("SessionIOD", or);
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
-        LogicFacade.getOrderByOrderId2(or);
         ods = LogicFacade.getOdetaljerByOrderId(or);
 
         request.setAttribute("length", (Double) ods.getCarportLength());

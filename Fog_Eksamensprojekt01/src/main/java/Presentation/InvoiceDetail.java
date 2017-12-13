@@ -52,7 +52,7 @@ public class InvoiceDetail extends Command {
             request.setAttribute("outprintnotifystatus", userNotifyValue);
 
             return "employee_usercontrolpage";
-        }
+        } else{
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
@@ -96,4 +96,5 @@ public class InvoiceDetail extends Command {
 
         return "emplyee_invoice_detail";
     }
+}
 }

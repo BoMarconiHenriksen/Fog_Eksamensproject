@@ -1,4 +1,3 @@
-
 package Presentation;
 
 import Domain.Exception.NewException;
@@ -24,13 +23,10 @@ public class InvoiceDetail_Customer extends Command {
         String DeletetheOrder;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        String LockIntoOrder = request.getParameter("InvoiceDetail");
+        String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
 
-        if (user.getRole().equals("employee")) {
-            DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
-        } else {
-            DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
-        }
+        DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+
         String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
