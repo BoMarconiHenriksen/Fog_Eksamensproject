@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author
  */
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
@@ -55,16 +54,6 @@ public class FrontController extends HttpServlet {
                 request.getRequestDispatcher("errorview.jsp").forward(request, response);
 
             }
-        }
-
-        try {
-            Command action = Command.from(request);
-            String view = action.execute(request, response);
-            request.setAttribute("view", view);
-            request.getRequestDispatcher(view + ".jsp").forward(request, response);
-        } catch (NewException ex) {
-            request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
     }
