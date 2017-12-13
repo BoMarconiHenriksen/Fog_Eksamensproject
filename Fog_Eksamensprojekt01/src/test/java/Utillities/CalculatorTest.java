@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business;
+package Utillities;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -36,8 +36,9 @@ public class CalculatorTest {
     @After
     public void tearDown() {
     }
-
-    /**
+    
+    
+        /**
      * Test of totalPriceSimpleCarport method, of class Calculator.
      */
     //@Test 
@@ -231,6 +232,23 @@ public class CalculatorTest {
         // TODO review the generated test code and remove the default call to fail.
      
     }
+    
+     /**
+     * Test of numberOfBottomScrewsPackageEcolite method, of class Calculator.
+     */
+    @Test
+    public void testNumberOfBottomScrewsPackageEcoliteNull() {
+        System.out.println("numberOfBottomScrewsPackageEcolite");
+        double length = 0.0;
+        double width = 0.0;
+        int expResult = 0;
+        int result = Calculator.numberOfBottomScrewsPackageEcolite(length, width);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+
+    }
+    
+    
     /**
      * Test of calculatePriceShed method, of class Calculator.
      */
@@ -247,7 +265,86 @@ public class CalculatorTest {
      
     }
 
+ 
+
+
+
     /**
+     * Test of calculateNumberOfRafters method, of class Calculator.
+     */
+    @Test
+    public void testCalculateNumberOfRaftersNull() {
+        System.out.println("calculateNumberOfRafters");
+        double length = 0.0;
+        int expResult = 0;
+        int result = Calculator.calculateNumberOfRafters(length);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+  
+    }
+
+    /**
+     * Test of CalculateWidthForRemmeISiderSkur method, of class Calculator.
+     */
+    @Test
+    public void testCalculateWidthForRemmeISiderSkur() {
+        System.out.println("CalculateWidthForRemmeISiderSkur");
+        double skurBredde = 150.0;
+        double expResult = 300;
+        double result = Calculator.CalculateWidthForRemmeISiderSkur(skurBredde);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+     
+    }
+
+    /**
+     * Test of calculateNumberOfEcoliteRoof method, of class Calculator.
+     */
+    @Test
+    public void testCalculateNumberOfEcoliteRoof() {
+        System.out.println("calculateNumberOfEcoliteRoof");
+        double width = 300.0;
+        int expResult = 3;
+        int result = Calculator.calculateNumberOfEcoliteRoof(width);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
+
+    /**
+     * Test of CalculateCoverWoodShed method, of class Calculator.
+     */
+    @Test
+    public void testCalculateCoverWoodShed() {
+        System.out.println("CalculateCoverWoodShed");
+        double skurBredde = 150.0;
+        double skurLængde = 270.0;
+        double expResult = 84.0;
+        double result = Calculator.CalculateCoverWoodShed(skurBredde, skurLængde);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+  
+    }
+
+    /**
+     * Test of calculateCarportSimple method, of class Calculator.
+     */
+    @Test
+    public void testCalculateCarportSimpleZero() throws Exception {
+        System.out.println("calculateCarportSimple");
+        double length = 0.0;
+        double width = 0.0;
+        double heigth = 0.0;
+        Calculator instance = new Calculator();
+        double expResult = 0.0;
+        double result = instance.calculateCarportSimple(length, width, heigth);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+      
+    }
+
+ 
+   /**
      * Test of main method, of class Calculator.
      */
     @Test
@@ -258,5 +355,9 @@ public class CalculatorTest {
         // TODO review the generated test code and remove the default call to fail.
       
     }
+    
+   
+
+  
     
 }

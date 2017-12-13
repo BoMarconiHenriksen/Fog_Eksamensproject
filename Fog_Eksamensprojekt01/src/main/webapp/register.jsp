@@ -1,7 +1,6 @@
 <%-- 
     Document   : register
     Created on : 07-12-2017, 16:20:16
-    Author     : Ejer
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,7 +23,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
         <title>Registrering</title>
     </head>
     <body>
@@ -54,29 +53,29 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
+                        <form  class="form-inline" name="login" action="FrontController" method="POST">
 
-                        <li class="nav-item px-lg-4">
+                            <li class="nav-item active px-lg-4">
+                                <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
 
-                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
-                        </li>
+                            <li class="nav-item px-lg-4">
+                                <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                            </li>
 
-                        <li class="nav-item px-lg-4">
-                            <div class="form-group nav-link text-uppercase text-expanded">
-                                <input type="hidden" name="command" value="login">
-                                <a> Email:</a> 
-                                <input type="text" name="email">
-                                <a>Password:</a> 
-                                <input type="password" name="password">
-                                <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
-                            </div>
-
-                        </li>
-                        </form>  
+                            <li class="nav-item px-lg-4">
+                                <div class="form-group nav-link text-uppercase text-expanded">
+                                    <input type="hidden" name="command" value="login">
+                                    <a> Email:</a> 
+                                    <input type="text" name="email">
+                                    <a>Password:</a> 
+                                    <input type="password" name="password">
+                                    <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
+                                </div>
+                            </li>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -84,51 +83,52 @@
 
         <div class="container">
             <div class="bg-faded p-4 my-4">
+                
+                
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud, hvis du er ny kunde</h2>
+                <hr class="divider">
 
-                <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud hvis du er ny kunde
-                </h2>
                 <table>     
 
                     <td>
                         <form name="register" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="register">
                             Email:<br>
-                            <input type="text" name="email" value="someone@nowhere.com">
+                            <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> <!--Email skal følge standarden navn@navn.dk-->
                             <br>
                             Password:<br>
-                            <input type="password" name="password1" pattern=".{6,}" title="7 eller flere karakter">
+                            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z-æøå])(?=.*[A-Z-ÆØÅ]).{7,}" 
+                                   title="Passwordet skal bestå af mindst et nummer, et stort bogstav, et lille bogstav og
+                                   mindst 7 eller flere tegn">
                             <br>
                             Retype Password:<br>
-                            <input type="password" name="password2" pattern=".{6,}" title="7 eller flere karakter">
+                            <input type="password" name="passwordRetype" pattern="(?=.*\d)(?=.*[a-z-æøå])(?=.*[A-Z-ÆØÅ]).{7,}" 
+                                   title="Passwordet skal bestå af mindst et nummer, et stort bogstav, et lille bogstav og
+                                   mindst 7 eller flere tegn">
                             <br>
                             Fornavn:<br>
-                            <input type="text" name="firstname" value="Peter">
+                            <input type="text" name="firstname">
                             <br>
                             Efternavn:<br>
-                            <input type="text" name="lastname" value="Jensen">
+                            <input type="text" name="lastname">
                             <br>
-                            Addresse:<br>
-                            <input type="text" name="addresse" value="Jensen">
+                            Adresse:<br>
+                            <input type="text" name="addresse">
                             <br>
-                            Post Nummer (0001):<br>
-                            <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre" >
+                            PostNummer:<br>
+                            <input type="text" name="postnummer" pattern="[0-9]{4}"title="4 Cifre">
                             <br>
-                            Telefon nummer <br>
-                            <input type="number" name="telefonnummer" min="1" max="99999999999" >
+                            Telefonnummer <br>
+                            <input type="tel" name="telefonnummer">
                             <br>
-                            <button type="submit" name="register" value="Submit">Opret Bruger </button>
+                            <button type="submit" name="register" onclick="return checkNotnullOrEmpty();" value="Submit">Opret Bruger </button>
+                            <input type="reset">
                         </form>
                     </td>
-
                 </table>
             </div>
         </div>     
-        <% String error = (String) request.getAttribute("error");
-            if (error != null) {%>
-        <H2>Error!!</h2>
-        <p><%= error%>
-            <% }
-            %>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">

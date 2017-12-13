@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Domain.Exception.NewException;
@@ -11,12 +7,7 @@ import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList_Customer;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,11 +21,16 @@ public class InvoiceDetail_Customer extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");
-
+        String DeletetheOrder;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String LockIntoOrder = request.getParameter("InvoiceDetail");
-        String DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
+
+        if (user.getRole().equals("employee")) {
+            DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
+        } else {
+            DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        }
         String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
@@ -57,25 +53,21 @@ public class InvoiceDetail_Customer extends Command {
             List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
             String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
             request.setAttribute("customer_orderlist", customer_Orderlist);
-            return "ordrelist_customer";
+            return "customer_order_list";
         }
         if (LockIntoOrder != null) {
-            
-            
 
-            return "invoice_detail_customer";
+            return "customer_invoice_detail";
         }
-        
-        if (SetOrderStatusbyCustomer != null){
-        
-        String status=request.getParameter("status");
-        
-        LogicFacade.updateOrdreStatus(orderid, status);
-        
-        
-        
-        return "invoice_detail_customer";
-        
+
+        if (SetOrderStatusbyCustomer != null) {
+
+            String status = request.getParameter("status");
+
+            LogicFacade.updateOrdreStatus(orderid, status);
+
+            return "customer_invoice_detail";
+
         } else {
             return "customerpage";
         }

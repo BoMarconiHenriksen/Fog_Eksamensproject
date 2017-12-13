@@ -1,6 +1,5 @@
 package Utillities;
 
-import Business.Calculator;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;

@@ -1,7 +1,6 @@
 <%-- 
     Document   : outprintpage
     Created on : 09-11-2017, 12:26:33
-    Author     : Ticondrus
 --%>
 
 
@@ -11,7 +10,7 @@
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
 <%@page import="Business.LogicFacade"%>
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
@@ -69,49 +68,43 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                            <li class="nav-item active px-lg-4">
-                                <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                        </li>
 
-                            <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList_Customer">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
+                            </div>
+                        </form>
 
-                                <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
-                            </li>
-
-                            <li class="nav-item px-lg-4">
-
-                                <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="OrdreList_Customer">
-                                    <div class="form-group">
-                                        <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                    <div>     
-                                        <input type="hidden" name="command" value="Customer_UserOptions">
-                                        <div class="form-group">
-                                            <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="logout">
-                                    <div class="form-group">
-                                        <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                    </div>
-                                </form>
-
-                                </ul>
+                        <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <div>     
+                                <input type="hidden" name="command" value="Customer_UserOptions">
+                                <div class="form-group">
+                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                 </div>
-                                </div>
-                                </nav>
-                                <!-- Navigation slut -->
+                            </div>
+                        </form>
+
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation slut -->
 
         <div class="container">
 
@@ -122,7 +115,7 @@
                     <hr class="divider">
 
                     <p>Du kan her se hvad din ordre kommer til at koste samt en model af den.
-                        Tryk på bestil ordre i bunden af siden, for at fudlføre din bestilling.</p>
+                        Tryk på bestil ordre i bunden af siden, for at fuldføre din bestilling.</p>
 
                     <p>De bedste hilsener</p>
                     <p>Fog Tømmerhandel</p>
@@ -156,7 +149,7 @@
                                 out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
                                 out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
                                 if ((int) request.getAttribute("count") != 0) {
-                                    out.println("<p>" + request.getAttribute("ditSkurErForLangt") + "</p>");
+                                    out.println("<p>" + request.getAttribute("yourShedsToBig") + "</p>");
                                 } else {
                                     out.println("");
                                 }

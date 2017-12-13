@@ -1,15 +1,18 @@
 <%-- 
-    Document   : employee_useroptionspage
-    Created on : 07-12-2017, 12:39:49
-    Author     : Ticondrus
+    Document   : ordrelist_customer
+    Created on : 28-11-2017, 11:28:13
 --%>
 
+
+<%@page import="Business.LogicFacade"%>
+<%@page import="Domain.User"%>
+<%@page import="Utillities.RendUtilOrderList_Customer"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
@@ -24,9 +27,9 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+        <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Ret Medarbejder Oplysninger</title>
+        <title>Ordre Historie</title>
     </head>
     <body>
 
@@ -36,7 +39,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -56,26 +59,28 @@
                     <ul class="navbar-nav mx-auto">
 
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
 
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                            <a class="nav-link text-uppercase text-expanded" href="customer_order_carport.jsp">Bestil Carport</a>
                         </li>
 
-                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="OrdreList">
+                        <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList_Customer">
                             <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                                <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ordre Historie</a> </button>
                             </div>
                         </form>
 
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                        <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
+                            <div>     
+                                <input type="hidden" name="command" value="Customer_UserOptions">
+                                <div class="form-group">
+                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
+                                </div>
                             </div>
                         </form>
 
@@ -91,48 +96,26 @@
         </nav>
         <!-- Navigation slut -->
 
+
         <div class="container">
 
-            <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Adresse</strong>
-                </h2>
-                <hr class="divider">
+            <div class="text-center mt-4">
+                <h1>Ordre Historie</h1>
 
-                <h1>Hej: <%= (String) session.getAttribute("username")%> </h1>
+                <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Se dine ordre og følge status på ordren</strong>
+                    </h2>
 
-                <h2>Dine konto oplysninger</h2>
+                    <hr class="divider">
 
-                <p>Dit Fornavn: ${yourFirstname}</p><br>
-                <p>Din Efternavn: ${yourLastname}</p><br>
-                <p>Din Email: ${yourEmail}</p><br>
-                <p>Din Adresse: ${yourAddress}</p><br>
-                <p>Dit Postnummer: ${yourZipcode}</p><br>
-                <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
-                <p></p>
-
-                <div>
-                    <form name="Employee_UserOptionsPasswordChange" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_UserOptionsPasswordChange">
-
-                        Intast nuværende Password: <input type="password" name="passwordOld" ><br>
-                        Ændre Password: <input type="password" name="passwordNew" ><br>
-                        <button type="submit" name="Employee_UserOptionsPasswordChange" value="Submit">Udfør Password ændring </button>
-                    </form>
+                    <%=request.getAttribute("customer_orderlist")%>
                 </div>
 
-                <div>
-                    <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0) {
-                            out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
-                        } else if ((int) request.getAttribute("outprintpasswordchangestatus") == 1) {
-                            out.println("<p> Dit password er nu ændret. </p><br>");
-                        } else {
-                            out.println("");
-                        }
-                    %>
-                </div>             
-                <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
+                <div class="text-center mt-4">
+                    <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
+                </div>
             </div>
         </div>
 
@@ -145,7 +128,7 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>        
+        </footer>  
 
     </body>
 </html>

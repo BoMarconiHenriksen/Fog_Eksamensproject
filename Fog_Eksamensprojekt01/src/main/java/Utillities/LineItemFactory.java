@@ -1,6 +1,5 @@
 package Utillities;
 
-import Business.Calculator;
 import Domain.LineItem;
 import Domain.Exception.NewException;
 
@@ -27,7 +26,7 @@ public class LineItemFactory {
         baseWood[1] = new LineItem("Understernbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
         baseWood[2] = new LineItem("Oversternbrædder til forenden", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
         baseWood[3] = new LineItem("Oversternbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
-        baseWood[4] = new LineItem("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, calculateNumberOfRafters(length), "Stk");
+        baseWood[4] = new LineItem("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, Calculator.calculateNumberOfRafters(length), "Stk");
         baseWood[5] = new LineItem("Stolper, nedgraves i 90 cm. jord", Business.LogicFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
         baseWood[6] = new LineItem("Vandbrædt på stern i sider", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
         baseWood[7] = new LineItem("Vandbrædt på stern i forenden", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
@@ -67,14 +66,14 @@ public class LineItemFactory {
         LineItem[] ecoliteRoof = new LineItem[1];
 
         if (length <= 300) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 480) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 600) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length > 600) {
             //OBS! Skal laves færdig!
-            ecoliteRoof[0] = new LineItem("Ring til supporten", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Ring til supporten", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
 
         }
 
@@ -97,8 +96,8 @@ public class LineItemFactory {
         woodForShed[1] = new LineItem("Løsholter til skurgavle", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurLængde, 4, "Stk");
         //OBS! Denne skal rettes til
         woodForShed[2] = new LineItem("Løsholter til skur sider", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
-        woodForShed[3] = new LineItem("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
-        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) CalculateCoverWoodShed(skurBredde, skurLængde), "Stk");
+        woodForShed[3] = new LineItem("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), Calculator.CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
+        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) Calculator.CalculateCoverWoodShed(skurBredde, skurLængde), "Stk");
 
         return woodForShed;
     }
@@ -121,47 +120,5 @@ public class LineItemFactory {
         return screwsAndBracketShed;
     }
 
-    /**
-     * Metoden udregner, hvor mange beklædningsbrædder der skal bruges til et skur.
-     * @param skurBredde er skurets bredde.
-     * @param skurLængde er skurets længde.
-     * @return antal beklædningsbrædder, som skal bruges til et skur.
-     */
-    private static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
-        return 2 * skurBredde / 10 + 2 * skurLængde / 10;
-    }
-
-    /**
-     * Udregner den sammenlagte bredde for skurets rem.
-     * @param skurBredde er skuret bredde.
-     * @return den sammenlagte bredde for skurets rem.
-     */
-    private static double CalculateWidthForRemmeISiderSkur(double skurBredde) {
-        return skurBredde * 2;
-    }
-
-    /**
-     * Metoden udregner, antallet af Ecolite tagplast, der skal bruges.
-     * @param width er carportens bredde.
-     * @return antallet af Ecolite tagplast, der skal bruges.
-     */
-    private static int calculateNumberOfEcoliteRoof(double width) {
-        int numberOfRoof;
-        if (width % 100 > 0 && width % 100 < 50) {
-            numberOfRoof = ((int) Math.round(width / 100) + 1);
-        } else {
-            numberOfRoof = ((int) Math.round(width / 100));
-        }
-        return numberOfRoof;
-    }
-
-    /**
-     * Metoden udregner antallet af spær, der skal bruges til carporten.
-     * @param length er carportens længde.
-     * @return antallet af spær, der skal bruges til carporten.
-     */
-    private static int calculateNumberOfRafters(double length) {
-        return Business.Calculator.numberOfRafters(length);
-    }
 
 }

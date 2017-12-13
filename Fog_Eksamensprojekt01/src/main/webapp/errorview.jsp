@@ -1,7 +1,6 @@
 <%-- 
     Document   : errorview
     Created on : 04-12-2017, 20:49:45
-    Author     : Bo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,7 +22,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Error Page</title>
     </head>
@@ -35,7 +34,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'index.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -63,7 +62,6 @@
                             </li>
 
                             <li class="nav-item px-lg-4">
-
                                 <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                             </li>
 
@@ -76,7 +74,6 @@
                                     <input type="password" name="password">
                                     <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
                                 </div>
-
                             </li>
                         </form>  
                     </ul>
@@ -91,7 +88,7 @@
                 <div class="bg-faded p-4 my-4">
 
                     <% String error = (String) request.getAttribute("error");
-                                                if (error != null) {%>
+                        if (error != null) {%>
                     <hr class="divider">
                     <H2 class="text-center text-lg text-uppercase my-0">
                         <strong>Error Page</strong>

@@ -1,7 +1,6 @@
 <%-- 
     Document   : invoice_detail
     Created on : 19-11-2017, 14:29:23
-    Author     : Bo
 --%>
 
 <%@page import="Domain.Odetaljer"%>
@@ -9,7 +8,8 @@
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Business.Calculator"%>
+<%@page import="Utillities.Calculator"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -62,41 +62,35 @@
                     <ul class="navbar-nav mx-auto">
 
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="customerpage.jsp">Hjem
+                            <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
 
                         <li class="nav-item px-lg-4">
-
-                            <a class="nav-link text-uppercase text-expanded" href="bestilbasiscarportpage.jsp">Bestil Carport</a>
+                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
                         </li>
 
-                        <li class="nav-item px-lg-4">
+                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdreList">
+                            <div class="form-group">
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="OrdreList_Customer" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="OrdreList_Customer">
-                                <div class="form-group">
-                                    <button type="submit" name="OrdreList_Customer" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                                </div>
-                            </form>
+                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Employee_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
+                            </div>
+                        </form>
 
-                            <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                                <div>     
-                                    <input type="hidden" name="command" value="Customer_UserOptions">
-                                    <div class="form-group">
-                                        <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="logout">
-                                <div class="form-group">
-                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                                </div>
-                            </form>
-
+                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="logout">
+                            <div class="form-group">
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>

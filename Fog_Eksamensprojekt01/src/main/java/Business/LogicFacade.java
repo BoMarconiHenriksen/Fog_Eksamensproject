@@ -80,6 +80,12 @@ public class LogicFacade {
         UserMapper.updateUserPassword(user_id, password);
     }
     
+    public static void updateWholeUserButID(int user_id, int zip, String email, String password, 
+            String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
+
+        UserMapper.updateWholeUserbutID(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
+    }
+    
        public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }

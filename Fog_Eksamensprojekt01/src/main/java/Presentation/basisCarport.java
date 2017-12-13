@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.Calculator;
+import Utillities.Calculator;
 import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.Odetaljer;
@@ -30,54 +30,52 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        String SePris = request.getParameter("basisCarport");
-        String CheckUd = request.getParameter("basisCarportCheckud");
-        String GemDesign = request.getParameter("CarportGemDesign");
-
-        Ordre order = new Ordre();
-
-        int user_id = user.getUser_id();
-
-        order.setUser_id(user_id);
-        session.setAttribute("userNr", user_id);
-
-        String ordre_status = null;
+        String seePrice = request.getParameter("basisCarport");
+        String checkOut = request.getParameter("basisCarportCheckud");
+        String saveDesign = request.getParameter("CarportSaveDesign");
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
-
         double lentghinputskur = Double.parseDouble(request.getParameter("lentgchoiceskur"));
         double widthinputskur = Double.parseDouble(request.getParameter("widthchoiceskur"));
         double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
+        String shedOrNoShed = request.getParameter("skur");
+        
+        
+        Ordre order = new Ordre();
+        String ordre_status = null;
 
-        String skurellerej = request.getParameter("skur");
-
+        int user_id = user.getUser_id();
+        order.setUser_id(user_id);
+        session.setAttribute("userNr", user_id);
         double totalPrice = 0;
 
-        if (CheckUd != null) {
+        if (checkOut != null) {
 
             ordre_status = "Afventer kundens bekræftigelse";
-            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
-            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
+            placeOrderOdetailsSetAttributes(request, session,  user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
-            return "outprintpage";
+            return "customer_shopping_cart";
         }
 
-        if (GemDesign != null) {
+        if (saveDesign != null) {
 
             ordre_status = "Gemt Design";
-            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
-            placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
+            totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
+
+
+//            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
             return "customerpage";
 
         }
 
-        if (SePris != null) {
+        if (seePrice != null) {
 
-            calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
+            calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
 
-            return "bestilbasiscarportpage";
+            return "customer_order_carport";
 
         } else {
             return "customerpage";
@@ -113,10 +111,10 @@ public class basisCarport extends Command {
         if (lentghinputskur > widthinput - 30) {
             count = 1;
 
-            String ditSkurErForLangt = "Det valgte redskabsrum er for langt i forhold til carporten."
+            String yourShedsToBig = "Det valgte redskabsrum er for langt i forhold til carporten."
                     + "Vi har sat længden af Deres redskabsrum til at være 30 cm mindre end den valgte carport."
                     + "hvis De ønsker en speciel carport bedes De venligst kontakte os på tlf nr. xxxxxx";
-            request.setAttribute("ditSkurErForLangt", ditSkurErForLangt);
+            request.setAttribute("yourShedsToBig", yourShedsToBig);
             lentghinputskur = widthinput - 30;
 
         } else {
@@ -148,10 +146,14 @@ public class basisCarport extends Command {
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
         request.setAttribute("skurInput", (String) skurellerej);
+        makeDrawingOfCarport(lentghinput, widthinput, lentghinputskur, widthinputskur, request);
+        return totalPrice;
+    }
+
+    private void makeDrawingOfCarport(double lentghinput, double widthinput, double lentghinputskur, double widthinputskur, HttpServletRequest request) {
         XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
-        return totalPrice;
     }
 
     /**
@@ -177,7 +179,7 @@ public class basisCarport extends Command {
      * in login
      * @throws NewException
      */
-    private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session, Ordre order, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
+    private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session,  int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
 
         LocalDate today = LocalDate.now();
         //Kalder dateTimeFormatter

@@ -5,6 +5,8 @@ import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList;
+import Utillities.RendUtilUserList;
+import Utillities.RendUtilUserlist_FullDiscription;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,14 +24,16 @@ public class OrdreList extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        List<Ordre> invoiceList = LogicFacade.getOrderList();
-
-        RendUtilOrderList.invoiceList(invoiceList);
-
-        request.setAttribute("invoiceList", invoiceList);
+        //  List<Ordre> invoiceList = LogicFacade.getOrderList();
+        //   RendUtilOrderList.invoiceList(invoiceList);
+        //   request.setAttribute("invoiceList", invoiceList);
+        List<User> userList = LogicFacade.getUserList();
+        String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
 
         List<Ordre> ordreList = LogicFacade.getOrderList();
-        String admin_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+        String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+
+        request.setAttribute("employee_userlist", employee_Userlist);
 
         if (ordreList.isEmpty()) {
 
@@ -38,11 +42,9 @@ public class OrdreList extends Command {
 
         } else {
 
-            request.setAttribute("admin_orderlist", admin_Orderlist);
-
-            return "ordre_liste";
+            request.setAttribute("employee_orderlist", employee_Orderlist);
 
         }
-        return "ordre_liste";
+        return "employee_ordre_list";
     }
 }

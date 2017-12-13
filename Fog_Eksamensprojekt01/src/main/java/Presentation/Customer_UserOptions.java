@@ -47,14 +47,14 @@ public class Customer_UserOptions extends Command {
             LogicFacade.updateUserPassword(user.getUser_id(), password);
             presentpasswordiscorrect = 1;
         request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-            return "kunde_useroptionspage";
+            return "customer_useroptions";
         } else if (UpdateUserPassword != null){
             presentpasswordiscorrect = 0;
             request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-             return "kunde_useroptionspage";
+             return "customer_useroptions";
         } else{
 
-        return "kunde_useroptionspage";
+        return "customer_useroptions";
     }
     }
 }
