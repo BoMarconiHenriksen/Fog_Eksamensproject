@@ -5,7 +5,7 @@
  */
 package Presentation;
 
-import Utillities.Calculator;
+import Business.Calculator;
 import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.Odetaljer;

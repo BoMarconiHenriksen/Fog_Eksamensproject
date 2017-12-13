@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Utillities.Calculator;
+import Business.Calculator;
 import Business.DataFacade;
 import Domain.Ordre;
 import Domain.Odetaljer;

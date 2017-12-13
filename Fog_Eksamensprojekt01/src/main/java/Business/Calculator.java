@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Utillities;
+package Business;
 
-import Business.DataFacade;
 import Domain.Exception.NewException;
 
 /**
@@ -15,12 +9,10 @@ import Domain.Exception.NewException;
  */
 public class Calculator {
 
-  
-
     /**
      * Beregner en samlet total pris på den øsnkede carport med alle
-     * grundelementer samt alle ekstra ting m.m.
-     * Den må kun bruges hvis skuret er med 
+     * grundelementer samt alle ekstra ting m.m. Den må kun bruges hvis skuret
+     * er med
      *
      * @param length længden af carporten
      * @param width bredden af carporten
@@ -28,19 +20,15 @@ public class Calculator {
      * @return totalPriceSimpleCarport
      * @throws NewException
      */
-    
-
-    
     public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
-double totalPriceSimpleCarport = 0;
-        if (length==0.00){
-             totalPriceSimpleCarport = 0;
-        }
-        else{
-        double totalPriceBase = calculateBaseCarport(length, width);
-        double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length, width);
+        double totalPriceSimpleCarport = 0;
+        if (length == 0.00) {
+            totalPriceSimpleCarport = 0;
+        } else {
+            double totalPriceBase = calculateBaseCarport(length, width);
+            double totalPriceScrewsAndSuch = calculatePriceScrewsAndSuch(length, width);
 
-        totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
+            totalPriceSimpleCarport = totalPriceBase + totalPriceScrewsAndSuch;
         }
         return totalPriceSimpleCarport;
 
@@ -54,7 +42,7 @@ double totalPriceSimpleCarport = 0;
      * @return totalPriceScrewsAndSuch
      * @throws NewException
      */
-    private double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
+    public double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
 
         // dimser
         double totalPriceScrewsAndSuch = 0;
@@ -67,8 +55,8 @@ double totalPriceSimpleCarport = 0;
         double bræddeboltPris = DataFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
         double firkantSkivePris = DataFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
-        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * (universalHøjre
-                +  universalVenstre) + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
+        totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length, width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * (universalHøjre
+                + universalVenstre) + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
         return totalPriceScrewsAndSuch;
     }
 
@@ -81,9 +69,8 @@ double totalPriceSimpleCarport = 0;
      * @return totalPriceBase
      * @throws NewException
      */
-    private double calculateBaseCarport(double length, double width) throws NewException {
+    public double calculateBaseCarport(double length, double width) throws NewException {
 
- 
         //træ og tag
         double plank1Price = DataFacade.getMaterialeByVarenummer(1).getEnhedspris();
         double plank2Price = DataFacade.getMaterialeByVarenummer(2).getEnhedspris();
@@ -103,13 +90,13 @@ double totalPriceSimpleCarport = 0;
 
             plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
-        }else if (length > 600) {
+        } else if (length > 600) {
 
-            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(9).getEnhedspris()+DataFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
+            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(9).getEnhedspris() + DataFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
 
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
-                + 2 * length / 100 * plank2Price + 2 * (length / 100 ) * RaftsAndStrapsPrice
+                + 2 * length / 100 * plank2Price + 2 * (length / 100) * RaftsAndStrapsPrice
                 + numberOfRafters(length) * width / 100 * RaftsAndStrapsPrice + 4 * postPrice1 + 2 * length / 100 * plank3Price
                 + 1 * length / 100 * plank3Price + Math.ceil(width / 100) * plastmoRoofPrice;
         return totalPriceBase;
@@ -129,30 +116,30 @@ double totalPriceSimpleCarport = 0;
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
         int numberOfPckScrews = (int) Math.ceil(numberOfScrews / 200);
-        if (length==240 && width==240){
-            numberOfPckScrews=1;
+        if (length == 240 && width == 240) {
+            numberOfPckScrews = 1;
         }
         return numberOfPckScrews;
     }
-    
-     /**
-   * Beregner en samlet pris på skuret, med alle grundelementer samt alle skurger m.m
-   * Prisen lægges så sammen med prisen på Carporten, som bliver beregnet i Calcualtor.java.
-   * 
-   * @param shedLength lægnden af skuret
-   * @param shedWidth bredden af skuret
-   * @return totalPrisSkur
-   * @throws NewException 
-   */
 
+    /**
+     * Beregner en samlet pris på skuret, med alle grundelementer samt alle
+     * skurger m.m Prisen lægges så sammen med prisen på Carporten, som bliver
+     * beregnet i Calcualtor.java.
+     *
+     * @param shedLength lægnden af skuret
+     * @param shedWidth bredden af skuret
+     * @return totalPrisSkur
+     * @throws NewException
+     */
     public double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
 
         double LægteTilZ = DataFacade.getMaterialeByVarenummer(3).getEnhedspris();
         double LøsholterSkurGavl = DataFacade.getMaterialeByVarenummer(4).getEnhedspris();
-        double LøsholterSkurSider =DataFacade.getMaterialeByVarenummer(4).getEnhedspris();
+        double LøsholterSkurSider = DataFacade.getMaterialeByVarenummer(4).getEnhedspris();
         double BrædtSkurBeklædning = DataFacade.getMaterialeByVarenummer(7).getEnhedspris();
         double SkruerYdersteBeklædning = DataFacade.getMaterialeByVarenummer(21).getEnhedspris();
-        double SkruerIndersteBeklædning =DataFacade.getMaterialeByVarenummer(22).getEnhedspris();
+        double SkruerIndersteBeklædning = DataFacade.getMaterialeByVarenummer(22).getEnhedspris();
 
         // ekstra Stolper:
         double stolpePris1 = DataFacade.getMaterialeByVarenummer(6).getEnhedspris();
@@ -165,16 +152,13 @@ double totalPriceSimpleCarport = 0;
         double VinkelBeslagSkur = DataFacade.getMaterialeByVarenummer(25).getEnhedspris();
         double dørTilbehørPris = LægteTilZ + StaldørsGreb + THængselSkur;
         // Her lægges alle skurdelene sammen 
-        double totalPrisSkur = 12 * shedLength/100 * LøsholterSkurSider + 4 * shedWidth/100* LøsholterSkurGavl
-                + 4 * stolpePris1 + ((2 * shedLength + 2 * shedWidth) / 10) * BrædtSkurBeklædning+VinkelBeslagSkur+
-                + 2 * SkruerYdersteBeklædning + 2 * SkruerIndersteBeklædning + dørTilbehørPris + tilEkstraStolper;
-        
-       
-        
+        double totalPrisSkur = 12 * shedLength / 100 * LøsholterSkurSider + 4 * shedWidth / 100 * LøsholterSkurGavl
+                + 4 * stolpePris1 + ((2 * shedLength + 2 * shedWidth) / 10) * BrædtSkurBeklædning + VinkelBeslagSkur
+                + +2 * SkruerYdersteBeklædning + 2 * SkruerIndersteBeklædning + dørTilbehørPris + tilEkstraStolper;
+
         return totalPrisSkur;
 
     }
-    
 
     /**
      * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
@@ -192,32 +176,33 @@ double totalPriceSimpleCarport = 0;
 
     }
 
-
-
-  /**
+    /**
      * Metoden udregner antallet af spær, der skal bruges til carporten.
+     *
      * @param length er carportens længde.
      * @return antallet af spær, der skal bruges til carporten.
      */
-    static int calculateNumberOfRafters(double length) {
+    public static int calculateNumberOfRafters(double length) {
         return Calculator.numberOfRafters(length);
     }
 
     /**
      * Udregner den sammenlagte bredde for skurets rem.
+     *
      * @param skurBredde er skuret bredde.
      * @return den sammenlagte bredde for skurets rem.
      */
-    static double CalculateWidthForRemmeISiderSkur(double skurBredde) {
+    public static double CalculateWidthForRemmeISiderSkur(double skurBredde) {
         return skurBredde * 2;
     }
 
     /**
      * Metoden udregner, antallet af Ecolite tagplast, der skal bruges.
+     *
      * @param width er carportens bredde.
      * @return antallet af Ecolite tagplast, der skal bruges.
      */
-    static int calculateNumberOfEcoliteRoof(double width) {
+    public static int calculateNumberOfEcoliteRoof(double width) {
         int numberOfRoof;
         if (width % 100 > 0 && width % 100 < 50) {
             numberOfRoof = ((int) Math.round(width / 100) + 1);
@@ -228,15 +213,18 @@ double totalPriceSimpleCarport = 0;
     }
 
     /**
-     * Metoden udregner, hvor mange beklædningsbrædder der skal bruges til et skur.
+     * Metoden udregner, hvor mange beklædningsbrædder der skal bruges til et
+     * skur.
+     *
      * @param skurBredde er skurets bredde.
      * @param skurLængde er skurets længde.
      * @return antal beklædningsbrædder, som skal bruges til et skur.
      */
-    static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
+    public static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
         return 2 * skurBredde / 10 + 2 * skurLængde / 10;
     }
 }
+
 // hvis carporten 600 * 780
 //        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 
 //                + 4 * 5.4 * plank1Price + 2 * 6 * RaftsAndStrapsPrice + 1 * 4.8 * RaftsAndStrapsPrice
