@@ -111,7 +111,7 @@
                 
         <!-- Welcome Message -->
         <div class="text-center mt-4">
-            <h1 class="my-2">Velkommen til, <%= (String) session.getAttribute("username")%></h1>
+            <h1 class="my-2">Velkommen til, <%=(String) session.getAttribute("username")%></h1>
             <div class="text-heading text-lg">Hvis du har brug for rådgivning, så ring og aftale et møde.</div>
             <div class="text-heading text-lg">Vores telefonnummer er 45 87 10 01.</div>
         </div>
