@@ -117,7 +117,7 @@
                             <input type="text" name="addresse"> 
                             <br>
                             PostNummer:<br>
-                            <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre">
+                            <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre" value="1000">
            
                             <br>
                             Telefonnummer <br>
