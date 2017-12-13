@@ -11,7 +11,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.Calculator"%>
-<%@page import="Business.LogicFacade"%>
+<%@page import="Business.DataFacade"%>
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>

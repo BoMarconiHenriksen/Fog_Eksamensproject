@@ -2,7 +2,7 @@ package Presentation;
 
 import Domain.Exception.NewException;
 import Utillities.Calculator;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Ordre;
 import Domain.Odetaljer;
 import Domain.User;
@@ -190,13 +190,13 @@ public class basisCarport extends Command {
         //SÃ¦tter datoen pÃ¥ ordren
 //        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
-        LogicFacade.placeAnOrder(user_id, formatDateTime);
-        int or = LogicFacade.getLastInvoiceId();
+        DataFacade.placeAnOrder(user_id, formatDateTime);
+        int or = DataFacade.getLastInvoiceId();
         request.setAttribute("KundensOID", or);
         session.setAttribute("SessionIOD", or);
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
-        LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
-        ods = LogicFacade.getOdetaljerByOrderId(or);
+        DataFacade.AddOdetailstoOrdermedSkur(or, ods);
+        ods = DataFacade.getOdetaljerByOrderId(or);
 
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());

@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
@@ -32,7 +32,7 @@ public class InvoiceDetail_Customer extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
 
-        Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
+        Odetaljer od = DataFacade.getOrderByOrderId2(orderid);
 
         request.setAttribute("length", (Double) od.getCarportLength());
         request.setAttribute("width", (Double) od.getCarportWidth());
@@ -42,11 +42,11 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("od", od);
 
         if (DeletetheOrder != null) {
-            LogicFacade.deleteOrderDetailsByUserId(orderid);
-            LogicFacade.deleteOrderListByUserId(orderid);
+            DataFacade.deleteOrderDetailsByUserId(orderid);
+            DataFacade.deleteOrderListByUserId(orderid);
 
             //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
-            List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
+            List<Ordre> ordreList = DataFacade.getOrderListByUserId(user.getUser_id());
             String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
             request.setAttribute("customer_orderlist", customer_Orderlist);
             return "customer_order_list";
@@ -60,7 +60,7 @@ public class InvoiceDetail_Customer extends Command {
 
             String status = request.getParameter("status");
 
-            LogicFacade.updateOrdreStatus(orderid, status);
+            DataFacade.updateOrdreStatus(orderid, status);
 
             return "customer_invoice_detail";
 

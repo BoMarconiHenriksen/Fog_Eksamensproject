@@ -1,6 +1,6 @@
 package Utillities;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.Exception.NewException;
@@ -31,7 +31,7 @@ public class RendUtilOrderList {
      */
     public static String invoiceList(List<Ordre> ordreList) throws NewException {
 
-        ordreList = LogicFacade.getOrderList();
+        ordreList = DataFacade.getOrderList();
 
         StringBuilder sb = new StringBuilder();
 
@@ -44,10 +44,10 @@ public class RendUtilOrderList {
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
             sb.append("<td>").append("  ").append(o.getOrdre_id()).append("</td>");
             sb.append("<td>").append("  ").append(o.getReciveddate()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getPrice()).append("").append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((o.getUser_id())).getFirstname()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
+            sb.append("<td>").append("  ").append(DataFacade.getOdetaljerByOrderId((o.getOrdre_id())).getPrice()).append("").append("</td>");
+            sb.append("<td>").append("  ").append(DataFacade.getUserByUserId((o.getUser_id())).getFirstname()).append("</td>");
+            sb.append("<td>").append("  ").append(DataFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
+            sb.append("<td>").append("  ").append(DataFacade.getOdetaljerByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"").append(o.getOrdre_id()).append("\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }

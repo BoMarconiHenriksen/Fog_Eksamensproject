@@ -5,7 +5,7 @@
  */
 package Utillities;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 
 /**
@@ -58,14 +58,14 @@ double totalPriceSimpleCarport = 0;
 
         // dimser
         double totalPriceScrewsAndSuch = 0;
-        double plastmoBundSkruePris = LogicFacade.getMaterialeByVarenummer(13).getEnhedspris();
-        double hulbåndPris = LogicFacade.getMaterialeByVarenummer(14).getEnhedspris();
-        double universalHøjre = LogicFacade.getMaterialeByVarenummer(15).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
-        double universalVenstre = LogicFacade.getMaterialeByVarenummer(16).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
-        double skruePris = LogicFacade.getMaterialeByVarenummer(17).getEnhedspris();
-        double beslagSkruePris = LogicFacade.getMaterialeByVarenummer(18).getEnhedspris();
-        double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
-        double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
+        double plastmoBundSkruePris = DataFacade.getMaterialeByVarenummer(13).getEnhedspris();
+        double hulbåndPris = DataFacade.getMaterialeByVarenummer(14).getEnhedspris();
+        double universalHøjre = DataFacade.getMaterialeByVarenummer(15).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
+        double universalVenstre = DataFacade.getMaterialeByVarenummer(16).getEnhedspris();// antal = antal spær ( int ) Math.round(length/0.55)
+        double skruePris = DataFacade.getMaterialeByVarenummer(17).getEnhedspris();
+        double beslagSkruePris = DataFacade.getMaterialeByVarenummer(18).getEnhedspris();
+        double bræddeboltPris = DataFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
+        double firkantSkivePris = DataFacade.getMaterialeByVarenummer(20).getEnhedspris();
 
         totalPriceScrewsAndSuch = numberOfBottomScrewsPackageEcolite(length,width) * plastmoBundSkruePris + 2 * hulbåndPris + numberOfRafters(length) * (universalHøjre
                 +  universalVenstre) + skruePris + 2 * beslagSkruePris + 6 * bræddeboltPris + 6 * firkantSkivePris;
@@ -85,27 +85,27 @@ double totalPriceSimpleCarport = 0;
 
  
         //træ og tag
-        double plank1Price = LogicFacade.getMaterialeByVarenummer(1).getEnhedspris();
-        double plank2Price = LogicFacade.getMaterialeByVarenummer(2).getEnhedspris();
-        double RaftsAndStrapsPrice = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
-        double postPrice1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-        double plank3Price = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();//waterboard
+        double plank1Price = DataFacade.getMaterialeByVarenummer(1).getEnhedspris();
+        double plank2Price = DataFacade.getMaterialeByVarenummer(2).getEnhedspris();
+        double RaftsAndStrapsPrice = DataFacade.getMaterialeByVarenummer(3).getEnhedspris();
+        double postPrice1 = DataFacade.getMaterialeByVarenummer(6).getEnhedspris();
+        double plank3Price = DataFacade.getMaterialeByVarenummer(7).getEnhedspris();//waterboard
         // vær opmærsom på at tagets pris varierer alt efter længden det skal have et if statement
         double plastmoRoofPrice = 0;
         double totalPriceBase = 0;
         if (length <= 300) {
 
-            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
+            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(9).getEnhedspris(); //300 cm
         } else if (length <= 480) {
 
-            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
+            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(33).getEnhedspris(); //480 cm
         } else if (length <= 600) {
 
-            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
+            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(8).getEnhedspris();// 600 cm
 
         }else if (length > 600) {
 
-            plastmoRoofPrice = LogicFacade.getMaterialeByVarenummer(9).getEnhedspris()+LogicFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
+            plastmoRoofPrice = DataFacade.getMaterialeByVarenummer(9).getEnhedspris()+DataFacade.getMaterialeByVarenummer(33).getEnhedspris();// 600 cm
 
         }
         totalPriceBase = 2 * width / 100 * plank1Price + 2 * length / 100 * plank1Price + 1 * width / 100 * plank2Price
@@ -147,22 +147,22 @@ double totalPriceSimpleCarport = 0;
 
     public double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
 
-        double LægteTilZ = LogicFacade.getMaterialeByVarenummer(3).getEnhedspris();
-        double LøsholterSkurGavl = LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-        double LøsholterSkurSider =LogicFacade.getMaterialeByVarenummer(4).getEnhedspris();
-        double BrædtSkurBeklædning = LogicFacade.getMaterialeByVarenummer(7).getEnhedspris();
-        double SkruerYdersteBeklædning = LogicFacade.getMaterialeByVarenummer(21).getEnhedspris();
-        double SkruerIndersteBeklædning =LogicFacade.getMaterialeByVarenummer(22).getEnhedspris();
+        double LægteTilZ = DataFacade.getMaterialeByVarenummer(3).getEnhedspris();
+        double LøsholterSkurGavl = DataFacade.getMaterialeByVarenummer(4).getEnhedspris();
+        double LøsholterSkurSider =DataFacade.getMaterialeByVarenummer(4).getEnhedspris();
+        double BrædtSkurBeklædning = DataFacade.getMaterialeByVarenummer(7).getEnhedspris();
+        double SkruerYdersteBeklædning = DataFacade.getMaterialeByVarenummer(21).getEnhedspris();
+        double SkruerIndersteBeklædning =DataFacade.getMaterialeByVarenummer(22).getEnhedspris();
 
         // ekstra Stolper:
-        double stolpePris1 = LogicFacade.getMaterialeByVarenummer(6).getEnhedspris();
-        double bræddeboltPris = LogicFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
-        double firkantSkivePris = LogicFacade.getMaterialeByVarenummer(20).getEnhedspris();
+        double stolpePris1 = DataFacade.getMaterialeByVarenummer(6).getEnhedspris();
+        double bræddeboltPris = DataFacade.getMaterialeByVarenummer(19).getEnhedspris();//6 stk uden skur og enkelt
+        double firkantSkivePris = DataFacade.getMaterialeByVarenummer(20).getEnhedspris();
         double tilEkstraStolper = 4 * (firkantSkivePris + bræddeboltPris);
         //Ting der bruges til døren udover beklædningsbrædder:
-        double StaldørsGreb = LogicFacade.getMaterialeByVarenummer(23).getEnhedspris();
-        double THængselSkur = LogicFacade.getMaterialeByVarenummer(24).getEnhedspris();
-        double VinkelBeslagSkur = LogicFacade.getMaterialeByVarenummer(25).getEnhedspris();
+        double StaldørsGreb = DataFacade.getMaterialeByVarenummer(23).getEnhedspris();
+        double THængselSkur = DataFacade.getMaterialeByVarenummer(24).getEnhedspris();
+        double VinkelBeslagSkur = DataFacade.getMaterialeByVarenummer(25).getEnhedspris();
         double dørTilbehørPris = LægteTilZ + StaldørsGreb + THængselSkur;
         // Her lægges alle skurdelene sammen 
         double totalPrisSkur = 12 * shedLength/100 * LøsholterSkurSider + 4 * shedWidth/100* LøsholterSkurGavl

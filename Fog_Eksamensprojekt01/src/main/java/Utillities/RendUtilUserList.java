@@ -5,7 +5,7 @@
  */
 package Utillities;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.User;
 import java.util.List;
@@ -18,7 +18,7 @@ public class RendUtilUserList {
     
     public static String invoiceUserList(List<User> userList) throws NewException {
     
-        userList = LogicFacade.getUserList();
+        userList = DataFacade.getUserList();
 
         StringBuilder sb = new StringBuilder();
         

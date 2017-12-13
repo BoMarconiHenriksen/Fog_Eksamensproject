@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
@@ -36,7 +36,7 @@ public class InvoiceDetail extends Command {
             
             int choseUser = Integer.parseInt(request.getParameter("theUser_id"));
             
-            LogicFacade.getUserByUserId(choseUser);
+            DataFacade.getUserByUserId(choseUser);
 
             request.setAttribute("customerID", us.getUser_id());
             request.setAttribute("userRole", us.getRole());
@@ -57,7 +57,7 @@ public class InvoiceDetail extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
 
-        Odetaljer od = LogicFacade.getOdetaljerByOrderId(orderid);
+        Odetaljer od = DataFacade.getOdetaljerByOrderId(orderid);
         request.setAttribute("od", od);
 
         double length = (Double) od.getCarportLength();
@@ -75,15 +75,15 @@ public class InvoiceDetail extends Command {
         request.setAttribute("carportTegning", carportTegning);
 
         if (DeletetheOrder != null) {
-            LogicFacade.deleteOrderDetailsByUserId(orderid);
-            LogicFacade.deleteOrderListByUserId(orderid);
+            DataFacade.deleteOrderDetailsByUserId(orderid);
+            DataFacade.deleteOrderListByUserId(orderid);
 
             //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
-            List<Ordre> ordreList = LogicFacade.getOrderList();
+            List<Ordre> ordreList = DataFacade.getOrderList();
             String customer_Orderlist = RendUtilOrderList.invoiceList(ordreList);
             request.setAttribute("employee_orderlist", customer_Orderlist);
 
-            List<User> userList = LogicFacade.getUserList();
+            List<User> userList = DataFacade.getUserList();
             String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
             request.setAttribute("employee_userlist", employee_Userlist);
 

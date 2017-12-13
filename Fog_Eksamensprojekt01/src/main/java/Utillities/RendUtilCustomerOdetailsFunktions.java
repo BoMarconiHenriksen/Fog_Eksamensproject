@@ -1,7 +1,7 @@
 
 package Utillities;
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 
@@ -24,7 +24,7 @@ public class RendUtilCustomerOdetailsFunktions {
     
     public static String odetailsForOrder_Customer(Odetaljer od) throws NewException {
 
-        Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
+        Ordre o = DataFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         
    
@@ -37,7 +37,7 @@ public class RendUtilCustomerOdetailsFunktions {
         sb.append("<tr><th>Ordre Id</th><th>Dato</th><th>Status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-        sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
+        sb.append("<td>").append("" + DataFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
         sb.append("</table>\n>");
         sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + od.getOrdreId() + "\"><br>\n\n</td>");
         sb.append(" <select name=\"status\">\n"

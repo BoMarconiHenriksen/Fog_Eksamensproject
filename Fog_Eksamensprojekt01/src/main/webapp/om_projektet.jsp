@@ -1,7 +1,6 @@
 <%-- 
     Document   : om_projektet
     Created on : 02-12-2017, 22:33:55
-    Author     : Ejer
 --%>
 
 <%@page import="Utillities.RendUtilOrderList"%>

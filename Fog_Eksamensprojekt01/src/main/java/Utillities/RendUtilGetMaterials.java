@@ -1,6 +1,6 @@
 package Utillities;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Materiale;
 import Domain.Exception.NewException;
 import java.util.List;
@@ -21,7 +21,7 @@ public class RendUtilGetMaterials {
 
     public static String getSpecifikMaterial(List<Materiale> mats) throws NewException {
 
-        mats = LogicFacade.getMaterial();
+        mats = DataFacade.getMaterial();
         String mat1 = mats.get(1).getMaterialenavn();
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"

@@ -13,11 +13,11 @@ import Domain.Exception.NewException;
 import java.util.List;
 
 /**
- * The purpose of LogicFacade is to...
+ * The purpose of DataFacade is to...
  *
  * Author @ BenedikteEva
  */
-public class LogicFacade {
+public class DataFacade {
 
 //////////////////////////////OrdreMapperMetoder////////////////////////////////////////
 
@@ -145,9 +145,9 @@ public class LogicFacade {
 
     public static void main(String[] args) throws NewException{
 
-        System.out.println(LogicFacade.getOdetaljerByOrderId(3));
-        System.out.println(LogicFacade.getOrderByOrderId2(3));
-//        LogicFacade.changeMaterialePris(7, 29.95);
+        System.out.println(DataFacade.getOdetaljerByOrderId(3));
+        System.out.println(DataFacade.getOrderByOrderId2(3));
+//        DataFacade.changeMaterialePris(7, 29.95);
 //        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
 //
 //        System.out.println(StykLinjeMapper.getStykLinje());

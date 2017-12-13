@@ -1,6 +1,6 @@
 package Utillities;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Ordre;
 import Domain.Exception.NewException;
 import Domain.User;
@@ -22,7 +22,7 @@ public class RendUtilOrderList_Customer {
      */
     public static String invoiceList_Customer(List<Ordre> ordreList, User user) throws NewException {
 
-        ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
+        ordreList = DataFacade.getOrderListByUserId(user.getUser_id());
 
         StringBuilder sb = new StringBuilder();
         sb.append("<table>\n"
@@ -33,11 +33,11 @@ public class RendUtilOrderList_Customer {
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
-            //   sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
+            //   sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
               sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
                sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-            sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getPrice()).append("</td>");
-            sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getOrdreStatus()).append("</td>");
+            sb.append("<td>").append("" + DataFacade.getOrderByOrderId2(o.getOrdre_id()).getPrice()).append("</td>");
+            sb.append("<td>").append("" + DataFacade.getOrderByOrderId2(o.getOrdre_id()).getOrdreStatus()).append("</td>");
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + o.getOrdre_id() + "\"><br>\n\n</td>");
 
             sb.append("</tr>\n");

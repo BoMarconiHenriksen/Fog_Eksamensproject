@@ -1,6 +1,6 @@
 package Presentation;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +23,7 @@ public class Register extends Command {
         int tlfnummer = Integer.parseInt(request.getParameter("telefonnummer"));
         if (password.equals(passwordRetype)) {
             try {
-                User user = LogicFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
+                User user = DataFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 session.setAttribute("role", user.getRole());

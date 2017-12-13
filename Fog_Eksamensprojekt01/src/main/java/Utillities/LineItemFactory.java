@@ -22,14 +22,14 @@ public class LineItemFactory {
 
         LineItem[] baseWood = new LineItem[8];
 
-        baseWood[0] = new LineItem("Understern brædder til for- og bagende", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), width, 2, "Stk");
-        baseWood[1] = new LineItem("Understernbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
-        baseWood[2] = new LineItem("Oversternbrædder til forenden", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
-        baseWood[3] = new LineItem("Oversternbrædder til siderne", Business.LogicFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
-        baseWood[4] = new LineItem("Spær, monteres på rem", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, Calculator.calculateNumberOfRafters(length), "Stk");
-        baseWood[5] = new LineItem("Stolper, nedgraves i 90 cm. jord", Business.LogicFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
-        baseWood[6] = new LineItem("Vandbrædt på stern i sider", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
-        baseWood[7] = new LineItem("Vandbrædt på stern i forenden", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
+        baseWood[0] = new LineItem("Understern brædder til for- og bagende", Business.DataFacade.getMaterialeByVarenummer(1).getMaterialenavn(), width, 2, "Stk");
+        baseWood[1] = new LineItem("Understernbrædder til siderne", Business.DataFacade.getMaterialeByVarenummer(1).getMaterialenavn(), length, 2, "Stk");
+        baseWood[2] = new LineItem("Oversternbrædder til forenden", Business.DataFacade.getMaterialeByVarenummer(2).getMaterialenavn(), width, 2, "Stk");
+        baseWood[3] = new LineItem("Oversternbrædder til siderne", Business.DataFacade.getMaterialeByVarenummer(2).getMaterialenavn(), length, 2, "Stk");
+        baseWood[4] = new LineItem("Spær, monteres på rem", Business.DataFacade.getMaterialeByVarenummer(5).getMaterialenavn(), width, Calculator.calculateNumberOfRafters(length), "Stk");
+        baseWood[5] = new LineItem("Stolper, nedgraves i 90 cm. jord", Business.DataFacade.getMaterialeByVarenummer(6).getMaterialenavn(), 300, 4, "Stk");
+        baseWood[6] = new LineItem("Vandbrædt på stern i sider", Business.DataFacade.getMaterialeByVarenummer(7).getMaterialenavn(), length, 4, "Stk");
+        baseWood[7] = new LineItem("Vandbrædt på stern i forenden", Business.DataFacade.getMaterialeByVarenummer(7).getMaterialenavn(), width, 2, "Stk");
 
         return baseWood;
 
@@ -46,11 +46,11 @@ public class LineItemFactory {
 
         LineItem[] baseMetal = new LineItem[5];
 
-        baseMetal[0] = new LineItem("Skruer til tagplader", Business.LogicFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
-        baseMetal[1] = new LineItem("Til vindkryds på spær", Business.LogicFacade.getMaterialeByVarenummer(14).getMaterialenavn(), 0, 2, "Rulle");
-        baseMetal[2] = new LineItem("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(15).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
-        baseMetal[3] = new LineItem("Til montering af spær på rem", Business.LogicFacade.getMaterialeByVarenummer(16).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
-        baseMetal[4] = new LineItem("Til montering af stern & vandbrædt", Business.LogicFacade.getMaterialeByVarenummer(17).getMaterialenavn(), 2, "Pakke");
+        baseMetal[0] = new LineItem("Skruer til tagplader", Business.DataFacade.getMaterialeByVarenummer(13).getMaterialenavn(), 0, Calculator.numberOfBottomScrewsPackageEcolite(length, width), "Pakke");
+        baseMetal[1] = new LineItem("Til vindkryds på spær", Business.DataFacade.getMaterialeByVarenummer(14).getMaterialenavn(), 0, 2, "Rulle");
+        baseMetal[2] = new LineItem("Til montering af spær på rem", Business.DataFacade.getMaterialeByVarenummer(15).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
+        baseMetal[3] = new LineItem("Til montering af spær på rem", Business.DataFacade.getMaterialeByVarenummer(16).getMaterialenavn(), Calculator.numberOfRafters(length), "Stk");
+        baseMetal[4] = new LineItem("Til montering af stern & vandbrædt", Business.DataFacade.getMaterialeByVarenummer(17).getMaterialenavn(), 2, "Pakke");
         return baseMetal;
 
     }
@@ -66,14 +66,14 @@ public class LineItemFactory {
         LineItem[] ecoliteRoof = new LineItem[1];
 
         if (length <= 300) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 480) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 600) {
-            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.LogicFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length > 600) {
             //OBS! Skal laves færdig!
-            ecoliteRoof[0] = new LineItem("Ring til supporten", Business.LogicFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[0] = new LineItem("Ring til supporten", Business.DataFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
 
         }
 
@@ -91,13 +91,13 @@ public class LineItemFactory {
         LineItem[] woodForShed = new LineItem[5];
 
         //Fast størrelse
-        woodForShed[0] = new LineItem("Til z på bagside af dør", Business.LogicFacade.getMaterialeByVarenummer(3).getMaterialenavn(), 420, 1, "Stk");
+        woodForShed[0] = new LineItem("Til z på bagside af dør", Business.DataFacade.getMaterialeByVarenummer(3).getMaterialenavn(), 420, 1, "Stk");
         //OBS! Denne skal rettes til i forbindelse med antal!
-        woodForShed[1] = new LineItem("Løsholter til skurgavle", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurLængde, 4, "Stk");
+        woodForShed[1] = new LineItem("Løsholter til skurgavle", Business.DataFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurLængde, 4, "Stk");
         //OBS! Denne skal rettes til
-        woodForShed[2] = new LineItem("Løsholter til skur sider", Business.LogicFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
-        woodForShed[3] = new LineItem("Remme i sider, sadles ned i stolper, skur-del", Business.LogicFacade.getMaterialeByVarenummer(5).getMaterialenavn(), Calculator.CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
-        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.LogicFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) Calculator.CalculateCoverWoodShed(skurBredde, skurLængde), "Stk");
+        woodForShed[2] = new LineItem("Løsholter til skur sider", Business.DataFacade.getMaterialeByVarenummer(4).getMaterialenavn(), skurBredde, 4, "Stk");
+        woodForShed[3] = new LineItem("Remme i sider, sadles ned i stolper, skur-del", Business.DataFacade.getMaterialeByVarenummer(5).getMaterialenavn(), Calculator.CalculateWidthForRemmeISiderSkur(skurBredde), 4, "Stk");
+        woodForShed[4] = new LineItem("Til beklædning af skur 1 på 2", Business.DataFacade.getMaterialeByVarenummer(7).getMaterialenavn(), 210, (int) Calculator.CalculateCoverWoodShed(skurBredde, skurLængde), "Stk");
 
         return woodForShed;
     }
@@ -112,10 +112,10 @@ public class LineItemFactory {
     public static LineItem[] screwsAndBracketShed(double skurLængde, double skurBredde) throws NewException {
         LineItem[] screwsAndBracketShed = new LineItem[3];
 
-        screwsAndBracketShed[0] = new LineItem("Til lås på dør i skur", Business.LogicFacade.getMaterialeByVarenummer(23).getMaterialenavn(), 1, "Sæt");
-        screwsAndBracketShed[1] = new LineItem("Til skurdør", Business.LogicFacade.getMaterialeByVarenummer(24).getMaterialenavn(), 2, "Stk");
+        screwsAndBracketShed[0] = new LineItem("Til lås på dør i skur", Business.DataFacade.getMaterialeByVarenummer(23).getMaterialenavn(), 1, "Sæt");
+        screwsAndBracketShed[1] = new LineItem("Til skurdør", Business.DataFacade.getMaterialeByVarenummer(24).getMaterialenavn(), 2, "Stk");
         //OBS! Høre sammen med antal løsholter til skur. Skal udregnes på baggrund af løsholter til skur
-        screwsAndBracketShed[2] = new LineItem("Til montering af løsholter i skur", Business.LogicFacade.getMaterialeByVarenummer(25).getMaterialenavn(), 32, "Stk");
+        screwsAndBracketShed[2] = new LineItem("Til montering af løsholter i skur", Business.DataFacade.getMaterialeByVarenummer(25).getMaterialenavn(), 32, "Stk");
 
         return screwsAndBracketShed;
     }

@@ -5,7 +5,7 @@
  */
 package Presentation;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.User;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class Customer_UserOptions extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         
-        LogicFacade.getUserByUserId(user.getUser_id());
+        DataFacade.getUserByUserId(user.getUser_id());
         
         request.setAttribute("yourFirstname", user.getFirstname());
         request.setAttribute("yourLastname", user.getLastname());
@@ -44,7 +44,7 @@ public class Customer_UserOptions extends Command {
         if (UpdateUserPassword != null && PresentPassword.equals(user.getPassword())){
             
            String password = request.getParameter("passwordNew");
-            LogicFacade.updateUserPassword(user.getUser_id(), password);
+            DataFacade.updateUserPassword(user.getUser_id(), password);
             presentpasswordiscorrect = 1;
         request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
             return "customer_useroptions";

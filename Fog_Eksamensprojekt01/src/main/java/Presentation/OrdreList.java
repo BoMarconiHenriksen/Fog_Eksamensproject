@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList;
@@ -24,13 +24,13 @@ public class OrdreList extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        //  List<Ordre> invoiceList = LogicFacade.getOrderList();
+        //  List<Ordre> invoiceList = DataFacade.getOrderList();
         //   RendUtilOrderList.invoiceList(invoiceList);
         //   request.setAttribute("invoiceList", invoiceList);
-        List<User> userList = LogicFacade.getUserList();
+        List<User> userList = DataFacade.getUserList();
         String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
 
-        List<Ordre> ordreList = LogicFacade.getOrderList();
+        List<Ordre> ordreList = DataFacade.getOrderList();
         String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
 
         request.setAttribute("employee_userlist", employee_Userlist);

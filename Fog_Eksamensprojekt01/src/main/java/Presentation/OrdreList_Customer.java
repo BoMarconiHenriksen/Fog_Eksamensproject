@@ -3,7 +3,7 @@ package Presentation;
 
 
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList_Customer;
@@ -38,7 +38,7 @@ public class OrdreList_Customer extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         
-       List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
+       List<Ordre> ordreList = DataFacade.getOrderListByUserId(user.getUser_id());
        String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
 
          if (ordreList.isEmpty()){

@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Odetaljer;
 import Domain.User;
 import Utillities.XXRendSvg;
@@ -24,8 +24,8 @@ public class Checkout extends Command {
 
         int or = (int) (session.getAttribute("SessionIOD"));
 
-        LogicFacade.getOrderByOrderId2(or);
-        Odetaljer od = LogicFacade.getOdetaljerByOrderId(or);
+        DataFacade.getOrderByOrderId2(or);
+        Odetaljer od = DataFacade.getOdetaljerByOrderId(or);
         String status = od.getOrdreStatus();
         XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
@@ -42,7 +42,7 @@ public class Checkout extends Command {
 
         status = "Ny ordre";
 
-        LogicFacade.updateOrdreStatus(or, status);
+        DataFacade.updateOrdreStatus(or, status);
 
         return "customer_confirmationpage";
     }

@@ -4,7 +4,7 @@
 --%>
 
 <%@page import="Domain.User"%>
-<%@page import="Business.LogicFacade"%>
+<%@page import="Business.DataFacade"%>
 <%@page import="Utillities.RendUtilGetMaterials"%>
 <%@page import="Utillities.RendUtilCustomerPresentation"%>
 <%@page import="Domain.Materiale"%>
