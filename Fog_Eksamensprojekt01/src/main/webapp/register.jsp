@@ -34,7 +34,7 @@
                 <img class="logo" src="images/logo.png" alt="Fog Logo">
             </a>
 
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'bestilbasiscarportpage.jsp'" alt="Carport efter eget mål">
+            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'index.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -95,7 +95,7 @@
                         <form name="register" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="register">
                             Email:<br>
-                            <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> <!--Email skal følge standarden navn@navn.dk-->
+                            <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" > <!--Email skal følge standarden navn@navn.dk-->
                             <br>
                             Password:<br>
                             <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z-æøå])(?=.*[A-Z-ÆØÅ]).{7,}" 
@@ -108,16 +108,16 @@
                                    mindst 7 eller flere tegn">
                             <br>
                             Fornavn:<br>
-                            <input type="text" name="firstname">
+                            <input type="text" name="firstname" >
                             <br>
                             Efternavn:<br>
                             <input type="text" name="lastname">
                             <br>
                             Adresse:<br>
-                            <input type="text" name="addresse">
+                            <input type="text" name="addresse"> 
                             <br>
                             PostNummer:<br>
-                            <input type="text" name="postnummer" pattern="[0-9]{4}"title="4 Cifre">
+                            <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre">
                             <br>
                             Telefonnummer <br>
                             <input type="tel" name="telefonnummer">
@@ -140,7 +140,7 @@
                 </p>
             </div>
         </footer>      
-    </div>
+  
 
 </body>
 </html>

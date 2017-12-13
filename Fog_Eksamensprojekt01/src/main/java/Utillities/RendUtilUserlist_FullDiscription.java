@@ -25,8 +25,8 @@ public class RendUtilUserlist_FullDiscription {
         sb.append("<br><br> Vælg en bruger at ændre:"
                 + "<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
-                + "<tr><th>Bruger ID </th><br><th>Bruger Type   </th> <th>Bruger Email   </th> <th>Bruger Fornavn </th> <th>Bruger Efternavn  </th> <th>Bruger Postnummer  </th>"
-                + " <th>Bruger Addresse  </th> <th>Bruger Tlf Nummer  </th></tr>\n");
+                + "<tr><th>Bruger ID </th><br><th>Bruger Type   </th> <th> Email Addresse  </th> <th>  Fornavn </th> <th> Efternavn  </th> <th> Postnummer  </th>"
+                + " <th> Addresse  </th> <th> Tlf Nummer  </th></tr>\n");
         for (User u : userList) {
 
             sb.append("<tr><form name=\"InvoiceDetail_Admin_UserEdit\" action=\"FrontController\" method=\"POST\">");
