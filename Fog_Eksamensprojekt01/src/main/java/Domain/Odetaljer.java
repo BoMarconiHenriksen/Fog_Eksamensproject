@@ -16,6 +16,10 @@ public class Odetaljer {
     private double width_redskabsrum;
     private int tagType;
     private double price;
+    
+    public Odetaljer(){
+        
+    }
 
     public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, int tagType) {
         this.odetaljerId = odetaljerId;
