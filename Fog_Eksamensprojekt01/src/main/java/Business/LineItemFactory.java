@@ -1,13 +1,11 @@
-package Utillities;
+package Business;
 
-import Business.Calculator;
 import Domain.LineItem;
 import Domain.Exception.NewException;
 
 /**
  * Klassen bruges til at lave styklinjerne i styklisten
  *
- * @author Ejer
  */
 public class LineItemFactory {
 

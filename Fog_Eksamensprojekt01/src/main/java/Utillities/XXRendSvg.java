@@ -1,6 +1,6 @@
 package Utillities;
 
-import Business.Calculator;
+import Business.LogicFacade;
 import Domain.Exception.NewException;
 
 /**
@@ -19,7 +19,7 @@ public class XXRendSvg {
      * @param skurwidth er skurets bredde.
      * @return en tegning af en carport.
      */
-    public String simpelCarport(double length, double width, double skurlength, double skurwidth) {
+    public String simpelCarport(double length, double width, double skurlength, double skurwidth) throws NewException {
 
         StringBuilder sb = new StringBuilder();
 
@@ -28,9 +28,9 @@ public class XXRendSvg {
         sb.append(remme(length, width));
 
         sb.append(ydreSpær(width, length));
-        for (int i = 0; i <= Calculator.numberOfRafters(length); i++) {
+        for (int i = 0; i <= LogicFacade.numberOfRafters(length); i++) {
 
-            sb.append(spærX(width, i, (int) Calculator.spaceBetweenRafters(length)));
+            sb.append(spærX(width, i, (int) LogicFacade.spaceBetweenRafters(length)));
         }
 
         sb.append(stolper(length, width, skurwidth));
@@ -126,14 +126,14 @@ public class XXRendSvg {
      * @param skurwidth er skurets bredde.
      * @return stolperne på carporten.
      */
-    private String stolper(double length, double width, double skurwidth) {
-        String stolper = " <rect x=\"" + (1 * Calculator.spaceBetweenRafters(length) - 5) + "\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
+    private String stolper(double length, double width, double skurwidth) throws NewException {
+        String stolper = " <rect x=\"" + (1 * LogicFacade.spaceBetweenRafters(length) - 5) + "\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"" + (length - 5 - 2 * Calculator.spaceBetweenRafters(length) - (skurwidth - Calculator.spaceBetweenRafters(length))) + "\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\"" + (length - 5 - 2 * LogicFacade.spaceBetweenRafters(length) - (skurwidth - LogicFacade.spaceBetweenRafters(length))) + "\" y=\"13\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"" + (length - 5 - 2 * Calculator.spaceBetweenRafters(length) - (skurwidth - Calculator.spaceBetweenRafters(length))) + "\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\"" + (length - 5 - 2 * LogicFacade.spaceBetweenRafters(length) - (skurwidth - LogicFacade.spaceBetweenRafters(length))) + "\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>\n"
-                + "        <rect x=\"" + (1 * Calculator.spaceBetweenRafters(length) - 5) + "\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
+                + "        <rect x=\"" + (1 * LogicFacade.spaceBetweenRafters(length) - 5) + "\" y=\"" + (width - 17) + "\" height=\"9.7\" width=\"9.7\"\n"
                 + "              style=\"stroke:#000000; fill: #000000;  opacity: 0.6\"/>";
         return stolper;
     }
@@ -169,20 +169,20 @@ public class XXRendSvg {
      * @param skurwidth er skurets bredde.
      * @return en dobbelt streg med huller i placeret som et kryds.
      */
-    private String hulBånd(double length, double width, double skurwidth) {
-        String hulbaand = " <line x1=\"" + (Calculator.spaceBetweenRafters(length) - 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
+    private String hulBånd(double length, double width, double skurwidth) throws NewException {
+        String hulbaand = " <line x1=\"" + (LogicFacade.spaceBetweenRafters(length) - 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\"" + (Calculator.spaceBetweenRafters(length) + 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
+                + "        <line x1=\"" + (LogicFacade.spaceBetweenRafters(length) + 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>  \n"
                 + "\n"
-                + "        <line x1=\"" + (Calculator.spaceBetweenRafters(length) - 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
+                + "        <line x1=\"" + (LogicFacade.spaceBetweenRafters(length) - 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"" + (width - 15) + "\" y2=\"15\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000; opacity: 0.6 \"/>\n"
                 + "\n"
-                + "        <line x1=\"" + (Calculator.spaceBetweenRafters(length) + 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
+                + "        <line x1=\"" + (LogicFacade.spaceBetweenRafters(length) + 2) + "\"x2=\"" + (length - skurwidth - 15) + "\" y1=\"15\" y2=\"" + (width - 15) + "\" width=\"10\"\n"
                 + "              stroke-dasharray=\"10,10\"\n"
                 + "              style=\"stroke:#000000;   opacity: 0.6 \"/>\n"
                 + "        </svg>";

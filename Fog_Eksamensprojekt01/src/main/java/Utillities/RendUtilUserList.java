@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utillities;
 
-import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Exception.NewException;
 import Domain.User;
 import java.util.List;
@@ -18,7 +13,7 @@ public class RendUtilUserList {
     
     public static String invoiceUserList(List<User> userList) throws NewException {
     
-        userList = DataFacade.getUserList();
+        userList = LogicFacade.getUserList();
 
         StringBuilder sb = new StringBuilder();
         

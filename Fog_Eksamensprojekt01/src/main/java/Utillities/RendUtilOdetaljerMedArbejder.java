@@ -1,6 +1,6 @@
 package Utillities;
 
-import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.Exception.NewException;
@@ -18,7 +18,7 @@ public class RendUtilOdetaljerMedArbejder {
      * @throws NewException 
      */
     public static String customerDetailsForOrder(Odetaljer od) throws NewException {
-        Ordre o = DataFacade.getOrdreByOrderId(od.getOrdreId());
+        Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
         StringBuilder sb = new StringBuilder();
         sb.append("<table border=1>\n");
 
@@ -27,11 +27,11 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><h3>Kundeoplysninger</h3></tr>\n");
         sb.append("<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Fornavn</th><th>Adresse</th><th>Postnummer</th><th>Telefon nr</th></tr>\n");
-        sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getFirstname() + " " 
-                + DataFacade.getUserByUserId(o.getUser_id()).getLastname() ).append("</td>");
-        sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getAddress()).append("</td>");
-        sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getZip()).append("</td>");
-        sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname() + " " 
+                + LogicFacade.getUserByUserId(o.getUser_id()).getLastname() ).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getAddress()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getZip()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getTlfnummer()).append("</td>");
 
         sb.append("</table>\n");
         return sb.toString();
@@ -45,7 +45,7 @@ public class RendUtilOdetaljerMedArbejder {
      */
     public static String odetailsForOrder(Odetaljer od) throws NewException {
 
-        Ordre o = DataFacade.getOrdreByOrderId(od.getOrdreId());
+        Ordre o = LogicFacade.getOrdreByOrderId(od.getOrdreId());
 
         StringBuilder sb = new StringBuilder();
         sb.append("<form name=\"InvoiceSetStatus\" action=\"FrontController\" method=\"POST\">");
@@ -55,7 +55,7 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><th>InvoiceId</th><th>Date</th><th>status</th></tr>\n");
         sb.append("<td>").append("" + od.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
-        sb.append("<td>").append("" + DataFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(od.getOrdreId()).getOrdreStatus()).append("</td>");
 
         sb.append("</table>\n>");
         sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + od.getOrdreId() + "\"><br>\n\n</td>");

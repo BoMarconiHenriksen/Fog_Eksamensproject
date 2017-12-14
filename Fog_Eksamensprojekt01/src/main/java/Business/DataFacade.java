@@ -115,7 +115,6 @@ public class DataFacade {
 
     public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
-
     }
 
     //////////////////////////////UserMapperMetoder////////////////////////////////////////  

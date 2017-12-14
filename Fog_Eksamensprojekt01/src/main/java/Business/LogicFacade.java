@@ -1,6 +1,11 @@
 package Business;
 
+import static Business.Calculator.numberOfRafters;
+import static Business.Calculator.spaceBetweenRafters;
+import static Business.LogicFacade.spaceBetweenRafters;
 import Domain.Exception.NewException;
+import Domain.LineItem;
+import Domain.Materiale;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
@@ -76,18 +81,13 @@ public class LogicFacade {
         DataFacade.AddOdetailstoOrdermedSkur(ordre_id, ods); 
     }
     
-    ////////////////Kalder metoder i Utilities////////////////
-//    public static String invoiceList_Customer(List ordreList, User user) throws NewException {
-//        return RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
-//    }
-//    
-//    public static String invoiceList(List userList) throws NewException {
-//        return RendUtilUserlist_FullDiscription.invoiceList(userList);
-//    }
-//    
-//    public static String simpelCarport(double lentghinput, double widthinput, double lentghinputskur, double widthinputskur) throws  NewException {
-//        return XXRendSvg.simpelCarport(lentghinput, widthinput, widthinput, widthinput);
-//    }
+    public static Ordre getOrdreByOrderId(int ordre_id) throws NewException {
+        return DataFacade.getOrdreByOrderId(ordre_id);
+    }
+    
+    public static List<Materiale> getMaterial() throws NewException {
+        return DataFacade.getMaterial();
+    }
     
     ////////////////Kalder metoder i Domain////////////////
     public static int getUser_Id(User user) {
@@ -101,6 +101,36 @@ public class LogicFacade {
     
     public static double calculatePriceShed(double lentghinputskur, double widthinputskur)throws NewException {
         return Calculator.calculatePriceShed(widthinputskur, widthinputskur);
+    }
+    
+    public static int numberOfRafters(double length) throws NewException {
+        return Calculator.numberOfRafters(length);
+    }
+    
+    public static int spaceBetweenRafters(double length) throws NewException {
+        return (int) Calculator.spaceBetweenRafters(length);
+    }
+    
+    
+    ////////////////Kalder metoder i LineItemFactory////////////////
+    public static LineItem[] baseWood(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
+        return LineItemFactory.baseWood(width, length);
+    }
+    
+    public static LineItem[] ecoliteRoof(double width, double length) throws NewException {
+        return LineItemFactory.ecoliteRoof(width, length);
+    }
+    
+    public static LineItem[] screwsAndBracketShed(double skurLængde, double skurBredde) throws NewException {
+        return LineItemFactory.screwsAndBracketShed(skurLængde, skurBredde);
+    }
+    
+    public static LineItem[] woodForShed(double skurLængde, double skurBredde) throws NewException {
+        return LineItemFactory.woodForShed(skurLængde, skurBredde);
+    }
+    
+     public static LineItem[] carportBaseMetal(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
+        return LineItemFactory.carportBaseMetal(width, length);
     }
     
 
