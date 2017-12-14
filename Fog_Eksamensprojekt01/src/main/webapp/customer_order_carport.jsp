@@ -7,9 +7,7 @@
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.Calculator"%>
 <%@page import="Business.DataFacade"%>
-<%@page import="Utillities.RendUtilGetMaterials"%>
 <%@page import="Utillities.RendUtilCustomerPresentation"%>
 <%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>

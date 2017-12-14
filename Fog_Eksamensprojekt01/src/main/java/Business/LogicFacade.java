@@ -1,18 +1,11 @@
 package Business;
 
-import static Business.Calculator.numberOfRafters;
-import static Business.Calculator.spaceBetweenRafters;
-import static Business.LogicFacade.spaceBetweenRafters;
 import Domain.Exception.NewException;
 import Domain.LineItem;
 import Domain.Materiale;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
-import Utillities.RendUtilOrderList;
-import Utillities.RendUtilOrderList_Customer;
-import Utillities.RendUtilUserlist_FullDiscription;
-import Utillities.XXRendSvg;
 import java.util.List;
 
 /**
@@ -65,8 +58,8 @@ public class LogicFacade {
         return DataFacade.getOrderList();
     }
     
-    public static void createUser(String email, String password, String firstname, String lastname, String address, int zipcode, int tlfnummer) throws NewException {
-        DataFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
+    public static void createUser(String email, String password,  String role, String firstname, String lastname, String address, int zipcode, int tlfnummer) throws NewException {
+        DataFacade.createUser(email, password, role, firstname, lastname, address, zipcode, tlfnummer);
     }
     
     public static void placeAnOrder(int user_id, String receiveddate) throws NewException {

@@ -5,18 +5,16 @@
 
 
 
-<%@page import="Utillities.LineItemFactory"%>
+
 <%@page import="Domain.LineItem"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.Calculator"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
 <%@page import="Domain.Materiale"%>
 <%@page import="Presentation.FrontController"%>
-<%@page import="Utillities.RendUtilGetMaterials"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
