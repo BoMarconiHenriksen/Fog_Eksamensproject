@@ -20,7 +20,7 @@ public class Calculator {
      * @return totalPriceSimpleCarport
      * @throws NewException
      */
-    public double calculateCarportSimple(double length, double width, double heigth) throws NewException {
+    public static  double calculateCarportSimple(double length, double width, double heigth) throws NewException {
         double totalPriceSimpleCarport = 0;
         if (length == 0.00) {
             totalPriceSimpleCarport = 0;
@@ -42,7 +42,7 @@ public class Calculator {
      * @return totalPriceScrewsAndSuch
      * @throws NewException
      */
-    public double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
+    public static double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
 
         // dimser
         double totalPriceScrewsAndSuch = 0;
@@ -69,7 +69,7 @@ public class Calculator {
      * @return totalPriceBase
      * @throws NewException
      */
-    public double calculateBaseCarport(double length, double width) throws NewException {
+    public static double calculateBaseCarport(double length, double width) throws NewException {
 
         //træ og tag
         double plank1Price = DataFacade.getMaterialeByVarenummer(1).getEnhedspris();
@@ -132,7 +132,7 @@ public class Calculator {
      * @return totalPrisSkur
      * @throws NewException
      */
-    public double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
+    public static double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
 
         double LægteTilZ = DataFacade.getMaterialeByVarenummer(3).getEnhedspris();
         double LøsholterSkurGavl = DataFacade.getMaterialeByVarenummer(4).getEnhedspris();

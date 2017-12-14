@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
@@ -20,19 +20,19 @@ public class InvoiceDetail_Customer extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");
-        String DeletetheOrder;
+        String deletetheOrder;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
+        String lockIntoOrder = request.getParameter("InvoiceDetail_Customer");
 
-        DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        deletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
 
         String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
 
-        Odetaljer od = DataFacade.getOrderByOrderId2(orderid);
+        Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
 
         request.setAttribute("length", (Double) od.getCarportLength());
         request.setAttribute("width", (Double) od.getCarportWidth());
@@ -41,17 +41,17 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
 
-        if (DeletetheOrder != null) {
-            DataFacade.deleteOrderDetailsByUserId(orderid);
-            DataFacade.deleteOrderListByUserId(orderid);
+        if (deletetheOrder != null) {
+            LogicFacade.deleteOrderDetailsByUserId(orderid);
+            LogicFacade.deleteOrderListByUserId(orderid);
 
             //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
-            List<Ordre> ordreList = DataFacade.getOrderListByUserId(user.getUser_id());
+            List<Ordre> ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
             String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
             request.setAttribute("customer_orderlist", customer_Orderlist);
             return "customer_order_list";
         }
-        if (LockIntoOrder != null) {
+        if (lockIntoOrder != null) {
 
             return "customer_invoice_detail";
         }
@@ -60,7 +60,7 @@ public class InvoiceDetail_Customer extends Command {
 
             String status = request.getParameter("status");
 
-            DataFacade.updateOrdreStatus(orderid, status);
+            LogicFacade.updateOrdreStatus(orderid, status);
 
             return "customer_invoice_detail";
 

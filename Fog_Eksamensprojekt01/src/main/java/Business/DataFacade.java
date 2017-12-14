@@ -1,6 +1,5 @@
 package Business;
 
-
 import Data.MaterialeMapper;
 import Data.OrdreMapper;
 import Data.OdetaljeMapper;
@@ -15,22 +14,19 @@ import java.util.List;
 /**
  * The purpose of DataFacade is to...
  *
- * Author @ BenedikteEva
  */
 public class DataFacade {
 
 //////////////////////////////OrdreMapperMetoder////////////////////////////////////////
-
-    public static Ordre placeAnOrder(int user_id, String receiveddate) throws NewException {
+    public static void placeAnOrder(int user_id, String receiveddate) throws NewException {
         Ordre theOrdered = new Ordre(user_id, receiveddate);
         OrdreMapper.addOrdertoOrderList(theOrdered);
-        return theOrdered;
     }
 
     public static List<Ordre> getOrderList() throws NewException {
         return OrdreMapper.getOrderList();
     }
-    
+
     public static List<User> getUserList() throws NewException {
         return UserMapper.getUserList();
     }
@@ -42,8 +38,8 @@ public class DataFacade {
     public static int getLastInvoiceId() throws NewException {
         return OrdreMapper.getLastInvoiceId();
     }
-  
-   public static List<Ordre> getOrderListByUserId(int user_id) throws NewException {
+
+    public static List<Ordre> getOrderListByUserId(int user_id) throws NewException {
         return OrdreMapper.getOrderListByUserID(user_id);
     }
 
@@ -55,14 +51,12 @@ public class DataFacade {
         OrdreMapper.deleteOrderDetailsByOrderID(order_id);
     }
 
-
     //////////////////////////////OdetaljeMapperMetoder////////////////////////////////////////   
-    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods)
-            throws NewException {
+    public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods) throws NewException {
         OdetaljeMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
 
-    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG)  throws NewException {
+    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG) throws NewException {
         OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
     }
 
@@ -71,22 +65,20 @@ public class DataFacade {
     }
 
     public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
-
         OdetaljeMapper.updateOrdreStatus(order_id, ordre_status);
     }
-    
-    public static void updateUserPassword(int user_id, String password) throws NewException {
 
+    public static void updateUserPassword(int user_id, String password) throws NewException {
         UserMapper.updateUserPassword(user_id, password);
     }
-    
-    public static void updateWholeUserButID(int user_id, int zip, String email, String password, 
+
+    public static void updateWholeUserButID(int user_id, int zip, String email, String password,
             String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
 
         UserMapper.updateWholeUserbutID(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
     }
-    
-       public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
+
+    public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }
 
@@ -94,29 +86,24 @@ public class DataFacade {
         return OdetaljeMapper.getOrderByOrderId2(ordre_id);
     }
 
-    public static User login( String email, String password) throws NewException {
-        return UserMapper.login( email, password );
-    } 
+    public static User login(String email, String password) throws NewException {
+        return UserMapper.login(email, password);
+    }
 
     public static User createUser(String email, String password, String firstname, String lastname, String address, int zipcode, int tlfnummer) throws NewException {
         User user = new User(email, password, "customer", firstname, lastname, address, zipcode, tlfnummer);
-        UserMapper.createUser( user );
+        UserMapper.createUser(user);
         return user;
     }
- 
- 
-      //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
 
-
-   
+    //////////////////////////////MaterialeMapperMetoder////////////////////////////////////////  
     public static Materiale changeMaterialePris(int vareid, double enhedspris) throws NewException {
         Materiale mat = new Materiale(vareid, enhedspris);
         MaterialeMapper.changeMaterialePris(vareid, enhedspris);
         return mat;
     }
 
-    
-     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
+    public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
         String materialetype = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialetype();
         String materialenavn = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialenavn();
         double enhedspris = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhedspris();
@@ -125,25 +112,18 @@ public class DataFacade {
         Materiale mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
         return mat;
     }
-      public static List<Materiale> getMaterial() throws NewException {
+
+    public static List<Materiale> getMaterial() throws NewException {
         return MaterialeMapper.getMaterial();
 
     }
- 
-     
-       //////////////////////////////UserMapperMetoder////////////////////////////////////////  
 
+    //////////////////////////////UserMapperMetoder////////////////////////////////////////  
     public static User getUserByUserId(int user_id) throws NewException {
         return UserMapper.getUserByUserId(user_id);
     }
-       
-   
 
-    
-   
-
-
-    public static void main(String[] args) throws NewException{
+    public static void main(String[] args) throws NewException {
 
         System.out.println(DataFacade.getOdetaljerByOrderId(3));
         System.out.println(DataFacade.getOrderByOrderId2(3));

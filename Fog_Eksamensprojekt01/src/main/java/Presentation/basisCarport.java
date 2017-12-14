@@ -3,6 +3,7 @@ package Presentation;
 import Domain.Exception.NewException;
 import Business.Calculator;
 import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.Odetaljer;
 import Domain.User;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author The DataBuilders This class is one of the commands. The execute
+ * This class is one of the commands. The execute
  * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
  * and then put them though various methods based on the specific button pushed
  * a calculator that calculates the price. The parameters is also used to place
@@ -45,7 +46,7 @@ public class basisCarport extends Command {
         Ordre order = new Ordre();
         String ordre_status = null;
 
-        int user_id = user.getUser_id();
+        int user_id =  LogicFacade.getUser_Id(user);
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
         double totalPrice = 0;
@@ -123,14 +124,13 @@ public class basisCarport extends Command {
         request.setAttribute("count", count);
 
         DecimalFormat df = new DecimalFormat("#0.00");
-        Calculator calc = new Calculator();
-        double carportNoShed = calc.calculateCarportSimple(lentghinput, widthinput, heightinput);
+        double carportNoShed = LogicFacade.calculateCarportSimple(lentghinput, widthinput, heightinput);
         String carportTotalDecimaledudenSkur = df.format(carportNoShed);
         request.setAttribute("carportTotaludenSkur", carportTotalDecimaledudenSkur);
         double totalPrice;
         //Skuret 
         if (heightputskur != 0.00) {
-            double skurTotaludenCarport = calc.calculatePriceShed(lentghinputskur, widthinputskur);
+            double skurTotaludenCarport = LogicFacade.calculatePriceShed(lentghinputskur, widthinputskur);
             totalPrice = carportNoShed + skurTotaludenCarport;
 
         } else {
@@ -150,9 +150,9 @@ public class basisCarport extends Command {
         return totalPrice;
     }
 
-    private void makeDrawingOfCarport(double lentghinput, double widthinput, double lentghinputskur, double widthinputskur, HttpServletRequest request) {
-        XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
+    private void makeDrawingOfCarport(double lentghinput, double widthinput, double lentghinputskur, double widthinputskur, HttpServletRequest request) throws NewException {
+        XXRendSvg RendSvg = new XXRendSvg();
+        String carportTegning = RendSvg.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
     }
 
@@ -190,13 +190,13 @@ public class basisCarport extends Command {
         //SÃ¦tter datoen pÃ¥ ordren
 //        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
-        DataFacade.placeAnOrder(user_id, formatDateTime);
-        int or = DataFacade.getLastInvoiceId();
+        LogicFacade.placeAnOrder(user_id, formatDateTime);
+        int or = LogicFacade.getLastInvoiceId();
         request.setAttribute("KundensOID", or);
         session.setAttribute("SessionIOD", or);
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
-        DataFacade.AddOdetailstoOrdermedSkur(or, ods);
-        ods = DataFacade.getOdetaljerByOrderId(or);
+        LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
+        ods = LogicFacade.getOdetaljerByOrderId(or);
 
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());

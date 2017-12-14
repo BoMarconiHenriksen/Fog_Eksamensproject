@@ -5,7 +5,6 @@ import Domain.Ordre;
 import Domain.Exception.NewException;
 import Domain.User;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  * Klassen viser en liste af kundens ordre.

@@ -2,15 +2,15 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.DataFacade;
+import Business.LogicFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * denne command kommer man hen til når man vælger en ordrestatus på ordre_liste.jsp
+ * Denne command kommer man hen til når man vælger en ordrestatus på ordre_liste.jsp
  * og trykker på "sæt ordre Status". Den gør det at den kalder DataFacade metoden 
- updateOrdreStatus(OrdreId, status) som ændrer ordrestatusen i databasen for 
- det specifikke ordreid
+ * updateOrdreStatus(OrdreId, status) som ændrer ordrestatusen i databasen for 
+ * det specifikke ordreid.
  */
 public class InvoiceSetStatus extends Command{
    /**
@@ -28,7 +28,7 @@ public class InvoiceSetStatus extends Command{
         
         int ordreId =Integer.parseInt(request.getParameter("id"));
         
-        DataFacade.updateOrdreStatus(ordreId, status);
+        LogicFacade.updateOrdreStatus(ordreId, status);
         
         return "employee_ordre_list";
        

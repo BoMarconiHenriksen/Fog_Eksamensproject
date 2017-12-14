@@ -2,12 +2,11 @@ package Presentation;
 
 import Domain.Exception.NewException;
 import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList;
-import Utillities.RendUtilOrderList_Customer;
-import Utillities.RendUtilUserList;
 import Utillities.RendUtilUserlist_FullDiscription;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Bo
  */
 public class InvoiceDetail extends Command {
 
@@ -28,15 +26,15 @@ public class InvoiceDetail extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         User us = new User();
-        String LockIntoOrder = request.getParameter("InvoiceDetail");
-        String DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
-        String EditUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
+        String lockIntoOrder = request.getParameter("InvoiceDetail");
+        String deletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
+        String editUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
 
-        if (EditUser != null) {
+        if (editUser != null) {
             
             int choseUser = Integer.parseInt(request.getParameter("theUser_id"));
             
-            DataFacade.getUserByUserId(choseUser);
+            LogicFacade.getUserByUserId(choseUser);
 
             request.setAttribute("customerID", us.getUser_id());
             request.setAttribute("userRole", us.getRole());
@@ -74,7 +72,7 @@ public class InvoiceDetail extends Command {
         String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
         request.setAttribute("carportTegning", carportTegning);
 
-        if (DeletetheOrder != null) {
+        if (deletetheOrder != null) {
             DataFacade.deleteOrderDetailsByUserId(orderid);
             DataFacade.deleteOrderListByUserId(orderid);
 
@@ -89,7 +87,7 @@ public class InvoiceDetail extends Command {
 
             return "employee_ordre_list";
         }
-        if (LockIntoOrder != null) {
+        if (lockIntoOrder != null) {
 
             return "employee_invoice_detail";
         }

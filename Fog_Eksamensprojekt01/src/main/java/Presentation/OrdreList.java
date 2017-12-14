@@ -1,11 +1,9 @@
 package Presentation;
 
 import Domain.Exception.NewException;
-import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Ordre;
 import Domain.User;
-import Utillities.RendUtilOrderList;
-import Utillities.RendUtilUserList;
 import Utillities.RendUtilUserlist_FullDiscription;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Bo
  */
 public class OrdreList extends Command {
 
@@ -27,11 +24,11 @@ public class OrdreList extends Command {
         //  List<Ordre> invoiceList = DataFacade.getOrderList();
         //   RendUtilOrderList.invoiceList(invoiceList);
         //   request.setAttribute("invoiceList", invoiceList);
-        List<User> userList = DataFacade.getUserList();
+        List<User> userList = LogicFacade.getUserList();
         String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
 
-        List<Ordre> ordreList = DataFacade.getOrderList();
-        String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+        List<Ordre> ordreList = LogicFacade.getOrderList();
+        String employee_Orderlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
 
         request.setAttribute("employee_userlist", employee_Userlist);
 
