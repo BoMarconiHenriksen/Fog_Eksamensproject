@@ -22,8 +22,12 @@ public class Checkout extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         request.setAttribute("userNr", user.getUser_id());
-
-        int or = (int) (session.getAttribute("SessionIOD"));
+        int or;
+        if (request.getParameter("basisCarport") != null) {
+            or = (int) (session.getAttribute("SessionIOD"));
+        } else {
+            or = Integer.parseInt(request.getParameter("id"));
+        }
 
         LogicFacade.getOrderByOrderId2(or);
         Odetaljer od = LogicFacade.getOdetaljerByOrderId(or);

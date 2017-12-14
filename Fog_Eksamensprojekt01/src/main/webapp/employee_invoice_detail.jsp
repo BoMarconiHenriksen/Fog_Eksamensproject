@@ -114,23 +114,26 @@
                     <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
                 </div>
 
+            
                 <div class="bg-faded p-4 my-4">
+                    <hr class="divider">
+                    <h2>Tegning </h2>
+             
+                    <%
+                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                    %>  
+                </div>
+                
+                    <div class="bg-faded p-4 my-4">
                     <hr class="divider">
 
                     <%
                         out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
                     %>   
                 </div>
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-
-                    <%
-                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                    %>  
-                </div>
             </div>
         </div>     
-
+ 
         <div>
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
         </div>

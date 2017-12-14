@@ -101,40 +101,32 @@
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Hovedmenuen for medarbejdere</strong>
+                    <strong>Hovedmenu for medarbejdere</strong>
                 </h2>
                 <hr class="divider">
 
                 <h2>Hej <%= (String) session.getAttribute("username")%></h2>
-                <div>
-                    <form name="OrdreList" action="FrontController" method="POST">
+               
+                    <form class="form-inline"  name="OrdreList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="OrdreList">
-
-                        <button type="submit" name="OrdreList" value="Submit">Ordrer</button>
-
+                        <button type="submit" name="OrdreList" value="action">Ordrer</button>
                     </form>
 
                     <form class="form-inline" name="UserList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="UserList">
-
-                        <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
-
+                        <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
                     </form>
 
-
-                    <form name="Employee_UserOptions" action="FrontController" method="POST">
+                    <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_UserOptions">
-
-                        <button type="submit" name="Employee_UserOptions" value="Submit">Kontooplysninger </button>
+                        <button type="submit" name="Employee_UserOptions" value="action">Kontooplysninger </button>
                     </form>
 
-                    <form name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">
-
-                        <button type="submit" name="Employee_SetupOrderCarportFunctions" value="Submit">Bestil en Carport for en kunde </button>
+                    <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">´
+                        <button type="submit" name="Employee_SetupOrderCarportFunctions" value="action">Bestil en Carport for en kunde </button>
                     </form>
 
-                </div>
             </div>
         </div>
 

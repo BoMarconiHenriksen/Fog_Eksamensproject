@@ -1,6 +1,4 @@
 package Utillities;
-
-import Business.LineItemFactory;
 import Business.LogicFacade;
 import Domain.LineItem;
 import Domain.Exception.NewException;
@@ -116,8 +114,7 @@ public class XXRendUtilStykListe {
      * @param sb laver tabellen.
      */
     private void headLinesStykListe() {
-        sb.append("<h2>Stykliste</h2>\n"
-                + "<table border=4>"
+        sb.append( "<table border=4>"
                 + "<tr><th>Materiale</th>"
                 + "<th>Længde</th>"
                 + "<th>Antal</th>"
