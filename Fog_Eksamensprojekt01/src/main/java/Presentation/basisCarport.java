@@ -46,7 +46,7 @@ public class basisCarport extends Command {
         Ordre order = new Ordre();
         String ordre_status = null;
 
-        int user_id =  LogicFacade.getUser_Id(user);
+        int user_id = user.getUser_id();
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
         double totalPrice = 0;
