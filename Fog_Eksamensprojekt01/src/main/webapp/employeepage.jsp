@@ -66,9 +66,17 @@
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
                             <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordrer</a> </button>
                             </div>
                         </form>
+
+                        <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="UserList">
+                            <div class="form-group">
+                                <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer brugere</a> </button>
+                            </div>
+                        </form>
+
 
                         <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Employee_UserOptions">
@@ -98,15 +106,22 @@
                 <hr class="divider">
 
                 <h2>Hej <%= (String) session.getAttribute("username")%></h2>
-
-                <form name="OrdreList" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="OrdreList">
-
-                    <button type="submit" name="OrdreList" value="Submit">Administrer Ordre</button>
-
-                </form>
-
                 <div>
+                    <form name="OrdreList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="OrdreList">
+
+                        <button type="submit" name="OrdreList" value="Submit">Ordrer</button>
+
+                    </form>
+
+                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UserList">
+
+                        <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+
+                    </form>
+
+
                     <form name="Employee_UserOptions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_UserOptions">
 

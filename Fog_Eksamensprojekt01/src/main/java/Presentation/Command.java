@@ -1,6 +1,5 @@
 package Presentation;
 
-
 import Domain.Exception.NewException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -44,7 +43,7 @@ abstract class Command {
         commands.put("Employee_OrderCarportPlaceOrder", new Employee_OrderCarport());
         commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
         commands.put("Admin_UserAdministration", new Admin_UserAdministration());
-
+        commands.put("UserList", new UserList());
     }
 
     static Command from(HttpServletRequest request) {

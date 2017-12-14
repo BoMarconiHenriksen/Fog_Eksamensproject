@@ -92,7 +92,7 @@ public class InvoiceDetail extends Command {
                 return "employee_invoice_detail";
             }
 
-            return "emplyee_invoice_detail";
+            return "employee_invoice_detail";
         }
     }
 }

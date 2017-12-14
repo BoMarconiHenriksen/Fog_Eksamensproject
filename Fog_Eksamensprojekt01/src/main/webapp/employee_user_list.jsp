@@ -1,6 +1,7 @@
 <%-- 
-    Document   : ordre_liste
-    Created on : 18-11-2017, 14:21:47
+    Document   : employee_user_list
+    Created on : 14-12-2017, 20:55:46
+    Author     : 
 --%>
 
 <%@page import="Domain.User"%>
@@ -102,36 +103,37 @@
             <h1 class="my-2"><% User user = (User) session.getAttribute("user");
 
                 if (user != null) {
-                    out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
+                    out.println("Hej " + user.getFirstname() + ". Her er en liste over alle registrerede brugere.");
                 } else {
-                    out.println("Hmm... der står du hedder null, der må være sket en fejl");
+                    out.println("Hmm... der står du hedder null, der må være sket en fejl. Log venligst ind igen");
                 }
 
                 %></h1>
         </div>
+
+       
 
         <div class="container">
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Ordre Historie</strong>
+                    <strong>Medarbejdere og Kunder</strong>
                 </h2>
                 <hr class="divider">
 
 
-                    <%=request.getAttribute("employee_orderlist")%>
-
-              
+                <%
+                    out.println("<a>" + (String)request.getAttribute("employee_userlist") + "</a>");
+                %>  
+            </div>
+        </div>
 
 
         <div>
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
 
         </div>
-
-    </div>
-</div>
 
 
 
