@@ -1,5 +1,6 @@
 package Business;
 
+import Data.UserMapper;
 import Domain.Exception.NewException;
 import Domain.LineItem;
 import Domain.Materiale;
@@ -33,10 +34,18 @@ public class LogicFacade {
     public static void updateUserPassword(int user_id, String password) throws NewException {
         DataFacade.updateUserPassword(user_id, password);
     }
+    
+       public static void updateWholeUserButID(int user_id, int zip, String email, String password,
+            String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
+
+        DataFacade.updateWholeUserButID(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
+    }
+ 
 
     public static void deleteOrderDetailsByUserId(int order_id) throws NewException {
         DataFacade.deleteOrderDetailsByUserId(order_id);
     }
+    
 
     public static void deleteOrderListByUserId(int order_id) throws NewException {
         DataFacade.deleteOrderListByUserId(order_id);
@@ -124,6 +133,10 @@ public class LogicFacade {
     
      public static LineItem[] carportBaseMetal(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
         return LineItemFactory.carportBaseMetal(width, length);
+    }
+
+    public static void updateWholeUserButID(int userId, int zipcode, String email, String password, String firstname, String lastname, String address, int phone) throws NewException {
+    DataFacade.updateWholeUserButID(userId, zipcode, email, password, email, firstname, lastname, address, phone);
     }
     
 

@@ -119,11 +119,10 @@
                 </h2>
                 <hr class="divider">
 
-                <div>
 
                     <%=request.getAttribute("employee_orderlist")%>
 
-                </div>
+              
 
                 <div>
                     <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
