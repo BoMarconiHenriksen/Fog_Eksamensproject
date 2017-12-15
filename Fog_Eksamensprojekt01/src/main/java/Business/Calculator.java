@@ -39,6 +39,7 @@ public class Calculator {
      * bruge.
      *
      * @param length længden af den ønskede carport
+     * @param width
      * @return totalPriceScrewsAndSuch
      * @throws NewException
      */
@@ -102,17 +103,33 @@ public class Calculator {
         return totalPriceBase;
     }
 
+    /**
+     *
+     * @param length
+     * @return
+     */
     public static int numberOfRafters(double length) {
         int approxNumberOfRafts = (int) Math.round(length / 57);
         return approxNumberOfRafts;
     }
 
+    /**
+     *
+     * @param length
+     * @return
+     */
     public static int spaceBetweenRafters(double length) {
 
         double spaceBetweenRafters = ((int) Math.round(length / (numberOfRafters(length)))) - ((int) length % numberOfRafters(length)) / (numberOfRafters(length));
         return (int) spaceBetweenRafters;
     }
 
+    /**
+     *
+     * @param length
+     * @param width
+     * @return
+     */
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
         int numberOfPckScrews = (int) Math.ceil(numberOfScrews / 200);

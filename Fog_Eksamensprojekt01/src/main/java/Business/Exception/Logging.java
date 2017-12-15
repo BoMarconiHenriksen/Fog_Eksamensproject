@@ -5,11 +5,10 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 /**
- *
- *
+ * Denne skal bruges hvis en af teamet har lyst til at kigge på chain of 
+ * responsibility. Ellers bliver den bare slettet. 
  */
 public class Logging {
 

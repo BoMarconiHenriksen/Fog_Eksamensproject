@@ -18,6 +18,7 @@ public class XXRendSvg {
      * @param skurlength er skurets længde.
      * @param skurwidth er skurets bredde.
      * @return en tegning af en carport.
+     * @throws Business.Exception.NewException
      */
     public String simpelCarport(double length, double width, double skurlength, double skurwidth) throws NewException {
 

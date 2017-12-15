@@ -1,6 +1,4 @@
-/*
- * 
- */
+
 package Presentation;
 
 import Business.Exception.NewException;

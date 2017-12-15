@@ -22,21 +22,36 @@ import static org.junit.Assert.*;
  */
 public class CalculatorTest {
     
+    /**
+     *
+     */
     public CalculatorTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
@@ -388,6 +403,7 @@ public class CalculatorTest {
 
     /**
      * Test of main method, of class Calculator.
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testMain()  throws NewException{

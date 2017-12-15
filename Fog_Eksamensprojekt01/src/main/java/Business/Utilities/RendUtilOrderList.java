@@ -19,8 +19,7 @@ public class RendUtilOrderList {
      * jsp side ordrelisten blever kaldt på gennem en command der hedder
      * invoicedetail.jave. Dette gøres ved at at hente en liste af alle ordrer
      * fra databasen gennem logicFacaden og derefter iterere igennem listen af
-     * ordrer, og hente forskellige af de gemte værdier.
-     *@param o er er de instanser af ordre i ordrelisten som skal vises for brugeren 
+     * ordrer, og hente forskellige af de gemte værdier. 
      * @param ordreList er en liste af ordre fra databasen
      * @return sb.toString
      * @exception NewException er vores egen exception kastet fra datalaget og
