@@ -31,9 +31,9 @@ public class basisCarport extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        String seePrice = request.getParameter("basisCarport");
-        String checkOut = request.getParameter("basisCarportCheckud");
-        String saveDesign = request.getParameter("CarportSaveDesign");
+        String seePrice = request.getParameter("price");
+        String checkOut = request.getParameter("order");
+        String saveDesign = request.getParameter("save");
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
