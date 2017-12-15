@@ -1,7 +1,15 @@
 <%-- 
-    Document   : Ansatpage
-    Created on : 07-12-2017, 12:19:03
+    Document   : employee_user_list
+    Created on : 14-12-2017, 20:55:46
+    Author     : 
 --%>
+
+<%@page import="Domain.User"%>
+<%@page import="Business.DataFacade"%>
+<%@page import="Data.OrdreMapper"%>
+<%@page import="Utillities.RendUtilOrderList"%>
+<%@page import="Domain.Ordre"%>
+<%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,9 +30,9 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+        <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Fog Trælast - Hovedsiden for medarbejder</title>
+        <title>Ordre Liste</title>
     </head>
     <body>
 
@@ -70,14 +78,6 @@
                             </div>
                         </form>
 
-                        <form class="form-inline" name="UserList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="UserList">
-                            <div class="form-group">
-                                <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer brugere</a> </button>
-                            </div>
-                        </form>
-
-
                         <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Employee_UserOptions">
                             <div class="form-group">
@@ -88,58 +88,67 @@
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
-                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logOut" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
                             </div>
                         </form>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Navigation slut -->
 
+        <!-- Welcome Message -->
+        <div class="text-center mt-4">
+            <h1 class="my-2"><% User user = (User) session.getAttribute("user");
+
+                if (user != null) {
+                    out.println("Hej " + user.getFirstname() + ". Her er en liste over alle registrerede brugere.");
+                } else {
+                    out.println("Hmm... der står du hedder null, der må være sket en fejl. Log venligst ind igen");
+                }
+
+                %></h1>
+        </div>
+
+       
+
         <div class="container">
+
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Hovedmenu for medarbejdere</strong>
+                    <strong>Medarbejdere og Kunder</strong>
                 </h2>
                 <hr class="divider">
 
-                <h2>Hej <%= (String) session.getAttribute("username")%></h2>
-               
-                    <form class="form-inline"  name="OrdreList" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="OrdreList">
-                        <button type="submit" name="OrdreList" value="action">Ordrer</button>
-                    </form>
 
-                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="UserList">
-                        <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
-                    </form>
-
-                    <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_UserOptions">
-                        <button type="submit" name="Employee_UserOptions" value="action">Kontooplysninger </button>
-                    </form>
-
-                    <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">´
-                        <button type="submit" name="Employee_SetupOrderCarportFunctions" value="action">Bestil en Carport for en kunde </button>
-                    </form>
-
+                <%
+                    out.println("<a>" + (String)request.getAttribute("employee_userlist") + "</a>");
+                %>  
             </div>
         </div>
 
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer> 
 
-    </body>
+        <div>
+            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+
+        </div>
+
+
+
+<footer class="bg-faded text-center py-5">
+    <div class="container">
+        <p class="m-0">
+            <a href="https://www.johannesfog.dk" target="_blank">
+                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+            </a>
+            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+        </p>
+    </div>
+</footer>        
+
+</body>
 </html>
+
+

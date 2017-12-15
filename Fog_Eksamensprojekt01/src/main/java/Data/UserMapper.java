@@ -148,6 +148,9 @@ public class UserMapper {
 
     }
     
+
+   
+
     /**
      * updateWholeUserButID: Metoden overskrider alle brugerens data i databasen med nyt (eller samme data), bortset fra brugerens unike id.
      * @param user_id
@@ -161,6 +164,7 @@ public class UserMapper {
      * @param tlfnummer
      * @throws NewException 
      */
+
     
     public static void updateWholeUserbutID(int user_id, int zip, String email, String password, 
             String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
@@ -170,17 +174,17 @@ public class UserMapper {
             SQL = "update userlist set zipcode=?, email=?, password=?, role=?, firstname=?, lastname=?, address=?, tlfnummer=? where user_id=" + user_id;
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, zip);
-            ps.setString(1, email);
-            ps.setString(2, password);
-            ps.setString(3, role);
-            ps.setString(4, firstname);
-            ps.setString(5, lastname);
-            ps.setString(6, address);
-            ps.setInt(7, tlfnummer);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            ps.setString(4, role);
+            ps.setString(5, firstname);
+            ps.setString(6, lastname);
+            ps.setString(7, address);
+            ps.setInt(8, tlfnummer);
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            logger.log(Level.SEVERE, "Fejl i updateUserPassword", ex);
+            logger.log(Level.SEVERE, "Fejl i updateUser", ex);
             throw new NewException(ex.getMessage());
         }
 

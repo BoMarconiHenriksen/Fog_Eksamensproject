@@ -31,10 +31,10 @@ public class InvoiceDetail extends Command {
         String editUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
 
         if (editUser != null) {
-            
+
             int choseUser = Integer.parseInt(request.getParameter("theUser_id"));
-            
-            LogicFacade.getUserByUserId(choseUser);
+
+            us = LogicFacade.getUserByUserId(choseUser);
 
             request.setAttribute("customerID", us.getUser_id());
             request.setAttribute("userRole", us.getRole());
@@ -46,53 +46,53 @@ public class InvoiceDetail extends Command {
             request.setAttribute("userTlfnummer", us.getTlfnummer());
             request.setAttribute("userPassword", us.getPassword());
 
-            int userNotifyValue = 0;
-            request.setAttribute("outprintnotifystatus", userNotifyValue);
 
+//            int userNotifyValue = 0;
+//            request.setAttribute("outprintnotifystatus", userNotifyValue);
             return "employee_usercontrolpage";
-        } else{
+        } else {
 
-        int orderid = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("orderid", orderid);
+            int orderid = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("orderid", orderid);
 
-        Odetaljer od = DataFacade.getOdetaljerByOrderId(orderid);
-        request.setAttribute("od", od);
+            Odetaljer od = DataFacade.getOdetaljerByOrderId(orderid);
+            request.setAttribute("od", od);
 
-        double length = (Double) od.getCarportLength();
-        double width = (Double) od.getCarportWidth();
-        double skurlength = (Double) od.getLengthRedskabsrum();
-        double skurWidth = (Double) od.getWidthRedskabsrum();
-        double price = od.getPrice();
-        request.setAttribute("priceTwoDecimal", price);
-        XXRendUtilStykListe XXStykListe = new XXRendUtilStykListe();
-        String LineItemsList;
-        LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);
-        request.setAttribute("LineItemsList", LineItemsList);
-        XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
-        request.setAttribute("carportTegning", carportTegning);
+            double length = (Double) od.getCarportLength();
+            double width = (Double) od.getCarportWidth();
+            double skurlength = (Double) od.getLengthRedskabsrum();
+            double skurWidth = (Double) od.getWidthRedskabsrum();
+            double price = od.getPrice();
+            request.setAttribute("priceTwoDecimal", price);
+            XXRendUtilStykListe XXStykListe = new XXRendUtilStykListe();
+            String LineItemsList;
+            LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);
+            request.setAttribute("LineItemsList", LineItemsList);
+            XXRendSvg svag = new XXRendSvg();
+            String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+            request.setAttribute("carportTegning", carportTegning);
 
-        if (deletetheOrder != null) {
-            DataFacade.deleteOrderDetailsByUserId(orderid);
-            DataFacade.deleteOrderListByUserId(orderid);
+            if (deletetheOrder != null) {
+                DataFacade.deleteOrderDetailsByUserId(orderid);
+                DataFacade.deleteOrderListByUserId(orderid);
 
-            //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
-            List<Ordre> ordreList = DataFacade.getOrderList();
-            String customer_Orderlist = RendUtilOrderList.invoiceList(ordreList);
-            request.setAttribute("employee_orderlist", customer_Orderlist);
+                //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
+                List<Ordre> ordreList = DataFacade.getOrderList();
+                String customer_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+                request.setAttribute("employee_orderlist", customer_Orderlist);
 
-            List<User> userList = DataFacade.getUserList();
-            String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
-            request.setAttribute("employee_userlist", employee_Userlist);
+                List<User> userList = DataFacade.getUserList();
+                String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
+                request.setAttribute("employee_userlist", employee_Userlist);
 
-            return "employee_ordre_list";
-        }
-        if (lockIntoOrder != null) {
+                return "employee_ordre_list";
+            }
+            if (lockIntoOrder != null) {
+
+                return "employee_invoice_detail";
+            }
 
             return "employee_invoice_detail";
         }
-
-        return "emplyee_invoice_detail";
     }
-}
 }

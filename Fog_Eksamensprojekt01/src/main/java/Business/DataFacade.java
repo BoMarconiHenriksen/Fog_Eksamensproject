@@ -78,6 +78,7 @@ public class DataFacade {
         UserMapper.updateWholeUserbutID(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
     }
 
+    
     public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }

@@ -1,11 +1,9 @@
 package Presentation;
 
-import Business.DataFacade;
+import Business.LogicFacade;
 import Domain.Exception.NewException;
-import Domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -15,48 +13,34 @@ public class Admin_UserAdministration extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+      
         
-        request.setAttribute("userID", user.getUser_id());
-        request.setAttribute("userRole", user.getRole());
-        request.setAttribute("userEmail", user.getEmail());
-        request.setAttribute("userFirstname", user.getFirstname());
-        request.setAttribute("userLastname", user.getLastname());
-        request.setAttribute("userPostcode", user.getZip());
-        request.setAttribute("userAddress", user.getAddress());
-        request.setAttribute("userTlfnummer", user.getTlfnummer());
-        request.setAttribute("userPassword", user.getPassword());
+        int userId = Integer.parseInt(request.getParameter("customerID"));
+        String role = request.getParameter("uRole");
+        String email = request.getParameter("uEmail");
+        String firstname = request.getParameter("uFirstname");
+        String lastname = request.getParameter("uLastname");
+        int zipcode = Integer.parseInt(request.getParameter("uPostcode"));
+        String address = request.getParameter("uAddress");
+        int phone = Integer.parseInt(request.getParameter("uTlfnummer"));
+        String password = request.getParameter("uPassword");
 
-        String UpdateUser = request.getParameter("Admin_UserAdministration");
-        int userNotifyValue = 0;
-        request.setAttribute("outprintnotifystatus", userNotifyValue);
-        String newEmail = null;
+        LogicFacade.updateWholeUserButID(userId, zipcode, email, password, role, firstname, lastname, address, phone);
+        
+        request.setAttribute("userID", userId);
+        request.setAttribute("userRole", role);
+        request.setAttribute("userEmail", email);
+        request.setAttribute("userFirstname", firstname);
+        request.setAttribute("userLastname", lastname);
+        request.setAttribute("userPostcode",zipcode);
+        request.setAttribute("userAddress",  address);
+        request.setAttribute("userTlfnummer", phone);
+        request.setAttribute("userPassword", password);
 
-        if (UpdateUser != null && newEmail.contains("@")) {
 
-            String newRole = request.getParameter("uRole");
-            newEmail = request.getParameter("uEmail");
-            String newFirstname = request.getParameter("uFirstname");
-            String newLastName = request.getParameter("uLastname");
-            int newPostcode = Integer.parseInt(request.getParameter("uPostcode"));
-            String newAddress = request.getParameter("uAddress");
-            String newPassword = request.getParameter("uPassword");
-            int newTlfnummer = Integer.parseInt(request.getParameter("uTlfnummer"));
-            DataFacade.updateWholeUserButID(user.getUser_id(), newPostcode, newEmail, newPassword, newRole, newFirstname, newLastName, newAddress, newTlfnummer);
-            
-            userNotifyValue = 1;
-            request.setAttribute("outprintnotifystatus", userNotifyValue);
-            return "employee_usercontrolpage";
-            
-        } else if (UpdateUser != null) {
-            userNotifyValue = 2;
-            request.setAttribute("outprintnotifystatus", userNotifyValue);
-            return "employee_usercontrolpage";
-        } else {
 
-            return "employee_usercontrolpage";
 
-        }
-    }
-}
+            return "employeepage";
+
+     
+}}

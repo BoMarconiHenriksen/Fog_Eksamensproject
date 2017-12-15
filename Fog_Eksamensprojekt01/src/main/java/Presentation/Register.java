@@ -20,26 +20,27 @@ public class Register extends Command {
         String lastname = request.getParameter("lastname");
         String address = request.getParameter("addresse");
         String role = "customer";
-       
         int zipcode = Integer.parseInt(request.getParameter("postnummer"));
         int tlfnummer = Integer.parseInt(request.getParameter("telefonnummer"));
         User user =  new User (email, password,  role,firstname, lastname, address, zipcode, tlfnummer);
         if (password.equals(passwordRetype)) {
             try {
+                int succes= 1;
+                request.setAttribute("succes", succes);
                 LogicFacade.createUser(email, password, role,firstname, lastname, address, zipcode, tlfnummer);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 session.setAttribute("role", user.getRole());
                 session.setAttribute("username", user.getFirstname());
-                
-                return user.getRole() + "page";
+                request.setAttribute("pleaselogin", "Registrering var en succes. De kan nu logge ind");
+                return "index";
             } catch (Domain.Exception.NewException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
            return "index";
         }
-        return user.getRole() + "page";
+        return "index";
       
 
 }}

@@ -46,7 +46,7 @@ public class basisCarport extends Command {
         Ordre order = new Ordre();
         String ordre_status = null;
 
-        int user_id =  LogicFacade.getUser_Id(user);
+        int user_id = user.getUser_id();
         order.setUser_id(user_id);
 
         session.setAttribute("userNr", user_id);
@@ -54,7 +54,7 @@ public class basisCarport extends Command {
 
         if (checkOut != null) {
 
-            ordre_status = "Afventer kundens bekræftigelse";
+            ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
             placeOrderOdetailsSetAttributes(request, session,  user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
@@ -65,9 +65,7 @@ public class basisCarport extends Command {
 
             ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
-
-
-//            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
+            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
             return "customerpage";
 
