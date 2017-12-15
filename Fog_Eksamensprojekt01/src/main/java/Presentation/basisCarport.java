@@ -1,13 +1,13 @@
 package Presentation;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import Business.Calculator;
 import Business.DataFacade;
 import Business.LogicFacade;
-import Domain.Ordre;
-import Domain.Odetaljer;
-import Domain.User;
-import Utillities.XXRendSvg;
+import Business.Domain.Ordre;
+import Business.Domain.Odetaljer;
+import Business.Domain.User;
+import Business.Utilities.XXRendSvg;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

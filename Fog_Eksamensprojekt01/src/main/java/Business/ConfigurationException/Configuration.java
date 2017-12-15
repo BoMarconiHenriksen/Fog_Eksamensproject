@@ -1,5 +1,5 @@
 
-package ConfigurationException;
+package Business.ConfigurationException;
 
 import java.util.logging.Logger;
 

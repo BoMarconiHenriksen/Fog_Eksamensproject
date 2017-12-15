@@ -6,7 +6,7 @@
 package Utillities;
 
 import Business.Calculator;
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -45,7 +45,7 @@ public class CalculatorTest {
 
     /**
      * Test of calculateCarportSimple method, of class Calculator.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testCalculateCarportSimpleSmall()   throws NewException{
@@ -66,7 +66,7 @@ public class CalculatorTest {
     }
      /**
      * Test of calculateCarportSimple method, of class Calculator.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testCalculateCarportSimpleMedium()  throws NewException {
@@ -87,7 +87,7 @@ public class CalculatorTest {
     }
      /**
      * Test of calculateCarportSimple method, of class Calculator.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testCalculateCarportSimpleLarge()  throws NewException {
@@ -258,7 +258,7 @@ public class CalculatorTest {
     
     /**
      * Test of calculatePriceShed method, of class Calculator.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testCalculatePriceShed() throws NewException {
@@ -354,7 +354,7 @@ public class CalculatorTest {
 
     /**
      * Test of calculateCarportSimple method, of class Calculator.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testCalculateCarportSimpleZero() throws  NewException  {

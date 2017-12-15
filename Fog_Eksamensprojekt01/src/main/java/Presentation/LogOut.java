@@ -3,7 +3,7 @@
  */
 package Presentation;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

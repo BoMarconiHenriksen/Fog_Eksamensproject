@@ -3,15 +3,13 @@
     Created on : 28-11-2017, 11:22:00
 --%>
 
-<%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.RendUtilCustomerOdetailsFunktions"%>
-<%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
-<%@page import="Domain.Odetaljer"%>
+<%@page import="Business.Utilities.RendUtilCustomerOdetailsFunktions"%>
+<%@page import="Business.Utilities.XXRendUtilStykListe"%>
+<%@page import="Business.Utilities.XXRendSvg"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Utillities.XXRendSvg"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="Presentation.FrontController"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

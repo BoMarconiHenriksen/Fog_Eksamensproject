@@ -5,8 +5,6 @@
 
 
 <%@page import="Business.DataFacade"%>
-<%@page import="Domain.User"%>
-<%@page import="Utillities.RendUtilOrderList_Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

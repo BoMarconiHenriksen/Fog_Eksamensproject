@@ -5,10 +5,10 @@
  */
 package Data;
 
-import Domain.Exception.NewException;
-import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
+import Business.Exception.NewException;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
+import Business.Domain.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

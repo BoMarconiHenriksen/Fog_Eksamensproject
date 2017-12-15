@@ -6,11 +6,11 @@
 package Presentation;
 
 import Business.DataFacade;
-import Domain.User;
+import Business.Domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 
 /**
  *

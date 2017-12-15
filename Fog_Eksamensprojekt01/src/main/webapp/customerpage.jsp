@@ -3,10 +3,7 @@
     Created on : 05-12-2017, 11:00:25
 --%>
 
-<%@page import="Domain.User"%>
 <%@page import="Business.DataFacade"%>
-<%@page import="Utillities.RendUtilCustomerPresentation"%>
-<%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>
 <%@page import="Presentation.FrontController"%>
 

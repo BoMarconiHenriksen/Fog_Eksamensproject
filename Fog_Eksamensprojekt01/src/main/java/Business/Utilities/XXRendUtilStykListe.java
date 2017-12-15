@@ -1,7 +1,7 @@
-package Utillities;
+package Business.Utilities;
 import Business.LogicFacade;
-import Domain.LineItem;
-import Domain.Exception.NewException;
+import Business.Domain.LineItem;
+import Business.Exception.NewException;
 
 /**
  * Klassen bruges til at lave et udprint af styklisten

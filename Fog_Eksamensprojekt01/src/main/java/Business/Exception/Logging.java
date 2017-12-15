@@ -1,4 +1,4 @@
-package Domain.Exception;
+package Business.Exception;
 
 import java.io.IOException;
 import java.util.logging.ConsoleHandler;

@@ -1,9 +1,9 @@
-package Utillities;
+package Business.Utilities;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import Business.LogicFacade;
-import Domain.Odetaljer;
-import Domain.Ordre;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
 
 
 /**

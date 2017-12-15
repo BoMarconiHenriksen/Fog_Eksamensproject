@@ -1,11 +1,11 @@
 package Presentation;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import Business.LogicFacade;
-import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
-import Utillities.RendUtilOrderList_Customer;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
+import Business.Domain.User;
+import Business.Utilities.RendUtilOrderList_Customer;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
