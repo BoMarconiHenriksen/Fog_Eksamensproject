@@ -40,7 +40,7 @@
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
 
-      <!-- Navigation -->
+        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
             <div class="container">
 
@@ -60,7 +60,9 @@
                         </li>
 
                         <li class="nav-item px-lg-4">
+
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
+                            <span class="sr-only">(current)</span>
                         </li>
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
@@ -91,10 +93,11 @@
                                 <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logOut" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
                             </div>
                         </form>
+
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> 
         <!-- Navigation slut -->
 
 
@@ -135,7 +138,7 @@
                             <br>
                             PostNummer:<br>
                             <input type="text" name="postnummer" pattern="[0-9]{4}" title="4 Cifre" value="1000">
-           
+
                             <br>
                             Telefonnummer <br>
                             <input type="tel" name="telefonnummer">
