@@ -53,7 +53,7 @@ public class basisCarport extends Command {
 
         if (checkOut != null) {
 
-            ordre_status = "Gemt design";
+            ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
             placeOrderOdetailsSetAttributes(request, session,  user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
