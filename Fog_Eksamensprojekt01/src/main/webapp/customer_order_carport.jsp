@@ -141,9 +141,9 @@
 
                         <br><br><!--Mellemrum mellem: Ønsker du carport med skur? og knapper-->
 
-                        <button type="submit" name="basisCarport" value="CheckPrice">Tjek Pris </button>
-                        <button type="submit" name="basisCarportCheckud" value="BestilOrdre">Bestil Carport </button>
-                        <button type="submit" name="CarportSaveDesign" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+                        <button type="submit" name="price" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="order" value="BestilOrdre">Bestil Carport </button>
+                        <button type="submit" name="save" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
 
                     </form>
                     <br>
