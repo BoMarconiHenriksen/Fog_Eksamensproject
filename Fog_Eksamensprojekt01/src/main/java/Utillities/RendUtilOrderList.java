@@ -1,10 +1,8 @@
 package Utillities;
 
 import Business.LogicFacade;
-import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.Exception.NewException;
-import java.text.DecimalFormat;
 import java.util.List;
 
 /**

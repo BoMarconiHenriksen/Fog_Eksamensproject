@@ -1,13 +1,12 @@
 package Presentation;
 
 import Domain.Exception.NewException;
+import Business.DataFacade;
 import Business.LogicFacade;
 import Domain.Odetaljer;
 import Domain.Ordre;
 import Domain.User;
 import Utillities.RendUtilOrderList;
-import Utillities.RendUtilOrderList_Customer;
-import Utillities.RendUtilUserList;
 import Utillities.RendUtilUserlist_FullDiscription;
 import Utillities.XXRendSvg;
 import Utillities.XXRendUtilStykListe;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Bo
  */
 public class InvoiceDetail extends Command {
 
@@ -28,11 +26,11 @@ public class InvoiceDetail extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         User us = new User();
-        String LockIntoOrder = request.getParameter("InvoiceDetail");
-        String DeletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
-        String EditUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
+        String lockIntoOrder = request.getParameter("InvoiceDetail");
+        String deletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");
+        String editUser = request.getParameter("InvoiceDetail_Admin_UserEdit");
 
-        if (EditUser != null) {
+        if (editUser != null) {
             
             int choseUser = Integer.parseInt(request.getParameter("theUser_id"));
             
@@ -57,7 +55,7 @@ public class InvoiceDetail extends Command {
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
 
-        Odetaljer od = LogicFacade.getOdetaljerByOrderId(orderid);
+        Odetaljer od = DataFacade.getOdetaljerByOrderId(orderid);
         request.setAttribute("od", od);
 
         double length = (Double) od.getCarportLength();
@@ -74,22 +72,22 @@ public class InvoiceDetail extends Command {
         String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
         request.setAttribute("carportTegning", carportTegning);
 
-        if (DeletetheOrder != null) {
-            LogicFacade.deleteOrderDetailsByUserId(orderid);
-            LogicFacade.deleteOrderListByUserId(orderid);
+        if (deletetheOrder != null) {
+            DataFacade.deleteOrderDetailsByUserId(orderid);
+            DataFacade.deleteOrderListByUserId(orderid);
 
             //Samme kode som i Ordreliste_Customer.java, men ellers vil den ikke vise det igen.
-            List<Ordre> ordreList = LogicFacade.getOrderList();
+            List<Ordre> ordreList = DataFacade.getOrderList();
             String customer_Orderlist = RendUtilOrderList.invoiceList(ordreList);
             request.setAttribute("employee_orderlist", customer_Orderlist);
 
-            List<User> userList = LogicFacade.getUserList();
+            List<User> userList = DataFacade.getUserList();
             String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
             request.setAttribute("employee_userlist", employee_Userlist);
 
             return "employee_ordre_list";
         }
-        if (LockIntoOrder != null) {
+        if (lockIntoOrder != null) {
 
             return "employee_invoice_detail";
         }

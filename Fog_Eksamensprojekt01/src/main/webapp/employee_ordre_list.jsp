@@ -4,7 +4,7 @@
 --%>
 
 <%@page import="Domain.User"%>
-<%@page import="Business.LogicFacade"%>
+<%@page import="Business.DataFacade"%>
 <%@page import="Data.OrdreMapper"%>
 <%@page import="Utillities.RendUtilOrderList"%>
 <%@page import="Domain.Ordre"%>

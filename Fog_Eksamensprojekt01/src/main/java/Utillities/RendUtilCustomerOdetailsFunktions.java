@@ -1,5 +1,5 @@
-
 package Utillities;
+
 import Domain.Exception.NewException;
 import Business.LogicFacade;
 import Domain.Odetaljer;
@@ -9,7 +9,6 @@ import Domain.Ordre;
 /**
  * Klassen bruges til at lave en tabel over kundens ordrer og odredetaljer. 
  * 
- * @author Ticondrus
  */
 public class RendUtilCustomerOdetailsFunktions {
     

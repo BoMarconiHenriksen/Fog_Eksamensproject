@@ -5,7 +5,7 @@
  */
 package Presentation;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.User;
 import Utillities.RendUtilUserList;
@@ -25,7 +25,7 @@ public class Employee_SetupOrderCarportFunctions extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         
         
-       List<User> userList = LogicFacade.getUserList();
+       List<User> userList = DataFacade.getUserList();
        String userLists = RendUtilUserList.invoiceUserList(userList);
        request.setAttribute("userLists", userLists);
         

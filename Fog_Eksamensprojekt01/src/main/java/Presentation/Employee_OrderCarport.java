@@ -5,8 +5,8 @@
  */
 package Presentation;
 
-import Utillities.Calculator;
-import Business.LogicFacade;
+import Business.Calculator;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.Odetaljer;
 import Domain.Ordre;
@@ -79,7 +79,7 @@ public class Employee_OrderCarport extends Command {
 
             calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej);
 
-            List<User> userList = LogicFacade.getUserList();
+            List<User> userList = DataFacade.getUserList();
             String userLists = RendUtilUserList.invoiceUserList(userList);
             request.setAttribute("userLists", userLists);
 
@@ -194,15 +194,15 @@ public class Employee_OrderCarport extends Command {
         //SÃ¦tter datoen pÃ¥ ordren
         order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
-        LogicFacade.placeAnOrder(user_id, formatDateTime);
-        int or = LogicFacade.getLastInvoiceId();
+        DataFacade.placeAnOrder(user_id, formatDateTime);
+        int or = DataFacade.getLastInvoiceId();
         request.setAttribute("KundensOID", or);
         session.setAttribute("SessionIOD", or);
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
-        LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
-        LogicFacade.getOrderByOrderId2(or);
+        DataFacade.AddOdetailstoOrdermedSkur(or, ods);
+        DataFacade.getOrderByOrderId2(or);
 
-        ods = LogicFacade.getOdetaljerByOrderId(or);
+        ods = DataFacade.getOdetaljerByOrderId(or);
         request.setAttribute("length", (Double) ods.getCarportLength());
         request.setAttribute("width", (Double) ods.getCarportWidth());
         request.setAttribute("height", (Double) ods.getCarportHeight());

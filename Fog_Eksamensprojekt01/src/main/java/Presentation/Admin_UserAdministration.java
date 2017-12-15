@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
-import Business.LogicFacade;
+import Business.DataFacade;
 import Domain.Exception.NewException;
 import Domain.User;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ticondrus
  */
 public class Admin_UserAdministration extends Command {
 
@@ -49,7 +43,7 @@ public class Admin_UserAdministration extends Command {
             String newAddress = request.getParameter("uAddress");
             String newPassword = request.getParameter("uPassword");
             int newTlfnummer = Integer.parseInt(request.getParameter("uTlfnummer"));
-            LogicFacade.updateWholeUserButID(user.getUser_id(), newPostcode, newEmail, newPassword, newRole, newFirstname, newLastName, newAddress, newTlfnummer);
+            DataFacade.updateWholeUserButID(user.getUser_id(), newPostcode, newEmail, newPassword, newRole, newFirstname, newLastName, newAddress, newTlfnummer);
             
             userNotifyValue = 1;
             request.setAttribute("outprintnotifystatus", userNotifyValue);

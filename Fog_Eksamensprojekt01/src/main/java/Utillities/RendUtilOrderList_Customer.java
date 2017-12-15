@@ -5,7 +5,6 @@ import Domain.Ordre;
 import Domain.Exception.NewException;
 import Domain.User;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  * Klassen viser en liste af kundens ordre.
@@ -33,7 +32,7 @@ public class RendUtilOrderList_Customer {
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
-            //   sb.append("<td>").append("" + LogicFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
+            //   sb.append("<td>").append("" + DataFacade.getUserByUserId(o.getUser_id()).getFirstname()).append("</td>");
               sb.append("<td>").append("" + o.getOrdre_id()).append("</td>");
                sb.append("<td>").append("" + o.getReciveddate()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(o.getOrdre_id()).getPrice()).append("</td>");

@@ -95,7 +95,7 @@
                         <form name="register" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="register">
                             Email:<br>
-                            <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" > <!--Email skal følge standarden navn@navn.dk-->
+                            <input type="text" name="email" pattern="[a-z-æøå0-9._%+-]+@[a-z-æøå0-9.-]+\.[a-z-æøå]{2,3}$" > <!--Email skal følge standarden navn@navn.dk-->
                             <br>
                             Password:<br>
                             <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z-æøå])(?=.*[A-Z-ÆØÅ]).{7,}" 

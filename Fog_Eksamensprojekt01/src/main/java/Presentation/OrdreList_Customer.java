@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ticondrus
  */
 
 public class OrdreList_Customer extends Command {
@@ -30,7 +29,6 @@ public class OrdreList_Customer extends Command {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");

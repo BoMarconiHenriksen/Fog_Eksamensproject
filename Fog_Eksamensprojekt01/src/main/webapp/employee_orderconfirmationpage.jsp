@@ -8,7 +8,6 @@
 <%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Utillities.Calculator"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

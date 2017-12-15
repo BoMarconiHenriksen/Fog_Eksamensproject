@@ -7,10 +7,9 @@
 <%@page import="Utillities.RendUtilCustomerOdetailsFunktions"%>
 <%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Domain.Odetaljer"%>
-<%@page import="Utillities.Calculator"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Utillities.XXRendSvg"%>
-<%@page import="Business.LogicFacade"%>
+<%@page import="Business.DataFacade"%>
 <%@page import="Presentation.FrontController"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

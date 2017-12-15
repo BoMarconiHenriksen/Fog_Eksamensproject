@@ -20,12 +20,12 @@ public class InvoiceDetail_Customer extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");
-        String DeletetheOrder;
+        String deletetheOrder;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        String LockIntoOrder = request.getParameter("InvoiceDetail_Customer");
+        String lockIntoOrder = request.getParameter("InvoiceDetail_Customer");
 
-        DeletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        deletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
 
         String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
@@ -41,7 +41,7 @@ public class InvoiceDetail_Customer extends Command {
         request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
         request.setAttribute("od", od);
 
-        if (DeletetheOrder != null) {
+        if (deletetheOrder != null) {
             LogicFacade.deleteOrderDetailsByUserId(orderid);
             LogicFacade.deleteOrderListByUserId(orderid);
 
@@ -51,7 +51,7 @@ public class InvoiceDetail_Customer extends Command {
             request.setAttribute("customer_orderlist", customer_Orderlist);
             return "customer_order_list";
         }
-        if (LockIntoOrder != null) {
+        if (lockIntoOrder != null) {
 
             return "customer_invoice_detail";
         }

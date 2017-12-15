@@ -19,15 +19,19 @@ public class Register extends Command {
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String address = request.getParameter("addresse");
+        String role = "customer";
+       
         int zipcode = Integer.parseInt(request.getParameter("postnummer"));
         int tlfnummer = Integer.parseInt(request.getParameter("telefonnummer"));
+        User user =  new User (email, password,  role,firstname, lastname, address, zipcode, tlfnummer);
         if (password.equals(passwordRetype)) {
             try {
-                User user = LogicFacade.createUser(email, password, firstname, lastname, address, zipcode, tlfnummer);
+                LogicFacade.createUser(email, password, role,firstname, lastname, address, zipcode, tlfnummer);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 session.setAttribute("role", user.getRole());
                 session.setAttribute("username", user.getFirstname());
+                
                 return user.getRole() + "page";
             } catch (Domain.Exception.NewException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
@@ -35,7 +39,7 @@ public class Register extends Command {
         } else {
            return "index";
         }
-        return "register";
-    }
+        return user.getRole() + "page";
+      
 
-}
+}}
