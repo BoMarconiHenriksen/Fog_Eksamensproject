@@ -1,8 +1,7 @@
 package Data;
 
-
 import Domain.Ordre;
-import Presentation.NewException;
+import Domain.Exception.NewException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,10 +13,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * OrdreMapper: Håntere alle forbindelser til og fra databasen vedr. en ordre. (Men en ordres nærmere detaljer, hånteres i stedet i OdetaljeMapper.)
  *
  * @author Bo
  */
 public class OrdreMapper {
+
+    public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+    
+    /**
+     * getrderlist: opretter en liste og indsætter den med alle databasens ordre.
+     * @return ordreList
+     * @throws NewException 
+     */
 
     public static List<Ordre> getOrderList() throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
@@ -42,10 +50,18 @@ public class OrdreMapper {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderList", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ordreList;
     }
+    
+    /**
+     * getOrderListByUserID: Opretter en liste og indsætter alle ordre fra databasen, der er tilknyttet et bestemt user id.
+     * @param user_id
+     * @return ordreList
+     * @throws NewException 
+     */
 
     public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
@@ -66,14 +82,20 @@ public class OrdreMapper {
 
             return ordreList;
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrderListByUserID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
-
+    
+    /**
+     * deleteOrderListByOrderID: sletter en ordre fra databasen der indeholder et bestemt id.
+     * @param ordre_id
+     * @throws NewException 
+     */
 
     public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
-       
+
         try {
             Connection con = DBConnector.connection();
             String sql = "DELETE FROM ordreliste WHERE ordre_id=" + ordre_id;
@@ -82,13 +104,22 @@ public class OrdreMapper {
             ps.execute();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i deleteOrderListByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
     
-        public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
-       
+    /**
+     * deleteOrderDetailsByOrderID: Metoden her omfatter untagelsesvis en handling vedr. en ordres nærmere detaljer,
+     * da en sletning af en ordre kræver at der udføeres denne og forrige metode samtidigt. 
+     * Metoden her gør næsten det samme som ovenstående metode: Den sletter en ordres nærmere detaljer ud fra et bestemt id.
+     * @param ordre_id
+     * @throws NewException 
+     */
+
+    public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
+
         try {
             Connection con = DBConnector.connection();
             String sql = "DELETE FROM odetaljer WHERE ordre_id=" + ordre_id;
@@ -97,13 +128,18 @@ public class OrdreMapper {
             ps.execute();
 
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i deleteOrderDetailsByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
 
     }
-
-
-                
+    
+    /**
+     * getOrdreByOrdreId: Henter en ordre fra databasen der tilhører et bestemt ordre id.
+     * @param ordre_id
+     * @return or
+     * @throws NewException 
+     */
 
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
         Ordre or = null;
@@ -123,22 +159,26 @@ public class OrdreMapper {
                 String receiveddate = rs.getString("receiveddate");
                 or = new Ordre(ordre_id, receiveddate, user_id);
 
-
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getOrdreByOrdreId", ex);
             throw new NewException(ex.getMessage());
         }
         return or;
     }
-
     
+    /**
+     * getLastInvoiceId: Henter det seneste ordre, der blev lagt i databasen.
+     * @return invoiceid
+     * @throws NewException 
+     */
+
     public static int getLastInvoiceId() throws NewException {
-       
-      
-      int invoiceid = 0;
+
+        int invoiceid = 0;
         try {
- Connection con = DBConnector.connection();
+            Connection con = DBConnector.connection();
             String sql = "SELECT MAX(ordre_id) as ordre_id from ordreliste";
             ResultSet rs = con.prepareStatement(sql).executeQuery();
 
@@ -147,20 +187,19 @@ public class OrdreMapper {
                 invoiceid = rs.getInt("ordre_id");
 
             }
-        }  catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
+            logger.log(Level.SEVERE, "Fejl i getLastInvoiceId", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return invoiceid;
-}
-
-//    Bruges til test
-    public static void main(String[] args) throws NewException {
-
-        OrdreMapper.deleteOrderDetailsByOrderID(4);
-        OrdreMapper.deleteOrderListByOrderID(4);
-
-}
+    }
+    
+    /**
+     * addOrdertoOrderlist: Tilføjer en ordre til ordreliste tabellen i databasen, med det user_id, ordren tilhører.
+     * @param or
+     * @throws NewException 
+     */
 
     public static void addOrdertoOrderList(Ordre or) throws NewException {
         try {
@@ -172,7 +211,21 @@ public class OrdreMapper {
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            logger.log(Level.SEVERE, "Fejl i addOrdertoOrderList", ex);
             throw new NewException(ex.getMessage());
         }
+    }
+
+    /**
+     * Mainmetode: Er kun brugt til OrdreMapper tests.
+     * Denne metode bruges ikke i det kørende program.
+     * @param args
+     * @throws NewException 
+     */
+    public static void main(String[] args) throws NewException {
+
+        OrdreMapper.deleteOrderDetailsByOrderID(4);
+        OrdreMapper.deleteOrderListByOrderID(4);
+
     }
 }
