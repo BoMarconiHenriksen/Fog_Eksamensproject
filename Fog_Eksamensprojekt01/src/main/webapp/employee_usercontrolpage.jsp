@@ -112,7 +112,7 @@
                 <h1>Hej: <%= (String) session.getAttribute("username")%> </h1>
 
 
-                <h2>Brugeren ID ${customerID}'s konto oplysninger</h2>
+                <h2>Brugeren ID  <%=request.getAttribute("customerID")%> konto oplysninger</h2>
 
                 Brugerens Type/Role  <p><input type="text" name="uRole" value=${userRole}></p>
                 Brugerens Email  <p><input type="text" name="uEmail" value=${userEmail}></p>

@@ -23,7 +23,7 @@ public class RendUtilUserlist_FullDiscription {
                 + " <th> Addresse  </th> <th> Tlf Nummer  </th></tr>\n");
         for (User u : userList) {
 
-            sb.append("<tr><form name=\"InvoiceDetail_Admin_UserEdit\" action=\"FrontController\" method=\"POST\">");
+            sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Admin_UserEdit\">");
             sb.append("<td>").append("  " + (u.getUser_id())).append("</td>");
             sb.append("<td>").append("  " + u.getRole()).append("</td>");
@@ -33,7 +33,7 @@ public class RendUtilUserlist_FullDiscription {
             sb.append("<td>").append("  " + u.getZip()).append("</td>");
             sb.append("<td>").append("  " + u.getAddress()).append("</td>");
             sb.append("<td>").append("  " + u.getTlfnummer()).append("</td>");
-            sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"theUser_id\" value=\"" + u.getUser_id() + "\"><br>\n\n</td>");
+             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"theUser_id\" value=\"").append(u.getUser_id()).append("\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");

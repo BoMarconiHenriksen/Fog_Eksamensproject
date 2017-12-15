@@ -11,12 +11,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * OdetaljeMapper: Håntere alle forbindelser til og fra databasen vedr. en ordres nærmere detaljer.
  *
  * @author BenedikteEva
  */
 public class OdetaljeMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+    
+    /**
+     * addOdetaljertoOdetaljeListe: Tilføjer en ordre med et bestemt ordre id's nærmere detaljer, til databasen.
+     * @param ordre_id
+     * @param od
+     * @throws NewException 
+     */
 
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
 
@@ -42,6 +50,13 @@ public class OdetaljeMapper {
         }
 
     }
+    
+    /**
+     * Metoden bruges ikke, skal slettes!!!
+     * @param user_id
+     * @param OdG
+     * @throws NewException 
+     */
 
     public static void saveOdetaljertoDesignGemning(int user_id, Odetaljer OdG) throws NewException {
 
@@ -68,6 +83,13 @@ public class OdetaljeMapper {
         }
 
     }
+    
+    /**
+     * getOrderByOrderId2: Henter en ordres nærmere detaljer, ud fra et valgt ordre id, fra databasen.
+     * @param ordre_id
+     * @return o
+     * @throws NewException 
+     */
 
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
 
@@ -102,6 +124,13 @@ public class OdetaljeMapper {
         return o;
 
     }
+    
+    /**
+     * updateOrdreStatus: Overskrider en ordres status men en ny en i databasen.
+     * @param order_id
+     * @param ordre_status
+     * @throws NewException 
+     */
 
     public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
         try {
@@ -119,6 +148,12 @@ public class OdetaljeMapper {
 
     }
 
+    /**
+     * getOdetailsByOrderId: Henter en ordre med et bestemt id's nærmere detaljer fra databasen.
+     * @param ordre_id
+     * @return o
+     * @throws NewException 
+     */
    
 
     public static Odetaljer getOdetailsByOrderId(int ordre_id) throws NewException {
@@ -149,6 +184,12 @@ public class OdetaljeMapper {
     }
 
  
+    /**
+     * getOrderByOrderId: Gør præcis det samme som ovenstående metode. Bør Slettes!!!
+     * @param ordre_id
+     * @return
+     * @throws NewException 
+     */
 
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
         Odetaljer o = null;
@@ -176,7 +217,12 @@ public class OdetaljeMapper {
         return null;
     }
 
-   
+   /**
+    * AddOdetailstoOrdermedSkur: Gør præcis det samme som addOdetaljertoOdetaljeListe. Bør slettes!!!
+    * @param ordre_id
+    * @param ods
+    * @throws NewException 
+    */
 
     public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods) throws NewException {
         try {
@@ -197,7 +243,12 @@ public class OdetaljeMapper {
             throw new NewException(ex.getMessage());
         }
     }
-       //    Bruges til test
+       
+    /**
+     * main: Bruges kun til nem og hurtig test af OdetaljeMapper funktionerne.
+     * @param args
+     * @throws NewException 
+     */
     public static void main(String[] args) throws NewException {
 
         OdetaljeMapper orderList = new OdetaljeMapper();
