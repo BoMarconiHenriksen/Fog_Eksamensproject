@@ -98,7 +98,7 @@
             <h1 class="my-2"><% User user = (User) session.getAttribute("user");
 
                 if (user != null) {
-                    out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
+                    out.println("Hej " +user.getFirstname() + ". Her er ordrelisten.");
                 } else {
                     out.println("Hmm... der står du hedder null, der må være sket en fejl");
                 }

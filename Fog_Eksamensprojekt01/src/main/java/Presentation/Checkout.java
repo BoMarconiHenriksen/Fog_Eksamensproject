@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ticondrus
  */
 public class Checkout extends Command {
 

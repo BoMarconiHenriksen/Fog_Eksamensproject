@@ -19,6 +19,15 @@ public class RendUtilOrderList_Customer {
      * @return en tabel med alle kundens ordrer.
      * @throws NewException
      */
+
+    /**
+     *
+     * @param ordreList
+     * @param user
+     * @return
+     * @throws NewException
+     */
+
     public static String invoiceList_Customer(List<Ordre> ordreList, User user) throws NewException {
 
         ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
