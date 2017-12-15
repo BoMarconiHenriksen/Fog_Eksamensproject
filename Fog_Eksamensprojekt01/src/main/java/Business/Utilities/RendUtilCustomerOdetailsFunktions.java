@@ -16,9 +16,6 @@ public class RendUtilCustomerOdetailsFunktions {
      /**
      * metoden returnerer en tabel over kundens ordrer og odredetaljer. 
      * @param od de ordredetaljer der hentes når kunden vælger en ordre
-     * @param o er et eksemplar af de order brugeren skal se
-     * @param sb den stringbuilder der skal bruges til lave den string der skal 
-     * rendere tabellen på jsp-siden hvor den skal bruges.
      * @return 
      * @throws NewException 
      */

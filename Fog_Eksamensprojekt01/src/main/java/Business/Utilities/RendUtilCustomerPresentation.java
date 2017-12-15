@@ -8,9 +8,12 @@ import Business.Exception.NewException;
  */
 public class RendUtilCustomerPresentation {
 
-   
-
-  public static String getMeasures() throws NewException {
+    /**
+     *
+     * @return
+     * @throws NewException
+     */
+    public static String getMeasures() throws NewException {
 
         StringBuilder sb = new StringBuilder();
 
@@ -84,7 +87,12 @@ public class RendUtilCustomerPresentation {
 
   }
 
-  public static String getMeasuresShed() throws NewException {
+    /**
+     *
+     * @return
+     * @throws NewException
+     */
+    public static String getMeasuresShed() throws NewException {
 
         StringBuilder sb = new StringBuilder();
 

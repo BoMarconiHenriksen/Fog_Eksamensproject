@@ -1,8 +1,6 @@
 package Presentation;
 
 import Business.Exception.NewException;
-import Business.Calculator;
-import Business.DataFacade;
 import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Domain.Odetaljer;
@@ -186,7 +184,7 @@ public class basisCarport extends Command {
         //SÃ¦tter Stringen til d.d.
         String formatDateTime = today.format(formatter);
 
-        //SÃ¦tter datoen pÃ¥ ordren
+        //Saetter datoen paa ordren
 //        order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);

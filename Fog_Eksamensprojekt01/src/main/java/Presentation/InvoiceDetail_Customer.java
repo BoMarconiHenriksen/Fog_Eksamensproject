@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ticondrus
  */
 public class InvoiceDetail_Customer extends Command {
 

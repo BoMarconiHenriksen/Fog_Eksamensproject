@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Business.LogicFacade;
@@ -17,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Ejer
  */
 public class UserList extends Command {
 
@@ -25,7 +20,6 @@ public class UserList extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException, IOException {
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
         List<User> userList = LogicFacade.getUserList();
         String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
         request.setAttribute("employee_userlist", employee_Userlist);

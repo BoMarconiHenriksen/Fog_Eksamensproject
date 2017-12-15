@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- *
- * @author BenedikteEva
  */
 abstract class Command {
 
