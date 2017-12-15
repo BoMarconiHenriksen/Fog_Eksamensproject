@@ -74,7 +74,7 @@
                         </li>
 
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="register.jsp">Opret Bruger</a>
+                            <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
