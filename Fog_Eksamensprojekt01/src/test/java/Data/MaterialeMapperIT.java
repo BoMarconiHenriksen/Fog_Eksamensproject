@@ -1,7 +1,7 @@
 package Data;
 
-import Domain.Exception.NewException;
-import Domain.Materiale;
+import Business.Exception.NewException;
+import Business.Domain.Materiale;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -81,7 +81,7 @@ public class MaterialeMapperIT {
     
     /**
      * Test of getMaterial method, of class MaterialeMapper.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testGetMaterial() throws NewException {
@@ -95,7 +95,7 @@ public class MaterialeMapperIT {
 
     /**
      * Metoden tester om vi får det rigtige varenavn for materiale nummer 1
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testGetMaterialeByVarenummer() throws NewException {
@@ -106,7 +106,7 @@ public class MaterialeMapperIT {
 
     /**
      * Prisen på varen med id nummer 7 er 6.95. Vi tester om vi kan ændre prisen til 14.95.
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     @Test
     public void testChangeMaterialePris() throws NewException {

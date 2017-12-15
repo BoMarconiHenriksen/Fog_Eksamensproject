@@ -1,7 +1,7 @@
 package Data;
 
-import Domain.Ordre;
-import Domain.Exception.NewException;
+import Business.Domain.Ordre;
+import Business.Exception.NewException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

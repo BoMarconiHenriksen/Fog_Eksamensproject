@@ -1,7 +1,7 @@
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

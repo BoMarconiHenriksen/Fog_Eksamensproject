@@ -1,7 +1,7 @@
-package Utillities;
+package Business.Utilities;
 
 import Business.LogicFacade;
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 
 /**
  * Klassen tegner en carport og en carport med skur.

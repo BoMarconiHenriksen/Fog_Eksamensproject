@@ -1,6 +1,6 @@
 package Business;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 
 /**
  *

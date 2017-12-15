@@ -1,6 +1,6 @@
-package Utillities;
+package Business.Utilities;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 
 /**
  * Klasssen bruges til at vise kunden valgmuligheder køb af carport og skur

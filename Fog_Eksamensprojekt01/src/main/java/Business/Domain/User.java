@@ -2,7 +2,7 @@
  * BenedikteEva
  * Fog_Eksamensprojekt01
  */
-package Domain;
+package Business.Domain;
 
 /**
  *

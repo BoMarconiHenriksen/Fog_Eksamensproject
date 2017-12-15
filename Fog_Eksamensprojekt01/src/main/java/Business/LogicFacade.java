@@ -1,12 +1,12 @@
 package Business;
 
 import Data.UserMapper;
-import Domain.Exception.NewException;
-import Domain.LineItem;
-import Domain.Materiale;
-import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
+import Business.Exception.NewException;
+import Business.Domain.LineItem;
+import Business.Domain.Materiale;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
+import Business.Domain.User;
 import java.util.List;
 
 /**

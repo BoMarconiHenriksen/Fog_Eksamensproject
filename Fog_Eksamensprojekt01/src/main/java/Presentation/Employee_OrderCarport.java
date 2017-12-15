@@ -7,12 +7,12 @@ package Presentation;
 
 import Business.Calculator;
 import Business.DataFacade;
-import Domain.Exception.NewException;
-import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
-import Utillities.RendUtilUserList;
-import Utillities.XXRendSvg;
+import Business.Exception.NewException;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
+import Business.Domain.User;
+import Business.Utilities.RendUtilUserList;
+import Business.Utilities.XXRendSvg;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

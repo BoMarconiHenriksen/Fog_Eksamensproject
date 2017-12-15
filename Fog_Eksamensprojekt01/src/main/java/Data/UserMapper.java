@@ -1,8 +1,8 @@
 package Data;
 
 import java.sql.ResultSet;
-import Domain.User;
-import Domain.Exception.NewException;
+import Business.Domain.User;
+import Business.Exception.NewException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

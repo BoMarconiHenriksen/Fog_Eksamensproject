@@ -3,17 +3,9 @@
     Created on : 09-11-2017, 12:26:33
 --%>
 
-
-
-
-<%@page import="Domain.LineItem"%>
-<%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Business.DataFacade"%>
-<%@page import="Domain.User"%>
 <%@page import="java.util.List"%>
-<%@page import="Domain.Materiale"%>
 <%@page import="Presentation.FrontController"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

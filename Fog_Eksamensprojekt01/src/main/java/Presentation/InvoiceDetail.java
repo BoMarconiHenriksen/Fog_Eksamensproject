@@ -1,15 +1,15 @@
 package Presentation;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import Business.DataFacade;
 import Business.LogicFacade;
-import Domain.Odetaljer;
-import Domain.Ordre;
-import Domain.User;
-import Utillities.RendUtilOrderList;
-import Utillities.RendUtilUserlist_FullDiscription;
-import Utillities.XXRendSvg;
-import Utillities.XXRendUtilStykListe;
+import Business.Domain.Odetaljer;
+import Business.Domain.Ordre;
+import Business.Domain.User;
+import Business.Utilities.RendUtilOrderList;
+import Business.Utilities.RendUtilUserlist_FullDiscription;
+import Business.Utilities.XXRendSvg;
+import Business.Utilities.XXRendUtilStykListe;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,11 +1,11 @@
 package Presentation;
 
-import Domain.Exception.NewException;
+import Business.Exception.NewException;
 import Business.DataFacade;
 import Business.LogicFacade;
-import Domain.Odetaljer;
-import Domain.User;
-import Utillities.XXRendSvg;
+import Business.Domain.Odetaljer;
+import Business.Domain.User;
+import Business.Utilities.XXRendSvg;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

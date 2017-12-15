@@ -1,8 +1,8 @@
-package Utillities;
+package Business.Utilities;
 
 import Business.LogicFacade;
-import Domain.Ordre;
-import Domain.Exception.NewException;
+import Business.Domain.Ordre;
+import Business.Exception.NewException;
 import java.util.List;
 
 /**

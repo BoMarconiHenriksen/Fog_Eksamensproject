@@ -56,19 +56,19 @@
                 <ul class="navbar-nav mx-auto">
 
 
-
-                    <li class="nav-item active px-lg-4">
+<li class="nav-item active px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    
 
                     <li class="nav-item px-lg-4">
 
                         <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                     </li>
 
-                    <li class="nav-item px-lg-4">
+                  
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
                             <div class="form-group">
@@ -92,8 +92,6 @@
                             </div>
                         </form>
 
-                    </li>
-                    </form>  
                 </ul>
             </div>
         </div>
@@ -105,7 +103,7 @@
         <div class="bg-faded p-4 my-4">
             <hr class="divider">
             <h2 class="text-center text-lg text-uppercase my-0">
-                <strong>Adresse</strong>
+                <strong>Brugerdata</strong>
             </h2>
             <hr class="divider">
 

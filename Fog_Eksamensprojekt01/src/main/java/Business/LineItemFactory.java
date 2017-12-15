@@ -1,7 +1,7 @@
 package Business;
 
-import Domain.LineItem;
-import Domain.Exception.NewException;
+import Business.Domain.LineItem;
+import Business.Exception.NewException;
 
 /**
  * Klassen bruges til at lave styklinjerne i styklisten

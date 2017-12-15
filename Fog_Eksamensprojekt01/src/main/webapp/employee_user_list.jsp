@@ -4,11 +4,9 @@
     Author     : 
 --%>
 
-<%@page import="Domain.User"%>
+<%@page import="Business.Domain.User"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="Data.OrdreMapper"%>
-<%@page import="Utillities.RendUtilOrderList"%>
-<%@page import="Domain.Ordre"%>
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

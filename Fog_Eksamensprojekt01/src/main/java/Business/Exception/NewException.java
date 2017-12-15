@@ -1,4 +1,4 @@
-package Domain.Exception;
+package Business.Exception;
 
 /**
  * The purpose of LoginSampleException is to...
