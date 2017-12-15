@@ -13,12 +13,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * UserMapper: Håntere alle alle forbindelser til og fra databasen vedr en user.
  *
  * @author Ejer
  */
 public class UserMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
+    
+    /**
+     * Metoden henter lt data tilknyttet en bestem bruger, ud fra et specifikt user_id.
+     * @param user_id
+     * @return u
+     */
 
     public static User getUserByUserId(int user_id) {
 
@@ -52,6 +59,12 @@ public class UserMapper {
         }
         return u;
     }
+    
+    /**
+     * createUser: opretter en bruger med email, tlf, addresse, password m.m i databasen.
+     * @param user
+     * @throws NewException 
+     */
 
     public static void createUser(User user) throws NewException {
         try {
@@ -73,6 +86,14 @@ public class UserMapper {
             throw new NewException(ex.getMessage());
         }
     }
+    
+    /**
+     * login: giver en forspørgsmål på en bruger, om brugerens email og password kan matches, og hvis de gør, retueneres resten af brugerens oplysninger.
+     * @param email
+     * @param password
+     * @return user
+     * @throws NewException 
+     */
 
     public static User login(String email, String password) throws NewException {
         try {
@@ -103,6 +124,13 @@ public class UserMapper {
             throw new NewException(ex.getMessage());
         }
     }
+    
+    /**
+     * updateUserPassword: Metoden overskrider en brugers tidligere password med et nyt et.
+     * @param user_id
+     * @param password
+     * @throws NewException 
+     */
 
     public static void updateUserPassword(int user_id, String password) throws NewException {
         try {
@@ -120,7 +148,23 @@ public class UserMapper {
 
     }
     
+
    
+
+    /**
+     * updateWholeUserButID: Metoden overskrider alle brugerens data i databasen med nyt (eller samme data), bortset fra brugerens unike id.
+     * @param user_id
+     * @param zip
+     * @param email
+     * @param password
+     * @param role
+     * @param firstname
+     * @param lastname
+     * @param address
+     * @param tlfnummer
+     * @throws NewException 
+     */
+
     
     public static void updateWholeUserbutID(int user_id, int zip, String email, String password, 
             String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
@@ -145,6 +189,12 @@ public class UserMapper {
         }
 
     }
+    
+    /**
+     * getUserlist: Metoden henter opretter en liste og indsætter den, med alle databasens brugere.
+     * @return userList.
+     * @throws NewException 
+     */
     
     public static List<User> getUserList() throws NewException {
         List<User> userList = new ArrayList<>();

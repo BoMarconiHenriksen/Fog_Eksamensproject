@@ -176,6 +176,7 @@
                         <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
                     </form>
                 </div>
+                                    </div>                </div>
 
                 <footer class="bg-faded text-center py-5">
                     <div class="container">

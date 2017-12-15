@@ -48,6 +48,7 @@ public class basisCarport extends Command {
 
         int user_id = user.getUser_id();
         order.setUser_id(user_id);
+
         session.setAttribute("userNr", user_id);
         double totalPrice = 0;
 
