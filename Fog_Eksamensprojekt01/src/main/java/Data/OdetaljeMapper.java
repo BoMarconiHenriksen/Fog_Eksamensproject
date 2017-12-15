@@ -1,7 +1,7 @@
 package Data;
 
-import Domain.Odetaljer;
-import Domain.Exception.NewException;
+import Business.Domain.Odetaljer;
+import Business.Exception.NewException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;

@@ -1,7 +1,7 @@
 package Presentation;
 
-import Domain.Exception.NewException;
-import ConfigurationException.Configuration;
+import Business.Exception.NewException;
+import Business.ConfigurationException.Configuration;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.ConsoleHandler;
@@ -29,7 +29,7 @@ public class FrontController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws Domain.Exception.NewException
+     * @throws Business.Exception.NewException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NewException {

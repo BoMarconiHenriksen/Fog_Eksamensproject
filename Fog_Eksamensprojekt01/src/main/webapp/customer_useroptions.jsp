@@ -3,7 +3,6 @@
     Created on : 06-12-2017, 15:11:32
 --%>
 
-<%@page import="Domain.User"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

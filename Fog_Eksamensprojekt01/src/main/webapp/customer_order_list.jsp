@@ -5,8 +5,6 @@
 
 
 <%@page import="Business.DataFacade"%>
-<%@page import="Domain.User"%>
-<%@page import="Utillities.RendUtilOrderList_Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,7 +25,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Ordre Historie</title>
     </head>

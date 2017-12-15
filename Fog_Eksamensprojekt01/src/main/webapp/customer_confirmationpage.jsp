@@ -3,9 +3,9 @@
     Created on : 01-12-2017, 13:31:48
 --%>
 
-<%@page import="Domain.Odetaljer"%>
-<%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.XXRendSvg"%>
+
+<%@page import="Business.Domain.Odetaljer"%>
+<%@page import="Business.Utilities.XXRendUtilStykListe"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

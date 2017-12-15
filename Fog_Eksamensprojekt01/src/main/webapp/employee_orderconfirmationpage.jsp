@@ -3,10 +3,6 @@
     Created on : 10-12-2017, 19:58:54
 --%>
 
-<%@page import="Domain.Ordre"%>
-<%@page import="Domain.Odetaljer"%>
-<%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.XXRendSvg"%>
 <%@page import="java.text.DecimalFormat"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

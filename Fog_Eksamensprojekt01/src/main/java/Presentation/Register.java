@@ -1,7 +1,7 @@
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.User;
+import Business.Domain.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +34,7 @@ public class Register extends Command {
                 session.setAttribute("username", user.getFirstname());
                 request.setAttribute("pleaselogin", "Registrering var en succes. De kan nu logge ind");
                 return "index";
-            } catch (Domain.Exception.NewException ex) {
+            } catch (Business.Exception.NewException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {

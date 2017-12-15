@@ -3,13 +3,9 @@
     Created on : 09-11-2017, 12:08:28
 --%>
 
-
-<%@page import="Utillities.XXRendSvg"%>
+<%@page import="Business.Utilities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="Utillities.XXRendUtilStykListe"%>
 <%@page import="Business.DataFacade"%>
-<%@page import="Utillities.RendUtilCustomerPresentation"%>
-<%@page import="Domain.Materiale"%>
 <%@page import="java.util.List"%>
 <%@page import="Presentation.FrontController"%>
 

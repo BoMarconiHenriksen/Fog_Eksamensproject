@@ -3,10 +3,8 @@
     Created on : 19-11-2017, 14:29:23
 --%>
 
-<%@page import="Domain.Odetaljer"%>
-<%@page import="Utillities.RendUtilOdetaljerMedArbejder"%>
-<%@page import="Utillities.XXRendUtilStykListe"%>
-<%@page import="Utillities.XXRendSvg"%>
+<%@page import="Business.Utilities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +26,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Ordre Detaljer</title>
     </head>
@@ -104,7 +102,7 @@
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
-                    <h2>Pris:  </h2>  
+                    <h2> Pris:  </h2>  
                     <%
                         out.println("<p>" + (Double) request.getAttribute("priceTwoDecimal") + "</p>");
                     %>

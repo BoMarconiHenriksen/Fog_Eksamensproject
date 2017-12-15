@@ -4,11 +4,11 @@ import Data.MaterialeMapper;
 import Data.OrdreMapper;
 import Data.OdetaljeMapper;
 import Data.UserMapper;
-import Domain.Materiale;
-import Domain.Ordre;
-import Domain.Odetaljer;
-import Domain.User;
-import Domain.Exception.NewException;
+import Business.Domain.Materiale;
+import Business.Domain.Ordre;
+import Business.Domain.Odetaljer;
+import Business.Domain.User;
+import Business.Exception.NewException;
 import java.util.List;
 
 /**

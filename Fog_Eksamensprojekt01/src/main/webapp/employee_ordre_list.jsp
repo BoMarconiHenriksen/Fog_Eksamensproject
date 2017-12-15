@@ -2,14 +2,10 @@
     Document   : ordre_liste
     Created on : 18-11-2017, 14:21:47
 --%>
-
-<%@page import="Domain.User"%>
+<%@page import="Business.Domain.User"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="Data.OrdreMapper"%>
-<%@page import="Utillities.RendUtilOrderList"%>
-<%@page import="Domain.Ordre"%>
 <%@page import="java.util.List"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +25,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Ordre Liste</title>
     </head>

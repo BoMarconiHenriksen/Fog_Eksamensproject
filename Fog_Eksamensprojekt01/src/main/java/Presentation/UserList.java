@@ -6,9 +6,9 @@
 package Presentation;
 
 import Business.LogicFacade;
-import Domain.Exception.NewException;
-import Domain.User;
-import Utillities.RendUtilUserlist_FullDiscription;
+import Business.Exception.NewException;
+import Business.Domain.User;
+import Business.Utilities.RendUtilUserlist_FullDiscription;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
