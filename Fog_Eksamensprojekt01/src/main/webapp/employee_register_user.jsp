@@ -85,6 +85,7 @@
                             <div class="form-group">
                                 <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
                             </div>
+                            
                         </form>
 
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
