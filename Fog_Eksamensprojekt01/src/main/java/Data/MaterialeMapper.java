@@ -57,7 +57,7 @@ public class MaterialeMapper {
                 }
             }
             return mats;
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getMaterial", ex);
             throw new NewException(ex.getMessage());
         }
@@ -92,7 +92,7 @@ public class MaterialeMapper {
             }
 
             return mat;
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getMaterialeByVarenummer", ex);
             throw new NewException(ex.getMessage());
         }
@@ -116,7 +116,7 @@ public class MaterialeMapper {
             ps.setInt(2, vareid);
             ps.executeUpdate();
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i changeMaterialePris", ex);
             throw new NewException(ex.getMessage());
         }

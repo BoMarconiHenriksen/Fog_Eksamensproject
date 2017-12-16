@@ -4,7 +4,7 @@ import Business.Exception.NewException;
 import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Domain.User;
-import Business.Utilities.RendUtilOrderList;
+import Presentation.Utillities.RendUtilOrderList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

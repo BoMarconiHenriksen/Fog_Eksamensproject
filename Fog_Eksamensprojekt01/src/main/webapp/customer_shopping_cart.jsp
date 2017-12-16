@@ -168,18 +168,19 @@
                         <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
                     </form>
                 </div>
-                                    </div>                </div>
+            </div>               
+        </div>
 
-                <footer class="bg-faded text-center py-5">
-                    <div class="container">
-                        <p class="m-0">
-                            <a href="https://www.johannesfog.dk" target="_blank">
-                                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                            </a>
-                            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                        </p>
-                    </div>
-                </footer>
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>
 
-                </body>
-                </html>
+    </body>
+</html>

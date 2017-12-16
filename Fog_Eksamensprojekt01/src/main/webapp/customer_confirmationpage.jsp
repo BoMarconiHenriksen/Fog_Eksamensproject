@@ -5,7 +5,7 @@
 
 
 <%@page import="Business.Domain.Odetaljer"%>
-<%@page import="Business.Utilities.XXRendUtilStykListe"%>
+<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
