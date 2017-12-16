@@ -5,7 +5,7 @@ import Business.DataFacade;
 import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
-import Business.Utilities.XXRendSvg;
+import Presentation.Utillities.XXRendSvg;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

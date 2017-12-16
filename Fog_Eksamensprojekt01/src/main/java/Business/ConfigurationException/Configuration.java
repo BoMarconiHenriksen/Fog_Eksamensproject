@@ -14,7 +14,7 @@ public class Configuration {
      * PRODUCTION sættes til false når man deployer lokalt og til true når man 
      * deployer projektet på sin tomcatserver, hvor logfilen skal skrives til. 
      */
-    public static final boolean PRODUCTION = false;
+    public static final boolean PRODUCTION=false;
 
     /**
      * LOGFILEPATH den fil der bliver skabt når der kastes fanges og håndteres 

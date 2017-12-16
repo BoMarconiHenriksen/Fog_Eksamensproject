@@ -3,6 +3,8 @@
     Created on : 10-12-2017, 19:58:54
 --%>
 
+<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

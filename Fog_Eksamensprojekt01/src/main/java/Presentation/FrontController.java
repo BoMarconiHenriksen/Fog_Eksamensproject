@@ -35,7 +35,7 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException, NewException {
 
         Configuration.myLogger.addHandler(new ConsoleHandler());
-        if (Configuration.PRODUCTION) {
+        if (Configuration.PRODUCTION==true) {
             FileHandler fileHandler = new FileHandler(Configuration.LOGFILEPATH);
             fileHandler.setFormatter(new SimpleFormatter());
             Configuration.myLogger.addHandler(fileHandler);

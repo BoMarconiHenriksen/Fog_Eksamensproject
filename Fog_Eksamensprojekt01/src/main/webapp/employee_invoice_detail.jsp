@@ -3,7 +3,7 @@
     Created on : 19-11-2017, 14:29:23
 --%>
 
-<%@page import="Business.Utilities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Presentation.Utillities.RendUtilOdetaljerMedArbejder"%>
 <%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 

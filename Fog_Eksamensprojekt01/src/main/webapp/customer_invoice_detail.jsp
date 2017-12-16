@@ -3,9 +3,10 @@
     Created on : 28-11-2017, 11:22:00
 --%>
 
-<%@page import="Business.Utilities.RendUtilCustomerOdetailsFunktions"%>
-<%@page import="Business.Utilities.XXRendUtilStykListe"%>
-<%@page import="Business.Utilities.XXRendSvg"%>
+
+<%@page import="Presentation.Utillities.RendUtilCustomerOdetailsFunktions"%>
+<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
+<%@page import="Presentation.Utillities.XXRendSvg"%>
 <%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>

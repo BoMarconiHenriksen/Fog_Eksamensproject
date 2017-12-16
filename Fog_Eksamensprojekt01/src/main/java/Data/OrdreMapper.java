@@ -49,7 +49,7 @@ public class OrdreMapper {
                     ordreList.add(o);
                 }
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getOrderList", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,7 +81,7 @@ public class OrdreMapper {
             }
 
             return ordreList;
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getOrderListByUserID", ex);
             throw new NewException(ex.getMessage());
         }
@@ -103,7 +103,7 @@ public class OrdreMapper {
 
             ps.execute();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i deleteOrderListByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
@@ -127,7 +127,7 @@ public class OrdreMapper {
 
             ps.execute();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i deleteOrderDetailsByOrderID", ex);
             throw new NewException(ex.getMessage());
         }
@@ -161,7 +161,7 @@ public class OrdreMapper {
 
             }
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getOrdreByOrdreId", ex);
             throw new NewException(ex.getMessage());
         }
@@ -187,7 +187,7 @@ public class OrdreMapper {
                 invoiceid = rs.getInt("ordre_id");
 
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getLastInvoiceId", ex);
             Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -210,7 +210,7 @@ public class OrdreMapper {
             orderPstmt.setInt(1, or.getUser_id());
             orderPstmt.setString(2, or.getReciveddate());
             orderPstmt.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i addOrdertoOrderList", ex);
             throw new NewException(ex.getMessage());
         }

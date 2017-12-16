@@ -4,7 +4,7 @@ package Presentation;
 import Business.DataFacade;
 import Business.Exception.NewException;
 import Business.Domain.User;
-import Business.Utilities.RendUtilUserList;
+import Presentation.Utillities.RendUtilUserList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
