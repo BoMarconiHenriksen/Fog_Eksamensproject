@@ -3,7 +3,7 @@
     Created on : 10-12-2017, 13:52:04
 --%>
 
-<%@page import="Business.Utilities.RendUtilCustomerPresentation"%>
+<%@page import="Presentation.Utillities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="java.util.List"%>

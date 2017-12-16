@@ -5,7 +5,7 @@ import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
-import Business.Utilities.XXRendSvg;
+import Presentation.Utillities.XXRendSvg;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 /**
  *
  * This class is one of the commands. The execute
- * method takes a bunch of parameters from the viewpage 'bestilbasiscarportpage'
+ * method takes a bunch of parameters from the viewpage 'customer_orde_carport.jsp'
  * and then put them though various methods based on the specific button pushed
- * a calculator that calculates the price. The parameters is also used to place
- * an order and some odetails in the database.
+ * The parameters is also used to place
+ * an order and some orderdetails in the database.
  */
 public class basisCarport extends Command {
 

@@ -44,7 +44,7 @@ public class OdetaljeMapper {
             orderPstmt.setDouble(7, od.getPrice());
             orderPstmt.executeUpdate();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i addOdetaljertoOdetaljeListe", ex);
             throw new NewException(ex.getMessage());
         }
@@ -77,7 +77,7 @@ public class OdetaljeMapper {
             orderPstmt.setDouble(8, OdG.getPrice());
             orderPstmt.executeUpdate();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i saveOdetaljertoDesignGemning", ex);
             throw new NewException(ex.getMessage());
         }
@@ -117,7 +117,7 @@ public class OdetaljeMapper {
 
                 return o;
             }
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getOrderByOrderId2", ex);
             throw new NewException(ex.getMessage());
         }
@@ -141,7 +141,7 @@ public class OdetaljeMapper {
             ps.setString(1, ordre_status);
 
             ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i updateOrdreStatus", ex);
             throw new NewException(ex.getMessage());
         }
@@ -176,7 +176,7 @@ public class OdetaljeMapper {
                 o = new Odetaljer(odetaljerId, ordreId, ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType,price);
             }
             return o;
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getOdetailsByOrderId", ex);
             throw new NewException(ex.getMessage());
         }
@@ -211,7 +211,7 @@ public class OdetaljeMapper {
                 o = new Odetaljer(odetaljerId, ordreId, 
                         ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType,price);
             }
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             throw new NewException(ex.getMessage());
         }
         return null;
@@ -239,7 +239,7 @@ public class OdetaljeMapper {
             ps.setDouble(7, ods.getWidthRedskabsrum());
             ps.setDouble(8, ods.getPrice());
             ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             throw new NewException(ex.getMessage());
         }
     }

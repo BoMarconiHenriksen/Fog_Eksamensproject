@@ -5,7 +5,7 @@ import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.Ordre;
 import Business.Domain.User;
-import Business.Utilities.RendUtilOrderList_Customer;
+import Presentation.Utillities.RendUtilOrderList_Customer;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -6,7 +6,7 @@ import Business.Exception.NewException;
 import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Domain.User;
-import Business.Utilities.RendUtilOrderList_Customer;
+import Presentation.Utillities.RendUtilOrderList_Customer;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;

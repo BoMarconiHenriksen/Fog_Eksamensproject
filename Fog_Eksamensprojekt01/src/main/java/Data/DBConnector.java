@@ -1,8 +1,11 @@
 package Data;
 
+import Business.Exception.NewException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Klassen laver en connector til vores databsen.
@@ -27,10 +30,14 @@ public class DBConnector {
  * @throws ClassNotFoundException
  * @throws SQLException 
  */
-    public static Connection connection() throws ClassNotFoundException, SQLException {
+    public static Connection connection() throws NewException {
         if (singleton == null) {
-            Class.forName( "com.mysql.jdbc.Driver");
-            singleton = DriverManager.getConnection(URL, USER, PASSWORD);
+            try {
+                Class.forName( "com.mysql.jdbc.Driver");
+                singleton = DriverManager.getConnection(URL, USER, PASSWORD);
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return singleton;
     }

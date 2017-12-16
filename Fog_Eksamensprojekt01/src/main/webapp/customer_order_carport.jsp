@@ -3,7 +3,7 @@
     Created on : 09-11-2017, 12:08:28
 --%>
 
-<%@page import="Business.Utilities.RendUtilCustomerPresentation"%>
+<%@page import="Presentation.Utillities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
 <%@page import="java.util.List"%>
@@ -137,9 +137,9 @@
 
                         <br><br><!--Mellemrum mellem: Ønsker du carport med skur? og knapper-->
 
-                        <button type="submit" name="price" value="CheckPrice">Tjek Pris </button>
-                        <button type="submit" name="order" value="BestilOrdre">Bestil Carport </button>
-                        <button type="submit" name="save" value="GemCarport">Gem dit design, uden at bestile Carporten. </button>
+                        <button type="submit" name="price" value="action">Tjek Pris </button>
+                        <button type="submit" name="order" value="action">Bestil Carport </button>
+                        <button type="submit" name="save" value="action">Gem dit design, uden at bestile Carporten. </button>
 
                     </form>
                     <br>
