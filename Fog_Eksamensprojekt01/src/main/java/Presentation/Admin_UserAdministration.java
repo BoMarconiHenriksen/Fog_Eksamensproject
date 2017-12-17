@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Klassen bruges til at opdater en brugers oplysninger.
+ * Klassen returner til employeepage.jsp og viser brugerens opdaterede oplysninger.
  */
 public class Admin_UserAdministration extends Command {
 
@@ -25,6 +25,7 @@ public class Admin_UserAdministration extends Command {
 
         LogicFacade.updateWholeUserButID(userId, zipcode, email, password, role, firstname, lastname, address, phone);
 
+        //Bliver vist for brugeren på jsp siden efter oplysningerne er ændret
         request.setAttribute("userID", userId);
         request.setAttribute("userRole", role);
         request.setAttribute("userEmail", email);

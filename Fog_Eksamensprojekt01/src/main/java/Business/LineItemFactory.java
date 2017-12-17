@@ -17,7 +17,6 @@ public class LineItemFactory {
      * @throws NewException ved fejl.
      */
     public static LineItem[] baseWood(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
-//    (String description, String material_name, double dimension, int amount, String unit)
 
         LineItem[] baseWood = new LineItem[8];
 
