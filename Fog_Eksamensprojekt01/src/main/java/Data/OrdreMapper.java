@@ -93,7 +93,6 @@ public class OrdreMapper {
      * @param ordre_id
      * @throws NewException 
      */
-
     public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
 
         try {

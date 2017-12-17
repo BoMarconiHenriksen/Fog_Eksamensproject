@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Business.Domain;
 
 /**
- *
- * @author BenedikteEva
+ * Klassen er objektet for materialer.
  */
 public class Materiale {
 
@@ -26,20 +20,15 @@ private double msr;
         this.enhedspris = enhedspris;
         this.enhed = enhed;
         this.msr=msr;
-      
-    }
-
-    public Materiale(String materialetype, String materialenavn, double enhedspris, String enhed, double msr) {
-      this.materialetype = materialetype;
-        this.materialenavn = materialenavn;
-        this.enhedspris = enhedspris;
-        this.enhed = enhed;
-        this.msr=msr;
     }
 
     public Materiale(int varenummer, double enhedspris) {
        this.varenummer = varenummer;
        this.enhedspris = enhedspris;
+    }
+    
+    public Materiale() {
+        
     }
 
     public int getVarenummer() {
@@ -89,10 +78,6 @@ private double msr;
     public void setMsr(double msr) {
         this.msr = msr;
     }
-
- 
-
-
 
     @Override
     public String toString() {

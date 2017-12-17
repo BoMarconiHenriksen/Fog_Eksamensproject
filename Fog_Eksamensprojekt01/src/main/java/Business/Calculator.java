@@ -14,11 +14,11 @@ public class Calculator {
      * grundelementer samt alle ekstra ting m.m. Den må kun bruges hvis skuret
      * er med
      *
-     * @param length længden af carporten
-     * @param width bredden af carporten
-     * @param heigth højden af carporten
-     * @return totalPriceSimpleCarport
-     * @throws NewException
+     * @param length længden af carporten.
+     * @param width bredden af carporten.
+     * @param heigth højden af carporten.
+     * @return den totale pris på en basis carport.
+     * @throws NewException ved fejl.
      */
     public static  double calculateCarportSimple(double length, double width, double heigth) throws NewException {
         double totalPriceSimpleCarport = 0;
@@ -38,14 +38,13 @@ public class Calculator {
      * Beregner prisen på de skruer og andre småting som den ønsket carport skal
      * bruge.
      *
-     * @param length længden af den ønskede carport
-     * @param width
-     * @return totalPriceScrewsAndSuch
-     * @throws NewException
+     * @param length er længden af den ønskede carport
+     * @param width er bredden af carporten
+     * @return den totale pris på skruer og diverse.
+     * @throws NewException ved fejl
      */
     public static double calculatePriceScrewsAndSuch(double length, double width) throws NewException {
 
-        // dimser
         double totalPriceScrewsAndSuch = 0;
         double plastmoBundSkruePris = DataFacade.getMaterialeByVarenummer(13).getEnhedspris();
         double hulbåndPris = DataFacade.getMaterialeByVarenummer(14).getEnhedspris();
@@ -67,7 +66,7 @@ public class Calculator {
      *
      * @param length længden af den ønskede carport
      * @param width bredden af carporten
-     * @return totalPriceBase
+     * @return den samlede pris for carportens grundmaterialer
      * @throws NewException
      */
     public static double calculateBaseCarport(double length, double width) throws NewException {
@@ -104,9 +103,9 @@ public class Calculator {
     }
 
     /**
-     *
-     * @param length
-     * @return
+     * Metoden udregner antallet af spær.
+     * @param length er længden af carporten.
+     * @return antallet af spær.
      */
     public static int numberOfRafters(double length) {
         int approxNumberOfRafts = (int) Math.round(length / 57);
@@ -114,9 +113,9 @@ public class Calculator {
     }
 
     /**
-     *
-     * @param length
-     * @return
+     * Metoden udregner mellemrum mellem spær.
+     * @param length er længden af carporten.
+     * @return mellemrum mellem spær.
      */
     public static int spaceBetweenRafters(double length) {
 
@@ -125,10 +124,10 @@ public class Calculator {
     }
 
     /**
-     *
-     * @param length
-     * @param width
-     * @return
+     * Metoden udregner antallet af pakker skruer til ecolite taget.
+     * @param length er carportens længde.
+     * @param width er carportens bredde.
+     * @return antal pakker skruer.
      */
     public static int numberOfBottomScrewsPackageEcolite(double length, double width) {
         int numberOfScrews = (int) (((numberOfRafters(length) * (width / 100)) + (100 / 12 * (length / 100)) + 100 / 12 * length / 12));
@@ -144,10 +143,10 @@ public class Calculator {
      * skurger m.m Prisen lægges så sammen med prisen på Carporten, som bliver
      * beregnet i Calcualtor.java.
      *
-     * @param shedLength lægnden af skuret
-     * @param shedWidth bredden af skuret
-     * @return totalPrisSkur
-     * @throws NewException
+     * @param shedLength lægnden af skuret.
+     * @param shedWidth bredden af skuret.
+     * @return en samlet pris på skuret.
+     * @throws NewException ved fejl
      */
     public static double calculatePriceShed(double shedLength, double shedWidth) throws NewException {
 
@@ -177,23 +176,7 @@ public class Calculator {
 
     }
 
-    /**
-     * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
-     * kunne teste beregninernes virkegrad.
-     *
-     * @param args
-     * @throws NewException
-     */
-    // bemærk at målene på skuret skal være mindst 30 cm mindre end målenee på carporten grundet tagudhæng. 
-    public static void main(String[] args) throws NewException {
-
-        Calculator calc = new Calculator();
-
-        System.out.println(calc.calculateBaseCarport(480, 300));
-
-    }
-
-    /**
+     /**
      * Metoden udregner antallet af spær, der skal bruges til carporten.
      *
      * @param length er carportens længde.
@@ -240,11 +223,20 @@ public class Calculator {
     public static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
         return 2 * skurBredde / 10 + 2 * skurLængde / 10;
     }
-}
+    
+    /**
+     * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
+     * kunne teste beregninernes virkegrad.
+     *
+     * @param args til main metode
+     * @throws NewException ved fejl
+     */
+    // bemærk at målene på skuret skal være mindst 30 cm mindre end målenee på carporten grundet tagudhæng. 
+    public static void main(String[] args) throws NewException {
 
-// hvis carporten 600 * 780
-//        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 
-//                + 4 * 5.4 * plank1Price + 2 * 6 * RaftsAndStrapsPrice + 1 * 4.8 * RaftsAndStrapsPrice
-//                + 15 * 6 * RaftsAndStrapsPrice + 6 * 3 * postPrice1 + 4 * 5.4 * brædt2Pris 
-//                + 2 * 3.6 * brædt2Pris + 6 * plastmoTag1pris + 6  * plastmoTag2pris;
-//længde 
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.calculateBaseCarport(480, 300));
+
+    }
+}
