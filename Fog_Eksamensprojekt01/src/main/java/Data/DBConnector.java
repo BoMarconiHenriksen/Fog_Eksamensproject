@@ -30,6 +30,7 @@ public class DBConnector {
 /**
  * Metoden laver en forbindelse til databasen. Vi bruger singular pattern, så vi er sikre på kun at åbne en forbindelse.
  * @return en forbindelse til databasen.
+ * @throws Business.Exception.NewException Ved fejl.
  */
     public static Connection connection() throws NewException {
         if (singleton == null) {

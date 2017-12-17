@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Klassen bruges til at opdater en brugers oplysninger.
  */
 public class Admin_UserAdministration extends Command {
 

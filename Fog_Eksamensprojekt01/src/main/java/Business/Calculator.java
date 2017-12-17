@@ -67,7 +67,7 @@ public class Calculator {
      * @param length længden af den ønskede carport
      * @param width bredden af carporten
      * @return den samlede pris for carportens grundmaterialer
-     * @throws NewException
+     * @throws NewException Ved fejl.
      */
     public static double calculateBaseCarport(double length, double width) throws NewException {
 
