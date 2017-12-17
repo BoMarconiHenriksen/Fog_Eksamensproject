@@ -62,12 +62,8 @@ public class DataFacade {
         OdetaljeMapper.AddOdetailstoOrdermedSkur(ordre_id, ods);
     }
 
-    public static void saveOdetajlertoDB(int user_id, Odetaljer OdG) throws NewException {
-        OdetaljeMapper.saveOdetaljertoDesignGemning(user_id, OdG);
-    }
-
     public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
-        OdetaljeMapper.addOdetaljertoOdetaljeListe(ordre_id, od);
+        OdetaljeMapper.addOdetaljerToOdetaljeListe(ordre_id, od);
     }
 
     public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {

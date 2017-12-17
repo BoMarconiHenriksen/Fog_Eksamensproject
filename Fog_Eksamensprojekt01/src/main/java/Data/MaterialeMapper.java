@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * MaterialleMapper: Håntere forbindelse til og fra databasen med alt vedr.
+ * Håntere metoderne til og fra databasen med alt vedr.
  * materialer.
  */
 public class MaterialeMapper {
@@ -23,13 +23,11 @@ public class MaterialeMapper {
 
 
     /**
-     * Her hentes alle beskrivelser på et materiale fra materialeliste tabellen.
+     * Her hentes alle information om et materiale for alle materialerne fra materialeliste tabellen.
      *
-     * @return mats
-     * @throws NewException
+     * @return mats der er en liste af alle materialer og deres informationer.
+     * @throws NewException ved fejl.
      */
-
-
     public static List<Materiale> getMaterial() throws NewException {
 
         List<Materiale> mats = new ArrayList();
@@ -67,9 +65,9 @@ public class MaterialeMapper {
     /**
      * Her fåes et materiale ud fra et angivet vareid.
      *
-     * @param varenummer
-     * @return mat
-     * @throws NewException
+     * @param varenummer er materialets varenummer
+     * @return mat som er information om et beatemt materiale.
+     * @throws NewException ved fejl.
      */
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
 
@@ -102,9 +100,9 @@ public class MaterialeMapper {
     /**
      * Her ændres et materiales pris ud fra et angivet vareid.
      *
-     * @param vareid
-     * @param enhedspris
-     * @throws NewException
+     * @param vareid er materialets id.
+     * @param enhedspris er prisen på materialet.
+     * @throws NewException ved fejl.
      */
     public static void changeMaterialePris(int vareid, double enhedspris) throws NewException {
         try {
@@ -122,13 +120,6 @@ public class MaterialeMapper {
         }
     }
 
-    /**
-     * Dette er en mainmetode som kun benyttes til trst o forbindelse med
-     * mapperens virkegrad.
-     *
-     * @param args
-     * @throws NewException
-     */
     public static void main(String[] args) throws NewException {
 
         System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
