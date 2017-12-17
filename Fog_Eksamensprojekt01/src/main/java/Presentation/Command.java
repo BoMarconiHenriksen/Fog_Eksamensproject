@@ -12,28 +12,35 @@ import javax.servlet.http.HttpServletResponse;
 abstract class Command {
 
     private static HashMap<String, Command> commands;
-    
-    /**
-     * initCommands: Håntere alle de commands som benytes på alle jsp siderne i et HashMap.
-     * De bruges til at tage imod og behandle imput på samme måde som en servlet ellers vil gøre.
-     * 
-     * "login": Benytes på index.jsp til at tage imod brugerens login imput, og logge brugeren ind på den bruger som brugeren har intastet, hvis email og password er korrekt.
-     * 
-     * "logout": Benyttes på customerpage.jsp og employeepage-.jsp, til at afslutte brugerens session, og logge brugeren af hjemmesiden.
-     * 
-     * "register": Benyttes på register.jsp til at tage imod brugerens nye oplysninger, og registrer dem i databasen, hvis de nødvendige oplysninger er udfylt,
-     * og indeholder de repektive kategoriers minimumkrav.
-     * 
-     * "ErrorMsg": Henviser brugeren til errorview.jsp, hvis en fejl opstår mens brugeren navigere på siden.
-     * 
-     * "basisCarport": Bruges på customer_order_carport.jsp, når brugeren skal tjekke en pris på en carport, og trykker se pris. Brugeren bliver henvist til samme jsp side igen,
-     * men med pris og tegning af den carport som brugeren vil tjekke.
-     * 
-     * 
-     */
 
+    /**
+     * initCommands: Håntere alle de commands som benytes på alle jsp siderne i
+     * et HashMap. De bruges til at tage imod og behandle imput på samme måde
+     * som en servlet ellers vil gøre.
+     *
+     * "login": Benytes på index.jsp til at tage imod brugerens login imput, og
+     * logge brugeren ind på den bruger som brugeren har intastet, hvis email og
+     * password er korrekt.
+     *
+     * "logout": Benyttes på customerpage.jsp og employeepage-.jsp, til at
+     * afslutte brugerens session, og logge brugeren af hjemmesiden.
+     *
+     * "register": Benyttes på register.jsp til at tage imod brugerens nye
+     * oplysninger, og registrer dem i databasen, hvis de nødvendige oplysninger
+     * er udfylt, og indeholder de repektive kategoriers minimumkrav.
+     *
+     * "ErrorMsg": Henviser brugeren til errorview.jsp, hvis en fejl opstår mens
+     * brugeren navigere på siden.
+     *
+     * "basisCarport": Bruges på customer_order_carport.jsp, når brugeren skal
+     * tjekke en pris på en carport, og trykker se pris. Brugeren bliver henvist
+     * til samme jsp side igen, men med pris og tegning af den carport som
+     * brugeren vil tjekke.
+     *
+     *
+     */
     private static void initCommands() {
-        
+
         commands = new HashMap<>();
 
         commands.put("login", new Login());

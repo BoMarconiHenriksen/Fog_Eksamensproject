@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author Bo Klassen bruger StringBuilder til at rendere en liste over alle
+ * Klassen bruger StringBuilder til at rendere en liste over alle
  * ordrer ,med med enkelte ordredetaljer fra odetalje klassen.
  */
 public class RendUtilOrderList {

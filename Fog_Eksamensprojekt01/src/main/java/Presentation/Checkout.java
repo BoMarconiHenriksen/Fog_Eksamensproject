@@ -1,7 +1,6 @@
 package Presentation;
 
 import Business.Exception.NewException;
-import Business.DataFacade;
 import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;

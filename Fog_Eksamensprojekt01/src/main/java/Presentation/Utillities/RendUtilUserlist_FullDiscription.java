@@ -7,16 +7,10 @@ import java.util.List;
 
 /**
  *
- * @author Ejer
  */
 public class RendUtilUserlist_FullDiscription {
     
-    /**
-     *
-     * @param userList
-     * @return
-     * @throws NewException
-     */
+    
     public static String invoiceList(List<User> userList) throws NewException {
     
         userList = LogicFacade.getUserList();

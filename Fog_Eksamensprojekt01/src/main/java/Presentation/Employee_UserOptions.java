@@ -1,4 +1,3 @@
-
 package Presentation;
 
 import Business.DataFacade;
@@ -18,9 +17,9 @@ public class Employee_UserOptions extends Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        
+
         DataFacade.getUserByUserId(user.getUser_id());
-        
+
         request.setAttribute("yourFirstname", user.getFirstname());
         request.setAttribute("yourLastname", user.getLastname());
         request.setAttribute("yourEmail", user.getEmail());
@@ -28,26 +27,26 @@ public class Employee_UserOptions extends Command {
         request.setAttribute("yourZipcode", (Integer) user.getZip());
         request.setAttribute("yourPhoneNr", (Integer) user.getTlfnummer());
         request.setAttribute("yourPassword", user.getPassword());
-        
+
         String UpdateUserPassword = request.getParameter("Customer_UserOptionsPasswordChange");
         String PresentPassword = request.getParameter("passwordOld");
         int presentpasswordiscorrect = 2;
         request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-        
-        if (UpdateUserPassword != null && PresentPassword.equals(user.getPassword())){
-            
-           String password = request.getParameter("passwordNew");
+
+        if (UpdateUserPassword != null && PresentPassword.equals(user.getPassword())) {
+
+            String password = request.getParameter("passwordNew");
             DataFacade.updateUserPassword(user.getUser_id(), password);
             presentpasswordiscorrect = 1;
-        request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
+            request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
             return "employee_useroptionspage";
-        } else if (UpdateUserPassword != null){
+        } else if (UpdateUserPassword != null) {
             presentpasswordiscorrect = 0;
             request.setAttribute("outprintpasswordchangestatus", presentpasswordiscorrect);
-             return "emplyoee_useroptionspage";
-        } else{
+            return "emplyoee_useroptionspage";
+        } else {
 
-        return "employee_useroptionspage";
-    }
+            return "employee_useroptionspage";
+        }
     }
 }
