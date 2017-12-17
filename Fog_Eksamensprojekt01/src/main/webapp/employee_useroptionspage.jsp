@@ -1,7 +1,6 @@
 <%-- 
     Document   : employee_useroptionspage
     Created on : 07-12-2017, 12:39:49
-    Author     : Ticondrus
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

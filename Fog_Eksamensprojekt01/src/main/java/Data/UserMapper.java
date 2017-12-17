@@ -25,11 +25,11 @@ public class UserMapper {
      * user_id.
      *
      * @param user_id er brugerens id.
-     * @return u som er en bruger.
+     * @return user som er en bruger.
      */
     public static User getUserByUserId(int user_id) throws NewException {
 
-        User u = null;
+        User user = null;
         try {
 
             Connection con = DBConnector.connection();
@@ -45,18 +45,18 @@ public class UserMapper {
                 String lastname = rs.getString("lastname");
                 String address = rs.getString("address");
                 int tlfnummer = rs.getInt("tlfnummer");
-                u = new User(userId, zipcode, email, password, role,
+                user = new User(userId, zipcode, email, password, role,
                         firstname, lastname,
                         address, tlfnummer);
 
-                return u;
+                return user;
             }
 
         } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getUserByUserId", ex);
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return u;
+        return user;
     }
 
     /**
@@ -200,7 +200,7 @@ public class UserMapper {
 
         try {
 
-            User u;
+            User user;
 
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM userlist";
@@ -218,9 +218,9 @@ public class UserMapper {
                 int tlfnummer = rs.getInt("tlfnummer");
                 if (user_id != lastId) {
 
-                    u = new User(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
+                    user = new User(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
 
-                    userList.add(u);
+                    userList.add(user);
                 }
             }
         } catch (SQLException ex) {

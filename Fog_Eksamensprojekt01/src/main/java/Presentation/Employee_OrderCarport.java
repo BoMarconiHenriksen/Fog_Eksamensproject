@@ -8,7 +8,7 @@ import Business.Domain.Odetaljer;
 import Business.Domain.Ordre;
 import Business.Domain.User;
 import Presentation.Utillities.RendUtilUserList;
-import Presentation.Utillities.XXRendSvg;
+import Presentation.Utillities.RendSvg;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -35,7 +35,7 @@ public class Employee_OrderCarport extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+//        User user = (User) session.getAttribute("user");
 
         String SePris = request.getParameter("Employee_OrderCarport");
         String CheckUd = request.getParameter("Employee_OrderCarportPlaceOrder");
@@ -98,7 +98,7 @@ public class Employee_OrderCarport extends Command {
      * @param df decimalformatter
      * @param widthinputskur chosen width of shed
      * @param heightputskur height of shed (not a choice)
-     * @param skurellerej shed or no shed
+     * @param skurellerej shed orderId no shed
      * @param ditSkurErForLangt returns a message to the customer that the shed
      * length has been set to 30 cm lesser than the width of the carport
      * @return lengthinput shed. If the shed is to big for the carport then a
@@ -149,7 +149,7 @@ public class Employee_OrderCarport extends Command {
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
         request.setAttribute("skurInput", (String) skurellerej);
-        XXRendSvg svag = new XXRendSvg();
+        RendSvg svag = new RendSvg();
         String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
         return totalPrice;
@@ -176,34 +176,34 @@ public class Employee_OrderCarport extends Command {
      * request and response
      * @param session to call parameters like 'user' that are stored in session
      * in login
-     * @throws NewException
+     * @throws NewException Ved fejl.
      */
     private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session, Ordre order, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
 
         LocalDate today = LocalDate.now();
         //Kalder dateTimeFormatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //SÃ¦tter Stringen til d.d.
+        //Sætter Stringen til d.d.
         String formatDateTime = today.format(formatter);
 
-        //SÃ¦tter datoen pÃ¥ ordren
+        //Sætter datoen på ordren
         order.setReciveddate(formatDateTime);
         double priceTotal = totalPrice;
         DataFacade.placeAnOrder(user_id, formatDateTime);
-        int or = DataFacade.getLastInvoiceId();
-        request.setAttribute("KundensOID", or);
-        session.setAttribute("SessionIOD", or);
-        Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
-        DataFacade.AddOdetailstoOrdermedSkur(or, ods);
-        DataFacade.getOrderByOrderId2(or);
+        int orderId = DataFacade.getLastInvoiceId();
+        request.setAttribute("KundensOID", orderId);
+        session.setAttribute("SessionIOD", orderId);
+        Odetaljer oDetaljer = new Odetaljer(orderId, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
+        DataFacade.AddOdetailstoOrdermedSkur(orderId, oDetaljer);
+        DataFacade.getOrderByOrderId2(orderId);
 
-        ods = DataFacade.getOdetaljerByOrderId(or);
-        request.setAttribute("length", (Double) ods.getCarportLength());
-        request.setAttribute("width", (Double) ods.getCarportWidth());
-        request.setAttribute("height", (Double) ods.getCarportHeight());
-        request.setAttribute("redskabsskur_length", (Double) ods.getLengthRedskabsrum());
-        request.setAttribute("redskabsskur_width", (Double) ods.getWidthRedskabsrum());
-        request.setAttribute("od", ods);
+        oDetaljer = DataFacade.getOdetaljerByOrderId(orderId);
+        request.setAttribute("length", (Double) oDetaljer.getCarportLength());
+        request.setAttribute("width", (Double) oDetaljer.getCarportWidth());
+        request.setAttribute("height", (Double) oDetaljer.getCarportHeight());
+        request.setAttribute("redskabsskur_length", (Double) oDetaljer.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double) oDetaljer.getWidthRedskabsrum());
+        request.setAttribute("od", oDetaljer);
 
     }
 

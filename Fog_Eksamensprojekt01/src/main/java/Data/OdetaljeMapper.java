@@ -51,7 +51,7 @@ public class OdetaljeMapper {
     /**
      * Henter en ordres nærmere detaljer, ud fra et valgt ordre id, fra databasen.
      * @param ordre_id er ordre idet.
-     * @return o en ordre.
+     * @return oDetaljer en ordre.
      * @throws NewException ved fejl. 
      */
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
@@ -113,7 +113,7 @@ public class OdetaljeMapper {
     /**
      * Henter en ordre med et bestemt id's nærmere detaljer fra databasen.
      * @param ordre_id er ordre idet.
-     * @return o en ordre.
+     * @return oDetaljer en ordre.
      * @throws NewException ved fejl.
      */
     public static Odetaljer getOdetailsByOrderId(int ordre_id) throws NewException {
@@ -150,7 +150,7 @@ public class OdetaljeMapper {
      * @throws NewException ved fejl.
      */
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer o = null;
+        Odetaljer oDetaljer = null;
         try {
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
@@ -166,7 +166,7 @@ public class OdetaljeMapper {
                 double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
                     double price =rs.getDouble("price");
-                o = new Odetaljer(odetaljerId, ordreId, 
+                oDetaljer = new Odetaljer(odetaljerId, ordreId, 
                         ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType,price);
             }
         } catch (SQLException ex) {

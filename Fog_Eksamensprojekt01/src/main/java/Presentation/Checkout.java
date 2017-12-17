@@ -4,7 +4,7 @@ import Business.Exception.NewException;
 import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
-import Presentation.Utillities.XXRendSvg;
+import Presentation.Utillities.RendSvg;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,19 +28,19 @@ public class Checkout extends Command {
         }
 
         LogicFacade.getOrderByOrderId2(or);
-        Odetaljer od = LogicFacade.getOdetaljerByOrderId(or);
-        String status = od.getOrdreStatus();
-        XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
+        Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(or);
+        String status = oDetaljer.getOrdreStatus();
+        RendSvg svag = new RendSvg();
+        String carportTegning = svag.simpelCarport(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
         request.setAttribute("carportTegning", carportTegning);
 
-        request.setAttribute("length", (Double) od.getCarportLength());
-        request.setAttribute("width", (Double) od.getCarportWidth());
-        request.setAttribute("height", (Double) od.getCarportHeight());
-        request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
-        request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
-        request.setAttribute("price", (Double) od.getPrice());
-        request.setAttribute("od", od);
+        request.setAttribute("length", (Double) oDetaljer.getCarportLength());
+        request.setAttribute("width", (Double) oDetaljer.getCarportWidth());
+        request.setAttribute("height", (Double) oDetaljer.getCarportHeight());
+        request.setAttribute("redskabsskur_length", (Double) oDetaljer.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double) oDetaljer.getWidthRedskabsrum());
+        request.setAttribute("price", (Double) oDetaljer.getPrice());
+        request.setAttribute("od", oDetaljer);
         request.setAttribute("status", status);
 
         status = "Ny ordre";

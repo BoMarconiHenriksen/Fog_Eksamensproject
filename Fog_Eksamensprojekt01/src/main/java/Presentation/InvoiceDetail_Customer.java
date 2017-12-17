@@ -19,28 +19,28 @@ public class InvoiceDetail_Customer extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");
-        String deletetheOrder;
+        String deleteTheOrder;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String lockIntoOrder = request.getParameter("InvoiceDetail_Customer");
 
-        deletetheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
+        deleteTheOrder = request.getParameter("InvoiceDetail_Customer_DeleteOrder");
 
-        String SetOrderStatusbyCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
+        String SetOrderStatusByCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("orderid", orderid);
 
-        Odetaljer od = LogicFacade.getOrderByOrderId2(orderid);
+        Odetaljer oDetaljer = LogicFacade.getOrderByOrderId2(orderid);
 
-        request.setAttribute("length", (Double) od.getCarportLength());
-        request.setAttribute("width", (Double) od.getCarportWidth());
-        request.setAttribute("height", (Double) od.getCarportHeight());
-        request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
-        request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
-        request.setAttribute("od", od);
+        request.setAttribute("length", (Double) oDetaljer.getCarportLength());
+        request.setAttribute("width", (Double) oDetaljer.getCarportWidth());
+        request.setAttribute("height", (Double) oDetaljer.getCarportHeight());
+        request.setAttribute("redskabsskur_length", (Double) oDetaljer.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double) oDetaljer.getWidthRedskabsrum());
+        request.setAttribute("od", oDetaljer);
 
-        if (deletetheOrder != null) {
+        if (deleteTheOrder != null) {
             LogicFacade.deleteOrderDetailsByUserId(orderid);
             LogicFacade.deleteOrderListByUserId(orderid);
 
@@ -55,7 +55,7 @@ public class InvoiceDetail_Customer extends Command {
             return "customer_invoice_detail";
         }
 
-        if (SetOrderStatusbyCustomer != null) {
+        if (SetOrderStatusByCustomer != null) {
 
             String status = request.getParameter("status");
 

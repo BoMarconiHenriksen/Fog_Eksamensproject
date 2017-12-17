@@ -92,13 +92,13 @@
                 <h2 class="text-center text-lg text-uppercase my-0">En Carport Efter Dine
                     <strong>Drømme</strong>
                 </h2>
-                <% if (request.getAttribute("succes")!=null){
-                    out.println("<p>"+request.getAttribute("pleaselogin")+"</p>");
-                }else{
-                    
-                }%>
+                <% if (request.getAttribute("succes") != null) {
+                        out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
+                    } else {
+
+                    }%>
                 <hr class="divider">
-                
+
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
@@ -115,8 +115,7 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>      
-    </div>
+        </footer>       
 
-</body>
+    </body>
 </html>

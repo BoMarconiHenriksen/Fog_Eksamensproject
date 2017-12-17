@@ -14,8 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * Håntere metoderne til og fra databasen med alt vedr.
- * materialer.
+ * Håntere metoderne til og fra databasen med alt om materialer.
  */
 public class MaterialeMapper {
 
@@ -66,12 +65,12 @@ public class MaterialeMapper {
      * Her fåes et materiale ud fra et angivet vareid.
      *
      * @param varenummer er materialets varenummer
-     * @return mat som er information om et beatemt materiale.
+     * @return materiale som er information om et beatemt materiale.
      * @throws NewException ved fejl.
      */
     public static Materiale getMaterialeByVarenummer(int varenummer) throws NewException {
 
-        Materiale mat = null;
+        Materiale materiale = null;
         try {
 
             Connection con = DBConnector.connection();
@@ -86,10 +85,10 @@ public class MaterialeMapper {
                 String enhed = rs.getString("enhed");
                 double msr = rs.getDouble("længde");
 
-                mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
+                materiale = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
             }
 
-            return mat;
+            return materiale;
         } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getMaterialeByVarenummer", ex);
             throw new NewException(ex.getMessage());

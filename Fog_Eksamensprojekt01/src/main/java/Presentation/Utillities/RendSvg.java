@@ -7,7 +7,7 @@ import Business.Exception.NewException;
  * Klassen tegner en carport og en carport med skur.
  *
  */
-public class XXRendSvg {
+public class RendSvg {
 
     StringBuilder sb = new StringBuilder();
 
@@ -272,7 +272,7 @@ public class XXRendSvg {
      */
     public static void main(String[] args) throws NewException {
         int length = 600;
-        XXRendSvg rsvg = new XXRendSvg();
+        RendSvg rsvg = new RendSvg();
         int spærAntalCirka = (int) Math.round(length / 55);
         int restSpærAntal = (int) length % spærAntalCirka;
         int rigtigSpærAntal = (int) length - restSpærAntal;

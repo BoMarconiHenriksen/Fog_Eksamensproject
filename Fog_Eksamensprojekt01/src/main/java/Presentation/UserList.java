@@ -19,7 +19,6 @@ public class UserList extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException, IOException {
 
-        HttpSession session = request.getSession();
         List<User> userList = LogicFacade.getUserList();
         String employee_Userlist = RendUtilUserlist_FullDiscription.invoiceList(userList);
         request.setAttribute("employee_userlist", employee_Userlist);

@@ -5,7 +5,7 @@ import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
-import Presentation.Utillities.XXRendSvg;
+import Presentation.Utillities.RendSvg;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -148,7 +148,7 @@ public class basisCarport extends Command {
     }
 
     private void makeDrawingOfCarport(double lentghinput, double widthinput, double lentghinputskur, double widthinputskur, HttpServletRequest request) throws NewException {
-        XXRendSvg RendSvg = new XXRendSvg();
+        RendSvg RendSvg = new RendSvg();
         String carportTegning = RendSvg.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
     }

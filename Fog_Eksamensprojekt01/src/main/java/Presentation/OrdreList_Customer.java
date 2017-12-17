@@ -1,4 +1,3 @@
-
 package Presentation;
 
 
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpSession;
 /**
  *
  */
-
 public class OrdreList_Customer extends Command {
 
     /**
@@ -40,7 +38,6 @@ public class OrdreList_Customer extends Command {
        String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
 
          if (ordreList.isEmpty()){
-
 
            request.setAttribute("customer_orderlist", "Du har ikke nogen ordre der afventer din bekræftigelse eller under behandling. "
                    + "Bestil en ordre, og den vil fremgå her på siden.");      

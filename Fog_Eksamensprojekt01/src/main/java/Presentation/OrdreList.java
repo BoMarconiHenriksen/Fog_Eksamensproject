@@ -18,11 +18,6 @@ public class OrdreList extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-
-      
-        
         List<Ordre> ordreList = LogicFacade.getOrderList();
         String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
 

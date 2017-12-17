@@ -35,17 +35,17 @@ public class RendUtilOrderList {
         sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Ordre Id  </th><th>Dato  </th><th>Pris  </th><th>Kundens fornavn  </th><th>Telefon nr  </th><th>Status  </th></tr>\n");
-        for (Ordre o : ordreList) {
+        for (Ordre ordre : ordreList) {
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
-            sb.append("<td>").append("  ").append(o.getOrdre_id()).append("</td>");
-            sb.append("<td>").append("  ").append(o.getReciveddate()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getPrice()).append("").append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((o.getUser_id())).getFirstname()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((o.getUser_id())).getTlfnummer()).append("</td>");
-            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((o.getOrdre_id())).getOrdreStatus()).append("</td>");
-            sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"").append(o.getOrdre_id()).append("\"><br>\n\n</td>");
+            sb.append("<td>").append("  ").append(ordre.getOrdre_id()).append("</td>");
+            sb.append("<td>").append("  ").append(ordre.getReciveddate()).append("</td>");
+            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((ordre.getOrdre_id())).getPrice()).append("").append("</td>");
+            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((ordre.getUser_id())).getFirstname()).append("</td>");
+            sb.append("<td>").append("  ").append(LogicFacade.getUserByUserId((ordre.getUser_id())).getTlfnummer()).append("</td>");
+            sb.append("<td>").append("  ").append(LogicFacade.getOdetaljerByOrderId((ordre.getOrdre_id())).getOrdreStatus()).append("</td>");
+            sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"").append(ordre.getOrdre_id()).append("\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");
