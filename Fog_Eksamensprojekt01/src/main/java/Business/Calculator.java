@@ -10,7 +10,7 @@ import Business.Exception.NewException;
 public class Calculator {
 
     /**
-     * Beregner en samlet total pris på den øsnkede carport med alle
+     * calculateCarportSimple metode: Beregner en samlet total pris på den øsnkede carport med alle
      * grundelementer samt alle ekstra ting m.m. Den må kun bruges hvis skuret
      * er med
      *

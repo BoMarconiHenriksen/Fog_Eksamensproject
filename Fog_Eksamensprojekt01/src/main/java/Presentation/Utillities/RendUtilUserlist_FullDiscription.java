@@ -6,7 +6,7 @@ import Business.Domain.User;
 import java.util.List;
 
 /**
- *
+ * Printer en liste med brugerens oplysninger.
  */
 public class RendUtilUserlist_FullDiscription {
     

@@ -6,7 +6,7 @@ import Business.Domain.User;
 import java.util.List;
 
 /**
- *
+ * Klassen printer en liste af brugere.
  */
 public class RendUtilUserList {
     

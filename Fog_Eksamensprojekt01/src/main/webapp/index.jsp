@@ -92,6 +92,7 @@
                 <h2 class="text-center text-lg text-uppercase my-0">En Carport Efter Dine
                     <strong>Drømme</strong>
                 </h2>
+                <!--Bruges når en kunde har regisret sig-->
                 <% if (request.getAttribute("succes") != null) {
                         out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
                     } else {
