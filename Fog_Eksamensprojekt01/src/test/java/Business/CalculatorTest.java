@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Utillities;
+package Business;
 
-import Business.Calculator;
 import Business.Exception.NewException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,41 +21,30 @@ import static org.junit.Assert.*;
  */
 public class CalculatorTest {
     
-    /**
-     *
-     */
     public CalculatorTest() {
     }
     
-    /**
-     *
-     */
     @BeforeClass
     public static void setUpClass() {
     }
     
-    /**
-     *
-     */
     @AfterClass
     public static void tearDownClass() {
     }
     
-    /**
-     *
-     */
     @Before
     public void setUp() {
     }
     
-    /**
-     *
-     */
     @After
     public void tearDown() {
     }
-    
-    
+
+
+
+
+ 
+
 
     /**
      * Test of calculateCarportSimple method, of class Calculator.
@@ -136,7 +124,7 @@ public class CalculatorTest {
             Calculator instance = new Calculator();
             double expResult = 6959.85;
             double result = instance.calculateCarportSimple(length, width, heigth);
-            assertEquals(expResult, result, 0.0);
+            assertEquals(expResult, result, 0.01);
             // igen en god ting at teste det hele. Jeg fandt ud af at jeg ikke havde
             // for alle tre ecoliteTagUdregninger og derved fik jeg rettet sÃ¥ at der
             //skulle regnes to slags tagplader ind i regnestykket nÃ¥r carportens
@@ -144,7 +132,6 @@ public class CalculatorTest {
         } catch (Exception ex) {
             Logger.getLogger(CalculatorTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
     }
  
  
@@ -323,6 +310,39 @@ public class CalculatorTest {
         // TODO review the generated test code and remove the default call to fail.
      
     }
+    
+     
+    /**
+     * Test of plastmoEcoliteRoofSimpleCarport method, of class Calculator.
+     */
+    @Test
+    public void testPlastmoEcoliteRoofSimpleCarport() throws Exception {
+        System.out.println("plastmoEcoliteRoofSimpleCarport");
+        double length = 540.0;
+        double width= 300;
+        double expResult =330.0*3;
+        double result = Calculator.plastmoEcoliteRoofSimpleCarport(length, width);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+ 
+    }
+    
+        /**
+     * Test of plastmoEcoliteRoofSimpleCarport method, of class Calculator.
+     */
+    @Test
+    public void testPlastmoEcoliteRoofSimpleCarportSmall() throws Exception {
+        System.out.println("plastmoEcoliteRoofSimpleCarport");
+        double length = 270.0;
+         double width= 240;
+        double expResult =119.0*3;
+        double result = Calculator.plastmoEcoliteRoofSimpleCarport(length,width);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+ 
+    }
+
+
 
     /**
      * Test of calculateNumberOfEcoliteRoof method, of class Calculator.
