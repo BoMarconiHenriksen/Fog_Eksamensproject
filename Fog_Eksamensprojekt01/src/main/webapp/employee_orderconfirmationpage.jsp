@@ -152,11 +152,7 @@
                     <hr class="divider"> 
 
                     <%
-                        XXRendUtilStykListe styk = new XXRendUtilStykListe();
-
-                        String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
-
-                        out.println("<p>" + stykListe + "</p>");
+                      out.println("<p>"+ request.getAttribute("stykListe") + "</p>");
                     %>  
 
                     <div>

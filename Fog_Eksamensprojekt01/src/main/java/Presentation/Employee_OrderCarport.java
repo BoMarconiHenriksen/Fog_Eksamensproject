@@ -1,4 +1,3 @@
-
 package Presentation;
 
 import Business.Calculator;
@@ -9,6 +8,7 @@ import Business.Domain.Ordre;
 import Business.Domain.User;
 import Presentation.Utillities.RendUtilUserList;
 import Presentation.Utillities.XXRendSvg;
+import Presentation.Utillities.XXRendUtilStykListe;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,16 +21,19 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class Employee_OrderCarport extends Command {
-    
+
     /**
-     * execute: Behandler den input fra employee_ordercarportpage.jsp som brugeren intaster og vælger, og sender brugeren videre til employee_orderconfirmationpage.jsp.
-     * på employee_orderconfirmationpage.jsp udskrives så en bekræftigelse samt beregnede oplysninger på den valgte carport og den valgte bruger som carporten er bestilt til.
+     * execute: Behandler den input fra employee_ordercarportpage.jsp som
+     * brugeren intaster og vælger, og sender brugeren videre til
+     * employee_orderconfirmationpage.jsp. på employee_orderconfirmationpage.jsp
+     * udskrives så en bekræftigelse samt beregnede oplysninger på den valgte
+     * carport og den valgte bruger som carporten er bestilt til.
+     *
      * @param request
      * @param response
      * @return employee_ordercarportpage.jsp
-     * @throws NewException 
+     * @throws NewException
      */
-
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
@@ -149,9 +152,14 @@ public class Employee_OrderCarport extends Command {
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
         request.setAttribute("skurInput", (String) skurellerej);
+       
         XXRendSvg svag = new XXRendSvg();
         String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
+        
+        XXRendUtilStykListe styk = new XXRendUtilStykListe();
+        String stykListe = styk.createLineItemList(lentghinput, widthinput, lentghinputskur, widthinputskur);
+        request.setAttribute("stykListe", stykListe);
         return totalPrice;
     }
 

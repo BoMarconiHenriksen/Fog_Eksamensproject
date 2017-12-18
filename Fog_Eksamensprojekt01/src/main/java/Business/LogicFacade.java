@@ -219,6 +219,24 @@ public class LogicFacade {
         return user.getUser_id();
     }
     
+     /**
+     *
+     * @param userId
+     * @param zipcode
+     * @param email
+     * @param password
+     * @param firstname
+     * @param lastname
+     * @param address
+     * @param phone
+     * @throws NewException
+     */
+    public static void updateWholeUserButID(int userId, int zipcode, String email, String password, String firstname, String lastname, String address, int phone) throws NewException {
+    DataFacade.updateWholeUserButID(userId, zipcode, email, password, email, firstname, lastname, address, phone);
+    }
+    
+
+    
     ////////////////Kalder metoder i Calculator////////////////
 
     /**
@@ -322,21 +340,5 @@ public class LogicFacade {
         return LineItemFactory.carportBaseMetal(width, length);
     }
 
-    /**
-     *
-     * @param userId
-     * @param zipcode
-     * @param email
-     * @param password
-     * @param firstname
-     * @param lastname
-     * @param address
-     * @param phone
-     * @throws NewException
-     */
-    public static void updateWholeUserButID(int userId, int zipcode, String email, String password, String firstname, String lastname, String address, int phone) throws NewException {
-    DataFacade.updateWholeUserButID(userId, zipcode, email, password, email, firstname, lastname, address, phone);
-    }
-    
-
+   
 }

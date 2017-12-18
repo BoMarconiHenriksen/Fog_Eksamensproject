@@ -177,21 +177,7 @@ public class Calculator {
 
     }
 
-    /**
-     * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
-     * kunne teste beregninernes virkegrad.
-     *
-     * @param args
-     * @throws NewException
-     */
-    // bemærk at målene på skuret skal være mindst 30 cm mindre end målenee på carporten grundet tagudhæng. 
-    public static void main(String[] args) throws NewException {
 
-        Calculator calc = new Calculator();
-
-        System.out.println(calc.calculateBaseCarport(480, 300));
-
-    }
 
     /**
      * Metoden udregner antallet af spær, der skal bruges til carporten.
@@ -240,7 +226,7 @@ public class Calculator {
     public static double CalculateCoverWoodShed(double skurBredde, double skurLængde) {
         return 2 * skurBredde / 10 + 2 * skurLængde / 10;
     }
-}
+
 
 // hvis carporten 600 * 780
 //        totalPriceBase = 4 * 3.6 * plank1Price + 4 * 5.4 * plank1Price + 2 * 3.6 * plank1Price 
@@ -248,3 +234,20 @@ public class Calculator {
 //                + 15 * 6 * RaftsAndStrapsPrice + 6 * 3 * postPrice1 + 4 * 5.4 * brædt2Pris 
 //                + 2 * 3.6 * brædt2Pris + 6 * plastmoTag1pris + 6  * plastmoTag2pris;
 //længde 
+    
+    
+    /**
+     * Er denne classes main metode. Som er lavet til at man nemt og hurtigt at
+     * kunne teste beregninernes virkegrad.
+     *
+     * @param args
+     * @throws NewException
+     */
+    // bemærk at målene på skuret skal være mindst 30 cm mindre end målenee på carporten grundet tagudhæng. 
+    public static void main(String[] args) throws NewException {
+
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.calculateBaseCarport(480, 300));
+
+    }}
