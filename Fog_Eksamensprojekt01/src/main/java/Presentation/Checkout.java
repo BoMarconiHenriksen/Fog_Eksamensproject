@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * 
  */
 public class Checkout extends Command {
 
@@ -20,15 +20,15 @@ public class Checkout extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         request.setAttribute("userNr", user.getUser_id());
-        int or;
+        int ordreId;
         if (request.getParameter("basisCarport") != null) {
-            or = (int) (session.getAttribute("SessionIOD"));
+            ordreId = (int) (session.getAttribute("SessionIOD"));
         } else {
-            or = Integer.parseInt(request.getParameter("id"));
+            ordreId = Integer.parseInt(request.getParameter("id"));
         }
 
-        LogicFacade.getOrderByOrderId2(or);
-        Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(or);
+        LogicFacade.getOrderByOrderId2(ordreId);
+        Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(ordreId);
         String status = oDetaljer.getOrdreStatus();
         RendSvg svag = new RendSvg();
         String carportTegning = svag.simpelCarport(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
@@ -45,7 +45,7 @@ public class Checkout extends Command {
 
         status = "Ny ordre";
 
-        LogicFacade.updateOrdreStatus(or, status);
+        LogicFacade.updateOrdreStatus(ordreId, status);
 
         return "customer_confirmationpage";
     }
