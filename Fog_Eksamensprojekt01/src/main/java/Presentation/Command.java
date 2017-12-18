@@ -41,18 +41,16 @@ abstract class Command {
      * "OrdertheOrder": Bruges på customer_shopping_cart.jsp, hvor kunden skal bekræfte om ordren skal bestiles. Når kunden trykker "Bestil ordren of afvent svar snarest",
      * så ændres ordre statusen på kunden sordre til "Ny ordre".
      *
-     * "OrdreList": Bruges på på employeepage.jsp, til at blive navigeret til employee_ordre_list.jsp fra employeepage.jsp og få fremvist alle kundernes ordre -
+     * "OrdreList": Bruges på på employeepage.jsp, til at navigere medarbejderen til employee_ordre_list.jsp og få fremvist alle kundernes ordre.
      * 
-     * "OrdreList_Customer: Bruges på customerpage.jsp og på customer__ordre_list.jsp til at navigere kunden til customer_ordre_list.jsp og få fremvist en liste af alle kundens ordre -
+     * "OrdreList_Customer: Bruges på customerpage.jsp til at navigere kunden til customer_ordre_list.jsp og få fremvist en liste af alle kundens ordre.
      * 
      * "InvoiceDetail": Bruges på employee_order_list til at navigere medarbejderen over på employee_invoice_detail.jsp og fremvise pris, tegning og stykliste på den valgte ordre samt -
      * tage imod en ny status og implementere den på ordren nede i databasen
      * Den bruges også til at navigere medarbejderen tilbage til employee_ordre_list.jsp og fremvise listen af alle kundernes ordre igen samt at slette en ordre på employee_ordre_list.jsp.
-     * Enedeligt bruges den også på employee_order_list.jsp til at navigere medarbejderen over på employee_usercontrolpage.jsp og fremvise den valgte bruger's personlige oplysninger.
-     * Men opdatering af brugerens oplysninger fra employee_usercontrolpage.jsp behandles fra commanden "Admin_UserAdministration".
      * 
      * "InvoiceDetail_Customer": Bruges på customer__order_list.jsp til navigere kunden over på customer_invoice_detail.jsp og fremvise pris, tegning og evt. stykliste hvis ordren er bestilt.
-     * Den bruges også på customer_ordre_list.jsp til at slette en ordre og fremvise listen igen ud fra hvad der ligger id atabasen.
+     * Den bruges også på customer_ordre_list.jsp til at slette en ordre og fremvise listen igen ud fra hvad der ligger i databasen.
      * Og endeligt bruges den også på customer_invoice_detail.jsp til at ændre statusen på en gemt ordre til "Ny Ordre", hvis den fremviste ordre er gemt eller mangler kundens bekræftigelse..
      * 
      * "InvoiceSetStatus": Bruges på emplyee_invoice_detail.jsp til at ændre statusen på en ordre nede i databasen og fremvise ordren igen på samme jsp side med den ændrede status.
@@ -61,7 +59,14 @@ abstract class Command {
      * ændre kundens password hvis kunden vælger et nyt password på siden.
      * 
      * "Employee_OrderCarport": Bruges på employee_ordercarportpage.jsp til at tage imod en carport bestiling for en bestemt kunde og lægge ordren i databasen samt -
-     * navigere medarbejderen hen til employee_orderconfirmationpage.jsp
+     *  navigere medarbejderen hen til employee_orderconfirmationpage.jsp
+     * 
+     * "Employee_SetupCarportFunctions": Bruges på employeepage.jsp til at navigere medarbejderen hen til employee_order_carport.jsp og fremvise en liste af de kunder som er oprettet, -
+     * så medarbejderen kan vælge en kunde at bestile en ordre til.
+     * 
+     * "Admin_UserAdministration": Bruges på employee_usercontrolpage.jsp til at update den valgte brugeres nye oplysninger i databasen og fremvise dem på samme side igen.
+     * 
+     * "UserList": Bruges på employeepage.jsp til at navigere medarbejderen til employee_usercontrolpage.jsp og fremvise en detaljeret liste af alle brugere.
      *
      */
     private static void initCommands() {
