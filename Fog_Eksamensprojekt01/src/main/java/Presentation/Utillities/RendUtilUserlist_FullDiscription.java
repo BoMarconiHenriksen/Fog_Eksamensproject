@@ -25,7 +25,7 @@ public class RendUtilUserlist_FullDiscription {
         for (User user : userList) {
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
-            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Admin_UserEdit\">");
+            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
             sb.append("<td>").append("  " + (user.getUser_id())).append("</td>");
             sb.append("<td>").append("  " + user.getRole()).append("</td>");
             sb.append("<td>").append("  " + user.getEmail()).append("</td>");
