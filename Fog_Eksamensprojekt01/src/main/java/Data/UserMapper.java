@@ -27,7 +27,7 @@ public class UserMapper {
      * @return u
      */
 
-    public static User getUserByUserId(int user_id) {
+    public static User getUserByUserId(int user_id) throws NewException {
 
         User u = null;
         try {
@@ -53,7 +53,7 @@ public class UserMapper {
                 return u;
             }
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getUserByUserId", ex);
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,7 +81,7 @@ public class UserMapper {
             ps.setInt(8, user.getTlfnummer());
             ps.executeUpdate();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i createUser", ex);
             throw new NewException(ex.getMessage());
         }
@@ -119,7 +119,7 @@ public class UserMapper {
             } else {
                 throw new NewException("Fejl ved login!!! Prøv igen.");
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i login", ex);
             throw new NewException(ex.getMessage());
         }
@@ -141,7 +141,7 @@ public class UserMapper {
             ps.setString(1, password);
 
             ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i updateUserPassword", ex);
             throw new NewException(ex.getMessage());
         }
@@ -183,7 +183,7 @@ public class UserMapper {
             ps.setInt(8, tlfnummer);
 
             ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i updateUser", ex);
             throw new NewException(ex.getMessage());
         }
@@ -224,7 +224,7 @@ public class UserMapper {
                     userList.add(u);
                 }
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getUserList", ex);
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
