@@ -117,11 +117,6 @@
                         <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
                     </form>
 
-                    <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_UserOptions">
-                        <button type="submit" name="Employee_UserOptions" value="action">Kontooplysninger </button>
-                    </form>
-
                     <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">´
                         <button type="submit" name="Employee_SetupOrderCarportFunctions" value="action">Bestil en Carport for en kunde </button>

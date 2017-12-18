@@ -7,16 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Håntere alle de commands som benytes på alle jsp siderne i et HashMap.
+ * De bruges til at tage imod og behandle imput på samme måde som en servlet ellers vil gøre.
  */
 abstract class Command {
 
     private static HashMap<String, Command> commands;
 
     /**
-     * initCommands: Håntere alle de commands som benytes på alle jsp siderne i
-     * et HashMap. De bruges til at tage imod og behandle imput på samme måde
-     * som en servlet ellers vil gøre.
      *
      * "login": Benytes på index.jsp til at tage imod brugerens login imput, og
      * logge brugeren ind på den bruger som brugeren har intastet, hvis email og
@@ -35,8 +33,35 @@ abstract class Command {
      * "basisCarport": Bruges på customer_order_carport.jsp, når brugeren skal
      * tjekke en pris på en carport, og trykker se pris. Brugeren bliver henvist
      * til samme jsp side igen, men med pris og tegning af den carport som
-     * brugeren vil tjekke.
+     * brugeren vil tjekke. Den bruges også når kunden skal gemme eller bestile en carport.
+     * I det tilfælde bliver de oplysninger som kunden har intastet behanldet lige som når man skal se en pris,
+     * men samtidigt sættes nogle af oplysningerne også ned i databasen. og afhængig af om kunden vælger at gemme eller bestile,
+     * så bliver vedkommende navigeret enten til customerpage.jsp igen eller til customer_shopping_cart.jsp.
+     * 
+     * "OrdertheOrder": Bruges på customer_shopping_cart.jsp, hvor kunden skal bekræfte om ordren skal bestiles. Når kunden trykker "Bestil ordren of afvent svar snarest",
+     * så ændres ordre statusen på kunden sordre til "Ny ordre".
      *
+     * "OrdreList": Bruges på på employeepage.jsp, til at blive navigeret til employee_ordre_list.jsp fra employeepage.jsp og få fremvist alle kundernes ordre -
+     * 
+     * "OrdreList_Customer: Bruges på customerpage.jsp og på customer__ordre_list.jsp til at navigere kunden til customer_ordre_list.jsp og få fremvist en liste af alle kundens ordre -
+     * 
+     * "InvoiceDetail": Bruges på employee_order_list til at navigere medarbejderen over på employee_invoice_detail.jsp og fremvise pris, tegning og stykliste på den valgte ordre samt -
+     * tage imod en ny status og implementere den på ordren nede i databasen
+     * Den bruges også til at navigere medarbejderen tilbage til employee_ordre_list.jsp og fremvise listen af alle kundernes ordre igen samt at slette en ordre på employee_ordre_list.jsp.
+     * Enedeligt bruges den også på employee_order_list.jsp til at navigere medarbejderen over på employee_usercontrolpage.jsp og fremvise den valgte bruger's personlige oplysninger.
+     * Men opdatering af brugerens oplysninger fra employee_usercontrolpage.jsp behandles fra commanden "Admin_UserAdministration".
+     * 
+     * "InvoiceDetail_Customer": Bruges på customer__order_list.jsp til navigere kunden over på customer_invoice_detail.jsp og fremvise pris, tegning og evt. stykliste hvis ordren er bestilt.
+     * Den bruges også på customer_ordre_list.jsp til at slette en ordre og fremvise listen igen ud fra hvad der ligger id atabasen.
+     * Og endeligt bruges den også på customer_invoice_detail.jsp til at ændre statusen på en gemt ordre til "Ny Ordre", hvis den fremviste ordre er gemt eller mangler kundens bekræftigelse..
+     * 
+     * "InvoiceSetStatus": Bruges på emplyee_invoice_detail.jsp til at ændre statusen på en ordre nede i databasen og fremvise ordren igen på samme jsp side med den ændrede status.
+     * 
+     * "Customer_UserOptions": Bruges på customerpage.jsp til at navigere kunden hen til customer_useroptions.jsp og fremvise alle kunden s oplysninger samt tage imod og -
+     * ændre kundens password hvis kunden vælger et nyt password på siden.
+     * 
+     * "Employee_OrderCarport": Bruges på employee_ordercarportpage.jsp til at tage imod en carport bestiling for en bestemt kunde og lægge ordren i databasen samt -
+     * navigere medarbejderen hen til employee_orderconfirmationpage.jsp
      *
      */
     private static void initCommands() {
@@ -49,7 +74,6 @@ abstract class Command {
         commands.put("ErrorMsg", new ErrorMsg());
         commands.put("basisCarport", new basisCarport());
         commands.put("OrdertheOrder", new Checkout());
-//        commands.put("XXtegningSimpel", new XXTegningSimpel());
         commands.put("OrdreList", new OrdreList());
         commands.put("OrdreList_Customer", new OrdreList_Customer());
         commands.put("OrdreList_Customer_DeleteOrder", new OrdreList_Customer());
@@ -62,8 +86,6 @@ abstract class Command {
         commands.put("InvSetOrderStatusbyCustomer", new InvoiceDetail_Customer());
         commands.put("Customer_UserOptions", new Customer_UserOptions());
         commands.put("Customer_UserOptionsPasswordChange", new Customer_UserOptions());
-        commands.put("Employee_UserOptions", new Employee_UserOptions());
-        commands.put("Employee_UserOptionsPasswordChange", new Employee_UserOptions());
         commands.put("Employee_OrderCarport", new Employee_OrderCarport());
         commands.put("Employee_OrderCarportPlaceOrder", new Employee_OrderCarport());
         commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
