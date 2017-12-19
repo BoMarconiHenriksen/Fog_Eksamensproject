@@ -55,7 +55,7 @@ public class RendUtilOdetaljerMedArbejder {
         sb.append("<tr><th>InvoiceId</th><th>Date</th><th>status</th></tr>\n");
         sb.append("<td>").append("" + oDetaljer.getOrdreId()).append("</td>");
         sb.append("<td>").append("" + order.getReciveddate()).append("</td>");
-        sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(oDetaljer.getOrdreId()).getOrdreStatus()).append("</td>");
+        sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId(oDetaljer.getOrdreId()).getOrdreStatus()).append("</td>");
 
         sb.append("</table>\n>");
         sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + oDetaljer.getOrdreId() + "\"><br>\n\n</td>");

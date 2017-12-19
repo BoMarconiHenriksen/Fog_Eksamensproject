@@ -32,7 +32,7 @@ public class RendUtilCustomerOdetailsFunktions {
             sb.append("<tr><th>Ordre Id</th><th>Dato</th><th>Status</th></tr>\n");
             sb.append("<td>").append("").append(oDetaljer.getOrdreId()).append("</td>");
             sb.append("<td>").append("").append(order.getReciveddate()).append("</td>");
-            sb.append("<td>").append("").append(LogicFacade.getOrderByOrderId2(oDetaljer.getOrdreId()).getOrdreStatus()).append("</td>");
+            sb.append("<td>").append("").append(LogicFacade.getOdetaljerByOrderId(oDetaljer.getOrdreId()).getOrdreStatus()).append("</td>");
             sb.append("</table>\n>");
             sb.append("<input type=\"radio\"checked=\"checked\" name=\"id\" value=\"").append(oDetaljer.getOrdreId()).append("\"><br>\n");
             sb.append("<button type=\"submit\" value=\"OrdertheOrder\" name=\"Checkout\">Bestil</button> ");

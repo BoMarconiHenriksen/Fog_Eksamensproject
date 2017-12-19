@@ -85,10 +85,6 @@ public class DataFacade {
         return OdetaljeMapper.getOdetailsByOrderId(ordre_id);
     }
 
-    public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
-        return OdetaljeMapper.getOrderByOrderId2(ordre_id);
-    }
-
     public static User login(String email, String password) throws NewException {
         return UserMapper.login(email, password);
     }
@@ -130,7 +126,6 @@ public class DataFacade {
     public static void main(String[] args) throws NewException {
 
         System.out.println(DataFacade.getOdetaljerByOrderId(3));
-        System.out.println(DataFacade.getOrderByOrderId2(3));
 //        DataFacade.changeMaterialePris(7, 29.95);
 //        System.out.println(MaterialeMapper.getMaterialeByVarenummer(7));
 //

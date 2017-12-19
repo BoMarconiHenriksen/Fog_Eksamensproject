@@ -33,6 +33,6 @@ og gør at billedet bliver på siden, når der skaleres ned.*/
 
 /*Centrer logo og header image*/
 .center-img {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }

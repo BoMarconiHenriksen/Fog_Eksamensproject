@@ -32,7 +32,7 @@ public class Checkout extends Command {
             ordreId = Integer.parseInt(request.getParameter("id"));
         }
 
-        LogicFacade.getOrderByOrderId2(ordreId);
+        LogicFacade.getOrdreByOrderId(ordreId);
         Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(ordreId);
         String status = oDetaljer.getOrdreStatus();
         RendSvg svag = new RendSvg();

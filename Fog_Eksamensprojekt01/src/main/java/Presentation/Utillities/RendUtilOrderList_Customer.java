@@ -36,8 +36,8 @@ public class RendUtilOrderList_Customer {
             //   sb.append("<td>").append("" + DataFacade.getUserByUserId(ordre.getUser_id()).getFirstname()).append("</td>");
             sb.append("<td>").append("" + ordre.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + ordre.getReciveddate()).append("</td>");
-            sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(ordre.getOrdre_id()).getPrice()).append("</td>");
-            sb.append("<td>").append("" + LogicFacade.getOrderByOrderId2(ordre.getOrdre_id()).getOrdreStatus()).append("</td>");
+            sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId(ordre.getOrdre_id()).getPrice()).append("</td>");
+            sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId(ordre.getOrdre_id()).getOrdreStatus()).append("</td>");
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"" + ordre.getOrdre_id() + "\"><br>\n\n</td>");
 
             sb.append("</tr>\n");
