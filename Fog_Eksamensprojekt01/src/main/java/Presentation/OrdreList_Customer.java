@@ -1,6 +1,5 @@
 package Presentation;
 
-
 import Business.Exception.NewException;
 import Business.LogicFacade;
 import Business.Domain.Ordre;

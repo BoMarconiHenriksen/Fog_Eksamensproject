@@ -92,18 +92,20 @@
                 <h2 class="text-center text-lg text-uppercase my-0">En Carport Efter Dine
                     <strong>Drømme</strong>
                 </h2>
-                <!--Bruges når en kunde har regisret sig-->
-                <% if (request.getAttribute("succes") != null) {
-                        out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
-                    } else {
-
-                    }%>
                 <hr class="divider">
+            </div>
+            <!--Bruges når en kunde har regisret sig-->
+            <% if (request.getAttribute("succes") != null) {
+                    out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
+                } else {
 
+                }%>
+
+            <div class="bg-faded p-4 my-4">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
             </div> 
         </div>
 

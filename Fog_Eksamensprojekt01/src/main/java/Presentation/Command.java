@@ -27,8 +27,6 @@ abstract class Command {
      * oplysninger, og registrer dem i databasen, hvis de nødvendige oplysninger
      * er udfylt, og indeholder de repektive kategoriers minimumkrav.
      *
-     * "ErrorMsg": Henviser brugeren til errorview.jsp, hvis en fejl opstår mens
-     * brugeren navigere på siden.
      *
      * "basisCarport": Bruges på customer_order_carport.jsp, når brugeren skal
      * tjekke en pris på en carport, og trykker se pris. Brugeren bliver henvist
