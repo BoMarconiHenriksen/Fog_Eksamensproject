@@ -9,7 +9,7 @@ import Business.Domain.User;
 import java.util.List;
 
 /**
- *Formålet med LogicFacade er at skabe en facade mellem prosentations laget
+ *Formålet med LogicFacade er at skabe en facade mellem presentations laget
  * og business/ logic laget for at samle alle de metoder der bliver kaldt fra
  * præsentationslaget i et interface. Javadoc for de enkelte metoder er beskrevet
  * nærmere i de klasser de kommer fra. 

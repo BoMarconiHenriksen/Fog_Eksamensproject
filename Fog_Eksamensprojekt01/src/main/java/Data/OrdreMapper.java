@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * OrdreMapper: Håntere alle metoder til og fra databasen vedr. en ordre. (Men en ordres nærmere detaljer, hånteres i stedet i OdetaljeMapper.)
+ * OrdreMapper: Håndterer alle metoder til og fra databasen vedr. en ordre. (Men en ordres nærmere detaljer, hånteres i stedet i OdetaljeMapper.)
  *
  */
 public class OrdreMapper {
