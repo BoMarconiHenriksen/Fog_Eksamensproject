@@ -113,6 +113,8 @@
                         double skurWidth = od.getWidthRedskabsrum();
                         double skurHeigth = 210;
                         double price = od.getPrice();
+                        
+                        out.println("<p>" + "Ordrenummer: " + od.getOrdreId() + "</p> \n");
 
                         out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
@@ -133,25 +135,31 @@
                 </div>
             </div>
 
-            <div class="text-heading text-lg">
+             <div class="center-img">
+
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                    <hr class="divider">    
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Tegning af din carport</strong>
+                    </h2>
+                    <hr class="divider">
                     <%  
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
             </div>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                    <hr class="divider"> 
+            <div class="center-img">
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Styk Liste</strong>
+                </h2>
+                <hr class="divider">
 
                     <%
-                        RendUtilStykListe styk = new RendUtilStykListe();
+                       
 
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
