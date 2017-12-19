@@ -152,7 +152,7 @@
                         RendUtilStykListe styk = new RendUtilStykListe();
 
                         // Stykliste hvis kunde har bestilt.
-                        if (oDetaljer.getOrdreStatus().equals("Bestilt")) {
+                        if (!oDetaljer.getOrdreStatus().equals("Gemt Design")) {
                             String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
                             out.println("<p>" + stykListe + "</p>");

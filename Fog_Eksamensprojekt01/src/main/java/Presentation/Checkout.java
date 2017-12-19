@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * Denne class er en af commands'ne.
  * Bruges på customer_shopping_cart.jsp, hvor kunden skal bekræfte om ordren
  * skal bestiles. Når kunden trykker "Bestil ordren of afvent svar snarest", så
- * ændres ordre statusen på kunden sordre til "Ny ordre".
+ * ændres ordre statusen på kundens ordre til "Ny ordre".
  *
  */
 public class Checkout extends Command {

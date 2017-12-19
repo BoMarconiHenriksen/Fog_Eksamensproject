@@ -9,9 +9,9 @@ import Business.Domain.User;
 import java.util.List;
 
 /**
- *Formålet med LogicFacade er at skabe en facade mellem presentations laget
- * og business/ logic laget for at samle alle de metoder der bliver kaldt fra
- * præsentationslaget i et interface. Javadoc for de enkelte metoder er beskrevet
+ *Formålet med LogicFacade er at skabe en facade mellem præsentationslaget
+ * og business/logic laget for at samle alle de metoder der bliver kaldt fra
+ * præsentationslaget i en grænseflade. Javadoc for de enkelte metoder er beskrevet
  * nærmere i de klasser de kommer fra. 
  */
 public class LogicFacade {
@@ -96,18 +96,6 @@ public class LogicFacade {
         return user.getUser_id();
     }
     
-     /**
-     *
-     * @param userId
-     * @param zipcode
-     * @param email
-     * @param password
-     * @param firstname
-     * @param lastname
-     * @param address
-     * @param phone
-     * @throws NewException
-     */
     public static void updateWholeUserButID(int userId, int zipcode, String email, String password, String firstname, String lastname, String address, int phone) throws NewException {
     DataFacade.updateWholeUserButID(userId, zipcode, email, password, email, firstname, lastname, address, phone);
     }
