@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * UserMapper: Håntere alle metoder til og fra databasen vedr en user.
+ * UserMapper: Håndterer alle metoder til og fra databasen vedr en user.
  *
  */
 public class UserMapper {

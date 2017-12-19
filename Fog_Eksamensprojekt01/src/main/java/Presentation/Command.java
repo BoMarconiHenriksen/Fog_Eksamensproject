@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Håntere alle de commands som benytes på alle jsp siderne i et HashMap.
- * De bruges til at tage imod og behandle imput på samme måde som en servlet ellers vil gøre.
+ * Håndterer alle de commands som benytes på alle jsp siderne i et HashMap.
+ * De bruges til at tage imod og behandle input på samme måde som en servlet ellers vil gøre.
  */
 abstract class Command {
 

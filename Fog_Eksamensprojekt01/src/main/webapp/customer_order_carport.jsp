@@ -137,7 +137,7 @@
 
                         <button type="submit" name="price" value="action">Tjek Pris </button>
                         <button type="submit" name="order" value="action">Bestil Carport </button>
-                        <button type="submit" name="save" value="action">Gem dit design, uden at bestile Carporten. </button>
+                        <button type="submit" name="save" value="action">Gem dit design, uden at bestille Carporten. </button>
 
                     </form>
                     <br>

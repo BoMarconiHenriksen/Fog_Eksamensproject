@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Håntere alle metoder til og fra databasen vedr. en ordres nærmere detaljer.
+ * Håndterer alle metoder til og fra databasen vedr. en ordres nærmere detaljer.
  *
  */
 public class OdetaljeMapper {
