@@ -108,7 +108,7 @@ public class DataFacade {
         String materialenavn = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMaterialenavn();
         double enhedspris = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhedspris();
         String enhed = MaterialeMapper.getMaterialeByVarenummer(varenummer).getEnhed();
-        double msr = MaterialeMapper.getMaterialeByVarenummer(varenummer).getMsr();
+        double msr = MaterialeMapper.getMaterialeByVarenummer(varenummer).getLængde();
         Materiale mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
         return mat;
     }
