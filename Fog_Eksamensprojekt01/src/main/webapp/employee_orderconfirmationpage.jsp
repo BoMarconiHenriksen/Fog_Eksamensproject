@@ -126,25 +126,24 @@
                 </div>
             </div>
 
-            
-                <div class="bg-faded p-4 my-4"> 
-                    
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Tegning af carporten</strong>
-                    </h2>
-                    <hr class="divider">
-                 <div class="center-img">
-             
-                    <%
-                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+
+            <div class="bg-faded p-4 my-4"> 
+
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Tegning af carporten</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
+
+                    <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
-                       
-            </div>
-       
 
-          
+            </div>
+
+
+
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -152,22 +151,22 @@
                     <strong>Styk Liste</strong>
                 </h2>
                 <hr class="divider">
-                   <div class="center-img">
+                <div class="center-img">
                     <%
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
 
-                    <div>
-                        <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
-                        <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
-                        <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-                    </div>
 
                 </div>
             </div>
-        
- </div>   
+            <div>
+                <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
+                <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
+
+                <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+            </div>
+        </div>   
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
