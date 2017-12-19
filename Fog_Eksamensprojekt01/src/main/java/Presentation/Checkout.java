@@ -6,6 +6,7 @@ import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
 import Presentation.Utillities.XXRendSvg;
+import Presentation.Utillities.XXRendUtilStykListe;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -35,6 +36,10 @@ public class Checkout extends Command {
         String carportTegning = svag.simpelCarport(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
         request.setAttribute("carportTegning", carportTegning);
 
+        XXRendUtilStykListe styk = new XXRendUtilStykListe();
+
+        String stykListe = styk.createLineItemList(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
+        request.setAttribute("stykListe", stykListe);
         request.setAttribute("length", (Double) od.getCarportLength());
         request.setAttribute("width", (Double) od.getCarportWidth());
         request.setAttribute("height", (Double) od.getCarportHeight());
