@@ -135,7 +135,7 @@
                 </div>
             </div>
 
-             <div class="center-img">
+            
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -143,13 +143,15 @@
                         <strong>Tegning af din carport</strong>
                     </h2>
                     <hr class="divider">
+                    
+                     <div class="center-img">
                     <%  
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
             </div>
 
-            <div class="center-img">
+           
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -157,7 +159,7 @@
                     <strong>Styk Liste</strong>
                 </h2>
                 <hr class="divider">
-
+ <div class="center-img">
                     <%
                        
 

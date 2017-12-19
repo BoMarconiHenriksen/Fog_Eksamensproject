@@ -156,15 +156,17 @@
                     <hr class="divider">
                     <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
                     <hr class="divider">    
-                    <%
-                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                    %>  
+                    <div class="center-img">
+                        <%
+                            out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                        %>  
 
-                    <form name="Checkout" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="OrdertheOrder">
+                        <form name="Checkout" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="OrdertheOrder">
 
-                        <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
-                    </form>
+                            <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
+                        </form>
+                    </div> 
                 </div>
             </div>               
         </div>

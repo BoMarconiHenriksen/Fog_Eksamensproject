@@ -126,15 +126,15 @@
                 </div>
             </div>
 
-             <div class="center-img">
-
-                <div class="bg-faded p-4 my-4">
+            
+                <div class="bg-faded p-4 my-4"> 
+                    
                     <hr class="divider">
                     <h2 class="text-center text-lg text-uppercase my-0">
                         <strong>Tegning af carporten</strong>
                     </h2>
                     <hr class="divider">
-                 
+                 <div class="center-img">
              
                     <%
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
@@ -144,7 +144,7 @@
             </div>
        
 
-             <div class="center-img">
+          
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -152,6 +152,7 @@
                     <strong>Styk Liste</strong>
                 </h2>
                 <hr class="divider">
+                   <div class="center-img">
                     <%
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
