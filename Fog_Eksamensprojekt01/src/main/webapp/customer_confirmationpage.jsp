@@ -102,6 +102,7 @@
                     <hr class="divider">
                     <h2 class="text-center text-lg text-uppercase my-0"><strong>Tak for købet <%= (String) session.getAttribute("username")%></strong></h2>
                     <hr class="divider">
+                    <div class="text-center">
 
                     <%
                         Odetaljer od = (Odetaljer) request.getAttribute("od");
@@ -113,7 +114,7 @@
                         double skurWidth = od.getWidthRedskabsrum();
                         double skurHeigth = 210;
                         double price = od.getPrice();
-                        
+
                         out.println("<p>" + "Ordrenummer: " + od.getOrdreId() + "</p> \n");
 
                         out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
@@ -134,24 +135,23 @@
                     %>
                 </div>
             </div>
+</div>
 
-            
 
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Tegning af din carport</strong>
-                    </h2>
-                    <hr class="divider">
-                    
-                     <div class="center-img">
-                    <%  
-                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Tegning af din carport</strong>
+                </h2>
+                <hr class="divider">
+
+                <div class="center-img">
+                    <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
             </div>
 
-           
+
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -159,21 +159,19 @@
                     <strong>Styk Liste</strong>
                 </h2>
                 <hr class="divider">
- <div class="center-img">
+                <div class="center-img">
                     <%
-                       
-
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
-
+                </div><div class="center-img">
                     <div>
                         <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
                         <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
                         <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
                     </div>
-
                 </div>
+
             </div>
         </div>
 

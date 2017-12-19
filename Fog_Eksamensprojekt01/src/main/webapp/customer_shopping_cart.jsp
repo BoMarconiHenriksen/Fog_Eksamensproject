@@ -115,39 +115,39 @@
                     <hr class="divider">
                     <h2 class="text-center text-lg text-uppercase my-0"><strong>Information om din ordre</strong></h2>
                     <hr class="divider">        
+                    <div class="text-center">
+                        <p>Dit Ordre id: ${KundensOID}</p><br>
+                        <p>Din Ordre Status: Ordren afventer din bekræftigelse.</p>
+                        <br>
 
-                    <p>Dit Ordre id: ${KundensOID}</p><br>
-                    <p>Din Ordre Status: Ordren afventer din bekræftigelse.</p>
-                    <br>
+                        <%if (request.getAttribute("lentghInput") == null) {
+                                out.println("");
+                            } else {
+                               
+                                out.println("<p> Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
 
-                    <%if (request.getAttribute("lentghInput") == null) {
-                            out.println("");
-                        } else {
-                            out.println("<h2>Pris på valgt Carport: </h2><br>");
-                            out.println("<p> Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
+                                out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("length") + "</p><br>");
+                                out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("width") + "</p><br>");
+                                out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("height") + "</p><br>");
 
-                            out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("length") + "</p><br>");
-                            out.println("<p> Ønsket Bredde: " + (Double) request.getAttribute("width") + "</p><br>");
-                            out.println("<p> Ønsket Højde: " + (Double) request.getAttribute("height") + "</p><br>");
+                                if (request.getAttribute("lentghInputSkuret") != null) {
 
-                            if (request.getAttribute("lentghInputSkuret") != null) {
+                                    out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotal") + "</p><br>");
+                                    out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
+                                    out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
+                                    out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
+                                    if ((int) request.getAttribute("count") != 0) {
+                                        out.println("<p>" + request.getAttribute("yourShedsToBig") + "</p>");
+                                    } else {
+                                        out.println("");
+                                    }
 
-                                out.println("<p> Samlet Carport pris, med skur: " + (String) request.getAttribute("carportTotal") + "</p><br>");
-                                out.println("<p> Ønsket Længde på Skuret: " + (Double) request.getAttribute("lentghInputSkuret") + "</p><br>");
-                                out.println("<p> Ønsket Bredde på Skuret: " + (Double) request.getAttribute("widthInputSkuret") + "</p><br>");
-                                out.println("<p> Standard Højde på Skuret:" + (Double) request.getAttribute("heightInputSkuret") + "</p><br>");
-                                if ((int) request.getAttribute("count") != 0) {
-                                    out.println("<p>" + request.getAttribute("yourShedsToBig") + "</p>");
                                 } else {
                                     out.println("");
                                 }
 
-                            } else {
-                                out.println("");
-                            }
-
-                        }%>
-
+                            }%>
+                    </div>
                 </div>
             </div>
 
@@ -160,11 +160,12 @@
                         <%
                             out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                         %>  
-
+                    </div> 
+                    <div class="center-img">
                         <form name="Checkout" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdertheOrder">
 
-                            <button type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
+                            <button  type="submit" name="basisCarport" value="OrdertheOrder">Bestil Ordren og afvent svar snarest. </button>
                         </form>
                     </div> 
                 </div>

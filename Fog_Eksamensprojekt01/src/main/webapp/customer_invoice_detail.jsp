@@ -188,11 +188,11 @@
                 <hr class="divider">
 
                 <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
-
+                <div class="center-img">
                 <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
             </div>
         </div>
-
+</div>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
