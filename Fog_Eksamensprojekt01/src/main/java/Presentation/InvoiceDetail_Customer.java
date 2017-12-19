@@ -12,9 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på customer__order_list.jsp til navigere kunden over på
+ * customer_invoice_detail.jsp og fremvise pris, tegning og evt. stykliste hvis
+ * ordren er bestilt. Den bruges også på customer_ordre_list.jsp til at slette
+ * en ordre og fremvise listen igen ud fra hvad der ligger i databasen. Og
+ * endeligt bruges den også på customer_invoice_detail.jsp til at ændre statusen
+ * på en gemt ordre til "Ny Ordre", hvis den fremviste ordre er gemt - eller
+ * mangler kundens bekræftigelse.
  */
 public class InvoiceDetail_Customer extends Command {
+    
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {

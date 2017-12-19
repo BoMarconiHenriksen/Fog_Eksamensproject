@@ -8,7 +8,10 @@ import javax.servlet.http.HttpSession;
 import Business.Exception.NewException;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på customerpage.jsp til at navigere kunden hen til
+ * customer_useroptions.jsp og fremvise alle kunden s oplysninger samt tage imod
+ * og ændre kundens password hvis kunden vælger et nyt password på siden.
  */
 public class Customer_UserOptions extends Command {
 

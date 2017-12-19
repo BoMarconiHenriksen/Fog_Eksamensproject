@@ -8,6 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Denne class er en af commands'ne
+ * Benyttes på register.jsp til at tage imod brugerens nye oplysninger, og
+ * registrer dem i databasen, hvis de nødvendige oplysninger er udfylt, og
+ * indeholder de repektive kategoriers minimumkrav.
+ *
+ */
 public class Register extends Command {
 
     @Override

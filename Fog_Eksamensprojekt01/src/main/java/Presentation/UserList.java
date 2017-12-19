@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på employeepage.jsp til at navigere medarbejderen til employee_user_list.jsp og fremvise en detaljeret liste af alle brugere.
  */
 public class UserList extends Command {
 

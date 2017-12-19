@@ -15,11 +15,15 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * This class is one of the commands. The execute
- * method takes a bunch of parameters from the viewpage 'customer_orde_carport.jsp'
- * and then put them though various methods based on the specific button pushed
- * The parameters is also used to place
- * an order and some orderdetails in the database.
+ * Denne klasse er en af commands'ne. Bruges på customer_order_carport.jsp, når
+ * brugeren skal tjekke en pris på en carport, og trykker se pris. Brugeren
+ * bliver henvist til samme jsp side igen, men med pris og tegning af den
+ * carport som brugeren vil tjekke. Den bruges også når kunden skal gemme eller
+ * bestile en carport. I det tilfælde bliver de oplysninger som kunden har
+ * intastet behanldet lige som når man skal se en pris, men samtidigt sættes
+ * nogle af oplysningerne også ned i databasen. og afhængig af om kunden vælger
+ * at gemme eller bestile, så bliver vedkommende navigeret enten til
+ * customerpage.jsp igen eller til customer_shopping_cart.jsp.
  */
 public class basisCarport extends Command {
 
@@ -39,8 +43,7 @@ public class basisCarport extends Command {
         double widthinputskur = Double.parseDouble(request.getParameter("widthchoiceskur"));
         double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
         String shedOrNoShed = request.getParameter("skur");
-        
-        
+
         Ordre order = new Ordre();
         String ordre_status = null;
 
@@ -54,7 +57,7 @@ public class basisCarport extends Command {
 
             ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
-            placeOrderOdetailsSetAttributes(request, session,  user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
+            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
             return "customer_shopping_cart";
         }
@@ -176,7 +179,7 @@ public class basisCarport extends Command {
      * in login
      * @throws NewException
      */
-    private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session,  int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
+    private void placeOrderOdetailsSetAttributes(HttpServletRequest request, HttpSession session, int user_id, String ordre_status, double lentghinput, double widthinput, double heightinput, double lentghinputskur, double widthinputskur, double heightputskur, String skurellerej, double totalPrice) throws NewException {
 
         LocalDate today = LocalDate.now();
         //Kalder dateTimeFormatter

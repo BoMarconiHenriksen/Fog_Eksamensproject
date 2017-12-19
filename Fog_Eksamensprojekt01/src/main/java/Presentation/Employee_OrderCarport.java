@@ -1,4 +1,3 @@
-
 package Presentation;
 
 import Business.Calculator;
@@ -18,19 +17,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * Denne class er en af commands'ne.
+ * Bruges på employee_ordercarportpage.jsp til
+ * at tage imod en carport bestiling for en bestemt kunde og lægge ordren i
+ * databasen samt - navigere medarbejderen hen til
+ * employee_orderconfirmationpage.jsp
  *
  */
 public class Employee_OrderCarport extends Command {
-    
+
     /**
-     * execute: Behandler den input fra employee_ordercarportpage.jsp som brugeren intaster og vælger, og sender brugeren videre til employee_orderconfirmationpage.jsp.
-     * på employee_orderconfirmationpage.jsp udskrives så en bekræftigelse samt beregnede oplysninger på den valgte carport og den valgte bruger som carporten er bestilt til.
+     * execute: Behandler den input fra employee_ordercarportpage.jsp som
+     * brugeren intaster og vælger, og sender brugeren videre til
+     * employee_orderconfirmationpage.jsp. på employee_orderconfirmationpage.jsp
+     * udskrives så en bekræftigelse samt beregnede oplysninger på den valgte
+     * carport og den valgte bruger som carporten er bestilt til.
+     *
      * @param request
      * @param response
      * @return employee_ordercarportpage.jsp
-     * @throws NewException 
+     * @throws NewException
      */
-
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 

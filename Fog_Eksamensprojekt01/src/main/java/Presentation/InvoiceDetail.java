@@ -16,7 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på employee_order_list til at navigere medarbejderen over på
+ * employee_invoice_detail.jsp og fremvise pris, tegning og stykliste på den
+ * valgte ordre samt - tage imod en ny status og implementere den på ordren nede
+ * i databasen Den bruges også til at navigere medarbejderen tilbage til
+ * employee_ordre_list.jsp og fremvise listen af alle kundernes ordre igen samt
+ * - at slette en ordre på employee_ordre_list.jsp.
+ * 
  */
 public class InvoiceDetail extends Command {
 

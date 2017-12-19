@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på på employeepage.jsp, til at navigere medarbejderen til employee_ordre_list.jsp og få fremvist alle kundernes ordre.
+ * 
  */
 public class OrdreList extends Command {
 

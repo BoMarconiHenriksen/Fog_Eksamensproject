@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Klassen returner til employeepage.jsp og viser brugerens opdaterede oplysninger.
+ * Denne class er en af commands'ne.
+ * Commanden returner til employeepage.jsp og får implementeret brugerens opdaterede oplysninger i databasen.
  */
 public class Admin_UserAdministration extends Command {
 

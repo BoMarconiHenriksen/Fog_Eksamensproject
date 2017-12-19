@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på customerpage.jsp til at navigere kunden til customer_ordre_list.jsp og få fremvist en liste af alle kundens ordre.
  */
 public class OrdreList_Customer extends Command {
 
