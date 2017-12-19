@@ -134,7 +134,7 @@
 
                 </div>
             </div>
-            <div class="text-center mt-4">
+              <div class="center-img">
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -148,36 +148,49 @@
                         String carportTegning = rendSvg.simpelCarport(length, width, skurlength, skurWidth);
 
                         out.println("<a>" + carportTegning + "</a>");
-
                         RendUtilStykListe styk = new RendUtilStykListe();
+                    %>
 
-                        // Stykliste hvis kunde har bestilt.
-                        if (!oDetaljer.getOrdreStatus().equals("Gemt Design")) {
-                            String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
-
-                            out.println("<p>" + stykListe + "</p>");
-                        } else {
-                            out.println("");
-                        }
-                    %>  
                 </div>
             </div>
+        </div>    
+        <div class="center-img">
 
-            <div class="text-center mt-4">
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Liste over materialer</strong>
+                </h2>
+                <hr class="divider">
+                <%
+                    // Stykliste hvis kunde har bestilt.
+                    if (!oDetaljer.getOrdreStatus().equals("Gemt Design")) {
+                        String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Ordre Detaljer</strong>
-                    </h2>
-                    <hr class="divider">
-
-                    <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
-
-                    <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
-                </div>
+                        out.println("<p>" + stykListe + "</p>");
+                    } else {
+                        out.println("");
+                    }
+                %>  
             </div>
         </div>
+
+
+        <div class="text-center mt-4">
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Ordre Detaljer</strong>
+                </h2>
+                <hr class="divider">
+
+                <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
+
+                <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
+            </div>
+        </div>
+
 
         <footer class="bg-faded text-center py-5">
             <div class="container">

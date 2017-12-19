@@ -34,6 +34,8 @@ public class RendUtilStykListe {
             lineItemMetalForShed(skurLength, skurWidth);
         }
         lineItemEcoliteRoof(length, width);
+        
+          sb.append("</table>");
         return sb.toString();
 
     }
