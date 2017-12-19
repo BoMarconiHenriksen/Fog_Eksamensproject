@@ -17,11 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
-        <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -32,6 +28,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Bestil Carport for en kunde</title>

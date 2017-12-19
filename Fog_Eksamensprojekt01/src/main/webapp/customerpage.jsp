@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Skal nok slettes-->
         <!--<script type="text/javascript" src="jquery-1.8.3.js"></script>-->

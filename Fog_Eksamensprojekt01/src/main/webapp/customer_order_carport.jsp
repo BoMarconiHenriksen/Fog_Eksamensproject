@@ -17,21 +17,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
-        <!--Vores scripts ligger i head, ellers virker vores skjulte tabel ikke-->
-        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="css/js/bootstrap.min.js" type="text/javascript"></script> 
+        <!-- Vores scripts ligger i head, ellers virker vores skjulte tabel ikke -->
+        <script src="css/js/bootstrap.js" type="text/javascript"></script> 
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
-        <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>-->
+        <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
 
         <title>Bestil Carport</title>
