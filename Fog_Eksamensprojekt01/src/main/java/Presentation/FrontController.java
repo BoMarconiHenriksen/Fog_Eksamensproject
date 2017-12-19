@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Denne class er Frontcontrolleren.
+ * Den håntere alle request fra userinterfacet og response fra det underliggende system ved hjælp af alle de commands -
+ * der ligger i Presentation mappen.
  *
  */
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})

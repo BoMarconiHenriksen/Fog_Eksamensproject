@@ -18,9 +18,6 @@ public class LogicFacade {
 
     ////////////////Kalder metoder i DataFacaden////////////////
 
-    public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
-        return DataFacade.getOrderByOrderId2(ordre_id);
-    }
 
     public static Odetaljer getOdetaljerByOrderId(int ordre_id) throws NewException {
         return DataFacade.getOdetaljerByOrderId(ordre_id);

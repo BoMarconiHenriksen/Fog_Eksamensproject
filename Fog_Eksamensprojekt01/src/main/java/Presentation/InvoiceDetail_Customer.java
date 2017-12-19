@@ -6,31 +6,31 @@ import Business.Domain.Odetaljer;
 import Business.Domain.Ordre;
 import Business.Domain.User;
 import Presentation.Utillities.RendUtilOrderList_Customer;
+import Presentation.Utillities.RendUtilStykListe;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Denne class er en af commands'ne.
- * Bruges på customer__order_list.jsp til navigere kunden over på
- * customer_invoice_detail.jsp og fremvise pris, tegning og evt. stykliste hvis
- * ordren er bestilt. Den bruges også på customer_ordre_list.jsp til at slette
- * en ordre og fremvise listen igen ud fra hvad der ligger i databasen. Og
- * endeligt bruges den også på customer_invoice_detail.jsp til at ændre statusen
- * på en gemt ordre til "Ny Ordre", hvis den fremviste ordre er gemt - eller
- * mangler kundens bekræftigelse.
+ * Denne class er en af commands'ne. Bruges på customer__order_list.jsp til
+ * navigere kunden over på customer_invoice_detail.jsp og fremvise pris, tegning
+ * og evt. stykliste hvis ordren er bestilt. Den bruges også på
+ * customer_ordre_list.jsp til at slette en ordre og fremvise listen igen ud fra
+ * hvad der ligger i databasen. Og endeligt bruges den også på
+ * customer_invoice_detail.jsp til at ændre statusen på en gemt ordre til "Ny
+ * Ordre", hvis den fremviste ordre er gemt - eller mangler kundens
+ * bekræftigelse.
  */
 public class InvoiceDetail_Customer extends Command {
-    
+
     /**
-     * 
+     *
      * @param request
      * @param response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,9 +44,10 @@ public class InvoiceDetail_Customer extends Command {
         String SetOrderStatusByCustomer = request.getParameter("InvSetOrderStatusbyCustomer");
 
         int orderid = Integer.parseInt(request.getParameter("id"));
+
         request.setAttribute("orderid", orderid);
 
-        Odetaljer oDetaljer = LogicFacade.getOrderByOrderId2(orderid);
+        Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(orderid);
 
         request.setAttribute("length", (Double) oDetaljer.getCarportLength());
         request.setAttribute("width", (Double) oDetaljer.getCarportWidth());
@@ -65,7 +66,7 @@ public class InvoiceDetail_Customer extends Command {
             request.setAttribute("customer_orderlist", customer_Orderlist);
             return "customer_order_list";
         }
-        if (lockIntoOrder != null) {
+        if (lockIntoOrder != null) { 
 
             return "customer_invoice_detail";
         }

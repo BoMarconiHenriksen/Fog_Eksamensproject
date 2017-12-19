@@ -48,45 +48,6 @@ public class OdetaljeMapper {
 
     }
     
-    /**
-     * Henter en ordres nærmere detaljer, ud fra et valgt ordre id, fra databasen.
-     * @param ordre_id er ordre idet.
-     * @return oDetaljer en ordre.
-     * @throws NewException ved fejl. 
-     */
-    public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
-
-        Odetaljer o = null;
-        try {
-            Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
-
-            while (rs.next()) {
-
-                int odetaljerId = rs.getInt("odetaljer_id");
-                double carportLength = rs.getDouble("carport_length");
-                double carportWidth = rs.getDouble("carport_width");
-                double carportHeight = rs.getDouble("carport_height");
-                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
-                int tagType = rs.getInt("tagtype");
-                String ordreStatus = rs.getString("ordre_status");
-                double price =rs.getDouble("price");
-
-                o = new Odetaljer(odetaljerId, ordre_id, ordreStatus,
-                        carportLength, carportWidth,
-                        carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType, price);
-
-                return o;
-            }
-        } catch (SQLException ex) {
-            logger.log(Level.SEVERE, "Fejl i getOrderByOrderId2", ex);
-            throw new NewException(ex.getMessage());
-        }
-        return o;
-
-    }
     
     /**
      * Overskrider en ordres status men en ny en i databasen.
@@ -143,37 +104,6 @@ public class OdetaljeMapper {
 
     }
 
-    /**
-     * Gør præcis det samme som ovenstående metode. Bør Slettes!!!
-     * @param ordre_id er ordrens id.
-     * @return 
-     * @throws NewException ved fejl.
-     */
-    public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer oDetaljer = null;
-        try {
-            Connection con = DBConnector.connection();
-            String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
-            ResultSet rs = con.prepareStatement(sql).executeQuery();
-            while (rs.next()) {
-                int odetaljerId = rs.getInt("odetaljer_id");
-                int ordreId = rs.getInt("ordre_id");
-                String ordreStatus = rs.getString("ordre_status");
-                double carportLength = rs.getDouble("carport_length");
-                double carportWidth = rs.getDouble("carport_width");
-                double carportHeight = rs.getDouble("carport_height");
-                double lengthRedskabsrum = rs.getDouble("length_redskabsrum");
-                double widthRedskabsrum = rs.getDouble("width_redskabsrum");
-                int tagType = rs.getInt("tagtype");
-                    double price =rs.getDouble("price");
-                oDetaljer = new Odetaljer(odetaljerId, ordreId, 
-                        ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType,price);
-            }
-        } catch (SQLException ex) {
-            throw new NewException(ex.getMessage());
-        }
-        return null;
-    }
 
    /**
     * Gør præcis det samme som addOdetaljerToOdetaljeListe. Bør slettes!!!
@@ -217,8 +147,7 @@ public class OdetaljeMapper {
 //        } catch (Exception ex) {
 //            Logger.getLogger(OrdreMapper.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        System.out.println(OdetaljeMapper.getOrderByOrderId2(2).getOrdreStatus());
-        System.out.println("ordre detalje liste:");
+       
 
     }
 }

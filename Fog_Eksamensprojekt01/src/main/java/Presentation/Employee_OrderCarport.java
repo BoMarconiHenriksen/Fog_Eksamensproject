@@ -209,7 +209,7 @@ public class Employee_OrderCarport extends Command {
         session.setAttribute("SessionIOD", orderId);
         Odetaljer oDetaljer = new Odetaljer(orderId, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         DataFacade.AddOdetailstoOrdermedSkur(orderId, oDetaljer);
-        DataFacade.getOrderByOrderId2(orderId);
+        DataFacade.getOdetaljerByOrderId(orderId);
 
         oDetaljer = DataFacade.getOdetaljerByOrderId(orderId);
         request.setAttribute("length", (Double) oDetaljer.getCarportLength());
