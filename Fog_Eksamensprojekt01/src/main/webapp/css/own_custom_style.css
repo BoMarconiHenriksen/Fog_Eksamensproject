@@ -20,15 +20,10 @@
     white-space:nowrap
 }
 
-/*Sætter den rigtige størrelse på logoet*/
+/*Sætter den rigtige størrelse på logoet, 
+og gør at billedet bliver på siden, når der skaleres ned.*/
 .logo {
-    width: 123%;
-    padding-right: 25px;
-}
-
-/*Sætter den rigtige størrelse på header image*/
-.header_image {
-    width: 48%;
+    width: 100%;
 }
 
 /*Laver logoet i footeren mindre*/
