@@ -41,10 +41,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
