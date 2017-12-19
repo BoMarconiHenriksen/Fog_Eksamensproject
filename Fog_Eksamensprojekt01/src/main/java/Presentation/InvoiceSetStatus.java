@@ -1,8 +1,11 @@
 
 package Presentation;
 
+import Business.Domain.Ordre;
 import Business.Exception.NewException;
 import Business.LogicFacade;
+import Presentation.Utillities.RendUtilOrderList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +32,21 @@ public class InvoiceSetStatus extends Command{
         int ordreId =Integer.parseInt(request.getParameter("id"));
         
         LogicFacade.updateOrdreStatus(ordreId, status);
+        
+          List<Ordre> ordreList = LogicFacade.getOrderList();
+        String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
+
+
+        if (ordreList.isEmpty()) {
+
+            request.setAttribute("admin_orderlist", "Der er ikke nogen ordre."
+                    + "Hvis der er nogen der har bestilt en ordre, vil den fremgå her på siden.");
+
+        } else {
+
+            request.setAttribute("employee_orderlist", employee_Orderlist);
+
+        }
         
         return "employee_ordre_list";
        

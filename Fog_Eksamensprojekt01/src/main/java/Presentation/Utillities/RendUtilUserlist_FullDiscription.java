@@ -6,17 +6,11 @@ import Business.Domain.User;
 import java.util.List;
 
 /**
- *
- * @author Ejer
+ * Printer en liste med brugerens oplysninger.
  */
 public class RendUtilUserlist_FullDiscription {
     
-    /**
-     *
-     * @param userList
-     * @return
-     * @throws NewException
-     */
+    
     public static String invoiceList(List<User> userList) throws NewException {
     
         userList = LogicFacade.getUserList();
@@ -28,19 +22,19 @@ public class RendUtilUserlist_FullDiscription {
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Bruger ID </th><br><th>Bruger Type   </th> <th> Email Addresse  </th> <th>  Fornavn </th> <th> Efternavn  </th> <th> Postnummer  </th>"
                 + " <th> Addresse  </th> <th> Tlf Nummer  </th></tr>\n");
-        for (User u : userList) {
+        for (User user : userList) {
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
-            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Admin_UserEdit\">");
-            sb.append("<td>").append("  " + (u.getUser_id())).append("</td>");
-            sb.append("<td>").append("  " + u.getRole()).append("</td>");
-            sb.append("<td>").append("  " + u.getEmail()).append("</td>");
-            sb.append("<td>").append("  " + u.getFirstname()).append("</td>");
-            sb.append("<td>").append("  " + u.getLastname()).append("</td>");
-            sb.append("<td>").append("  " + u.getZip()).append("</td>");
-            sb.append("<td>").append("  " + u.getAddress()).append("</td>");
-            sb.append("<td>").append("  " + u.getTlfnummer()).append("</td>");
-             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"theUser_id\" value=\"").append(u.getUser_id()).append("\"><br>\n\n</td>");
+            sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail\">");
+            sb.append("<td>").append("  " + (user.getUser_id())).append("</td>");
+            sb.append("<td>").append("  " + user.getRole()).append("</td>");
+            sb.append("<td>").append("  " + user.getEmail()).append("</td>");
+            sb.append("<td>").append("  " + user.getFirstname()).append("</td>");
+            sb.append("<td>").append("  " + user.getLastname()).append("</td>");
+            sb.append("<td>").append("  " + user.getZip()).append("</td>");
+            sb.append("<td>").append("  " + user.getAddress()).append("</td>");
+            sb.append("<td>").append("  " + user.getTlfnummer()).append("</td>");
+             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"theUser_id\" value=\"").append(user.getUser_id()).append("\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }
         sb.append("</table>\n");

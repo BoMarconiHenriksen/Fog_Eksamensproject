@@ -1,17 +1,20 @@
 package Presentation;
 
 import Business.Exception.NewException;
-import Business.DataFacade;
 import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
-import Presentation.Utillities.XXRendSvg;
-import Presentation.Utillities.XXRendUtilStykListe;
+import Presentation.Utillities.RendSvg;
+import Presentation.Utillities.RendUtilStykListe;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * Denne class er en af commands'ne.
+ * Bruges på customer_shopping_cart.jsp, hvor kunden skal bekræfte om ordren
+ * skal bestiles. Når kunden trykker "Bestil ordren of afvent svar snarest", så
+ * ændres ordre statusen på kunden sordre til "Ny ordre".
  *
  */
 public class Checkout extends Command {
@@ -22,36 +25,36 @@ public class Checkout extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         request.setAttribute("userNr", user.getUser_id());
-        int or;
+        int ordreId;
         if (request.getParameter("basisCarport") != null) {
-            or = (int) (session.getAttribute("SessionIOD"));
+            ordreId = (int) (session.getAttribute("SessionIOD"));
         } else {
-            or = Integer.parseInt(request.getParameter("id"));
+            ordreId = Integer.parseInt(request.getParameter("id"));
         }
 
-        LogicFacade.getOrderByOrderId2(or);
-        Odetaljer od = LogicFacade.getOdetaljerByOrderId(or);
-        String status = od.getOrdreStatus();
-        XXRendSvg svag = new XXRendSvg();
-        String carportTegning = svag.simpelCarport(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
+        LogicFacade.getOrderByOrderId2(ordreId);
+        Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(ordreId);
+        String status = oDetaljer.getOrdreStatus();
+        RendSvg svag = new RendSvg();
+        String carportTegning = svag.simpelCarport(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
         request.setAttribute("carportTegning", carportTegning);
 
-        XXRendUtilStykListe styk = new XXRendUtilStykListe();
+        RendUtilStykListe styk = new RendUtilStykListe();
 
-        String stykListe = styk.createLineItemList(od.getCarportLength(), od.getCarportWidth(), od.getLengthRedskabsrum(), od.getWidthRedskabsrum());
+        String stykListe = styk.createLineItemList(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
         request.setAttribute("stykListe", stykListe);
-        request.setAttribute("length", (Double) od.getCarportLength());
-        request.setAttribute("width", (Double) od.getCarportWidth());
-        request.setAttribute("height", (Double) od.getCarportHeight());
-        request.setAttribute("redskabsskur_length", (Double) od.getLengthRedskabsrum());
-        request.setAttribute("redskabsskur_width", (Double) od.getWidthRedskabsrum());
-        request.setAttribute("price", (Double) od.getPrice());
-        request.setAttribute("od", od);
+        request.setAttribute("length", (Double) oDetaljer.getCarportLength());
+        request.setAttribute("width", (Double) oDetaljer.getCarportWidth());
+        request.setAttribute("height", (Double) oDetaljer.getCarportHeight());
+        request.setAttribute("redskabsskur_length", (Double) oDetaljer.getLengthRedskabsrum());
+        request.setAttribute("redskabsskur_width", (Double) oDetaljer.getWidthRedskabsrum());
+        request.setAttribute("price", (Double) oDetaljer.getPrice());
+        request.setAttribute("od", oDetaljer);
         request.setAttribute("status", status);
 
         status = "Ny ordre";
 
-        LogicFacade.updateOrdreStatus(or, status);
+        LogicFacade.updateOrdreStatus(ordreId, status);
 
         return "customer_confirmationpage";
     }

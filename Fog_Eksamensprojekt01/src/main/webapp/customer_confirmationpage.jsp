@@ -4,8 +4,8 @@
 --%>
 
 
+<%@page import="Presentation.Utillities.RendUtilStykListe"%>
 <%@page import="Business.Domain.Odetaljer"%>
-<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -108,9 +108,6 @@
                     <%
                         Odetaljer od = (Odetaljer) request.getAttribute("od");
 
-
-                                     
-
                         double length = od.getCarportLength();
                         double width = od.getCarportWidth();
                         double heigth = od.getCarportHeight();
@@ -156,7 +153,7 @@
                     <hr class="divider"> 
 
                     <%
-                       
+                        RendUtilStykListe styk = new RendUtilStykListe();
 
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  

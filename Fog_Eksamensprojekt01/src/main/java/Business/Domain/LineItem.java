@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Business.Domain;
 
 /**
- *
- * @author Ejer
+ * Klassen er objektet for LineItem.
  */
 public class LineItem {
-    
-    
     
     private String description;
     private String material_name;
@@ -32,6 +24,10 @@ public class LineItem {
         this.material_name = material_name;
         this.amount = amount;
         this.unit = unit;
+    }
+    
+    public LineItem() {
+        
     }
     
     public String getDescription() {

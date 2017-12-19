@@ -19,7 +19,10 @@ public class DBConnector {
     private final static String PASSWORD = "password123";
     private static Connection singleton;
     
-    //Bruges til test
+    /**
+     * Metoden bruges til test af databasen.
+     * @param con er vores connection.
+     */
     public static void setConnection( Connection con ) {
         singleton = con;
 }
@@ -27,8 +30,7 @@ public class DBConnector {
 /**
  * Metoden laver en forbindelse til databasen. Vi bruger singular pattern, så vi er sikre på kun at åbne en forbindelse.
  * @return en forbindelse til databasen.
- * @throws ClassNotFoundException
- * @throws SQLException 
+ * @throws Business.Exception.NewException Ved fejl.
  */
     public static Connection connection() throws NewException {
         if (singleton == null) {

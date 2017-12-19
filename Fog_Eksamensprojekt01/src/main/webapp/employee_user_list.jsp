@@ -1,7 +1,6 @@
 <%-- 
     Document   : employee_user_list
     Created on : 14-12-2017, 20:55:46
-    Author     : 
 --%>
 
 <%@page import="Business.Domain.User"%>
@@ -74,12 +73,6 @@
                             </div>
                         </form>
 
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                            </div>
-                        </form>
 
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">

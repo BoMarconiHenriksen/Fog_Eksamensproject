@@ -13,29 +13,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * UserMapper: Håntere alle alle forbindelser til og fra databasen vedr en user.
+ * UserMapper: Håntere alle metoder til og fra databasen vedr en user.
  *
- * @author Ejer
  */
 public class UserMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
-    
-    /**
-     * Metoden henter lt data tilknyttet en bestem bruger, ud fra et specifikt user_id.
-     * @param user_id
-     * @return u
-     */
 
+    /**
+     * Metoden henter lt data tilknyttet en bestem bruger, ud fra et specifikt
+     * user_id.
+     *
+     * @param user_id er brugerens id.
+     * @return user som er en bruger.
+     */
     public static User getUserByUserId(int user_id) throws NewException {
 
-        User u = null;
+        User user = null;
+
         try {
 
-//            Connection con = DBConnector.connection();
-
+            Connection con = DBConnector.connection();
             String sql = "SELECT * FROM userlist WHERE user_id=" + user_id;
-            ResultSet rs = DBConnector.connection().prepareStatement(sql).executeQuery();
+            ResultSet rs = con.prepareStatement(sql).executeQuery();
             while (rs.next()) {
                 int userId = rs.getInt("user_id");
                 int zipcode = rs.getInt("zipcode");
@@ -46,26 +46,27 @@ public class UserMapper {
                 String lastname = rs.getString("lastname");
                 String address = rs.getString("address");
                 int tlfnummer = rs.getInt("tlfnummer");
-                u = new User(userId, zipcode, email, password, role,
+                user = new User(userId, zipcode, email, password, role,
                         firstname, lastname,
                         address, tlfnummer);
 
-                return u;
+                return user;
             }
 
         } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Fejl i getUserByUserId", ex);
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return u;
+        return user;
     }
-    
-    /**
-     * createUser: opretter en bruger med email, tlf, addresse, password m.m i databasen.
-     * @param user
-     * @throws NewException 
-     */
 
+    /**
+     * opretter en bruger med email, tlf, addresse, password m.m i
+     * databasen.
+     *
+     * @param user er brugeren.
+     * @throws NewException ved fejl.
+     */
     public static void createUser(User user) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -86,15 +87,16 @@ public class UserMapper {
             throw new NewException(ex.getMessage());
         }
     }
-    
-    /**
-     * login: giver en forspørgsmål på en bruger, om brugerens email og password kan matches, og hvis de gør, retueneres resten af brugerens oplysninger.
-     * @param email
-     * @param password
-     * @return user
-     * @throws NewException 
-     */
 
+    /**
+     * Giver en forspørgsmål på en bruger, om brugerens email og password
+     * kan matches, og hvis de gør, retueneres resten af brugerens oplysninger.
+     *
+     * @param email er brugerns email.
+     * @param password er brugerens password.
+     * @return user er brugeren
+     * @throws NewException ved fejl.
+     */
     public static User login(String email, String password) throws NewException {
         try {
             User user;
@@ -124,14 +126,15 @@ public class UserMapper {
             throw new NewException(ex.getMessage());
         }
     }
-    
-    /**
-     * updateUserPassword: Metoden overskrider en brugers tidligere password med et nyt et.
-     * @param user_id
-     * @param password
-     * @throws NewException 
-     */
 
+    /**
+     * Metoden overskrider en brugers tidligere password med
+     * et nyt et.
+     *
+     * @param user_id er brugerens id.
+     * @param password er brugerens password.
+     * @throws NewException ved fejl.
+     */
     public static void updateUserPassword(int user_id, String password) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -147,26 +150,22 @@ public class UserMapper {
         }
 
     }
-    
-
-   
 
     /**
-     * updateWholeUserButID: Metoden overskrider alle brugerens data i databasen med nyt (eller samme data), bortset fra brugerens unike id.
-     * @param user_id
-     * @param zip
-     * @param email
-     * @param password
-     * @param role
-     * @param firstname
-     * @param lastname
-     * @param address
-     * @param tlfnummer
-     * @throws NewException 
+     * Metoden overskrider alle brugerens data i databasen
+     * med nyt (eller samme data), bortset fra brugerens unike id.
+     * @param user_id er brugerens id.
+     * @param zip er brugerens postnummer.
+     * @param email er brugerens email.
+     * @param password er brugerens password.
+     * @param role er brugerens rolle.
+     * @param firstname er brugerens fornavn.
+     * @param lastname er brugerens efternavn.
+     * @param address er brugerens adresse.
+     * @param tlfnummer er brugerens telefonnummer
+     * @throws NewException ved fejl.
      */
-
-    
-    public static void updateWholeUserbutID(int user_id, int zip, String email, String password, 
+    public static void updateWholeUserbutID(int user_id, int zip, String email, String password,
             String role, String firstname, String lastname, String address, int tlfnummer) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -189,19 +188,20 @@ public class UserMapper {
         }
 
     }
-    
+
     /**
-     * getUserlist: Metoden henter opretter en liste og indsætter den, med alle databasens brugere.
-     * @return userList.
-     * @throws NewException 
+     * Metoden henter opretter en liste og indsætter den, med alle
+     * databasens brugere.
+     *
+     * @return userList som er en liste over alle brugerne.
+     * @throws NewException ved fejl.
      */
-    
     public static List<User> getUserList() throws NewException {
         List<User> userList = new ArrayList<>();
 
         try {
 
-            User u;
+            User user;
 
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM userlist";
@@ -219,9 +219,9 @@ public class UserMapper {
                 int tlfnummer = rs.getInt("tlfnummer");
                 if (user_id != lastId) {
 
-                    u = new User(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
+                    user = new User(user_id, zip, email, password, role, firstname, lastname, address, tlfnummer);
 
-                    userList.add(u);
+                    userList.add(user);
                 }
             }
         } catch (SQLException ex) {

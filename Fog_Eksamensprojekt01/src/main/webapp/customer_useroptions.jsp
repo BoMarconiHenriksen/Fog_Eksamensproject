@@ -110,8 +110,8 @@
                     <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
 
                     <div>
-                        <form name="Customer_UserOptionsPasswordChange" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Customer_UserOptionsPasswordChange">
+                        <form name="Customer_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Customer_UserOptions">
 
                             Intast nuværende Password: <input type="password" name="passwordOld" ><br>
                             Ændre Password: <input type="password" name="passwordNew" ><br>

@@ -8,15 +8,22 @@ import Business.Domain.Ordre;
 import Business.Domain.User;
 import Presentation.Utillities.RendUtilOrderList;
 import Presentation.Utillities.RendUtilUserlist_FullDiscription;
-import Presentation.Utillities.XXRendSvg;
-import Presentation.Utillities.XXRendUtilStykListe;
+import Presentation.Utillities.RendSvg;
+import Presentation.Utillities.RendUtilStykListe;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på employee_order_list til at navigere medarbejderen over på
+ * employee_invoice_detail.jsp og fremvise pris, tegning og stykliste på den
+ * valgte ordre samt - tage imod en ny status og implementere den på ordren nede
+ * i databasen Den bruges også til at navigere medarbejderen tilbage til
+ * employee_ordre_list.jsp og fremvise listen af alle kundernes ordre igen samt
+ * - at slette en ordre på employee_ordre_list.jsp.
+ * 
  */
 public class InvoiceDetail extends Command {
 
@@ -46,29 +53,26 @@ public class InvoiceDetail extends Command {
             request.setAttribute("userTlfnummer", us.getTlfnummer());
             request.setAttribute("userPassword", us.getPassword());
 
-
-//            int userNotifyValue = 0;
-//            request.setAttribute("outprintnotifystatus", userNotifyValue);
             return "employee_usercontrolpage";
         } else {
 
             int orderid = Integer.parseInt(request.getParameter("id"));
             request.setAttribute("orderid", orderid);
 
-            Odetaljer od = DataFacade.getOdetaljerByOrderId(orderid);
-            request.setAttribute("od", od);
+            Odetaljer oDetaljer = DataFacade.getOdetaljerByOrderId(orderid);
+            request.setAttribute("od", oDetaljer);
 
-            double length = (Double) od.getCarportLength();
-            double width = (Double) od.getCarportWidth();
-            double skurlength = (Double) od.getLengthRedskabsrum();
-            double skurWidth = (Double) od.getWidthRedskabsrum();
-            double price = od.getPrice();
+            double length = (Double) oDetaljer.getCarportLength();
+            double width = (Double) oDetaljer.getCarportWidth();
+            double skurlength = (Double) oDetaljer.getLengthRedskabsrum();
+            double skurWidth = (Double) oDetaljer.getWidthRedskabsrum();
+            double price = oDetaljer.getPrice();
             request.setAttribute("priceTwoDecimal", price);
-            XXRendUtilStykListe XXStykListe = new XXRendUtilStykListe();
+            RendUtilStykListe XXStykListe = new RendUtilStykListe();
             String LineItemsList;
             LineItemsList = XXStykListe.createLineItemList(length, width, skurlength, skurWidth);
             request.setAttribute("LineItemsList", LineItemsList);
-            XXRendSvg svag = new XXRendSvg();
+            RendSvg svag = new RendSvg();
             String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
             request.setAttribute("carportTegning", carportTegning);
 

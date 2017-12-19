@@ -7,7 +7,7 @@ import Business.Exception.NewException;
  * Klassen bruges til at lave et udprint af styklisten
  *
  */
-public class XXRendUtilStykListe {
+public class RendUtilStykListe {
 
     StringBuilder sb = new StringBuilder();
 
@@ -47,9 +47,9 @@ public class XXRendUtilStykListe {
      * @throws NewException
      */
     public String createLineItemListWood(double length, double width) throws NewException {
-        LineItem[] limes = LogicFacade.baseWood(width, length);
+        LineItem[] lineItemList = LogicFacade.baseWood(width, length);
         sb.append("<br><tr><th>Træ</th></tr>\n");
-        return forLoopLineItem(limes);
+        return forLoopLineItem(lineItemList);
     }
 
     /**
@@ -62,9 +62,9 @@ public class XXRendUtilStykListe {
      * @throws NewException
      */
     public String lineItemEcoliteRoof(double length, double width) throws NewException {
-        LineItem[] limes = LogicFacade.ecoliteRoof(width, length);
+        LineItem[] lineItemList = LogicFacade.ecoliteRoof(width, length);
         sb.append("<br><tr><th>Tag</th></tr>\n");
-        return forLoopLineItem(limes);
+        return forLoopLineItem(lineItemList);
     }
 
     /**
@@ -76,8 +76,8 @@ public class XXRendUtilStykListe {
      * @throws NewException
      */
     public String lineItemMetalForShed(double skurlength, double skurwidth) throws NewException {
-        LineItem[] limes = LogicFacade.screwsAndBracketShed(skurlength, skurwidth);
-        return forLoopLineItem(limes);
+        LineItem[] lineItemList = LogicFacade.screwsAndBracketShed(skurlength, skurwidth);
+        return forLoopLineItem(lineItemList);
     }
 
     /**
@@ -89,8 +89,8 @@ public class XXRendUtilStykListe {
      * @throws NewException
      */
     public String lineItemWoodForShed(double skurlength, double skurwidth) throws NewException {
-        LineItem[] limes = LogicFacade.woodForShed(skurlength, skurwidth);
-        return forLoopLineItem(limes);
+        LineItem[] lineItemList = LogicFacade.woodForShed(skurlength, skurwidth);
+        return forLoopLineItem(lineItemList);
     }
 
     /**
@@ -104,8 +104,8 @@ public class XXRendUtilStykListe {
      */
     public String createLineItemListMetal(double length, double width) throws NewException {
         sb.append("<br><tr><th>Beslag og Skruer</th></tr>\n");
-        LineItem[] limes = LogicFacade.carportBaseMetal(width, length);
-        return forLoopLineItem(limes);
+        LineItem[] lineItemList = LogicFacade.carportBaseMetal(width, length);
+        return forLoopLineItem(lineItemList);
     }
 
     /**
@@ -126,18 +126,18 @@ public class XXRendUtilStykListe {
     /**
      * Metoden laver en stykliste
      *
-     * @param limes er et array af LineItems
+     * @param lineItemList er et array af LineItems
      * @param sb stringbuilder, der laver tabellen.
      * @return en tabel, der indeholder styklisten.
      */
-    private String forLoopLineItem(LineItem[] limes) {
-        for (LineItem lim : limes) {
+    private String forLoopLineItem(LineItem[] lineItemList) {
+        for (LineItem lineItem : lineItemList) {
 
-            sb.append("<tr><td>" + lim.getMaterial_name() + "</td>");
-            removeNumberFromLengthForBrackets(lim);
-            sb.append("<td>" + lim.getAmount() + "</td>");
-            sb.append("<td>" + lim.getUnit() + "</td>");
-            sb.append("<td>" + lim.getDescription() + "</td>");
+            sb.append("<tr><td>" + lineItem.getMaterial_name() + "</td>");
+            removeNumberFromLengthForBrackets(lineItem);
+            sb.append("<td>" + lineItem.getAmount() + "</td>");
+            sb.append("<td>" + lineItem.getUnit() + "</td>");
+            sb.append("<td>" + lineItem.getDescription() + "</td>");
             sb.append("</tr>");
         }
         return sb.toString();
@@ -147,14 +147,14 @@ public class XXRendUtilStykListe {
      * Metoden fjerner 0.0 de steder i tabellen, hvor der står 0.0, da feltet
      * skal være tomt.
      *
-     * @param lim er en liste af LineItems
+     * @param lineItem er en liste af LineItems
      * @param sb er stringbuilderen
      */
-    private void removeNumberFromLengthForBrackets(LineItem lim) {
-        if (lim.getDimension() == 0.0) {
+    private void removeNumberFromLengthForBrackets(LineItem lineItem) {
+        if (lineItem.getDimension() == 0.0) {
             sb.append("<td>" + "" + "</td>");
         } else {
-            sb.append("<td>" + lim.getDimension() + "</td>");
+            sb.append("<td>" + lineItem.getDimension() + "</td>");
         }
     }
 

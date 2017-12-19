@@ -1,8 +1,7 @@
 package Business.Domain;
 
 /**
- *
- * @author Bo
+ * Klassen er objektet for Odetaljer.
  */
 public class Odetaljer {
 
@@ -16,40 +15,6 @@ public class Odetaljer {
     private double width_redskabsrum;
     private int tagType;
     private double price;
-    
-    public Odetaljer(){
-        
-    }
-
-    public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, int tagType) {
-        this.odetaljerId = odetaljerId;
-        this.ordre_id = ordre_id;
-        this.ordre_status = ordreStatus;
-        this.carport_length = carport_length;
-        this.carport_width = carport_width;
-        this.carport_height = carport_height;
-        this.length_redskabsrum = length_redskabsrum;
-        this.width_redskabsrum = width_redskabsrum;
-        this.tagType = tagType;
-    }
-
-    public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum) {
-        this.ordre_id = ordre_id;
-        this.ordre_status = ordre_status;
-        this.carport_length = carport_length;
-        this.carport_width = carport_width;
-        this.carport_height = carport_height;
-        this.length_redskabsrum = length_redskabsrum;
-        this.width_redskabsrum = width_redskabsrum;
-    }
-
-    public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height) {
-        this.ordre_id = ordre_id;
-        this.ordre_status = ordre_status;
-        this.carport_length = carport_length;
-        this.carport_width = carport_width;
-        this.carport_height = carport_height;
-    }
 
     public Odetaljer(int ordre_id, double carport_length, double carport_width, double carport_height) {
         this.ordre_id = ordre_id;
@@ -57,18 +22,6 @@ public class Odetaljer {
         this.carport_width = carport_width;
         this.carport_height = carport_height;
     }
-    
-    
-        public Odetaljer(String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum) {
-        this.ordre_status = ordre_status;
-        this.carport_length = carport_length;
-        this.carport_width = carport_width;
-        this.carport_height = carport_height;
-        this.length_redskabsrum = length_redskabsrum;
-        this.width_redskabsrum = width_redskabsrum;
-    }
-        
-        
 
     public Odetaljer(int ordre_id, String ordre_status, double carport_length, double carport_width, double carport_height, double length_redskabsrum, double width_redskabsrum, double price) {
         this.ordre_id = ordre_id;
@@ -81,8 +34,9 @@ public class Odetaljer {
         this.price = price;
     }
 
-    public Odetaljer(int ordre_id,  String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType, double price) {
-      this.ordre_id = ordre_id;
+    public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType, double price) {
+        this.odetaljerId = odetaljerId;
+        this.ordre_id = ordre_id;
         this.ordre_status = ordreStatus;
         this.carport_length = carportLength;
         this.carport_width = carportWidth;
@@ -93,17 +47,8 @@ public class Odetaljer {
         this.price = price;
     }
 
-    public Odetaljer(int odetaljerId, int ordre_id, String ordreStatus, double carportLength, double carportWidth, double carportHeight, double lengthRedskabsrum, double widthRedskabsrum, int tagType, double price) {
-       this.odetaljerId = odetaljerId;
-        this.ordre_id = ordre_id;
-        this.ordre_status = ordreStatus;
-        this.carport_length = carportLength;
-        this.carport_width = carportWidth;
-        this.carport_height = carportHeight;
-        this.length_redskabsrum = lengthRedskabsrum;
-        this.width_redskabsrum = widthRedskabsrum;
-        this.tagType = tagType;
-         this.price = price;
+    public Odetaljer() {
+
     }
 
     public double getPrice() {
@@ -113,7 +58,6 @@ public class Odetaljer {
     public void setPrice(double price) {
         this.price = price;
     }
-    
 
     public int getOdetaljerId() {
         return odetaljerId;
@@ -130,7 +74,6 @@ public class Odetaljer {
     public void setOrdreId(int ordreId) {
         this.ordre_id = ordreId;
     }
-
 
     public String getOrdreStatus() {
         return ordre_status;

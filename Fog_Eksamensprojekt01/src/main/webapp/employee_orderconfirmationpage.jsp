@@ -3,7 +3,7 @@
     Created on : 10-12-2017, 19:58:54
 --%>
 
-<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
+<%@page import="Presentation.Utillities.RendUtilStykListe"%>
 <%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 
@@ -74,13 +74,6 @@
                             </div>
                         </form>
 
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                            </div>
-                        </form>
-
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
@@ -102,19 +95,19 @@
                     <hr class="divider">
 
                     <%
-                        Odetaljer od = (Odetaljer) request.getAttribute("od");
+                        Odetaljer oDetaljer = (Odetaljer) request.getAttribute("od");
 
-                        double length = od.getCarportLength();
-                        double width = od.getCarportWidth();
-                        double heigth = od.getCarportHeight();
-                        double skurlength = od.getLengthRedskabsrum();
-                        double skurWidth = od.getWidthRedskabsrum();
+                        double length = oDetaljer.getCarportLength();
+                        double width = oDetaljer.getCarportWidth();
+                        double heigth = oDetaljer.getCarportHeight();
+                        double skurlength = oDetaljer.getLengthRedskabsrum();
+                        double skurWidth = oDetaljer.getWidthRedskabsrum();
                         double skurHeigth = 210;
 
                         out.println("<p>" + "Bestilling for kunde nr.:  " + request.getAttribute("kunde_ided") + "</p> \n");
-                        out.println("<p>" + "Bestillings id: " + od.getOrdreId() + "</p> \n");
+                        out.println("<p>" + "Bestillings id: " + oDetaljer.getOrdreId() + "</p> \n");
 
-                        double price = od.getPrice();
+                        double price = oDetaljer.getPrice();
 
                         out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 

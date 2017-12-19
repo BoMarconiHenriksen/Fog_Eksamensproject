@@ -77,14 +77,6 @@
                             </div>
                         </form>
 
-
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                            </div>
-                        </form>
-
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
@@ -115,11 +107,6 @@
                     <form class="form-inline" name="UserList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="UserList">
                         <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
-                    </form>
-
-                    <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_UserOptions">
-                        <button type="submit" name="Employee_UserOptions" value="action">Kontooplysninger </button>
                     </form>
 
                     <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">

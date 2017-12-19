@@ -1,7 +1,6 @@
 <%-- 
     Document   : employee_usercontrolpage
     Created on : 11-12-2017, 19:29:26
-    Author     : Ticondrus
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -73,14 +72,6 @@
                             <input type="hidden" name="command" value="OrdreList">
                             <div class="form-group">
                                 <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                            </div>
-                        </form>
-
-
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
                             </div>
                         </form>
 

@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Benytes på index.jsp til at tage imod brugerens login imput, og logge
+ * brugeren ind på den bruger som brugeren har intastet, hvis email og password
+ * er korrekt.
  *
  */
 public class Login extends Command {
