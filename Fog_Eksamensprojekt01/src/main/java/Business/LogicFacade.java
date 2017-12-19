@@ -85,6 +85,7 @@ public class LogicFacade {
         return DataFacade.getOrdreByOrderId(ordre_id);
     }
     
+    //Bruges ikke pt, men skal bruges ved optimering af getMaterialByVarenummer()
     public static List<Materiale> getMaterial() throws NewException {
         return DataFacade.getMaterial();
     }

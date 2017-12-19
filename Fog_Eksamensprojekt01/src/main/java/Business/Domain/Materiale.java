@@ -10,16 +10,16 @@ private String materialetype;
 private String materialenavn;
 private double enhedspris;
 private String enhed;
-private double msr;
+private double længde;
 
 
-    public Materiale(int varenummer, String materialetype, String materialenavn, double enhedspris, String enhed, double msr) {
+    public Materiale(int varenummer, String materialetype, String materialenavn, double enhedspris, String enhed, double længde) {
         this.varenummer = varenummer;
         this.materialetype = materialetype;
         this.materialenavn = materialenavn;
         this.enhedspris = enhedspris;
         this.enhed = enhed;
-        this.msr=msr;
+        this.længde= længde;
     }
 
     public Materiale(int varenummer, double enhedspris) {
@@ -71,17 +71,17 @@ private double msr;
         this.enhed = enhed;
     }
 
-    public double getMsr() {
-        return msr;
+    public double getLængde() {
+        return længde;
     }
 
-    public void setMsr(double msr) {
-        this.msr = msr;
+    public void setLængde(double længde) {
+        this.længde = længde;
     }
 
     @Override
     public String toString() {
-        return "Materiale{ materialetype=" + materialetype + ", materialenavn=" + materialenavn + ", enhedspris=" + enhedspris + ", enhed=" + enhed + ", msr=" + msr + '}';
+        return "Materiale{ materialetype=" + materialetype + ", materialenavn=" + materialenavn + ", enhedspris=" + enhedspris + ", enhed=" + enhed + ", længde=" + længde + '}';
     }
 
 }
