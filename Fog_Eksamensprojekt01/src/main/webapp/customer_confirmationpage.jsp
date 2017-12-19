@@ -4,8 +4,8 @@
 --%>
 
 
+<%@page import="Presentation.Utillities.RendUtilStykListe"%>
 <%@page import="Business.Domain.Odetaljer"%>
-<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,10 +35,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -108,9 +106,6 @@
                     <%
                         Odetaljer od = (Odetaljer) request.getAttribute("od");
 
-
-                                     
-
                         double length = od.getCarportLength();
                         double width = od.getCarportWidth();
                         double heigth = od.getCarportHeight();
@@ -156,11 +151,9 @@
                     <hr class="divider"> 
 
                     <%
-                        XXRendUtilStykListe styk = new XXRendUtilStykListe();
+                        RendUtilStykListe styk = new RendUtilStykListe();
 
-                        String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
-
-                        out.println("<p>" + stykListe + "</p>");
+                        out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
 
                     <div>

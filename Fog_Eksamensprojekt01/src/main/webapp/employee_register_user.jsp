@@ -31,10 +31,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'index.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -77,15 +75,6 @@
                             <div class="form-group">
                                 <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer brugere</a> </button>
                             </div>
-                        </form>
-
-
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                            </div>
-                            
                         </form>
 
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">

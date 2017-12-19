@@ -5,8 +5,8 @@
 
 
 <%@page import="Presentation.Utillities.RendUtilCustomerOdetailsFunktions"%>
-<%@page import="Presentation.Utillities.XXRendUtilStykListe"%>
-<%@page import="Presentation.Utillities.XXRendSvg"%>
+<%@page import="Presentation.Utillities.RendUtilStykListe"%>
+<%@page import="Presentation.Utillities.RendSvg"%>
 <%@page import="Business.Domain.Odetaljer"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
@@ -39,10 +39,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -116,8 +114,8 @@
                         double heigth = (Double) request.getAttribute("height");
                         double skurlength = (Double) request.getAttribute("redskabsskur_length");
                         double skurWidth = (Double) request.getAttribute("redskabsskur_width");
-                        Odetaljer od = (Odetaljer) request.getAttribute("od");
-                        double price = od.getPrice();
+                        Odetaljer oDetaljer = (Odetaljer) request.getAttribute("od");
+                        double price = oDetaljer.getPrice();
 
                         out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
@@ -145,16 +143,16 @@
                     </h2>
                     <hr class="divider">
                     <%
-                        XXRendSvg svag = new XXRendSvg();
+                        RendSvg rendSvg = new RendSvg();
 
-                        String carportTegning = svag.simpelCarport(length, width, skurlength, skurWidth);
+                        String carportTegning = rendSvg.simpelCarport(length, width, skurlength, skurWidth);
 
                         out.println("<a>" + carportTegning + "</a>");
 
-                        XXRendUtilStykListe styk = new XXRendUtilStykListe();
+                        RendUtilStykListe styk = new RendUtilStykListe();
 
                         // Stykliste hvis kunde har bestilt.
-                        if (od.getOrdreStatus().equals("Bestilt")) {
+                        if (oDetaljer.getOrdreStatus().equals("Bestilt")) {
                             String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
                             out.println("<p>" + stykListe + "</p>");
@@ -174,7 +172,7 @@
                     </h2>
                     <hr class="divider">
 
-                    <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(od)%>
+                    <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
 
                     <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
                 </div>

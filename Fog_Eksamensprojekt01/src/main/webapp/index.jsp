@@ -33,10 +33,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'index.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -92,17 +90,20 @@
                 <h2 class="text-center text-lg text-uppercase my-0">En Carport Efter Dine
                     <strong>Drømme</strong>
                 </h2>
-                <% if (request.getAttribute("succes")!=null){
-                    out.println("<p>"+request.getAttribute("pleaselogin")+"</p>");
-                }else{
-                    
-                }%>
                 <hr class="divider">
-                
+            </div>
+            <!--Bruges når en kunde har regisret sig-->
+            <% if (request.getAttribute("succes") != null) {
+                    out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
+                } else {
+
+                }%>
+
+            <div class="bg-faded p-4 my-4">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
             </div> 
         </div>
 
@@ -115,8 +116,7 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>      
-    </div>
+        </footer>       
 
-</body>
+    </body>
 </html>

@@ -32,10 +32,8 @@
         <!-- Logo og header billed-->
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo.png" alt="Fog Logo">
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
-
-            <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'customer_order_carport.jsp'" alt="Carport efter eget mål">
         </div>
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -110,8 +108,8 @@
                     <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
 
                     <div>
-                        <form name="Customer_UserOptionsPasswordChange" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Customer_UserOptionsPasswordChange">
+                        <form name="Customer_UserOptions" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="Customer_UserOptions">
 
                             Intast nuværende Password: <input type="password" name="passwordOld" ><br>
                             Ændre Password: <input type="password" name="passwordNew" ><br>

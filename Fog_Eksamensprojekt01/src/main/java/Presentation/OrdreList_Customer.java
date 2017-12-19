@@ -1,6 +1,4 @@
-
 package Presentation;
-
 
 import Business.Exception.NewException;
 import Business.LogicFacade;
@@ -15,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på customerpage.jsp til at navigere kunden til customer_ordre_list.jsp og få fremvist en liste af alle kundens ordre.
  */
-
 public class OrdreList_Customer extends Command {
 
     /**
@@ -40,7 +38,6 @@ public class OrdreList_Customer extends Command {
        String customer_Orderlist = RendUtilOrderList_Customer.invoiceList_Customer(ordreList, user);
 
          if (ordreList.isEmpty()){
-
 
            request.setAttribute("customer_orderlist", "Du har ikke nogen ordre der afventer din bekræftigelse eller under behandling. "
                    + "Bestil en ordre, og den vil fremgå her på siden.");      

@@ -3,26 +3,21 @@ package Presentation;
 import Business.Exception.NewException;
 import Business.LogicFacade;
 import Business.Domain.Ordre;
-import Business.Domain.User;
 import Presentation.Utillities.RendUtilOrderList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Denne class er en af commands'ne.
+ * Bruges på på employeepage.jsp, til at navigere medarbejderen til employee_ordre_list.jsp og få fremvist alle kundernes ordre.
+ * 
  */
 public class OrdreList extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-
-      
-        
         List<Ordre> ordreList = LogicFacade.getOrderList();
         String employee_Orderlist = RendUtilOrderList.invoiceList(ordreList);
 

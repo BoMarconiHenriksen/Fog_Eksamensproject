@@ -1,16 +1,11 @@
-/**
- * BenedikteEva
- * Fog_Eksamensprojekt01
- */
 package Business.Domain;
 
 /**
- *
- * @author BenedikteEva
+ * Klassen bruges til objekt for User.
  */
 public class User {
 
-    private int user_id; // just used to demo retrieval of autogen keys in UserMapper
+    private int user_id; 
     private int zip;
     private String email;
     private String password; // Should be hashed and all
@@ -42,24 +37,9 @@ public class User {
         this.zip = zip;
         this.tlfnummer = tlfnummer;
     }
-
-    public User(String email, String password, String role) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-    public User(String email, String password, String role, String firstname) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.firstname = firstname;
-    }
     
-    public User(int user_id, String email, int tlfnummer) {
-        this.user_id = user_id;
-        this.email = email;
-        this.tlfnummer = tlfnummer;
+    public User() {
+        
     }
 
     public int getTlfnummer() {
@@ -108,10 +88,6 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public User() {
-
     }
 
     public void setEmail(String email) {

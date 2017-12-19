@@ -7,7 +7,7 @@ import Business.Exception.NewException;
  * Klassen tegner en carport og en carport med skur.
  *
  */
-public class XXRendSvg {
+public class RendSvg {
 
     StringBuilder sb = new StringBuilder();
 
@@ -101,11 +101,6 @@ public class XXRendSvg {
 
     }
 
-//     <rect x="0" y="0" height="300" width="2.5"
-//          style="stroke:#000000; fill: #ffffff"/>
-//  
-//          <rect x="477" y="0" height="300" width="2.5"
-//          style="stroke:#000000; fill: #ffffff"/>
     /**
      * Metoden tegner remmene på tegningen.
      * @param length er carportens længde.
@@ -236,35 +231,6 @@ public class XXRendSvg {
         return pileOgTekst;
     }
 
-//    private String markerMellemSpær(double length, double width) {
-//        String markerMellemSpær = " <defs>\n"
-//                + "    <marker id=\"beginLine\" \n"
-//                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
-//                + "            refX=\"0\" refY=\"9\" \n"
-//                + "            orient=\"auto\">\n"
-//                + "        <path d=\"M0,9  L0,9\" style=\"fill: #000000;\" />\n"
-//                + "        \n"
-//                + "    </marker>\n"
-//                + "    <marker id=\"endLine\" \n"
-//                + "            markerWidth=\"18\" markerHeight=\"18\" \n"
-//                + "            refX=\"18\" refY=\"9\" \n"
-//                + "            orient=\"auto\">\n"
-//                + "        <path d=\"M0,0  L0,0\" style=\"fill: #000000;\" />\n"
-//                + "    </marker>\n"
-//                + "    </defs>\n"
-//                + "\n"
-//                + "            <!-- Horizontal line %-->\n"
-//                + "            <line x1=\"0\"  y1=\"10\" x2=\"" + 55 + "\"   y2=\"10\" \n"
-//                + "                style=\"stroke:#006600;\n"
-//                + "                       marker-start: url(#beginLine);\n"
-//                + "                       marker-end: url(#endLine);\"/>\n"
-//                + "            <text x=\"" + (10) + "\" y=\"" + (width + 80) + "\"\n"
-//                + "                  font-size=\"40px\"\n"
-//                + "                  text-anchor=\"middle\">55</text>\n"
-//                + "</svg>\n"
-//                + "";
-//        return markerMellemSpær;
-    
     /**
      * Metoden bruges til test.
      * @param args
@@ -272,7 +238,7 @@ public class XXRendSvg {
      */
     public static void main(String[] args) throws NewException {
         int length = 600;
-        XXRendSvg rsvg = new XXRendSvg();
+        RendSvg rsvg = new RendSvg();
         int spærAntalCirka = (int) Math.round(length / 55);
         int restSpærAntal = (int) length % spærAntalCirka;
         int rigtigSpærAntal = (int) length - restSpærAntal;

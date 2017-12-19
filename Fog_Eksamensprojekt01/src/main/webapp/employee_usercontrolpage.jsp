@@ -1,7 +1,6 @@
 <%-- 
     Document   : employee_usercontrolpage
     Created on : 11-12-2017, 19:29:26
-    Author     : Ticondrus
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,10 +32,8 @@
     <!-- Logo og header billed-->
     <div class="center-img">
         <a href="https://www.johannesfog.dk" target="_blank">
-            <img class="logo" src="images/logo.png" alt="Fog Logo">
+            <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
         </a>
-
-        <img class="header_image" src="images/carport_efter_mål.jpg" onclick="location.href = 'employee_ordercarportpage.jsp'" alt="Carport efter eget mål">
     </div>
 
     <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
@@ -56,41 +53,33 @@
                 <ul class="navbar-nav mx-auto">
 
 
-<li class="nav-item active px-lg-4">
+                    <li class="nav-item active px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="employeepage.jsp">Hjem
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    
+
 
                     <li class="nav-item px-lg-4">
 
                         <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                     </li>
 
-                  
-                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="OrdreList">
-                            <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
-                            </div>
-                        </form>
+
+                    <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="OrdreList">
+                        <div class="form-group">
+                            <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                        </div>
+                    </form>
 
 
-                        <form class="form-inline" name="Employee_UserOptions" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="Employee_UserOptions">
-                            <div class="form-group">
-                                <button type="submit" name="Employee_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Ret Kontooplysninger</a> </button>
-                            </div>
-                        </form>
-
-
-                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="logout">
-                            <div class="form-group">
-                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                            </div>
-                        </form>
+                    <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="logout">
+                        <div class="form-group">
+                            <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                        </div>
+                    </form>
 
                 </ul>
             </div>
@@ -111,9 +100,9 @@
 
             <form  name="Admin_UserAdministration" action="FrontController" method="POST">
                 <input type="hidden" name="command" value="Admin_UserAdministration">
-                 <input type="hidden" name="customerID" value="${customerID}">
+                <input type="hidden" name="customerID" value="${customerID}">
                 <h2>Brugeren ID ${customerID}'s konto oplysninger</h2>
-               
+
                 Brugerens Type/Role  <p><input type="text" name="uRole" value="${userRole}"></p>
                 Brugerens Email  <p><input type="text" name="uEmail" value="${userEmail}"></p>
                 Brugerens Fornavn  <p><input type="text" name="uFirstname" value="${userFirstname}"></p>
@@ -122,7 +111,7 @@
                 Brugerens Addresse  <p><input type="text" name="uAddress" value="${userAddress}"></p>
                 Brugerens Tlf Nummer  <p><input type="number" name="uTlfnummer" value="${userTlfnummer}"></p>
                 Brugerens Password: <p><input type="text" name="uPassword" value="${userPassword}"></p>
-           
+
                 <button type="submit" name="Admin_UserAdministration" value="action">Implementer bruger ændringer </button>
 
             </form>

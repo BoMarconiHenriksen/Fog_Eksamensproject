@@ -1,8 +1,7 @@
 package Business.Exception;
 
 /**
- * The purpose of LoginSampleException is to...
- * @author kasper
+ * Klassen bruges til at lave en ny exception.
  */
 public class NewException extends Exception{
     

@@ -1,8 +1,7 @@
 package Business.Domain;
 
 /**
- *
- * @author Bo
+ * Klassen bruges til objekt for Ordre.
  */
 public class Ordre {
 
@@ -19,10 +18,6 @@ public class Ordre {
     public Ordre(int user_id, String reciveddate) {
         this.user_id = user_id;
         this.reciveddate = reciveddate;
-    }
-
-    public Ordre(int user_id) {
-        this.user_id = user_id;
     }
 
     public Ordre() {

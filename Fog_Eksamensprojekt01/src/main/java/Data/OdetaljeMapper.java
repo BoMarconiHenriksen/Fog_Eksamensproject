@@ -11,22 +11,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * OdetaljeMapper: Håntere alle forbindelser til og fra databasen vedr. en ordres nærmere detaljer.
+ * Håntere alle metoder til og fra databasen vedr. en ordres nærmere detaljer.
  *
- * @author BenedikteEva
  */
 public class OdetaljeMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
     
     /**
-     * addOdetaljertoOdetaljeListe: Tilføjer en ordre med et bestemt ordre id's nærmere detaljer, til databasen.
-     * @param ordre_id
-     * @param od
-     * @throws NewException 
+     * Tilføjer en ordre med et bestemt ordre id's nærmere detaljer, til databasen.
+     * @param ordre_id er ordrens id.
+     * @throws NewException ved fejl.
      */
-
-    public static void addOdetaljertoOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
+    public static void addOdetaljerToOdetaljeListe(int ordre_id, Odetaljer od) throws NewException {
 
         try {
 
@@ -52,45 +49,11 @@ public class OdetaljeMapper {
     }
     
     /**
-     * Metoden bruges ikke, skal slettes!!!
-     * @param user_id
-     * @param OdG
-     * @throws NewException 
+     * Henter en ordres nærmere detaljer, ud fra et valgt ordre id, fra databasen.
+     * @param ordre_id er ordre idet.
+     * @return oDetaljer en ordre.
+     * @throws NewException ved fejl. 
      */
-
-    public static void saveOdetaljertoDesignGemning(int user_id, Odetaljer OdG) throws NewException {
-
-        try {
-
-            Connection conn = DBConnector.connection();
-            String SQL;
-            SQL = "INSERT INTO designgemning (user_id, ordre_status, carport_length, carport_width, carport_height, length_redskabsrum, width_redskabsrum, price) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
-            PreparedStatement orderPstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
-            orderPstmt.setInt(1, user_id);
-            orderPstmt.setString(2, OdG.getOrdreStatus());
-            orderPstmt.setDouble(3, OdG.getCarportLength());
-            orderPstmt.setDouble(4, OdG.getCarportWidth());
-            orderPstmt.setDouble(5, OdG.getCarportHeight());
-            orderPstmt.setDouble(6, OdG.getLengthRedskabsrum());
-            orderPstmt.setDouble(7, OdG.getWidthRedskabsrum());
-            orderPstmt.setDouble(8, OdG.getPrice());
-            orderPstmt.executeUpdate();
-
-        } catch (SQLException ex) {
-            logger.log(Level.SEVERE, "Fejl i saveOdetaljertoDesignGemning", ex);
-            throw new NewException(ex.getMessage());
-        }
-
-    }
-    
-    /**
-     * getOrderByOrderId2: Henter en ordres nærmere detaljer, ud fra et valgt ordre id, fra databasen.
-     * @param ordre_id
-     * @return o
-     * @throws NewException 
-     */
-
     public static Odetaljer getOrderByOrderId2(int ordre_id) throws NewException {
 
         Odetaljer o = null;
@@ -126,12 +89,11 @@ public class OdetaljeMapper {
     }
     
     /**
-     * updateOrdreStatus: Overskrider en ordres status men en ny en i databasen.
-     * @param order_id
-     * @param ordre_status
-     * @throws NewException 
+     * Overskrider en ordres status men en ny en i databasen.
+     * @param order_id er ordre idet.
+     * @param ordre_status er ordre status.
+     * @throws NewException ved fejl.
      */
-
     public static void updateOrdreStatus(int order_id, String ordre_status) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -149,13 +111,11 @@ public class OdetaljeMapper {
     }
 
     /**
-     * getOdetailsByOrderId: Henter en ordre med et bestemt id's nærmere detaljer fra databasen.
-     * @param ordre_id
-     * @return o
-     * @throws NewException 
+     * Henter en ordre med et bestemt id's nærmere detaljer fra databasen.
+     * @param ordre_id er ordre idet.
+     * @return oDetaljer en ordre.
+     * @throws NewException ved fejl.
      */
-   
-
     public static Odetaljer getOdetailsByOrderId(int ordre_id) throws NewException {
         Odetaljer o = null;
         try {
@@ -183,16 +143,14 @@ public class OdetaljeMapper {
 
     }
 
- 
     /**
-     * getOrderByOrderId: Gør præcis det samme som ovenstående metode. Bør Slettes!!!
-     * @param ordre_id
-     * @return
-     * @throws NewException 
+     * Gør præcis det samme som ovenstående metode. Bør Slettes!!!
+     * @param ordre_id er ordrens id.
+     * @return 
+     * @throws NewException ved fejl.
      */
-
     public static Odetaljer getOrderByOrderId(int ordre_id) throws NewException {
-        Odetaljer o = null;
+        Odetaljer oDetaljer = null;
         try {
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM odetaljer WHERE ordre_id=" + ordre_id;
@@ -208,7 +166,7 @@ public class OdetaljeMapper {
                 double widthRedskabsrum = rs.getDouble("width_redskabsrum");
                 int tagType = rs.getInt("tagtype");
                     double price =rs.getDouble("price");
-                o = new Odetaljer(odetaljerId, ordreId, 
+                oDetaljer = new Odetaljer(odetaljerId, ordreId, 
                         ordreStatus, carportLength, carportWidth, carportHeight, lengthRedskabsrum, widthRedskabsrum, tagType,price);
             }
         } catch (SQLException ex) {
@@ -218,12 +176,10 @@ public class OdetaljeMapper {
     }
 
    /**
-    * AddOdetailstoOrdermedSkur: Gør præcis det samme som addOdetaljertoOdetaljeListe. Bør slettes!!!
-    * @param ordre_id
-    * @param ods
-    * @throws NewException 
+    * Gør præcis det samme som addOdetaljerToOdetaljeListe. Bør slettes!!!
+    * @param ordre_id er ordrens id.
+    * @throws NewException ved fejl.
     */
-
     public static void AddOdetailstoOrdermedSkur(int ordre_id, Odetaljer ods) throws NewException {
         try {
             Connection con = DBConnector.connection();
@@ -245,15 +201,14 @@ public class OdetaljeMapper {
     }
        
     /**
-     * main: Bruges kun til nem og hurtig test af OdetaljeMapper funktionerne.
-     * @param args
-     * @throws NewException 
+     * Bruges kun til nem og hurtig test af OdetaljeMapper funktionerne.
+     * @throws NewException vej fejl.
      */
     public static void main(String[] args) throws NewException {
 
         OdetaljeMapper orderList = new OdetaljeMapper();
         Odetaljer od = new Odetaljer(1, 480.00, 300.00, 225.00);
-        orderList.addOdetaljertoOdetaljeListe(1, od);
+        orderList.addOdetaljerToOdetaljeListe(1, od);
         String ordre_status = "Afsendt";
         orderList.updateOrdreStatus(2, ordre_status);
 //        System.out.println("ordre liste:");

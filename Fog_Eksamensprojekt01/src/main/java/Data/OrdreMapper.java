@@ -13,26 +13,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * OrdreMapper: Håntere alle forbindelser til og fra databasen vedr. en ordre. (Men en ordres nærmere detaljer, hånteres i stedet i OdetaljeMapper.)
+ * OrdreMapper: Håntere alle metoder til og fra databasen vedr. en ordre. (Men en ordres nærmere detaljer, hånteres i stedet i OdetaljeMapper.)
  *
- * @author Bo
  */
 public class OrdreMapper {
 
     public static final Logger logger = Logger.getLogger(MaterialeMapper.class.getName());
     
     /**
-     * getrderlist: opretter en liste og indsætter den med alle databasens ordre.
-     * @return ordreList
-     * @throws NewException 
+     * Opretter en liste og indsætter den med alle databasens ordre.
+     * @return ordreList en liste af alle ordre.
+     * @throws NewException  ved fejl.
      */
-
     public static List<Ordre> getOrderList() throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
 
         try {
 
-            Ordre o;
+            Ordre ordre;
 
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM ordreliste";
@@ -44,9 +42,9 @@ public class OrdreMapper {
                 String reciveddate = rs.getString("receiveddate");
                 if (ordre_id != lastId) {
 
-                    o = new Ordre(ordre_id, reciveddate, user_id);
+                    ordre = new Ordre(ordre_id, reciveddate, user_id);
 
-                    ordreList.add(o);
+                    ordreList.add(ordre);
                 }
             }
         } catch (SQLException ex) {
@@ -57,15 +55,14 @@ public class OrdreMapper {
     }
     
     /**
-     * getOrderListByUserID: Opretter en liste og indsætter alle ordre fra databasen, der er tilknyttet et bestemt user id.
-     * @param user_id
-     * @return ordreList
-     * @throws NewException 
+     * Opretter en liste og indsætter alle ordre fra databasen, der er tilknyttet et bestemt user id.
+     * @param user_id er brugerens id.
+     * @return ordreList en liste af en brugers ordrer.
+     * @throws NewException  ved fejl.
      */
-
     public static List<Ordre> getOrderListByUserID(int user_id) throws NewException {
         List<Ordre> ordreList = new ArrayList<>();
-        Ordre o;
+        Ordre ordre;
         try {
             Connection con = DBConnector.connection();
             String sql = "SELECT * FROM ordreliste WHERE user_id=" + user_id;
@@ -76,8 +73,8 @@ public class OrdreMapper {
                 int userId = rs.getInt("user_id");
                 String reciveddate = rs.getString("receiveddate");
 
-                o = new Ordre(ordre_id, reciveddate, userId);
-                ordreList.add(o);
+                ordre = new Ordre(ordre_id, reciveddate, userId);
+                ordreList.add(ordre);
             }
 
             return ordreList;
@@ -90,10 +87,9 @@ public class OrdreMapper {
     
     /**
      * deleteOrderListByOrderID: sletter en ordre fra databasen der indeholder et bestemt id.
-     * @param ordre_id
-     * @throws NewException 
+     * @param ordre_id er ordrens id.
+     * @throws NewException  ved fejl.
      */
-
     public static void deleteOrderListByOrderID(int ordre_id) throws NewException {
 
         try {
@@ -111,13 +107,12 @@ public class OrdreMapper {
     }
     
     /**
-     * deleteOrderDetailsByOrderID: Metoden her omfatter untagelsesvis en handling vedr. en ordres nærmere detaljer,
+     * Metoden her omfatter untagelsesvis en handling vedr. en ordres nærmere detaljer,
      * da en sletning af en ordre kræver at der udføeres denne og forrige metode samtidigt. 
      * Metoden her gør næsten det samme som ovenstående metode: Den sletter en ordres nærmere detaljer ud fra et bestemt id.
-     * @param ordre_id
-     * @throws NewException 
+     * @param ordre_id er ordrens id.
+     * @throws NewException ved fejl.
      */
-
     public static void deleteOrderDetailsByOrderID(int ordre_id) throws NewException {
 
         try {
@@ -136,13 +131,12 @@ public class OrdreMapper {
     
     /**
      * getOrdreByOrdreId: Henter en ordre fra databasen der tilhører et bestemt ordre id.
-     * @param ordre_id
-     * @return or
-     * @throws NewException 
+     * @param ordre_id er ordrens id.
+     * @return ordre en ordrer
+     * @throws NewException ved fejl. 
      */
-
     public static Ordre getOrdreByOrdreId(int ordre_id) throws NewException {
-        Ordre or = null;
+        Ordre ordre = null;
 
         try {
 
@@ -157,7 +151,7 @@ public class OrdreMapper {
 
                 int user_id = rs.getInt("user_id");
                 String receiveddate = rs.getString("receiveddate");
-                or = new Ordre(ordre_id, receiveddate, user_id);
+                ordre = new Ordre(ordre_id, receiveddate, user_id);
 
             }
 
@@ -165,15 +159,14 @@ public class OrdreMapper {
             logger.log(Level.SEVERE, "Fejl i getOrdreByOrdreId", ex);
             throw new NewException(ex.getMessage());
         }
-        return or;
+        return ordre;
     }
     
     /**
      * getLastInvoiceId: Henter det seneste ordre, der blev lagt i databasen.
-     * @return invoiceid
-     * @throws NewException 
+     * @return invoiceid er invoice idet.
+     * @throws NewException ved fejl.
      */
-
     public static int getLastInvoiceId() throws NewException {
 
         int invoiceid = 0;
@@ -197,10 +190,8 @@ public class OrdreMapper {
     
     /**
      * addOrdertoOrderlist: Tilføjer en ordre til ordreliste tabellen i databasen, med det user_id, ordren tilhører.
-     * @param or
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
-
     public static void addOrdertoOrderList(Ordre or) throws NewException {
         try {
             Connection conn = DBConnector.connection();
@@ -219,8 +210,7 @@ public class OrdreMapper {
     /**
      * Mainmetode: Er kun brugt til OrdreMapper tests.
      * Denne metode bruges ikke i det kørende program.
-     * @param args
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static void main(String[] args) throws NewException {
 

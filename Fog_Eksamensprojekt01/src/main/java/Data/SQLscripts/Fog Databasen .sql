@@ -18,7 +18,7 @@ CREATE TABLE `userlist` (
     `zipcode` INT(4) NOT NULL,
 	`email` VARCHAR(45) NOT NULL, 
     `password` VARCHAR(45) NOT NULL,  
-    `role` VARCHAR(20) NOT NULL, -- DEFAULT 'customer' 
+    `role` VARCHAR(20) NOT NULL,  
     `firstname` VARCHAR(45) NOT NULL,
     `lastname` VARCHAR(45) NOT NULL,
     `address` VARCHAR(45) NOT NULL,
@@ -42,14 +42,12 @@ CREATE TABLE `ordreliste`(
 	`user_id`INT (11), 
 	`receiveddate`VARCHAR(11), 
 	PRIMARY KEY (ordre_id), FOREIGN KEY (user_id) REFERENCES userlist(user_id)-- ,
-    -- FOREIGN KEY (ordre_id) REFERENCES odetaljer(ordre_id)
 );
 
 -- Create materialeliste 
 DROP TABLE IF EXISTS `materialeliste`;
 CREATE TABLE `materialeliste`(
 	`vareid`INT (20) NOT NULL AUTO_INCREMENT, 
-	-- `varenummer`int (20) not null,
 	`materialetype`VARCHAR (45) ,
 	`materialenavn` VARCHAR(50),
 	`enhed`VARCHAR(10), 
@@ -99,26 +97,26 @@ INSERT INTO odetaljer VALUES
 
 -- Data til materialelisten 
 INSERT INTO materialeliste values -- vareid, varenummer, materialetype, materialenavn, enhed, enhedsprise, længde 
-	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 26.95, 100, 'Basis'); -- 1085025200 0300
+	(1, 'Træ', '25x200 mm. trykimp. Brædt', 'stk', 26.95, 100, 'Basis'); 
 INSERT INTO materialeliste values  
 	(2, 'Træ', '25x125 mm. trykimp. Brædt', 'stk', 29.95, 100, 'Basis');
  INSERT INTO materialeliste values   
- 	(3, 'Træ', '38x73 mm. Lægte ubh.', 'stk', 20.95, 100, 'Skur'); -- skurdel
+ 	(3, 'Træ', '38x73 mm. Lægte ubh.', 'stk', 20.95, 100, 'Skur');
  INSERT INTO materialeliste values   
- 	(4, 'Træ', '45x95 mm. Reglar ub.', 'm', 14.75, 100, 'Skur'); -- skurdel, skal bruges to gange
+ 	(4, 'Træ', '45x95 mm. Reglar ub.', 'm', 14.75, 100, 'Skur'); 
  INSERT INTO materialeliste values   
- 	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100, 'Skur'); -- skurdel
+ 	(5, 'Træ', '45x195 mm. spærtræ ubh.', 'm', 37.95, 100, 'Skur'); 
 INSERT INTO materialeliste values   
-	(6, 'Træ', '97x97 mm. trykimp. Stolpe 300 cm', 'stk', 83.85, 1, 'Basis'); -- Også skurdel!
+	(6, 'Træ', '97x97 mm. trykimp. Stolpe 300 cm', 'stk', 83.85, 1, 'Basis');
 INSERT INTO materialeliste values   
 	(7, 'Træ', '19x100	mm. trykimp. Brædt', 'm', 6.95, 100, 'Basis');
 -- Ovenstående tilføjes igen
 INSERT INTO materialeliste values  
-	(10, 'Træ', '25x150 mm. trykimp. Brædt', 'm', 37.95, 100, 'Basis'); -- 1085025150 0300
+	(10, 'Træ', '25x150 mm. trykimp. Brædt', 'm', 37.95, 100, 'Basis'); 
 INSERT INTO materialeliste values  
-	(11, 'Træ', '25x50 mm. trykimp. Brædt', 'Sm', 19.95, 100, 'Basis'); -- ingen vr.
+	(11, 'Træ', '25x50 mm. trykimp. Brædt', 'Sm', 19.95, 100, 'Basis'); 
 INSERT INTO materialeliste values  
-	(12, 'Træ', 'Færdigskåret (byg-selv spær)', 'sæt', 2200.00, 1, 'Basis'); -- ingen vr. 
+	(12, 'Træ', 'Færdigskåret (byg-selv spær)', 'sæt', 2200.00, 1, 'Basis');  
 
 -- Beslag og Skruer    
 INSERT INTO materialeliste values   
@@ -142,15 +140,15 @@ INSERT INTO materialeliste values
 INSERT INTO materialeliste values   
 	(22, 'Beslag & Skruer', '4,5 x 50 mm. Skruer 300 stk.', 'Pakke', 229.00, 1, 'Basis');
  INSERT INTO materialeliste values   
- 	(23, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 1, 'Skur'); -- skurdel
+ 	(23, 'Beslag & Skruer', 'Stalddørsgreb 50x75', 'Sæt', 189.00, 1, 'Skur'); 
  INSERT INTO materialeliste values   
- 	(24, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 1, 'Skur'); -- skurdel
+ 	(24, 'Beslag & Skruer', 'T hængsel 390 mm.', 'Stk', 119.95, 1, 'Skur'); 
  INSERT INTO materialeliste values   
- 	(25, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 1, 'Skur'); -- skurdel
+ 	(25, 'Beslag & Skruer', 'Vinkelbeslag 35', 'Stk', 2.50, 1, 'Skur'); 
 INSERT INTO materialeliste values   
-	(26, 'Beslag & Skruer', '5,0 x 40 mm. beslagskruer 250 stk.', 'Pakke', 229.00, 1, 'Basis'); -- ingen vr.
+	(26, 'Beslag & Skruer', '5,0 x 40 mm. beslagskruer 250 stk.', 'Pakke', 229.00, 1, 'Basis'); 
 INSERT INTO materialeliste values   
-	(27, 'Beslag & Skruer', '5,0 x 100 mm. Skruer 100 stk.', 'Pakke', 339.00, 1, 'Basis'); -- ingen vr.
+	(27, 'Beslag & Skruer', '5,0 x 100 mm. Skruer 100 stk.', 'Pakke', 339.00, 1, 'Basis'); 
     
 -- Tagpakken
  INSERT INTO materialeliste values   
@@ -158,21 +156,19 @@ INSERT INTO materialeliste values
  INSERT INTO materialeliste values   
  	(9, 'Tagpakken', 'Plastmo Ecolite blåtonet 300', 'Stk', 119.00, 1, 'Basis_tag');
  INSERT INTO materialeliste values   
- 	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1, 'Tag'); -- ingen vr.
+ 	(28, 'Tagpakken', 'B & C Dobbelt -s sort', 'Stk', 49.95, 1, 'Tag'); 
  INSERT INTO materialeliste values   
- 	(29, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 1, 'Tag'); -- 7921695
+ 	(29, 'Tagpakken', 'B & C Rygsten sort', 'Stk', 89.95, 1, 'Tag'); 
  INSERT INTO materialeliste values   
- 	(30, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 1, 'Tag'); -- ingen vr.
+ 	(30, 'Tagpakken', 'B & C Toplægtholder', 'Stk', 18.50, 1, 'Tag'); 
 INSERT INTO materialeliste values   
- 	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 1, 'Tag'); -- ingen vr. 
+ 	(31, 'Tagpakken', 'B & C Rygstensbeslag', 'Stk', 294.00, 1, 'Tag'); 
  INSERT INTO materialeliste values   
- 	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1, 'Tag'); -- ingen vr.
+ 	(32, 'Tagpakken', 'B & C Tagstensbindere & nakkekroge', 'Pk', 524.00, 1, 'Tag'); 
 INSERT INTO materialeliste values   
 	(33, 'Tagpakken', 'Plastmo Ecolite blåtonet 480', 'Stk', 199.00, 1, 'Basis_tag');   
     
 commit;    
-
-select * from odetaljer;
     
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

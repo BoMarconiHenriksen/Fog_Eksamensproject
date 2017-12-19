@@ -14,10 +14,9 @@ public class LineItemFactory {
      * @param width er bredden på carporten.
      * @param length er længden på carporten.
      * @return et array, der indeholder alle styklinjerne for træ til en basiscarport.
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static LineItem[] baseWood(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
-//    (String description, String material_name, double dimension, int amount, String unit)
 
         LineItem[] baseWood = new LineItem[8];
 
@@ -36,10 +35,10 @@ public class LineItemFactory {
 
     /**
      * Metoden laver styklinjerne til styklisten for beslag og skruer til en basis carport.
-     * @param width er carportens bredde
-     * @param length er carportens længde
+     * @param width er carportens bredde.
+     * @param length er carportens længde.
      * @return et array, der indeholder alle styklinjerne for beslag og skruer til en basiscarport.
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static LineItem[] carportBaseMetal(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
 
@@ -59,7 +58,7 @@ public class LineItemFactory {
      * @param width er carportens bredde.
      * @param length er carportens længde.
      * @return et array, der indeholder alle styklinjerne for ecolite tag.
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static LineItem[] ecoliteRoof(double width, double length) throws NewException {
         LineItem[] ecoliteRoof = new LineItem[1];
@@ -84,7 +83,7 @@ public class LineItemFactory {
      * @param skurLængde er skurets længde.
      * @param skurBredde er skurets bredde.
      * @return et array, der indeholder alle styklinjerne for træ til en carport med skur.
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static LineItem[] woodForShed(double skurLængde, double skurBredde) throws NewException {
         LineItem[] woodForShed = new LineItem[5];
@@ -106,7 +105,7 @@ public class LineItemFactory {
      * @param skurLængde er skurets længde.
      * @param skurBredde er skurets bredde.
      * @return et array, der indeholder alle styklinjerne for beslag og skurer til en carport med skur.
-     * @throws NewException 
+     * @throws NewException ved fejl.
      */
     public static LineItem[] screwsAndBracketShed(double skurLængde, double skurBredde) throws NewException {
         LineItem[] screwsAndBracketShed = new LineItem[3];
