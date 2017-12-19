@@ -108,7 +108,7 @@
                     </form>
 
                     <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">´
+                        <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">
                         <button type="submit" name="Employee_SetupOrderCarportFunctions" value="action">Bestil en Carport for en kunde </button>
                     </form>
 

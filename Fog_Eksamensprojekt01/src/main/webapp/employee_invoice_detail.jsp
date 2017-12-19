@@ -103,18 +103,31 @@
                     <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
                 </div>
 
-            
+              <div class="center-img">
+
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
-                    <h2>Tegning </h2>
+                    <h2 class="text-center text-lg text-uppercase my-0">
+                        <strong>Tegning af carporten</strong>
+                    </h2>
+                    <hr class="divider">
+                 
              
                     <%
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
-                
-                    <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
+                       
+            </div>
+        </div>   
+                     <div class="center-img">
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Styk Liste</strong>
+                </h2>
+                <hr class="divider">
 
                     <%
                         out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
