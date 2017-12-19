@@ -100,36 +100,36 @@
                         out.println("<p>" + (Double) request.getAttribute("priceTwoDecimal") + "</p>");
                     %>
                 </div>
-              
-            
+
+
                 <div class="bg-faded p-4 my-4">          
-                  
-                        
-                        <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
-                
-            
-                    </div>
-                   
-                     <div class="bg-faded p-4 my-4">
-                  
 
-                        <%=RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
-                    </div>
-           
-              
-                 
-                     <div class="bg-faded p-4 my-4">
-                
 
-                        <%=RendUtilOdetaljerMedArbejder.changeOrderStatus((Odetaljer) request.getAttribute("od"))%>
-              
+                    <%=RendUtilOdetaljerMedArbejder.customerDetailsForOrder((Odetaljer) request.getAttribute("od"))%>
+
+
+                </div>
+
+                <div class="bg-faded p-4 my-4">
+
+
+                    <%=RendUtilOdetaljerMedArbejder.odetailsForOrder((Odetaljer) request.getAttribute("od"))%>
+                </div>
+
+
+
+                <div class="bg-faded p-4 my-4">
+
+
+                    <%=RendUtilOdetaljerMedArbejder.changeOrderStatus((Odetaljer) request.getAttribute("od"))%>
+
                 </div>   
-</div>
+            </div>
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">
-                    <h2>Tegning af carporten</h2>
+                    Tegning af carporten
                 </h2>
                 <hr class="divider">
                 <div class="center-img">
@@ -138,48 +138,49 @@
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
-
             </div>
-       
 
 
-        <div class="bg-faded p-4 my-4">
-            <hr class="divider">
-            <h2 class="text-center text-lg text-uppercase my-0">
-                <h2>Styk Liste</h2>
-            </h2>
-            <hr class="divider">
+
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    Styk Liste
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
+
+                    <%
+                        out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
+                    %>   
+                </div>
+           
+
+
             <div class="center-img">
-
-                <%
-                    out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
-                %>   
-            </div>
+                <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+            </div> 
         </div>
+ </div>
+            <script src="script/jquery/jquery.js" type="text/javascript"></script>
+            <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+            <script src="script/popper/popper.min.js" type="text/javascript"></script>
+            <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+            <script src="script/popper/popper.min.js" type="text/javascript"></script>
+            <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+            <footer class="bg-faded text-center py-5">
+                <div class="container">
+                    <p class="m-0">
+                        <a href="https://www.johannesfog.dk" target="_blank">
+                            <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                        </a>
+                        Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                    </p>
+                </div>
+            </footer>        
 
-
-        <div>
-            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-        </div>
-   
-    <script src="script/jquery/jquery.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-    <footer class="bg-faded text-center py-5">
-        <div class="container">
-            <p class="m-0">
-                <a href="https://www.johannesfog.dk" target="_blank">
-                    <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                </a>
-                Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-            </p>
-        </div>
-    </footer>        
-
-</body>
+    </body>
 </html>
 
 
