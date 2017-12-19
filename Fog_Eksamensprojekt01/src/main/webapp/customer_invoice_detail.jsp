@@ -134,7 +134,7 @@
 
                 </div>
             </div>
-              <div class="center-img">
+             
 
                 <div class="bg-faded p-4 my-4">
                     <hr class="divider">
@@ -142,6 +142,7 @@
                         <strong>Tegning af din carport</strong>
                     </h2>
                     <hr class="divider">
+                     <div class="center-img">
                     <%
                         RendSvg rendSvg = new RendSvg();
 
@@ -154,7 +155,7 @@
                 </div>
             </div>
         </div>    
-        <div class="center-img">
+       
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -162,6 +163,7 @@
                     <strong>Liste over materialer</strong>
                 </h2>
                 <hr class="divider">
+                 <div class="center-img">
                 <%
                     // Stykliste hvis kunde har bestilt.
                     if (!oDetaljer.getOrdreStatus().equals("Gemt Design")) {
