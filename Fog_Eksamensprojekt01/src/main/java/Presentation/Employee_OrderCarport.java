@@ -18,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Denne class er en af commands'ne.
- * Bruges på employee_ordercarportpage.jsp til
+ * Denne class er en af commands'ne. Bruges på employee_ordercarportpage.jsp til
  * at tage imod en carport bestiling for en bestemt kunde og lægge ordren i
  * databasen samt - navigere medarbejderen hen til
  * employee_orderconfirmationpage.jsp
@@ -43,7 +42,6 @@ public class Employee_OrderCarport extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
-//        User user = (User) session.getAttribute("user");
 
         String SePris = request.getParameter("Employee_OrderCarport");
         String CheckUd = request.getParameter("Employee_OrderCarportPlaceOrder");
@@ -51,7 +49,7 @@ public class Employee_OrderCarport extends Command {
         Ordre order = new Ordre();
 
         int user_id = Integer.parseInt(request.getParameter("kunde_id"));
-        String ordre_status = request.getParameter("StatusToOrder");
+        String ordre_status = null;
 
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
@@ -71,7 +69,7 @@ public class Employee_OrderCarport extends Command {
 
         if (CheckUd != null) {
 
-            // ordre_status = "Bestilt";
+            ordre_status = "Bestilt";
 
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
@@ -157,12 +155,11 @@ public class Employee_OrderCarport extends Command {
         request.setAttribute("widthInput", (Double) widthinput);
         request.setAttribute("heightInput", (Double) heightinput);
         request.setAttribute("skurInput", (String) skurellerej);
-      
 
         RendSvg svag = new RendSvg();
         String carportTegning = svag.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
-        
+
         RendUtilStykListe styk = new RendUtilStykListe();
         String stykListe = styk.createLineItemList(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("stykListe", stykListe);
