@@ -69,12 +69,6 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
-                        <form class="form-inline" name="UserList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="UserList">
-                            <div class="form-group">
-                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
-                            </div>
-                        </form>
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
@@ -99,32 +93,18 @@
 
             <div class="text-heading text-lg">
                 <div class="bg-faded p-4 my-4">
-                    <div class="text-center mt-4">
-                        <h2>Bestil en Carport for en kunde</h2>
 
+                    <h1>Bestil en Carport for en kunde</h1>
 
-                        <h3> Hej <%session.getAttribute("firstname");%> </h3>
+                    <h2> Hej <%session.getAttribute("firstname");%> </h2>
+                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>            
 
-
-                    </div>
-
-                    <br>
                     <form name="basisCarport" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_OrderCarport">
-                        <hr class="divider">
-                        <h2 class="text-center text-lg text-uppercase my-0">
-                            <strong>Vælg kunde</strong>
-                        </h2>
-                        <hr class="divider">
+                        <input type="hidden" name="command" value="basisCarportCheckud">
+                        <input type="hidden" name="command" value="CarportGemDesign">
+
                         <%=request.getAttribute("userLists")%>
-                        <br><br>
-                        <hr class="divider">
-                        <h2 class="text-center text-lg text-uppercase my-0">
-                            <strong>Indtast mål til carport</strong>
-                        </h2>
-                        <hr class="divider">
-                        <div class="center-img">
-                            <%=RendUtilCustomerPresentation.getMeasures()%>     
 
 
                         <%=request.getAttribute("orderStatus")%>
@@ -135,7 +115,7 @@
 
 
                         <!--Her starter vores hidden skur-->
-                        <div class="center-img">
+                        <div>
                             Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
                         </div>
                         <div id="hidden_fields">
@@ -146,23 +126,27 @@
                             <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
 
                         </div>
-                </div>
-                <!--Her slutter hidden skur-->    
+                        <!--Her slutter hidden skur-->    
 
-                <br><br>
-                <div class="center-img">
-                    <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
-                    <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
+                        <br><br>
+
+                        <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
 
                     </form>
-                </div>
 
-                <div class="text-heading text-lg">
-                    <div class="bg-faded p-4 my-4">
-                        <hr class="divider">
-                        <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
-                        <hr class="divider">    
-                        <div class="center-img">
+                    <p>
+                        Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
+                        lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
+                        tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
+                    </p>
+
+                    <div class="text-heading text-lg">
+                        <div class="bg-faded p-4 my-4">
+                            <hr class="divider">
+                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
+                            <hr class="divider">    
+
                             <!--Hvis basisCarport er null printes der ikke noget på siden-->
                             <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
@@ -182,39 +166,35 @@
                                     }
 
                             %>
-                        </div>
-                        <div class="center-img">
+
                             <%                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                             %> 
-                        </div>
 
-                        <div class="text-heading text-lg">
-                            <div class="bg-faded p-4 my-4">
-                                <hr class="divider">
-                                <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                                <hr class="divider">    
-                                <div class="center-img">
+                            <div class="text-heading text-lg">
+                                <div class="bg-faded p-4 my-4">
+                                    <hr class="divider">
+                                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
+                                    <hr class="divider">    
                                     <%
-                                            out.println("<p>" + request.getAttribute("stykListe") + "</p>");
-                                        }%>  
+                                    out.println("<p>" + request.getAttribute("stykListe") + "</p>");
+                                }%>  
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer>
+            <footer class="bg-faded text-center py-5">
+                <div class="container">
+                    <p class="m-0">
+                        <a href="https://www.johannesfog.dk" target="_blank">
+                            <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                        </a>
+                        Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                    </p>
+                </div>
+            </footer>
 
     </body>
 </html>
