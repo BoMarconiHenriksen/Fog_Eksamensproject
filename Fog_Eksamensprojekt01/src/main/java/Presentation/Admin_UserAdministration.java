@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Denne class er en af commands'ne.
- * Commanden returner til employeepage.jsp og får implementeret brugerens opdaterede oplysninger i databasen.
+ * Denne class er en af commands'ne. Commanden returner til employeepage.jsp og
+ * får implementeret brugerens opdaterede oplysninger i databasen.
  */
 public class Admin_UserAdministration extends Command {
 
@@ -25,7 +25,13 @@ public class Admin_UserAdministration extends Command {
         String password = request.getParameter("uPassword");
 
         LogicFacade.updateWholeUserButID(userId, zipcode, email, password, role, firstname, lastname, address, phone);
-
+        String changeOfUserDataSucces;
+       
+        if (request.getParameter("Admin_UserAdministration") == null) {
+            changeOfUserDataSucces = null;
+        } else {
+            changeOfUserDataSucces = "Du har ændret brugeroplysningerne.";
+        }
         //Bliver vist for brugeren på jsp siden efter oplysningerne er ændret
         request.setAttribute("userID", userId);
         request.setAttribute("userRole", role);
@@ -36,8 +42,9 @@ public class Admin_UserAdministration extends Command {
         request.setAttribute("userAddress", address);
         request.setAttribute("userTlfnummer", phone);
         request.setAttribute("userPassword", password);
+        request.setAttribute("changeOfUserDataSucces", changeOfUserDataSucces);
 
-        return "employeepage";
+        return "employee_usercontrolpage";
 
     }
 }
