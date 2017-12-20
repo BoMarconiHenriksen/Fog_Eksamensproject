@@ -3,6 +3,8 @@
     Created on : 10-12-2017, 13:52:04
 --%>
 
+<%@page import="Presentation.Utillities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="Presentation.Utillities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
@@ -104,6 +106,10 @@
 
                         <%=request.getAttribute("userLists")%>
 
+
+                        <%=request.getAttribute("orderStatus")%>
+
+
                         <%=RendUtilCustomerPresentation.getMeasures()%>     
 
 
@@ -161,35 +167,34 @@
 
                             %>
 
-                            <%                                
-                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                            <%                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                             %> 
-                            
-                              <div class="text-heading text-lg">
-                        <div class="bg-faded p-4 my-4">
-                            <hr class="divider">
-                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                            <hr class="divider">    
-                            <%
-                                out.println("<p>" + request.getAttribute("stykListe") + "</p>");
-                           } %>  
-                          
+
+                            <div class="text-heading text-lg">
+                                <div class="bg-faded p-4 my-4">
+                                    <hr class="divider">
+                                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
+                                    <hr class="divider">    
+                                    <%
+                                    out.println("<p>" + request.getAttribute("stykListe") + "</p>");
+                                }%>  
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-</div>
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer>
+            <footer class="bg-faded text-center py-5">
+                <div class="container">
+                    <p class="m-0">
+                        <a href="https://www.johannesfog.dk" target="_blank">
+                            <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                        </a>
+                        Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                    </p>
+                </div>
+            </footer>
 
     </body>
 </html>

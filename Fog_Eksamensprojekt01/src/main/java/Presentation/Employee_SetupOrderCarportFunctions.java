@@ -1,8 +1,10 @@
 package Presentation;
 
 import Business.DataFacade;
+import Business.Domain.Odetaljer;
 import Business.Exception.NewException;
 import Business.Domain.User;
+import Presentation.Utillities.RendUtilOdetaljerMedArbejder;
 import Presentation.Utillities.RendUtilUserList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +24,11 @@ public class Employee_SetupOrderCarportFunctions extends Command {
 
         List<User> userList = DataFacade.getUserList();
         String userLists = RendUtilUserList.invoiceUserList(userList);
+        Odetaljer oDetaljer = new Odetaljer();
+        String orderStatus = RendUtilOdetaljerMedArbejder.SetOrderStatustoOrder(oDetaljer);
+        
         request.setAttribute("userLists", userLists);
+        request.setAttribute("orderStatus", orderStatus);
 
         return "employee_ordercarportpage";
     }

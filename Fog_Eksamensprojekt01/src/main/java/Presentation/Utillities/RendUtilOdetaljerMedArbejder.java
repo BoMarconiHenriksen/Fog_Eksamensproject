@@ -92,4 +92,23 @@ public class RendUtilOdetaljerMedArbejder {
 
         return sb.toString();
     }
+
+    public static String SetOrderStatustoOrder(Odetaljer oDetaljer) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" <hr class=\"divider\">\n");
+        sb.append("<tr><h2>Vælg status på ordren:</h2></tr>\n");
+        sb.append(" <hr class=\"divider\">\n");
+        sb.append(" <select name=\"StatusToOrder\">\n"
+                + "  <option text=\"Ny Ordre\">Ny Ordre</option>\n"
+                + "  <option text=\"Bestilt\">Bestilt</option>\n"
+                + "<option text=\"Modtaget\">Modtaget</option>\n"
+                + " <option text=\"Betalt\">Betalt</option>\n"
+                + " <option text=\"Pakkes\">Pakkes</option>"
+                + " <option text=\"Afsendt\">Afsendt</option>\n"
+                + " <option text=\"Leveret\">Leveret</option>\n"
+                + "</select>"
+        );
+
+        return sb.toString();
+    }
 }
