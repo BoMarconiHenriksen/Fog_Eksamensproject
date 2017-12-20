@@ -12,7 +12,7 @@ cph-bh136@cphbusiness.dk
 
 Link til github:  https://github.com/walter01git/Fog_Eksamensproject
 
-Link running version: 
+Link running version: http://46.101.179.58/Fog_Eksamensprojekt01-1.0-SNAPSHOT/
 
 Link javadoc: https://walter01git.github.io/Fog_Eksamensproject/
 
