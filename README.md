@@ -1,5 +1,5 @@
 # Fog_Eksamensproject
-Eksamensprojekt datamatiker uddannelsen, 2. semester, Afleveret 20/12-2017.
+Eksamensprojekt datamatiker-uddannelsen, 2. semester, Afleveret 20/12-2017.
 
 Walter Hansen
 cph-wh102@cphbusiness.dk
@@ -11,6 +11,8 @@ Bo Henriksen
 cph-bh136@cphbusiness.dk
 
 Link til github:  https://github.com/walter01git/Fog_Eksamensproject
+
 Link running version: 
+
 Link javadoc: 
 
