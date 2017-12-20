@@ -3,6 +3,8 @@
     Created on : 10-12-2017, 13:52:04
 --%>
 
+<%@page import="Presentation.Utillities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="Presentation.Utillities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
@@ -124,7 +126,13 @@
                         <div class="center-img">
                             <%=RendUtilCustomerPresentation.getMeasures()%>     
 
-                        </div>
+
+                        <%=request.getAttribute("orderStatus")%>
+
+
+                        <%=RendUtilCustomerPresentation.getMeasures()%>     
+
+
 
                         <!--Her starter vores hidden skur-->
                         <div class="center-img">
