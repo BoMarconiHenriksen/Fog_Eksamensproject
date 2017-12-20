@@ -77,7 +77,7 @@
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
                             <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administrer Ordre</a> </button>
                             </div>
                         </form>
 
@@ -139,12 +139,12 @@
                                 <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
                             </div>
                         </div>
+                    </form>
                 </div>
                 <!--Her slutter hidden skur-->    
 
                 <br><br>
 
-                </form>
 
                 <div class="text-center mt-4">
                     <div class="text-heading text-lg">
