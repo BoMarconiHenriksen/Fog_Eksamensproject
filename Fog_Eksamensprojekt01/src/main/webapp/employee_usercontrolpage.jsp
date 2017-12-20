@@ -21,7 +21,10 @@
         <!-- Custom styles for this template -->
         <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
-
+        <script src="script/jquery/jquery.js" type="text/javascript"></script>
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript"></script>
 
@@ -72,7 +75,12 @@
                             <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
                         </div>
                     </form>
-
+                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UserList">
+                        <div class="form-group">
+                            <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+                        </div>
+                    </form>
 
                     <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="logout">
@@ -88,7 +96,10 @@
     <!-- Navigation slut -->
 
     <div class="container">
+        <div class="center-img">
 
+            <h1>Hej <%= (String) session.getAttribute("username")%> </h1>
+        </div>
         <div class="bg-faded p-4 my-4">
             <hr class="divider">
             <h2 class="text-center text-lg text-uppercase my-0">
@@ -96,41 +107,34 @@
             </h2>
             <hr class="divider">
 
-            <h1>Hej: <%= (String) session.getAttribute("username")%> </h1>
-            
-              <% if ((String) request.getAttribute("changeOfUserDataSucces") == null) {
 
-                } else {
-                    out.println((String) request.getAttribute("changeOfUserDataSucces"));
-                }
-            %>
+            <div class="center-img">
 
-            <form  name="Admin_UserAdministration" action="FrontController" method="POST">
-                <input type="hidden" name="command" value="Admin_UserAdministration">
-                <input type="hidden" name="customerID" value="${customerID}">
-                <h2>Brugeren ID ${customerID}'s konto oplysninger</h2>
+                <form  name="Admin_UserAdministration" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="Admin_UserAdministration">
+                    <input type="hidden" name="customerID" value="${customerID}">
+                    <h2>Brugeren ID ${customerID}'s konto oplysninger</h2>
 
-                Brugerens Type/Role  <p><input type="text" name="uRole" value="${userRole}"></p>
-                Brugerens Email  <p><input type="text" name="uEmail" value="${userEmail}"></p>
-                Brugerens Fornavn  <p><input type="text" name="uFirstname" value="${userFirstname}"></p>
-                Brugerens Efternavn  <p><input type="text" name="uLastname" value="${userLastname}"></p>
-                Brugerens Postnummer  <p><input type="number" name="uPostcode" value="${userPostcode}"></p>
-                Brugerens Addresse  <p><input type="text" name="uAddress" value="${userAddress}"></p>
-                Brugerens Tlf Nummer  <p><input type="number" name="uTlfnummer" value="${userTlfnummer}"></p>
-                Brugerens Password: <p><input type="text" name="uPassword" value="${userPassword}"></p>
+                    Brugerens Type/Role  <p><input type="text" name="uRole" value="${userRole}"></p>
+                    Brugerens Email  <p><input type="text" name="uEmail" value="${userEmail}"></p>
+                    Brugerens Fornavn  <p><input type="text" name="uFirstname" value="${userFirstname}"></p>
+                    Brugerens Efternavn  <p><input type="text" name="uLastname" value="${userLastname}"></p>
+                    Brugerens Postnummer  <p><input type="number" name="uPostcode" value="${userPostcode}"></p>
+                    Brugerens Addresse  <p><input type="text" name="uAddress" value="${userAddress}"></p>
+                    Brugerens Tlf Nummer  <p><input type="number" name="uTlfnummer" value="${userTlfnummer}"></p>
+                    Brugerens Password: <p><input type="text" name="uPassword" value="${userPassword}"></p>
 
-                <button type="submit" name="Admin_UserAdministration" value="action">Implementer bruger ændringer </button>
+                    <button type="submit" name="Admin_UserAdministration" value="action">Implementer bruger ændringer </button>
 
-            </form>
+                </form>
 
-          
+            </div>
+        </div>
+
+        <div class="center-img">
+            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
         </div>
     </div>
-
-
-
-    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til hovedmenuen</button>
-
     <footer class="bg-faded text-center py-5">
         <div class="container">
             <p class="m-0">
@@ -142,12 +146,7 @@
         </div>
     </footer>        
 
-    <script src="script/jquery/jquery.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="script/popper/popper.min.js" type="text/javascript"></script>
-    <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+
 
 
 </body>

@@ -3,6 +3,8 @@
     Created on : 10-12-2017, 13:52:04
 --%>
 
+<%@page import="Presentation.Utillities.RendUtilOdetaljerMedArbejder"%>
+<%@page import="Business.Domain.Odetaljer"%>
 <%@page import="Presentation.Utillities.RendUtilCustomerPresentation"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Business.DataFacade"%>
@@ -67,6 +69,12 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
+                        <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="UserList">
+                            <div class="form-group">
+                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+                            </div>
+                        </form>
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
@@ -91,25 +99,43 @@
 
             <div class="text-heading text-lg">
                 <div class="bg-faded p-4 my-4">
+                    <div class="text-center mt-4">
+                        <h2>Bestil en Carport for en kunde</h2>
 
-                    <h1>Bestil en Carport for en kunde</h1>
 
-                    <h2> Hej <%session.getAttribute("firstname");%> </h2>
-                    <h2>Her kan indtastes input til en ønsket carport med eller uden skur.</h2>            
+                        <h3> Hej <%session.getAttribute("firstname");%> </h3>
 
+
+                    </div>
+
+                    <br>
                     <form name="basisCarport" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_OrderCarport">
-                        <input type="hidden" name="command" value="basisCarportCheckud">
-                        <input type="hidden" name="command" value="CarportGemDesign">
-
+                        <hr class="divider">
+                        <h2 class="text-center text-lg text-uppercase my-0">
+                            <strong>Vælg kunde</strong>
+                        </h2>
+                        <hr class="divider">
                         <%=request.getAttribute("userLists")%>
+                        <br><br>
+                        <hr class="divider">
+                        <h2 class="text-center text-lg text-uppercase my-0">
+                            <strong>Indtast mål til carport</strong>
+                        </h2>
+                        <hr class="divider">
+                        <div class="center-img">
+                            <%=RendUtilCustomerPresentation.getMeasures()%>     
+
+
+                        <%=request.getAttribute("orderStatus")%>
+
 
                         <%=RendUtilCustomerPresentation.getMeasures()%>     
 
 
 
                         <!--Her starter vores hidden skur-->
-                        <div>
+                        <div class="center-img">
                             Ønsker du en carport med skur? Tryk på checkboksen! <input type="checkbox" id="trigger" name="question">
                         </div>
                         <div id="hidden_fields">
@@ -120,27 +146,23 @@
                             <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
 
                         </div>
-                        <!--Her slutter hidden skur-->    
+                </div>
+                <!--Her slutter hidden skur-->    
 
-                        <br><br>
-
-                        <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
-                        <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
+                <br><br>
+                <div class="center-img">
+                    <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
+                    <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
 
                     </form>
+                </div>
 
-                    <p>
-                        Vi gør opmærksom på at efter at hvis De trykker på tjek pris og  derefter vil bestille bedes De
-                        lige vælge målene på den ønskede carport igen. Vi arbejder på at rette fejlen og beklager den 
-                        tort og smerte De måtte opleve i forbindelse med dette.(dette skal selvfølgelig fjernes når fejlen er rettet).
-                    </p>
-
-                    <div class="text-heading text-lg">
-                        <div class="bg-faded p-4 my-4">
-                            <hr class="divider">
-                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
-                            <hr class="divider">    
-
+                <div class="text-heading text-lg">
+                    <div class="bg-faded p-4 my-4">
+                        <hr class="divider">
+                        <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
+                        <hr class="divider">    
+                        <div class="center-img">
                             <!--Hvis basisCarport er null printes der ikke noget på siden-->
                             <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
@@ -160,26 +182,29 @@
                                     }
 
                             %>
-
-                            <%                                
-                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+                        </div>
+                        <div class="center-img">
+                            <%                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                             %> 
-                            
-                              <div class="text-heading text-lg">
-                        <div class="bg-faded p-4 my-4">
-                            <hr class="divider">
-                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                            <hr class="divider">    
-                            <%
-                                out.println("<p>" + request.getAttribute("stykListe") + "</p>");
-                           } %>  
-                          
+                        </div>
+
+                        <div class="text-heading text-lg">
+                            <div class="bg-faded p-4 my-4">
+                                <hr class="divider">
+                                <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
+                                <hr class="divider">    
+                                <div class="center-img">
+                                    <%
+                                            out.println("<p>" + request.getAttribute("stykListe") + "</p>");
+                                        }%>  
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
+
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

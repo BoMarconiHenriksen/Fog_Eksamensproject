@@ -103,12 +103,12 @@
                     <h2 class="text-center text-lg text-uppercase my-0">
                         <strong>Se dine ordre og følge status på ordren</strong>
                     </h2>
-
                     <hr class="divider">
+               
 
-                    <%=request.getAttribute("customer_orderlist")%>
+                        <%=request.getAttribute("customer_orderlist")%>
+
                 </div>
-
                 <div class="text-center mt-4">
                     <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                 </div>

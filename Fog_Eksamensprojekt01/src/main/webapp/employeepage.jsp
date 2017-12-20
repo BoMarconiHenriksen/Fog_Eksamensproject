@@ -71,10 +71,9 @@
                         <form class="form-inline" name="UserList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="UserList">
                             <div class="form-group">
-                                <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer brugere</a> </button>
+                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
                             </div>
                         </form>
-
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
@@ -94,24 +93,37 @@
                     <strong>Hovedmenu for medarbejdere</strong>
                 </h2>
                 <hr class="divider">
-
+                <div class="center-img">
                 <h2>Hej <%= (String) session.getAttribute("username")%></h2>
-               
+                 </div>
+                 <div class="center-img">
+                
+                <% if ((String) request.getAttribute("changeOfUserDataSucces") != null) {
+                        out.println((String) request.getAttribute("changeOfUserDataSucces"));
+                    } else {
+
+                    }
+                %>
+                </div>
+                <div class="center-img">
                     <form class="form-inline"  name="OrdreList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="OrdreList">
                         <button type="submit" name="OrdreList" value="action">Ordrer</button>
                     </form>
-
+                </div> 
+                <div class="center-img">
                     <form class="form-inline" name="UserList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="UserList">
                         <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
                     </form>
 
+                </div>
+                <div class="center-img">
                     <form class="form-inline" name="Employee_SetupOrderCarportFunctions" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="Employee_SetupOrderCarportFunctions">
                         <button type="submit" name="Employee_SetupOrderCarportFunctions" value="action">Bestil en Carport for en kunde </button>
                     </form>
-
+                </div>
             </div>
         </div>
 

@@ -98,7 +98,7 @@
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud, for at registrere en ny bruger.</h2>
                 <hr class="divider">
-
+                <div class="center-img">
                 <table>     
 
                     <td>
@@ -140,7 +140,7 @@
                 </table>
             </div>
         </div>     
-
+</div>
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

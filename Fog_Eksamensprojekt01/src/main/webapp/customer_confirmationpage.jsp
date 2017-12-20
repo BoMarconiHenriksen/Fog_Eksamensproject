@@ -104,38 +104,38 @@
                     <hr class="divider">
                     <div class="text-center">
 
-                    <%
-                        Odetaljer od = (Odetaljer) request.getAttribute("od");
+                        <%
+                            Odetaljer od = (Odetaljer) request.getAttribute("od");
 
-                        double length = od.getCarportLength();
-                        double width = od.getCarportWidth();
-                        double heigth = od.getCarportHeight();
-                        double skurlength = od.getLengthRedskabsrum();
-                        double skurWidth = od.getWidthRedskabsrum();
-                        double skurHeigth = 210;
-                        double price = od.getPrice();
+                            double length = od.getCarportLength();
+                            double width = od.getCarportWidth();
+                            double heigth = od.getCarportHeight();
+                            double skurlength = od.getLengthRedskabsrum();
+                            double skurWidth = od.getWidthRedskabsrum();
+                            double skurHeigth = 210;
+                            double price = od.getPrice();
 
-                        out.println("<p>" + "Ordrenummer: " + od.getOrdreId() + "</p> \n");
+                            out.println("<p>" + "Ordrenummer: " + od.getOrdreId() + "</p> \n");
 
-                        out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
+                            out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
-                        out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
-                        out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
-                        out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+                            out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+                            out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+                            out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                        if (skurlength != 0.00) {
-                            out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
-                            out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                            out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
+                            if (skurlength != 0.00) {
+                                out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+                                out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+                                out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
 
-                        } else {
-                            out.println("<p>" + "Carporten er uden skur." + "</p>");
-                        }
+                            } else {
+                                out.println("<p>" + "Carporten er uden skur." + "</p>");
+                            }
 
-                    %>
+                        %>
+                    </div>
                 </div>
             </div>
-</div>
 
 
             <div class="bg-faded p-4 my-4">
@@ -163,8 +163,9 @@
                     <%
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
-                </div><div class="center-img">
-                    <div>
+                </div>
+                <div class="center-img">
+                     <div class="center-img">
                         <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
                         <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
