@@ -148,13 +148,11 @@
 
                     </form>
                 </div>
+                <div class="text-center mt-4">
+                    <div class="text-heading text-lg">
+                        <div class="bg-faded p-4 my-4">
 
-                <div class="text-heading text-lg">
-                    <div class="bg-faded p-4 my-4">
-                        <hr class="divider">
-                        <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
-                        <hr class="divider">    
-                        <div class="center-img">
+
                             <!--Hvis basisCarport er null printes der ikke noget på siden-->
                             <%if (request.getAttribute("widthInput") == null) {
                                     out.println("");
@@ -174,11 +172,18 @@
                                     }
                             %>
                         </div>
+                    </div>
+                        <br>
+                          <div class="bg-faded p-4 my-4">
+                        <hr class="divider">
+                        <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
+                        <hr class="divider">   
+                        
                         <div class="center-img">
                             <%                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                             %> 
                         </div>
-
+   </div>
                         <div class="text-heading text-lg">
                             <div class="bg-faded p-4 my-4">
                                 <hr class="divider">
@@ -194,7 +199,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+  
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
