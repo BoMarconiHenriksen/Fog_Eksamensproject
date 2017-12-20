@@ -64,7 +64,7 @@
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
                             <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordrer</a> </button>
+                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administrer Ordrer</a> </button>
                             </div>
                         </form>
 
