@@ -134,21 +134,18 @@
                             Hvor stort skal skuret være? 
 
                             <br><br>
-                                <div class="center-img">
+                            <div class="center-img">
 
-                            <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-  </div>
+                                <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
+                            </div>
                         </div>
                 </div>
                 <!--Her slutter hidden skur-->    
 
                 <br><br>
-                <div class="center-img">
-                    <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
-                    <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
-</div>
-                    </form>
-                
+
+                </form>
+
                 <div class="text-center mt-4">
                     <div class="text-heading text-lg">
                         <div class="bg-faded p-4 my-4">
@@ -174,33 +171,37 @@
                             %>
                         </div>
                     </div>
-                        <br>
-                          <div class="bg-faded p-4 my-4">
+                    <br>
+                    <div class="bg-faded p-4 my-4">
                         <hr class="divider">
                         <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af carporten</strong></h2>
                         <hr class="divider">   
-                        
+
                         <div class="center-img">
                             <%                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                             %> 
                         </div>
-   </div>
-                        <div class="text-heading text-lg">
-                            <div class="bg-faded p-4 my-4">
-                                <hr class="divider">
-                                <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                                <hr class="divider">    
-                                <div class="center-img">
-                                    <%
-                                            out.println("<p>" + request.getAttribute("stykListe") + "</p>");
-                                        }%>  
-                                </div>
+                    </div>
+                    <div class="text-heading text-lg">
+                        <div class="bg-faded p-4 my-4">
+                            <hr class="divider">
+                            <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
+                            <hr class="divider">    
+                            <div class="center-img">
+                                <%
+                                        out.println("<p>" + request.getAttribute("stykListe") + "</p>");
+                                    }%>  
                             </div>
                         </div>
                     </div>
+                    <div class="center-img">
+                        <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
+                        <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
+                    </div>
                 </div>
             </div>
-  
+        </div>
+
 
         <footer class="bg-faded text-center py-5">
             <div class="container">
