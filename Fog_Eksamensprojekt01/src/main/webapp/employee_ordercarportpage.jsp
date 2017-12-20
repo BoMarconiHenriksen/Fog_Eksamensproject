@@ -139,7 +139,6 @@
                                 <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
                             </div>
                         </div>
-                    </form>
                 </div>
                 <!--Her slutter hidden skur-->    
 
@@ -198,6 +197,7 @@
                         <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
                         <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
