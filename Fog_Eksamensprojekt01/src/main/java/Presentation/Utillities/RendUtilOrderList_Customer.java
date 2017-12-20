@@ -25,6 +25,7 @@ public class RendUtilOrderList_Customer {
         ordreList = LogicFacade.getOrderListByUserId(user.getUser_id());
 
         StringBuilder sb = new StringBuilder();
+             sb.append("<div class=\"center-img\">\n");
         sb.append("<table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Ordre Nr.  </th><th>Dato</th><th> Pris  </th><th> Ordre Status  </th><th></th></tr>\n");
@@ -32,8 +33,6 @@ public class RendUtilOrderList_Customer {
 
             sb.append("<tr><form name=\"InvoiceDetail_Customer\" action=\"FrontController\" method=\"POST\">");
             sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer\">");
-        //    sb.append("<tr> <input type=\"hidden\" name=\"command\" value=\"InvoiceDetail_Customer_DeleteOrder\">");
-            //   sb.append("<td>").append("" + DataFacade.getUserByUserId(ordre.getUser_id()).getFirstname()).append("</td>");
             sb.append("<td>").append("" + ordre.getOrdre_id()).append("</td>");
             sb.append("<td>").append("" + ordre.getReciveddate()).append("</td>");
             sb.append("<td>").append("" + LogicFacade.getOdetaljerByOrderId(ordre.getOrdre_id()).getPrice()).append("</td>");
@@ -42,8 +41,8 @@ public class RendUtilOrderList_Customer {
 
             sb.append("</tr>\n");
         }
-
-        sb.append("</table>\n");
+        sb.append("</table><br>\n");
+        sb.append("</div>\n");
         sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail_Customer\">Se Ordren</button> ");
         sb.append("<button type=\"submit\" value=\"action\" onclick=\"javascript:return show_confirmDeletetheOrder();\" name=\"InvoiceDetail_Customer_DeleteOrder\">Slet Orderen</button> ");
         sb.append("</form>\n");

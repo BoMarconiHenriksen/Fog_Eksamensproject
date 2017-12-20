@@ -59,7 +59,11 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-
+ <div class="center-img">
+                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UserList">
+                        <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
+                    </form>
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
@@ -108,16 +112,16 @@
                     <strong>Medarbejdere og Kunder</strong>
                 </h2>
                 <hr class="divider">
-
+                <div class="center-img">
 
                 <%
                     out.println("<a>" + (String)request.getAttribute("employee_userlist") + "</a>");
                 %>  
             </div>
         </div>
+</div>
 
-
-        <div>
+      <div class="center-img">
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
 
         </div>

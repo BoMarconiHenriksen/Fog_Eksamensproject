@@ -63,6 +63,14 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
+                        
+                      
+                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UserList">
+                        <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
+                    </form>
+
+              
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
@@ -90,13 +98,15 @@
             <h1 class="my-2"><% User user = (User) session.getAttribute("user");
 
                 if (user != null) {
-                    out.println("Hej " +user.getFirstname() + ". Her er ordrelisten.");
+                    out.println("Hej " + user.getFirstname() + ". Her er ordrelisten.");
                 } else {
                     out.println("Hmm... der står du hedder null, der må være sket en fejl");
                 }
 
                 %></h1>
         </div>
+
+
 
         <div class="container">
 
@@ -106,35 +116,34 @@
                     <strong>Ordre Historie</strong>
                 </h2>
                 <hr class="divider">
-
+             
 
                     <%=request.getAttribute("employee_orderlist")%>
 
-              
 
 
-        <div>
-            <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                  <div class="center-img">
+                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
 
+                </div>
+
+            </div>
         </div>
 
-    </div>
-</div>
 
 
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>        
 
-<footer class="bg-faded text-center py-5">
-    <div class="container">
-        <p class="m-0">
-            <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-            </a>
-            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-        </p>
-    </div>
-</footer>        
-
-</body>
+    </body>
 </html>
 
 

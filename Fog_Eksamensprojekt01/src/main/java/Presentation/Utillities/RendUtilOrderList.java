@@ -32,7 +32,7 @@ public class RendUtilOrderList {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("<table>\n"
+        sb.append(" <div class=\"center-img\"> <table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Ordre Id  </th><th>Dato  </th><th>Pris  </th><th>Kundens fornavn  </th><th>Telefon nr  </th><th>Status  </th></tr>\n");
         for (Ordre ordre : ordreList) {
@@ -48,10 +48,10 @@ public class RendUtilOrderList {
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"id\" value=\"").append(ordre.getOrdre_id()).append("\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }
-        sb.append("</table>\n");
-        sb.append("<button type=\"submit\" value=\"action\" name=\"InvoiceDetail\">Se Ordre</button> ");
+        sb.append("</table></div><br>\n");
+        sb.append("<div class=\"center-img\"><button type=\"submit\" value=\"action\" name=\"InvoiceDetail\">Se Ordre</button> ");
         sb.append("<button type=\"submit\" value=\"action\" onclick=\"javascript:return show_confirmDeletetheOrder();\" name=\"InvoiceDetail_Admin_DeleteOrder\">Slet Orderen</button> ");
-        sb.append("</form>\n");
+        sb.append("</form></div>\n");
         return sb.toString();
     }
 

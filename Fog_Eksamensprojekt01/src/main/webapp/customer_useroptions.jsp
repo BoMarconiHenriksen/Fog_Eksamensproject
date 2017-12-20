@@ -99,15 +99,15 @@
                         <strong>Dine konto oplysninger</strong>
                     </h2>
                     <hr class="divider">
-
-                    <p>Dit Fornavn: ${yourFirstname}</p><br>
-                    <p>Din Efternavn: ${yourLastname}</p><br>
-                    <p>Din Email: ${yourEmail}</p><br>
-                    <p>Din Adresse: ${yourAddress}</p><br>
-                    <p>Dit Postnummer: ${yourZipcode}</p><br>
-                    <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
-
-                    <div>
+                    <div class="center-img">
+                        <p>Dit Fornavn: ${yourFirstname}</p><br>
+                        <p>Din Efternavn: ${yourLastname}</p><br>
+                        <p>Din Email: ${yourEmail}</p><br>
+                        <p>Din Adresse: ${yourAddress}</p><br>
+                        <p>Dit Postnummer: ${yourZipcode}</p><br>
+                        <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
+                    </div>
+                    <div class="center-img">
                         <form name="Customer_UserOptions" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Customer_UserOptions">
 
