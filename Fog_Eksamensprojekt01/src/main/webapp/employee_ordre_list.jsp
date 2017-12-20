@@ -64,12 +64,12 @@
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
                         
-                      
-                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="UserList">
-                        <button type="submit" name="UserList" value="action" ><a>Brugere</a> </button>
-                    </form>
-
+                <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="UserList">
+                            <div class="form-group">
+                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+                            </div>
+                        </form>
               
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">

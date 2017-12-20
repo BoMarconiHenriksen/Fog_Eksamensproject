@@ -99,7 +99,8 @@
                         <strong>Dine konto oplysninger</strong>
                     </h2>
                     <hr class="divider">
-                    <div class="center-img">
+
+                    <div class="text-center">
                         <p>Dit Fornavn: ${yourFirstname}</p><br>
                         <p>Din Efternavn: ${yourLastname}</p><br>
                         <p>Din Email: ${yourEmail}</p><br>
@@ -107,15 +108,20 @@
                         <p>Dit Postnummer: ${yourZipcode}</p><br>
                         <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
                     </div>
+                    <br>
                     <div class="center-img">
                         <form name="Customer_UserOptions" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Customer_UserOptions">
 
-                            Intast nuværende Password: <input type="password" name="passwordOld" ><br>
-                            Ændre Password: <input type="password" name="passwordNew" ><br>
+                            Intast nuværende Password: <br><input type="password" name="passwordOld" ><br>
+
+                            Ændre Password:<br> <input type="password" name="passwordNew" >
+                            <br><br>
                             <button type="submit" name="Customer_UserOptionsPasswordChange" value="Submit">Udfør Password ændring </button>
                         </form>
+
                     </div>
+                    <br>
 
                     <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0) {
                             out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
@@ -125,12 +131,15 @@
                             out.println("");
                         }
                     %>
+                </div>
+
+                <div class="center-img">
 
                     <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                 </div>
+
             </div>
         </div>
-
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

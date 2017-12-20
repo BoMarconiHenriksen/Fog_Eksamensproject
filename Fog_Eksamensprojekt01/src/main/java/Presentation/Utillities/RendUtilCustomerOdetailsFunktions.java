@@ -28,7 +28,6 @@ public class RendUtilCustomerOdetailsFunktions {
             sb.append("<form name=\"Checkout\" action=\"FrontController\" method=\"POST\">\n");
             sb.append(" <input type=\"hidden\" name=\"command\" value=\"OrdertheOrder\">");
             sb.append("<table border=1>\n");
-            sb.append("<tr><h3>Ordre detaljer</h3></tr>\n");
             sb.append("<tr><th>Ordre Id</th><th>Dato</th><th>Status</th></tr>\n");
             sb.append("<td>").append("").append(oDetaljer.getOrdreId()).append("</td>");
             sb.append("<td>").append("").append(order.getReciveddate()).append("</td>");

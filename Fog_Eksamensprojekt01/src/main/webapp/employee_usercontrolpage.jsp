@@ -75,7 +75,12 @@
                             <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordre</a> </button>
                         </div>
                     </form>
-
+                    <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UserList">
+                        <div class="form-group">
+                            <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+                        </div>
+                    </form>
 
                     <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="logout">

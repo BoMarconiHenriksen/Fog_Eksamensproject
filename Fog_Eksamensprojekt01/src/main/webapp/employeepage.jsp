@@ -71,10 +71,9 @@
                         <form class="form-inline" name="UserList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="UserList">
                             <div class="form-group">
-                                <button type="submit" name="UserList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer brugere</a> </button>
+                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
                             </div>
                         </form>
-
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="logout">
                             <div class="form-group">
@@ -96,6 +95,9 @@
                 <hr class="divider">
                 <div class="center-img">
                 <h2>Hej <%= (String) session.getAttribute("username")%></h2>
+                 </div>
+                 <div class="center-img">
+                
                 <% if ((String) request.getAttribute("changeOfUserDataSucces") != null) {
                         out.println((String) request.getAttribute("changeOfUserDataSucces"));
                     } else {
