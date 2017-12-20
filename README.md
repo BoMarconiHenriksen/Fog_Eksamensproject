@@ -1,5 +1,5 @@
 # Fog_Eksamensproject
-Eksamensprojekt datamatiker-uddannelsen, 2. semester, Afleveret 20/12-2017.
+Eksamensprojekt datamatiker-uddannelsen, 2. semester, afleveret 20/12-2017.
 
 Walter Hansen
 cph-wh102@cphbusiness.dk
