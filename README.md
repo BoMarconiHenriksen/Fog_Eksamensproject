@@ -14,5 +14,5 @@ Link til github:  https://github.com/walter01git/Fog_Eksamensproject
 
 Link running version: 
 
-Link javadoc: 
+Link javadoc: https://walter01git.github.io/Fog_Eksamensproject/
 
