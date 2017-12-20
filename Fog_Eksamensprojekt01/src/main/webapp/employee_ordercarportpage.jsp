@@ -134,9 +134,10 @@
                             Hvor stort skal skuret være? 
 
                             <br><br>
+                                <div class="center-img">
 
                             <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
-
+  </div>
                         </div>
                 </div>
                 <!--Her slutter hidden skur-->    
@@ -145,9 +146,9 @@
                 <div class="center-img">
                     <button type="submit" name="Employee_OrderCarport" value="CheckPrice">Tjek Pris </button>
                     <button type="submit" name="Employee_OrderCarportPlaceOrder" value="BestilOrdre">Bestil Carport </button>
-
+</div>
                     </form>
-                </div>
+                
                 <div class="text-center mt-4">
                     <div class="text-heading text-lg">
                         <div class="bg-faded p-4 my-4">
