@@ -97,6 +97,13 @@
             <hr class="divider">
 
             <h1>Hej: <%= (String) session.getAttribute("username")%> </h1>
+            
+              <% if ((String) request.getAttribute("changeOfUserDataSucces") == null) {
+
+                } else {
+                    out.println((String) request.getAttribute("changeOfUserDataSucces"));
+                }
+            %>
 
             <form  name="Admin_UserAdministration" action="FrontController" method="POST">
                 <input type="hidden" name="command" value="Admin_UserAdministration">
@@ -115,6 +122,8 @@
                 <button type="submit" name="Admin_UserAdministration" value="action">Implementer bruger ændringer </button>
 
             </form>
+
+          
         </div>
     </div>
 
