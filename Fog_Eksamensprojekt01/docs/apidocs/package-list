@@ -1,0 +1,8 @@
+Business
+Business.ConfigurationException
+Business.Domain
+Business.Exception
+Data
+Data.SQLscripts
+Presentation
+Presentation.Utillities
