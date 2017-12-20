@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -103,12 +103,12 @@
                     <h2 class="text-center text-lg text-uppercase my-0">
                         <strong>Se dine ordre og følge status på ordren</strong>
                     </h2>
-
                     <hr class="divider">
+               
 
-                    <%=request.getAttribute("customer_orderlist")%>
+                        <%=request.getAttribute("customer_orderlist")%>
+
                 </div>
-
                 <div class="text-center mt-4">
                     <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                 </div>

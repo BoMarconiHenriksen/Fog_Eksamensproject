@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -100,22 +100,28 @@
                     </h2>
                     <hr class="divider">
 
-                    <p>Dit Fornavn: ${yourFirstname}</p><br>
-                    <p>Din Efternavn: ${yourLastname}</p><br>
-                    <p>Din Email: ${yourEmail}</p><br>
-                    <p>Din Adresse: ${yourAddress}</p><br>
-                    <p>Dit Postnummer: ${yourZipcode}</p><br>
-                    <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
-
-                    <div>
+                    <div class="text-center">
+                        <p>Dit Fornavn: ${yourFirstname}</p><br>
+                        <p>Din Efternavn: ${yourLastname}</p><br>
+                        <p>Din Email: ${yourEmail}</p><br>
+                        <p>Din Adresse: ${yourAddress}</p><br>
+                        <p>Dit Postnummer: ${yourZipcode}</p><br>
+                        <p>Dit Telefonnummer: ${yourPhoneNr}</p><br>
+                    </div>
+                    <br>
+                    <div class="center-img">
                         <form name="Customer_UserOptions" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="Customer_UserOptions">
 
-                            Intast nuværende Password: <input type="password" name="passwordOld" ><br>
-                            Ændre Password: <input type="password" name="passwordNew" ><br>
+                            Intast nuværende Password: <br><input type="password" name="passwordOld" ><br>
+
+                            Ændre Password:<br> <input type="password" name="passwordNew" >
+                            <br><br>
                             <button type="submit" name="Customer_UserOptionsPasswordChange" value="Submit">Udfør Password ændring </button>
                         </form>
+
                     </div>
+                    <br>
 
                     <% if ((int) request.getAttribute("outprintpasswordchangestatus") == 0) {
                             out.println("<p> Dit tidligere password var ikke korrekt. Prøv igen. </p><br>");
@@ -125,12 +131,15 @@
                             out.println("");
                         }
                     %>
+                </div>
+
+                <div class="center-img">
 
                     <button type="button"  onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til velkomstsiden</button>
                 </div>
+
             </div>
         </div>
-
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

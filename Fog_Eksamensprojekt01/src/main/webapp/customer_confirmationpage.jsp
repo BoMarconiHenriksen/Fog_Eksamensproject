@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -102,68 +102,77 @@
                     <hr class="divider">
                     <h2 class="text-center text-lg text-uppercase my-0"><strong>Tak for købet <%= (String) session.getAttribute("username")%></strong></h2>
                     <hr class="divider">
+                    <div class="text-center">
 
-                    <%
-                        Odetaljer od = (Odetaljer) request.getAttribute("od");
+                        <%
+                            Odetaljer od = (Odetaljer) request.getAttribute("od");
 
-                        double length = od.getCarportLength();
-                        double width = od.getCarportWidth();
-                        double heigth = od.getCarportHeight();
-                        double skurlength = od.getLengthRedskabsrum();
-                        double skurWidth = od.getWidthRedskabsrum();
-                        double skurHeigth = 210;
-                        double price = od.getPrice();
+                            double length = od.getCarportLength();
+                            double width = od.getCarportWidth();
+                            double heigth = od.getCarportHeight();
+                            double skurlength = od.getLengthRedskabsrum();
+                            double skurWidth = od.getWidthRedskabsrum();
+                            double skurHeigth = 210;
+                            double price = od.getPrice();
 
-                        out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
+                            out.println("<p>" + "Ordrenummer: " + od.getOrdreId() + "</p> \n");
 
-                        out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
-                        out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
-                        out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
+                            out.println("<p>" + "Carportens samlede pris: " + price + "</p> \n");
 
-                        if (skurlength != 0.00) {
-                            out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
-                            out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
-                            out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
+                            out.println("<p>" + "Carportens ønskede længde: " + length + "</p>");
+                            out.println("<p>" + "Carportens ønskede bredde: " + width + "</p>");
+                            out.println("<p>" + "Carportens ønskede højde: " + heigth + "</p>");
 
-                        } else {
-                            out.println("<p>" + "Carporten er uden skur." + "</p>");
-                        }
+                            if (skurlength != 0.00) {
+                                out.println("<p>" + "Skurets ønskede længde: " + skurlength + "</p>");
+                                out.println("<p>" + "Skurets ønskede bredde: " + skurWidth + "</p>");
+                                out.println("<p>" + "Skurets ønskede højde: " + skurHeigth + "</p>");
 
-                    %>
+                            } else {
+                                out.println("<p>" + "Carporten er uden skur." + "</p>");
+                            }
+
+                        %>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                    <hr class="divider">    
-                    <%  
-                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Tegning af din carport</strong>
+                </h2>
+                <hr class="divider">
+
+                <div class="center-img">
+                    <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
             </div>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                    <hr class="divider"> 
 
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Styk Liste</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
                     <%
-                        RendUtilStykListe styk = new RendUtilStykListe();
-
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
-
-                    <div>
+                </div>
+                <div class="center-img">
+                     <div class="center-img">
                         <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
                         <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
                         <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Index</button>
                     </div>
-
                 </div>
+
             </div>
         </div>
 

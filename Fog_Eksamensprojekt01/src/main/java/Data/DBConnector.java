@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Klassen laver en connector til vores databsen.
+ * Klassen laver en connector til vores database.
  * 
  */
 public class DBConnector {

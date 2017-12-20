@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import Business.Exception.NewException;
 
 /**
- *
+ * Klassen bruges til opdatering af brugerens information.
  */
 public class Employee_UserOptions extends Command {
 

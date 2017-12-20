@@ -44,10 +44,10 @@ public class MaterialeMapper {
                 String materialenavn = rs.getString("materialenavn");
                 double enhedspris = rs.getDouble("enhedspris");
                 String enhed = rs.getString("enhed");
-                double msr = rs.getDouble("længde");
+                double længde = rs.getDouble("længde");
 
                 if (varenummer != lastId) {
-                    mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, msr);
+                    mat = new Materiale(varenummer, materialetype, materialenavn, enhedspris, enhed, længde);
 
                     mats.add(mat);
 

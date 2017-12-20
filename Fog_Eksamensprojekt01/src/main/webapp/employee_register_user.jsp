@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -98,7 +98,7 @@
                 <hr class="divider">
                 <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud, for at registrere en ny bruger.</h2>
                 <hr class="divider">
-
+                <div class="center-img">
                 <table>     
 
                     <td>
@@ -140,7 +140,7 @@
                 </table>
             </div>
         </div>     
-
+</div>
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * Denne class er en af commands'ne.
  * Bruges på customer_shopping_cart.jsp, hvor kunden skal bekræfte om ordren
  * skal bestiles. Når kunden trykker "Bestil ordren of afvent svar snarest", så
- * ændres ordre statusen på kunden sordre til "Ny ordre".
+ * ændres ordre statusen på kundens ordre til "Ny ordre".
  *
  */
 public class Checkout extends Command {
@@ -32,7 +32,7 @@ public class Checkout extends Command {
             ordreId = Integer.parseInt(request.getParameter("id"));
         }
 
-        LogicFacade.getOrderByOrderId2(ordreId);
+        LogicFacade.getOrdreByOrderId(ordreId);
         Odetaljer oDetaljer = LogicFacade.getOdetaljerByOrderId(ordreId);
         String status = oDetaljer.getOrdreStatus();
         RendSvg svag = new RendSvg();

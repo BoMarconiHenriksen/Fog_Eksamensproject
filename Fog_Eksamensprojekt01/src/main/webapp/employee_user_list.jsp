@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -59,26 +59,27 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <div class="center-img">
+                         
+                            <li class="nav-item px-lg-4">
+                                <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
+                            </li>
 
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
-                        </li>
-
-                        <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="OrdreList">
-                            <div class="form-group">
-                                <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordrer</a> </button>
-                            </div>
-                        </form>
+                            <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="OrdreList">
+                                <div class="form-group">
+                                    <button type="submit" name="OrdreList" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Administer Ordrer</a> </button>
+                                </div>
+                            </form>
 
 
-                        <form class="form-inline" name="LogOut" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="logout">
-                            <div class="form-group">
-                                <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
-                            </div>
-                        </form>
-                        </li>
+                            <form class="form-inline" name="LogOut" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="logout">
+                                <div class="form-group">
+                                    <button type="submit" onclick="javascript:return show_confirmLogOff();" name="logout" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Log af </a></button>
+                                </div>
+                            </form>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -98,7 +99,7 @@
                 %></h1>
         </div>
 
-       
+
 
         <div class="container">
 
@@ -108,34 +109,33 @@
                     <strong>Medarbejdere og Kunder</strong>
                 </h2>
                 <hr class="divider">
+                <div class="center-img">
 
-
-                <%
-                    out.println("<a>" + (String)request.getAttribute("employee_userlist") + "</a>");
-                %>  
+                    <%                    out.println("<a>" + (String) request.getAttribute("employee_userlist") + "</a>");
+                    %>  
+                </div>
             </div>
         </div>
 
-
-        <div>
+        <div class="center-img">
             <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
 
         </div>
 
 
 
-<footer class="bg-faded text-center py-5">
-    <div class="container">
-        <p class="m-0">
-            <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-            </a>
-            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-        </p>
-    </div>
-</footer>        
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>        
 
-</body>
+    </body>
 </html>
 
 

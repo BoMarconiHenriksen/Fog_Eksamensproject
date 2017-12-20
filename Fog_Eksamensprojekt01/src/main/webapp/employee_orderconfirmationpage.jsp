@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -64,6 +64,12 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
+                      <form class="form-inline" name="UserList" action="FrontController" method="POST">
+                            <input type="hidden" name="command" value="UserList">
+                            <div class="form-group">
+                                <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
+                            </div>
+                        </form>
 
                         <form class="form-inline" name="OrdreList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdreList">
@@ -126,37 +132,47 @@
                 </div>
             </div>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Tegning af din carport</strong></h2>
-                    <hr class="divider">    
-                    <%                                                out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
+
+            <div class="bg-faded p-4 my-4"> 
+
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Tegning af carporten</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
+
+                    <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
+
             </div>
 
-            <div class="text-heading text-lg">
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0"><strong>Stykliste</strong></h2>
-                    <hr class="divider"> 
 
+
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Styk Liste</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
                     <%
-                      out.println("<p>"+ request.getAttribute("stykListe") + "</p>");
+                        out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
 
-                    <div>
-                        <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
-                        <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
-                        <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-                    </div>
 
                 </div>
             </div>
-        </div>
+            <div>
+                <%--   found it here : https://stackoverflow.com/questions/40719102/when-button-clicked-download-jsp-table-in-the-form-of-pdf --%>      
+                <input name="printPDF" type="submit" value="Download som PDF" name="download" onclick="window.print()" />      
 
+                <button type="button" style="background-color: buttonface" onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+            </div>
+        </div>   
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

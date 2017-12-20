@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -134,25 +134,38 @@
 
                 </div>
             </div>
-            <div class="text-center mt-4">
 
-                <div class="bg-faded p-4 my-4">
-                    <hr class="divider">
-                    <h2 class="text-center text-lg text-uppercase my-0">
-                        <strong>Tegning af din carport</strong>
-                    </h2>
-                    <hr class="divider">
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Tegning af din carport</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
                     <%
                         RendSvg rendSvg = new RendSvg();
 
                         String carportTegning = rendSvg.simpelCarport(length, width, skurlength, skurWidth);
 
                         out.println("<a>" + carportTegning + "</a>");
-
                         RendUtilStykListe styk = new RendUtilStykListe();
+                    %>
 
+                </div>
+            </div>
+
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Liste over materialer</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
+                    <%
                         // Stykliste hvis kunde har bestilt.
-                        if (oDetaljer.getOrdreStatus().equals("Bestilt")) {
+                        if (!oDetaljer.getOrdreStatus().equals("Gemt Design")) {
                             String stykListe = styk.createLineItemList(length, width, skurlength, skurWidth);
 
                             out.println("<p>" + stykListe + "</p>");
@@ -163,6 +176,7 @@
                 </div>
             </div>
 
+
             <div class="text-center mt-4">
 
                 <div class="bg-faded p-4 my-4">
@@ -171,14 +185,17 @@
                         <strong>Ordre Detaljer</strong>
                     </h2>
                     <hr class="divider">
+                    <div class="center-img">
+                        <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
+                    </div>
 
-                    <%=RendUtilCustomerOdetailsFunktions.odetailsForOrder_Customer(oDetaljer)%>
+                    <div class="center-img">
+                        <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
+                    </div>
 
-                    <button type="button" style="background-color: buttonface" onclick="location.href = 'customerpage.jsp';" >Gå Tilbage til Velkomstsiden</button>
                 </div>
             </div>
-        </div>
-
+        </div>    
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

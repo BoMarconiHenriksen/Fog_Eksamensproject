@@ -16,8 +16,8 @@ public class RendUtilUserList {
 
         StringBuilder sb = new StringBuilder();
         
-        sb.append("<br><br> Vælg en kunde som ordren skal bestilles til:"
-                + "<table>\n"
+        sb.append("<br><br>    <div class=\"center-img\">Vælg en kunde som ordren skal bestilles til:"
+                + " </div><br> <div class=\"center-img\"><table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Kunde ID </th><br><th>Kunde Email   </th><th>Kunde Tlf-Nummer  </th></tr>\n");
         for (User user : userList) {
@@ -28,7 +28,7 @@ public class RendUtilUserList {
             sb.append("<td>\n <input type=\"radio\"checked=\"checked\" name=\"kunde_id\" value=\"" + user.getUser_id() + "\"><br>\n\n</td>");
             sb.append("</tr>\n");
         }
-        sb.append("</table>\n");
+        sb.append("</table></div>\n");
 
         return sb.toString();
     }

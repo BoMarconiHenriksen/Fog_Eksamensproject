@@ -1,6 +1,4 @@
-/*
-*
- */
+
 package Data;
 
 import Business.Exception.NewException;
@@ -12,11 +10,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author Ejer
+ * tester forbindelsen til databasen inden programmet køres hvergang
  */
 public class DBConnectorTest {
-    
+     
     public DBConnectorTest() {
     }
     

@@ -51,12 +51,12 @@ public class Employee_OrderCarport extends Command {
         Ordre order = new Ordre();
 
         int user_id = Integer.parseInt(request.getParameter("kunde_id"));
+        String ordre_status = request.getParameter("StatusToOrder");
 
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
         request.setAttribute("kunde_ided", user_id);
 
-        String ordre_status = null;
         double lentghinput = Double.parseDouble(request.getParameter("lentgchoice"));
         double widthinput = Double.parseDouble(request.getParameter("widthchoice"));
         double heightinput = Double.parseDouble(request.getParameter("heightchoice"));
@@ -71,7 +71,7 @@ public class Employee_OrderCarport extends Command {
 
         if (CheckUd != null) {
 
-            ordre_status = "Bestilt";
+            // ordre_status = "Bestilt";
 
             placeOrderOdetailsSetAttributes(request, session, order, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, skurellerej, totalPrice);
 
@@ -209,7 +209,7 @@ public class Employee_OrderCarport extends Command {
         session.setAttribute("SessionIOD", orderId);
         Odetaljer oDetaljer = new Odetaljer(orderId, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         DataFacade.AddOdetailstoOrdermedSkur(orderId, oDetaljer);
-        DataFacade.getOrderByOrderId2(orderId);
+        DataFacade.getOdetaljerByOrderId(orderId);
 
         oDetaljer = DataFacade.getOdetaljerByOrderId(orderId);
         request.setAttribute("length", (Double) oDetaljer.getCarportLength());
