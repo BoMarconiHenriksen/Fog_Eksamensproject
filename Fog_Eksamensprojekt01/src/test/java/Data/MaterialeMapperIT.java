@@ -80,20 +80,6 @@ public class MaterialeMapperIT {
     }
     
     /**
-     * Test of getMaterial method, of class MaterialeMapper.
-     * @throws Business.Exception.NewException
-     */
-    @Test
-    public void testGetMaterial() throws NewException {
-        System.out.println("getMaterial");
-        List<Materiale> expResult = null;
-        List<Materiale> result = MaterialeMapper.getMaterial();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Metoden tester om vi får det rigtige varenavn for materiale nummer 1
      * @throws Business.Exception.NewException
      */
