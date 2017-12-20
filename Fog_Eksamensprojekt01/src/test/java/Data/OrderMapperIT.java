@@ -2,14 +2,12 @@
 package Data;
 
 import Business.Exception.NewException;
-import Business.Domain.Odetaljer;
 import Business.Domain.Ordre;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
