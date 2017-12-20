@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -74,38 +75,31 @@ public class OrderMapperIT {
     }
 
     @Test
-    public void testAddOrder() throws NewException {
-        Ordre or = new Ordre();
-        OrdreMapper.addOrdertoOrderList(or);
-        assertTrue(or != null);
-    }
-    @Test
-    public void testAddOdetailstoOrderwhenOrderisAdded() throws NewException {
-        Ordre or = new Ordre();
-        Odetaljer od = new Odetaljer();
-        OrdreMapper.addOrdertoOrderList(or);
-        OdetaljeMapper.AddOdetailstoOrdermedSkur(or.getOrdre_id(), od);
-        
-        assertTrue(or != null);
-        assertEquals( or, or.getOrdre_id() );
+    public void testAddOrderToOrderList() throws NewException {
+        Ordre ordre = new Ordre(3, "2017-10-10", 4);
+        OrdreMapper.addOrdertoOrderList(ordre);
+        List<Ordre> retrieved = OrdreMapper.getOrderListByUserID(4);
+        String date = retrieved.get(0).getReciveddate(); 
+        assertEquals( "2017-10-10", date );
     }
     
-    @Test( expected = NewException.class )
-    public void testOrdernotAdded() throws NewException {
-        Ordre or = new Ordre();
-        OrdreMapper.addOrdertoOrderList(or);
-        assertTrue(or == null);
+    @Test
+    public void testGetLastInvoiceId() throws NewException {
+        Ordre ordre = new Ordre(3, "2017-10-12", 5);
+        OrdreMapper.addOrdertoOrderList(ordre);
+        int retrieved = OrdreMapper.getLastInvoiceId();
+        assertEquals( 3, retrieved );
     }
-
-   
-
-    @After
-    public void tearDown() {
+    
+    @Test
+    public void testDeleteOrderListByOrderId() throws NewException {
+        Ordre ordre = new Ordre(4, "2017-10-11", 6);
+        OrdreMapper.addOrdertoOrderList(ordre);
+        
+        OrdreMapper.deleteOrderListByOrderID(4);
+        List<Ordre> retrieved = OrdreMapper.getOrderListByUserID(6);
+        
+        assertTrue(retrieved.isEmpty());
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }
