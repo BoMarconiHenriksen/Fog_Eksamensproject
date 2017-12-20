@@ -81,18 +81,11 @@ abstract class Command {
         commands.put("OrdertheOrder", new Checkout());
         commands.put("OrdreList", new OrdreList());
         commands.put("OrdreList_Customer", new OrdreList_Customer());
-     //   commands.put("OrdreList_Customer_DeleteOrder", new OrdreList_Customer());
         commands.put("InvoiceDetail", new InvoiceDetail());
-     //   commands.put("InvoiceDetail_Admin_DeleteOrder", new InvoiceDetail());
-     //   commands.put("InvoiceDetail_Admin_UserEdit", new InvoiceDetail());
         commands.put("InvoiceDetail_Customer", new InvoiceDetail_Customer());
-     //   commands.put("InvoiceDetail_Customer_DeleteOrder", new InvoiceDetail_Customer());
         commands.put("InvoiceSetStatus", new InvoiceSetStatus());
-     //   commands.put("InvSetOrderStatusbyCustomer", new InvoiceDetail_Customer());
         commands.put("Customer_UserOptions", new Customer_UserOptions());
-     //   commands.put("Customer_UserOptionsPasswordChange", new Customer_UserOptions());
         commands.put("Employee_OrderCarport", new Employee_OrderCarport());
-     //   commands.put("Employee_OrderCarportPlaceOrder", new Employee_OrderCarport());
         commands.put("Employee_SetupOrderCarportFunctions", new Employee_SetupOrderCarportFunctions());
         commands.put("Admin_UserAdministration", new Admin_UserAdministration());
         commands.put("UserList", new UserList());
