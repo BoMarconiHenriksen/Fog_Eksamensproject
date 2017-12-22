@@ -1,0 +1,38 @@
+
+/* 
+    Created on : 07-12-2017, 14:14:59
+    
+*/
+
+/*Fjerner button style til login på nav */
+.w3-button {
+    border:none;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+
+/*Sætter den rigtige størrelse på logoet, 
+og gør at billedet bliver på siden, når der skaleres ned.*/
+.logo {
+    width: 100%;
+}
+
+/*Laver logoet i footeren mindre*/
+.fog_bottom_logo {
+    width: 5%;
+}
+
+/*Centrer logo og header image*/
+.center-img {
+    display: flex;
+    justify-content: center;
+}
