@@ -18,10 +18,10 @@ import static org.junit.Assert.*;
 public class OrderMapperIT {
 
     private static Connection testConnection;
-    private static String USER = "testinguser";
-    private static String USERPW = "tryALot";
+    private static String USER = "transformer";
+    private static String USERPW = "tryl";
     private static String DBNAME = "fogTest";
-    private static String HOST = "46.101.179.58";
+    private static String HOST = "138.197.181.3";
 
     @BeforeClass
     public static void setUp() {

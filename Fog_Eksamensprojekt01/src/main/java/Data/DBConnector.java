@@ -14,9 +14,9 @@ import java.util.logging.Logger;
 public class DBConnector {
 
  
-    private final static String URL = "jdbc:mysql://46.101.179.58:3306/fog";
-    private final static String USER = "testuser";
-    private final static String PASSWORD = "password123";
+    private final static String URL = "jdbc:mysql://138.197.181.3:3306/fog";
+    private final static String USER = "transformer";
+    private final static String PASSWORD = "tryl";
     private static Connection singleton;
     
     /**
