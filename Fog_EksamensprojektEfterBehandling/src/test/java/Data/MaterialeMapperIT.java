@@ -21,7 +21,7 @@ public class MaterialeMapperIT {
     private static String USER = "transformer";
     private static String USERPW = "tryl";
     private static String DBNAME = "fogTest";
-    private static String HOST = "138.197.181.3";
+    private static String HOST = "165.227.132.189";
     
     public MaterialeMapperIT() {
     }
