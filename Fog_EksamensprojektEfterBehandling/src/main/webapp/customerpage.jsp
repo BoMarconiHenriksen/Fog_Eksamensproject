@@ -102,7 +102,7 @@
         </nav>
         <!-- Navigation slut -->
 
-                
+
         <!-- Welcome Message -->
         <div class="text-center mt-4">
             <h1 class="my-2">Velkommen til, <%=(String) session.getAttribute("username")%></h1>
@@ -157,6 +157,21 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
             </div>   
         </div>
+
+
+
+        <form name="ImageUpload"action="FrontController" method="POST">
+            <input type="hidden" name="command" value="Customer_UserOptions">
+            Vælg billeder: <input type="file" name="img" multiple>
+            <button type="submit" name="ImageUpload" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
+        </form>
+
+        <p>De kan vælge mere end en billedfil</p>
+        <p><strong>Note:</strong> Undtagen hvis de bruger Internet Explorer 9 eller tidsligere versioner.</p>
+<p>Det her endte me at blive knapt så interessant, da den dybe tallerken var både opfundet og velbeskrevet på https://www.w3schools.com/html/html_form_attributes.asp
+    <br> men selvfølgelig krævede det at man både har en command og gør en tabel klar i databasen, har en mapper med metoder der
+    <br> der kan både lægge et billede ned og hente et billede op samt et sted at vise billederne. 
+    <br> </p>
 
         <footer class="bg-faded text-center py-5">
             <div class="container">

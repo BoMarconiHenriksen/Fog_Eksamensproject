@@ -93,20 +93,26 @@
                 <hr class="divider">
             </div>
             <!--Bruges når en kunde har regisret sig-->
+             <div class="bg-faded text-center mr-4" >
             <% if (request.getAttribute("succes") != null) {
                     out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
+                   
                 } else {
 
                 }%>
-
+ </div> 
             <div class="bg-faded p-4 my-4">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
-            </div> 
-        </div>
-
+                <div class="bg-faded text-center mr-4">
+                    <a>Dette er indexsiden i vores carportbestillingssystem. <br>
+                        Her kan man enten logge ind eller vælge at gå til registrering, hvis man er ny bruger.<br>
+                        Hvis man klikker på headerbilledet kommer man til Johannes Fogs rigtige hjemmeside.<br>
+                        Hvis man klikker på hjem kommer man til index.jsp.</a>
+                </div> 
+            </div>
+        </div> 
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
