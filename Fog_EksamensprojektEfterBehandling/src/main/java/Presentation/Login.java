@@ -28,5 +28,4 @@ public class Login extends Command {
         session.setAttribute("userid", user.getUser_id());
         return user.getRole() + "page";
     }
-
 }

@@ -32,7 +32,7 @@
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>2. sprint synopsis</title>
+        <title>2. sprint userstories</title>
     </head>
     <body>
 
@@ -92,12 +92,12 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        <!-- Navigation til eksamenspræsentation -->
-        <ul class="navbar-nav mx-auto">
-            <li><a href="index.jsp">Hjem</a></li>
-            <li><a href="finals_second_userstories.jsp">Præsentation af 2. sprint </a></li>
-            <li><a href="registration.jsp">Sæt en anden side ind her</a></li>
-        </ul> 
+  <!-- Navigation til eksamenspræsentation -->
+          <ul class="navbar-nav mx-auto">
+  <li><a href="index.jsp">Hjem</a></li>
+  <li><a href="finals_second_sprint.jsp">Præsentation af 2. sprint </a></li>
+  <li><a href="registration.jsp">Sæt en anden side ind her</a></li>
+</ul> 
 
 
         <div class="container">
@@ -106,17 +106,22 @@
                 <div class="text-center mt-4">
                     <div class="bg-faded p-4 my-4">
 
-                        <h2>Synopsis</h2>
-
-
+                        <h2>2. Møde med productowner</h2>
 
                         <!-- Navigation til eksamenspræsentation -->
-                        <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_second_userstories.jsp">2. Møde med productowner</a></li>    
-                            <li><a href="index.jsp">Tegning og stykliste features</a></li>
+                        <ol>
+                           <a>valgte userstories:</a>
+                       
+                       <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/11"> - Udskriv en stykliste</a><br>
+                       <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/44" > - se en tegning af carport</a><br>
+                       <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" >- se en liste over ordrer </a><br>
+
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
+                        </ol> 
+                        
+                        <div class="center-img">
                             
-                        </ul> 
+                        </div>
                     </div>
                 </div>
             </div>

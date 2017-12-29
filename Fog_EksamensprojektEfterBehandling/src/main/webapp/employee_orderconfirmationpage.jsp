@@ -145,11 +145,7 @@
                     <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
-
             </div>
-
-
-
 
             <div class="bg-faded p-4 my-4">
                 <hr class="divider">
@@ -161,8 +157,6 @@
                     <%
                         out.println("<p>" + request.getAttribute("stykListe") + "</p>");
                     %>  
-
-
 
                 </div>
             </div>
