@@ -59,7 +59,6 @@
                                 <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
                                     <span class="sr-only">(current)</span>
                                 </a>
-
                             </li>
 
                             <li class="nav-item px-lg-4">
@@ -130,6 +129,5 @@
                 </p>
             </div>
         </footer>       
-
     </body>
 </html>

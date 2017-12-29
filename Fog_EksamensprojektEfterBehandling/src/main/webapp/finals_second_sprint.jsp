@@ -32,7 +32,7 @@
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>2. sprint synopsis</title>
+        <title>2. Sprint synopsis</title>
     </head>
     <body>
 
@@ -121,8 +121,7 @@
                 </div>
             </div>
         </div>
-
-
+       
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
