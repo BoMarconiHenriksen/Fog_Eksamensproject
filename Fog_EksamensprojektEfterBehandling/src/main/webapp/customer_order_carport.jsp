@@ -100,7 +100,15 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-
+        
+           <!-- Navigation til eksamenspræsentation -->
+          <ul class="navbar-nav mx-auto">
+  <li><a href="index.jsp">Hjem</a></li>
+  <li><a href="second_sprint.jsp">2. sprint</a></li>
+  <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul> 
+ 
         <div class="container">
 
             <div class="text-heading text-lg">
@@ -125,6 +133,11 @@
                             </div>
                             <div id="hidden_fields">
                                 Hvor stort skal skuret være? 
+                                <p style="background-color: lightgoldenrodyellow"> 
+                                    Her har vi benyttet en funktion i JQuery som er et javascript bilbliotek som
+                                    gør det lettere at arbejde med eventhandling, manipulation og animation indefor HTML
+                                    Vi henter script filen ind oppe i Head delen af de jspsider den benyttes på.
+                                <p>
 
                                 <br><br>
                                 <div class="center-img">

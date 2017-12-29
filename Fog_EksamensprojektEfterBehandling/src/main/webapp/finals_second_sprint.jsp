@@ -1,19 +1,24 @@
 <%-- 
-    Document   : index
-    Created on : Aug 22, 2017, 2:01:06 PM
+    Document   : second_sprint
+    Created on : 28-12-2017, 14:39:26
 --%>
+
+
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
     <head>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Vores scripts ligger i head, ellers virker vores skjulte tabel ikke -->
+        <script src="css/js/bootstrap.js" type="text/javascript"></script> 
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -23,23 +28,26 @@
         <link href="css/business-casual.css" rel="stylesheet" type="text/css"/>
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
-        <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+        <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript"></script>
 
-        <title>Fogs Carporte</title>
+        <title>2. sprint synopsis</title>
     </head>
     <body>
- 
+
         <!-- Logo og header billed-->
+
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
+
+                <img class="logo" src="images/DaraBuilderslogo.png" alt="DataBuildersLogo"/>
             </a>
         </div>
-                             
-        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Fogs Carporte</div>
-        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Carporte Efter Egne Mål | Tlf. 45 87 10 01</div>
-  
+
+        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Præsenterer 2. sprint</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Og lidt af 3. sprint | pga omformning af kode</div>
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
             <div class="container">
@@ -84,52 +92,43 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-            <!-- Navigation til eksamenspræsentation -->
-          <ul class="navbar-nav mx-auto">
-  <li><a href="index.jsp">Hjem</a></li>
-  <li><a href="finals_second_sprint.jsp">Præsentation af 2. sprint </a></li>
-  <li><a href="registration.jsp">Sæt en anden side ind her</a></li>
-</ul> 
+
+
 
         <div class="container">
-            <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">En Carport Efter Dine
-                    <strong>Drømme</strong>
-                </h2>
-                <hr class="divider">
-            </div>
-            <!--Bruges når en kunde har regisret sig-->
-             <div class="bg-faded text-center mr-4" >
-            <% if (request.getAttribute("succes") != null) {
-                    out.println("<p>" + request.getAttribute("pleaselogin") + "</p>");
-                   
-                } else {
 
-                }%>
- </div> 
-            <div class="bg-faded p-4 my-4">
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="30%">
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
-                <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Rejsning" width="30%">
-                <div class="bg-faded text-center mr-4">
-                    <a>Dette er indexsiden i vores carportbestillingssystem. <br>
-                        Her kan man enten logge ind eller vælge at gå til registrering, hvis man er ny bruger.<br>
-                        Hvis man klikker på headerbilledet kommer man til Johannes Fogs rigtige hjemmeside.<br>
-                        Hvis man klikker på hjem kommer man til index.jsp.</a>
-                </div> 
+            <div class="text-heading text-lg">
+                <div class="text-center mt-4">
+                    <div class="bg-faded p-4 my-4">
+
+                        <h2>Synopsis</h2>
+
+
+
+                        <!-- Navigation til eksamenspræsentation -->
+                        <ul class="navbar-nav mx-auto">
+                            <li><a>Møde med productowner</a></li>    
+                        
+                            <li><a href="index.jsp">Tegning og stykliste features</a></li>
+
+                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
+                        </ul> 
+                    </div>
+                </div>
             </div>
-        </div> 
+        </div>
+
+
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                    <a href="https://benedikteeva.000webhostapp.com/" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo7g.png" alt="BenedikteEva">      
+                    </a><br>
+                    Made by BenedikteEva 2017 
                 </p>
             </div>
-        </footer>       
+        </footer>
 
     </body>
 </html>
