@@ -74,12 +74,12 @@
                         </form>
 
                         <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                            <div>     
+                             
                                 <input type="hidden" name="command" value="Customer_UserOptions">
                                 <div class="form-group">
                                     <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                                 </div>
-                            </div>
+                          
                         </form>
 
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
@@ -91,6 +91,7 @@
                     </ul>
                 </div>
             </div>
+           
         </nav>
         <!-- Navigation slut -->
 
