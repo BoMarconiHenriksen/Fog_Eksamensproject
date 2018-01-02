@@ -43,7 +43,7 @@
 
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Bo præsenterer</div>
-        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Brug af Github | Frontcontroller</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Brug af Zenhub | Frontcontroller</div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
