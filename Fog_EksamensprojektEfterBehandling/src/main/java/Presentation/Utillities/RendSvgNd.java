@@ -22,7 +22,7 @@ public class RendSvgNd {
         StringBuilder sb = new StringBuilder();
 
         sb.append(setSvgCanvas(length));
-        sb.append(rammen(length, width));
+   //     sb.append(rammen(length, width));
         sb.append(remme(length, width, skurwidth));
         sb.append(roofPosts(length, width, skurwidth));
         
@@ -85,16 +85,14 @@ public class RendSvgNd {
      * @return remmene på tegningen.
      */
     private String remme(double length, double width, double skurwidth) {
-        String lægter = (" <rect x=\"0\" y=\"15\" height=\"9.7\" width=\"" + length + "\"\n"
-                + "              style=\"stroke:#000000; fill: #ffffff\"/>\n"
-                +" <rect x=\"0\" y=\"20\" height=\"9.7\" width=\"" + length + "\"\n"
-                + "              style=\"stroke:#000000; fill: #ffffff\"/>\n");
+        String lægter = (" <rect x=\"0\" y=\"13\" height=\"9.7\" width=\"" + length + "\"\n"
+                        + "style=\"fill:goldenrod;stroke:darkgoldenrod;stroke-width:1\"/>\n");
         return lægter;
     }
     
     private String roofPosts(double length, double width, double skurwidth){
         
-        String roofPost = ( "<polygon points=\"2, 2," + (length - 3) + ", 3," + (length - 3) + ", 15.5, 1, 12.5\"" + "\"\n"
+        String roofPost = ( "<polygon points=\"2, 2," + (length ) + ", 3," + (length) + ", 15.5, 1, 12.5\"" + "\"\n"
                 + "style=\"fill:khaki;stroke:darkgoldenrod;stroke-width:1\"/>\n");
                 
       return roofPost;
