@@ -30,7 +30,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>2. Sprint synopsis</title>
     </head>
@@ -41,7 +41,7 @@
         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
 
-                <img class="logo" src="images/DaraBuilderslogo.png" alt="DataBuildersLogo"/>
+                <img class="logo" src="images/DataBuildersHeader.png" alt="DataBuildersLogo"/>
             </a>
         </div>
 
@@ -128,7 +128,7 @@
                     <a href="https://benedikteeva.000webhostapp.com/" target="_blank">
                         <img class="fog_bottom_logo" src="images/logo7g.png" alt="BenedikteEva">      
                     </a><br>
-                    Made by BenedikteEva 2017 
+                     Made by The DataBuilders 2017  
                 </p>
             </div>
         </footer>

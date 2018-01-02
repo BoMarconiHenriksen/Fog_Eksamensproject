@@ -26,7 +26,7 @@
         <script src="script/popper/popper.min.js" type="text/javascript"></script>
         <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
+       <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Ret Bruger Oplysninger</title>
     </head>

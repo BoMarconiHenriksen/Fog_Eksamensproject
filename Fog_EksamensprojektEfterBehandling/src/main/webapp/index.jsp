@@ -25,7 +25,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
         <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
-
+      
         <title>Fogs Carporte</title>
     </head>
     <body>

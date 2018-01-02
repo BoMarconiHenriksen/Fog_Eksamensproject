@@ -32,7 +32,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Bestil Carport</title>
     </head>
@@ -104,7 +104,7 @@
            <!-- Navigation til eksamenspræsentation -->
           <ul class="navbar-nav mx-auto">
   <li><a href="index.jsp">Hjem</a></li>
-  <li><a href="second_sprint.jsp">2. sprint</a></li>
+  <li><a href="finals_second_sprint.jsp">2. sprint</a></li>
   <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
   <li><a href="about.asp">About</a></li>
 </ul> 
