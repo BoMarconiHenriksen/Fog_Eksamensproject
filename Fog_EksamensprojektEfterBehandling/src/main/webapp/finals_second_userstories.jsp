@@ -120,7 +120,7 @@
                             <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" > se en liste over ordrer </a><br>
                                 <a>andet</a>
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-                            <li><a  href = 'finals_sekvens_materiale_list.jsp'>Sekvensdiagram stykliste</a></li>
+                            <li><a  href = 'finals_sekvens_materiale.jsp'>Sekvensdiagram stykliste</a></li>
                         </ol> 
 
 

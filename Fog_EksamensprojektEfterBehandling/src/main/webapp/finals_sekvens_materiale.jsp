@@ -117,13 +117,20 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="center-img">
+
+      <img src="images/Fogsekvenssestyklisteansat.png" alt=""/>
+
+            </div>
+        </div>    <br>
             <div class="center-img">
 
                 <img src="images/Fogsekvensstykliste.png" alt=""/>
 
             </div>
-
-        </div>
+        
+  
 
 
        <footer class="bg-faded text-center py-5">
