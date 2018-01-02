@@ -1,13 +1,16 @@
 <%-- 
-    Document   : finals_bo
-    Created on : 02-01-2018, 19:30:43
-    Author     : Ejer
+    Document   : second_sprint
+    Created on : 28-12-2017, 14:39:26
 --%>
+
+
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-      <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,23 +30,22 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+       <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
-        <title>Bo</title>
+        <title>2. sprint synopsis</title>
     </head>
     <body>
 
         <!-- Logo og header billed-->
-
-       <div class="center-img">
+  <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
                 <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
         </div>
 
 
-        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Bo præsenterer</div>
-        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Brug af Github | Frontcontroller</div>
+        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Præsenterer 2. sprint</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Og lidt af 3. sprint | pga omformning af kode</div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
@@ -89,7 +91,7 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        <!-- Navigation til eksamenspræsentation -->
+           <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
             <li><a href="index.jsp">Hjem</a></li>
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
@@ -107,22 +109,24 @@
                 <div class="text-center mt-4">
                     <div class="bg-faded p-4 my-4">
 
-                        <h2>Synopsis</h2>
+                        <h2>Workflow Github</h2>
 
 
 
-                   
-                        <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_workflow_git.jsp">Workflow Github</a></li>    
-                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-                            
-                        </ul> 
+
                     </div>
                 </div>
             </div>
+            <div class="center-img">
+
+                <img src="images/workflow_for_github_720.jpg" alt=""/>
+
+            </div>
+
         </div>
-       
-        <footer class="bg-faded text-center py-5">
+
+
+       <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">Copyright &copy; The Data Builders 2017</p>
             </div>
