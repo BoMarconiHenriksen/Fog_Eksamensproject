@@ -123,13 +123,13 @@
       <img src="images/Fogsekvenssestyklisteansat.png" alt=""/>
 
             </div>
-        </div>    <br>
+         <br>
             <div class="center-img">
 
                 <img src="images/Fogsekvensstykliste.png" alt=""/>
 
             </div>
-        
+        </div>   
   
 
 
