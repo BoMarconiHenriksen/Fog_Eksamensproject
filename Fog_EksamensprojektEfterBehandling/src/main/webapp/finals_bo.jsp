@@ -113,8 +113,7 @@
 
                    
                         <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_second_userstories.jsp">?</a></li>    
-                          
+                            <li><a href="finals_arkitektur_diagram.jsp">Arkitektur</a></li>    
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
                             
                         </ul> 
