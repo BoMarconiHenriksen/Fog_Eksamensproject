@@ -78,16 +78,25 @@
                 </div>
             </div>
         </nav>
-
+     <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
         <div class="container">
             <div class="bg-faded p-4 my-4">
 
 
                 <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">Fyld formen ud, hvis du er ny kunde</h2>
+                <h2 class="text-center text-lg text-uppercase my-0" >Fyld formen ud, hvis du er ny kunde</h2>
                 <hr class="divider">
                 <div class="center-img">
-                <table>     
+                <table title="Vi har brugt en masse forskellige html ta">     
 
                     <td>
                         <form name="register" action="FrontController" method="POST">

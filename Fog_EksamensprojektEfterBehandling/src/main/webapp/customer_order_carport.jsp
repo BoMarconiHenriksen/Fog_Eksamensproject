@@ -32,7 +32,7 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-        <script src="script/javascript.js" type="text/javascript"></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>Bestil Carport</title>
     </head>
@@ -100,7 +100,18 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-
+        
+           <!-- Navigation til eksamenspræsentation -->
+           <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
         <div class="container">
 
             <div class="text-heading text-lg">
@@ -125,6 +136,11 @@
                             </div>
                             <div id="hidden_fields">
                                 Hvor stort skal skuret være? 
+                                <p style="background-color: lightgoldenrodyellow"> 
+                                    Her har vi benyttet en funktion i JQuery som er et javascript bilbliotek som
+                                    gør det lettere at arbejde med eventhandling, manipulation og animation indefor HTML
+                                    Vi henter script filen ind oppe i Head delen af de jspsider den benyttes på.
+                                <p>
 
                                 <br><br>
                                 <div class="center-img">

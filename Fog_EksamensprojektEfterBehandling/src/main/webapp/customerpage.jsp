@@ -101,8 +101,17 @@
             </div>
         </nav>
         <!-- Navigation slut -->
+     <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
 
-                
         <!-- Welcome Message -->
         <div class="text-center mt-4">
             <h1 class="my-2">Velkommen til, <%=(String) session.getAttribute("username")%></h1>
@@ -124,9 +133,9 @@
                     <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/basis_carport.png" alt="Basis Carport" width="25%">
                 </a>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
+                <p>Her kan man bestille en helt almindelig carport med fladt tag, med eller uden redskabsskur.</p>
+                <p>Man kan også få en tegning af taget set ovenfra.</p>
+                <p>og når man har bestilt carporten så får man også en liste over hvilke materialer der skal bruges hvor</p>
             </div>
 
 
@@ -138,7 +147,7 @@
                 </h2>
                 <hr class="divider">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/dobbelt_carport.png" alt="Dobbelt Carport" width="30%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                <p>Her kan man på et endnu ikke fastsat tidspunkt bestille en dobbelt carport med fladt tag, med eller uden redskabsskur.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
             </div>  
@@ -152,12 +161,40 @@
                 </h2>
                 <hr class="divider">
                 <img class="img-fluid float-left mr-4 d-none d-lg-block" src="images/rejsning.png" alt="Carport med Tagrejsning" width="30%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
+                <p>Her kommer man muligvis til at kunne bestille en carport med rejsningstag, med eller uden redskabsskur..</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
             </div>   
-        </div>
 
+
+
+            <div class="bg-faded p-4 my-4">
+                <hr class="divider">
+                <h2 class="text-center text-lg text-uppercase my-0">
+                    <strong>Upload billede</strong>
+                </h2>
+                <hr class="divider">
+                <div class="center-img">
+                    <form name="ImageUpload"action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="ImageUpload">
+                        Vælg billeder: <input type="file" name="img" multiple>
+                        <button type="submit" name="ImageUpload" value="Submit" ><a>Upload </a></button>
+                    </form>
+                </div>  </div>  
+            <br>
+            <div class="bg-faded p-4 my-4">
+
+                <p>De kan vælge mere end en billedfil</p>   
+
+                <p><strong>Note:</strong> Undtagen hvis De bruger Internet Explorer 9 eller tidsligere versioner.</p>  
+                <p>Det her endte med at blive knapt så interessant, da den dybe tallerken var både opfundet og velbeskrevet på https://www.w3schools.com/html/html_form_attributes.asp</p>
+                <p>  men selvfølgelig krævede det at man både har en command og gør en tabel klar i databasen, har en mapper med metoder der
+                    både kan  lægge et billede ned og hente et billede op samt et sted at vise billederne. 
+                </p>
+
+            </div>   
+
+        </div>   
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">

@@ -27,8 +27,7 @@
         <link href="css/own_custom_style.css" rel="stylesheet" type="text/css"/>
 
         <!-- Our Own Custom styles for this template - Important for hidden fields -->
-        <script src="script/javascript.js" type="text/javascript"></script>
-
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
         <title>Din Bestilling</title>
     </head>
     <body>
@@ -74,12 +73,12 @@
                         </form>
 
                         <form class="form-inline" name="Customer_UserOptions" action="FrontController" method="POST">
-                            <div>     
-                                <input type="hidden" name="command" value="Customer_UserOptions">
-                                <div class="form-group">
-                                    <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
-                                </div>
+
+                            <input type="hidden" name="command" value="Customer_UserOptions">
+                            <div class="form-group">
+                                <button type="submit" name="Customer_UserOptions" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Kontooplysninger </a></button>
                             </div>
+
                         </form>
 
                         <form class="form-inline" name="LogOut" action="FrontController" method="POST">
@@ -91,9 +90,19 @@
                     </ul>
                 </div>
             </div>
+
         </nav>
         <!-- Navigation slut -->
-
+     <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
         <div class="container">
 
             <div class="text-heading text-lg">
@@ -123,7 +132,7 @@
                         <%if (request.getAttribute("lentghInput") == null) {
                                 out.println("");
                             } else {
-                               
+
                                 out.println("<p> Carport pris: " + (String) request.getAttribute("carportTotaludenSkur") + "</p><br>");
 
                                 out.println("<p> Ønsket Længde: " + (Double) request.getAttribute("length") + "</p><br>");
