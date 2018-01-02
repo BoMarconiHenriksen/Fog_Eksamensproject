@@ -102,13 +102,16 @@
         <!-- Navigation slut -->
         
            <!-- Navigation til eksamenspræsentation -->
-          <ul class="navbar-nav mx-auto">
-  <li><a href="index.jsp">Hjem</a></li>
-  <li><a href="finals_second_sprint.jsp">2. sprint</a></li>
-  <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-  <li><a href="about.asp">About</a></li>
-</ul> 
- 
+           <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
         <div class="container">
 
             <div class="text-heading text-lg">

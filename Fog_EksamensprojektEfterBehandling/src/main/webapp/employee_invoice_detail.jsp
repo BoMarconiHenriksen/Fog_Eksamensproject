@@ -91,7 +91,16 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-
+     <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
+        </ul> 
         <!-- MANGLER CSS TIL CONTAINER OG DE HVIDE AFSNIT-->
         <div class="container">
             <div class="text-center mt-4">

@@ -38,12 +38,12 @@
 
         <!-- Logo og header billed-->
 
-        <div class="center-img">
+      <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-
-                <img class="logo" src="images/DataBuildersHeader.png" alt="DataBuildersLogo"/>
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
         </div>
+
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Præsenterer 2. sprint</div>
         <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Og lidt af 3. sprint | pga omformning af kode</div>
@@ -92,14 +92,16 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        <!-- Navigation til eksamenspræsentation -->
+           <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
             <li><a href="index.jsp">Hjem</a></li>
-            <li><a href="finals_second_sprint.jsp">Præsentation af 2. sprint </a></li>
-  
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
             
         </ul> 
-
 
         <div class="container">
 
@@ -128,14 +130,9 @@
         </div>
 
 
-        <footer class="bg-faded text-center py-5">
+       <footer class="bg-faded text-center py-5">
             <div class="container">
-                <p class="m-0">
-                    <a href="https://benedikteeva.000webhostapp.com/" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo7g.png" alt="BenedikteEva">      
-                    </a><br>
-                     Made by The DataBuilders 2017 
-                </p>
+                <p class="m-0">Copyright &copy; The Data Builders 2017</p>
             </div>
         </footer>
     </body>

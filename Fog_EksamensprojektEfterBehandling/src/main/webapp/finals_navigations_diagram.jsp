@@ -32,16 +32,15 @@
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
-        <title>2. Sprint synopsis</title>
+        <title>Navigations diagram</title>
     </head>
     <body>
 
         <!-- Logo og header billed-->
 
-        <div class="center-img">
+         <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
-
-                <img class="logo" src="images/DataBuildersHeader.png" alt="DataBuildersLogo"/>
+                <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
         </div>
 
@@ -95,8 +94,12 @@
         <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
             <li><a href="index.jsp">Hjem</a></li>
-            <li><a href="finals_second_userstories.jsp">Præsentation af 2. sprint </a></li>
-            <li><a href="registration.jsp">Sæt en anden side ind her</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+            
         </ul> 
 
 
@@ -106,30 +109,25 @@
                 <div class="text-center mt-4">
                     <div class="bg-faded p-4 my-4">
 
-                        <h2>Synopsis</h2>
-
-
-
-                        <!-- Navigation til eksamenspræsentation -->
-                        <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_second_userstories.jsp">2. Møde med productowner</a></li>    
-                            <li><a href="index.jsp">Udskriv en stykliste</a></li>
-                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
+                        <h2>Navigationsdiagram</h2>
+                        
+                        <div class="center-img">
                             
-                        </ul> 
+                            
+                            <img src="images/navigationsdiagram.jpg" alt=""/>
+                            
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
        
-        <footer class="bg-faded text-center py-5">
+       <footer class="bg-faded text-center py-5">
             <div class="container">
-                <p class="m-0">
-                    <a href="https://benedikteeva.000webhostapp.com/" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo7g.png" alt="BenedikteEva">      
-                    </a><br>
-                     Made by The DataBuilders 2017  
-                </p>
+                <p class="m-0">Copyright &copy; The Data Builders 2017</p>
             </div>
         </footer>
     </body>
