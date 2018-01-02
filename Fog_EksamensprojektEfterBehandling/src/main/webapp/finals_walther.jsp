@@ -113,9 +113,9 @@
 
                   
                         <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_naviagations_diagram.jsp">2. Sprint</a></li>    
-                            <li><a href="index.jsp">Udskriv en stykliste</a></li>
-                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
+                            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>    
+                            <li><a href="index.jsp">Bestil en carport</a></li>
+                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/issues/45'>userstory "Kunde bestiller en ordre"</a></li>
                             
                         </ul> 
                     </div>
