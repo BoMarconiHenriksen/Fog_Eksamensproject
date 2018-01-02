@@ -65,8 +65,8 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="employee_register_user.jsp">Opret Bruger</a>
                         </li>
-                        
-                         <form class="form-inline" name="UserList" action="FrontController" method="POST">
+
+                        <form class="form-inline" name="UserList" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="UserList">
                             <div class="form-group">
                                 <button type="submit" name="UserList" value="Submit"class="w3-button nav-link text-uppercase text-expanded"><a>Brugere</a> </button>
@@ -154,6 +154,12 @@
                         out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
+
+                <div class="center-img">
+                    <%
+                        out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
+                    %>
+                </div>
             </div>
 
 
@@ -171,30 +177,30 @@
                         out.println("<p>" + (String) request.getAttribute("LineItemsList") + "</p>");
                     %>   
                 </div>
-           
 
 
-            <div class="center-img">
-                <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
-            </div> 
+
+                <div class="center-img">
+                    <button type="button"  onclick="location.href = 'employeepage.jsp';" >Gå Tilbage til Hovedmenuen</button>
+                </div> 
+            </div>
         </div>
- </div>
-            <script src="script/jquery/jquery.js" type="text/javascript"></script>
-            <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-            <script src="script/popper/popper.min.js" type="text/javascript"></script>
-            <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-            <script src="script/popper/popper.min.js" type="text/javascript"></script>
-            <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
-            <footer class="bg-faded text-center py-5">
-                <div class="container">
-                    <p class="m-0">
-                        <a href="https://www.johannesfog.dk" target="_blank">
-                            <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                        </a>
-                        Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                    </p>
-                </div>
-            </footer>        
+        <script src="script/jquery/jquery.js" type="text/javascript"></script>
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/popper/popper.min.js" type="text/javascript"></script>
+        <script src="css/js/bootstrap.min.js" type="text/javascript"></script>
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">
+                    <a href="https://www.johannesfog.dk" target="_blank">
+                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                    </a>
+                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+                </p>
+            </div>
+        </footer>        
 
     </body>
 </html>
