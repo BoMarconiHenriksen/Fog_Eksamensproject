@@ -91,7 +91,7 @@
             <li><a href="finals_walther.jsp">Walther</a></li>
             <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
             <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            
+
         </ul> 
 
         <div class="container">
@@ -132,6 +132,9 @@
                     Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
                 </p>
             </div>
-        </footer>       
+        </footer> 
+
+        <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="script/jquery/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
