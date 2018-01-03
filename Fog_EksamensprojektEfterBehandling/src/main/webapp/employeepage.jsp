@@ -105,15 +105,7 @@
                 <div class="center-img">
                 <h2>Hej <%= (String) session.getAttribute("username")%></h2>
                  </div>
-                 <div class="center-img">
-                
-                <% if ((String) request.getAttribute("changeOfUserDataSucces") != null) {
-                        out.println((String) request.getAttribute("changeOfUserDataSucces"));
-                    } else {
-
-                    }
-                %>
-                </div>
+              
                 <div class="center-img">
                     <form class="form-inline"  name="OrdreList" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="OrdreList">

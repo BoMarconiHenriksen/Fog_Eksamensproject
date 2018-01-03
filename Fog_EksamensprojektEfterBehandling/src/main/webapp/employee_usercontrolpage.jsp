@@ -115,7 +115,15 @@
                 <strong>Brugerdata</strong>
             </h2>
             <hr class="divider">
+ <div class="center-img">
+                
+                <% if ((String) request.getAttribute("changeOfUserDataSucces") != null) {
+                        out.println((String) request.getAttribute("changeOfUserDataSucces"));
+                    } else {
 
+                    }
+                %>
+                </div>
 
             <div class="center-img">
 

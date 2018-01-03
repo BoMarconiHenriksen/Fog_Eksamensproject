@@ -1,5 +1,7 @@
 package Presentation;
 
+import Business.DataFacade;
+import Business.Domain.User;
 import Business.LogicFacade;
 import Business.Exception.NewException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,18 +34,19 @@ public class Admin_UserAdministration extends Command {
         }
         
         //Bliver vist for brugeren på jsp siden efter oplysningerne er ændret
-        request.setAttribute("userID", userId);
-        request.setAttribute("userRole", role);
-        request.setAttribute("userEmail", email);
-        request.setAttribute("userFirstname", firstname);
-        request.setAttribute("userLastname", lastname);
-        request.setAttribute("userPostcode", zipcode);
-        request.setAttribute("userAddress", address);
-        request.setAttribute("userTlfnummer", phone);
-        request.setAttribute("userPassword", password);
+        User customer=DataFacade.getUserByUserId(userId);
+        request.setAttribute("customerID", customer.getUser_id());
+        request.setAttribute("userRole", customer.getRole());
+        request.setAttribute("userEmail", customer.getEmail());
+        request.setAttribute("userFirstname", customer.getFirstname());
+        request.setAttribute("userLastname", customer.getLastname());
+        request.setAttribute("userPostcode", customer.getZip());
+        request.setAttribute("userAddress",customer.getAddress());
+        request.setAttribute("userTlfnummer",customer.getTlfnummer());
+        request.setAttribute("userPassword", customer.getPassword());
         request.setAttribute("changeOfUserDataSucces", changeOfUserDataSucces);
         
-        return "employeepage";
+        return "employee_usercontrolpage";
 
     }
 }
