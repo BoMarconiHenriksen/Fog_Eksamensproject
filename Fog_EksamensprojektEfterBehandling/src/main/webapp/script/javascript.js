@@ -2,54 +2,54 @@
 $(function () {
 
 // Henter form felterne og hidden div
-var checkbox = $("#trigger");
-        var hidden = $("#hidden_fields");
-        //Hvis checkboxen er markeret fjernes markering ved refresh.
-        $(':checkbox:checked').prop('checked', false);
-        // Hide
-        hidden.hide();
-        // Setup en event listener så man kan se hvornår checkbox state ændre sig
-        checkbox.change(function () {
+    var checkbox = $("#trigger");
+    var hidden = $("#hidden_fields");
+    //Hvis checkboxen er markeret fjernes markering ved refresh.
+    $(':checkbox:checked').prop('checked', false);
+    // Hide
+    hidden.hide();
+    // Setup en event listener så man kan se hvornår checkbox state ændre sig
+    checkbox.change(function () {
         // Checker for at se om checkboxen er chekket
         // Hvis den er så viser den tabellen
         // Hvis ikke så, gemmer den tabellen.
         if (checkbox.is(':checked')) {
-        // Viser tabellen
-        hidden.show();
-        
+            // Viser tabellen
+            hidden.show();
+
         } else {
-        // Være sikker på at tabellen er gemt
-        hidden.hide();
-                //Bruges til at fjerne evt. input i et felt
+            // Være sikker på at tabellen er gemt
+            hidden.hide();
+            //Bruges til at fjerne evt. input i et felt
 //             $("#checkbox").val("");
         }
-        });
-        });
+    });
+});
 
 function show_confirmDeletetheOrder()
 {
-  var r = confirm("Er du sikker på, at du gerne vil slette denne ordre?");
-  if(r === true)
-  {
-     // do something
-     return true;
-  } else {
-     // do something
-     return false;
-  }
+    var r = confirm("Er du sikker på, at du gerne vil slette denne ordre?");
+    if (r === true)
+    {
+        // do something
+        return true;
+    } else {
+        // do something
+        return false;
+    }
 }
 
 function show_confirmLogOff()
 {
-  var r = confirm("Tryk OK for at logge af.");
-  if(r === true)
-  {
-     // do something
-     return true;
-  } else {
-     // do something
-     return false;
-  }
+    var r = confirm("Tryk OK for at logge af.");
+    if (r === true)
+    {
+        // do something
+        return true;
+    } else {
+        // do something
+        return false;
+    }
 }
 
 function checkNotnullOrEmpty()
@@ -62,7 +62,7 @@ function checkNotnullOrEmpty()
     var email = document.register.email.value;
     var password = document.register.password.value;
     var passwordRetype = document.register.passwordRetype.value;
-    
+
     if (firstname === null || firstname === "")
     {
         alert("Husk at udfylde dit fornavn.");
@@ -93,7 +93,7 @@ function checkNotnullOrEmpty()
     } else if (isNaN(telefonnummer)) { //isNan tjekker om der kun er tal
         alert("Telefonnummeret må kun består af tal, og ikke have tomme felter mellem tallene.");
         return false;
-    }  else if (telefonnummer.length !== 8) {
+    } else if (telefonnummer.length !== 8) {
         alert("Telefonnummeret skal have en længde på 8 cifre.");
         return false;
     } else if (email === null || email === "")
@@ -104,12 +104,24 @@ function checkNotnullOrEmpty()
     {
         alert("Password og password retype er ikke ens. Prøv igen!");
         return false;
-    } 
+    }
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("iframe", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("iframe");
+    ev.target.appendChild(document.getElementById(data));
 }
 
 // Til test
 function myFunctionDeleteOrder() {
     document.getElementById("demo").innerHTML = "Hello World";
 }
-
-

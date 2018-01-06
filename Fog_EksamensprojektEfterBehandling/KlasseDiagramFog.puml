@@ -1,0 +1,117 @@
+@startuml
+abstract class Presentation.Command
+annotation java.lang.Override
+annotation javax.servlet.annotation.WebServlet
+class Business.Calculator
+class Business.ConfigurationException.Configuration
+class Business.DataFacade
+class Business.Domain.LineItem
+class Business.Domain.Materiale
+class Business.Domain.Odetaljer
+class Business.Domain.Ordre
+class Business.Domain.User
+class Business.Exception.Logging
+class Business.Exception.NewException
+class Business.LineItemFactory
+class Business.LogicFacade
+class Data.DBConnector
+class Data.MaterialeMapper
+class Data.OdetaljeMapper
+class Data.OrdreMapper
+class Data.UserMapper
+class Presentation.Admin_UserAdministration
+class Presentation.Checkout
+class Presentation.Customer_UserOptions
+class Presentation.Employee_OrderCarport
+class Presentation.Employee_SetupOrderCarportFunctions
+class Presentation.Employee_UserOptions
+class Presentation.ErrorMsg
+class Presentation.FrontController
+class Presentation.InvoiceDetail
+class Presentation.InvoiceDetail_Customer
+class Presentation.InvoiceSetStatus
+class Presentation.LogOut
+class Presentation.Login
+class Presentation.OrdreList
+class Presentation.OrdreList_Customer
+class Presentation.Register
+class Presentation.UserList
+class Presentation.Utillities.RendSvg
+class Presentation.Utillities.RendSvgNd
+class Presentation.Utillities.RendUtilCustomerOdetailsFunktions
+class Presentation.Utillities.RendUtilCustomerPresentation
+class Presentation.Utillities.RendUtilOdetaljerMedArbejder
+class Presentation.Utillities.RendUtilOrderList
+class Presentation.Utillities.RendUtilOrderList_Customer
+class Presentation.Utillities.RendUtilStykListe
+class Presentation.Utillities.RendUtilUserList
+class Presentation.Utillities.RendUtilUserlist_FullDiscription
+class Presentation.basisCarport
+class java.io.IOException
+class java.io.PrintWriter
+class java.lang.Exception
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.sql.Statement
+class java.text.DecimalFormat
+class java.time.LocalDate
+class java.time.format.DateTimeFormatter
+class java.util.ArrayList
+class java.util.HashMap
+class java.util.List
+class java.util.logging.ConsoleHandler
+class java.util.logging.FileHandler
+class java.util.logging.Level
+class java.util.logging.Logger
+class java.util.logging.SimpleFormatter
+class javax.servlet.ServletException
+class javax.servlet.http.HttpServlet
+class javax.servlet.http.HttpServletRequest
+class javax.servlet.http.HttpServletResponse
+class javax.servlet.http.HttpSession
+Business.Domain.Materiale ..> java.lang.Override
+Business.Domain.Odetaljer ..> java.lang.Override
+Business.Domain.Ordre ..> java.lang.Override
+Business.Domain.User ..> java.lang.Override
+Business.Exception.NewException --|> java.lang.Exception
+Presentation.Admin_UserAdministration --|> Presentation.Command
+Presentation.Admin_UserAdministration ..> java.lang.Override
+Presentation.Checkout --|> Presentation.Command
+Presentation.Checkout ..> java.lang.Override
+Presentation.Customer_UserOptions --|> Presentation.Command
+Presentation.Customer_UserOptions ..> java.lang.Override
+Presentation.Employee_OrderCarport --|> Presentation.Command
+Presentation.Employee_OrderCarport ..> java.lang.Override
+Presentation.Employee_SetupOrderCarportFunctions --|> Presentation.Command
+Presentation.Employee_SetupOrderCarportFunctions ..> java.lang.Override
+Presentation.Employee_UserOptions --|> Presentation.Command
+Presentation.Employee_UserOptions ..> java.lang.Override
+Presentation.ErrorMsg --|> Presentation.Command
+Presentation.ErrorMsg ..> java.lang.Override
+Presentation.FrontController ..> java.lang.Override
+Presentation.FrontController ..> javax.servlet.annotation.WebServlet
+Presentation.FrontController --|> javax.servlet.http.HttpServlet
+Presentation.InvoiceDetail --|> Presentation.Command
+Presentation.InvoiceDetail ..> java.lang.Override
+Presentation.InvoiceDetail_Customer --|> Presentation.Command
+Presentation.InvoiceDetail_Customer ..> java.lang.Override
+Presentation.InvoiceSetStatus --|> Presentation.Command
+Presentation.InvoiceSetStatus ..> java.lang.Override
+Presentation.LogOut --|> Presentation.Command
+Presentation.LogOut ..> java.lang.Override
+Presentation.Login --|> Presentation.Command
+Presentation.Login ..> java.lang.Override
+Presentation.OrdreList --|> Presentation.Command
+Presentation.OrdreList ..> java.lang.Override
+Presentation.OrdreList_Customer --|> Presentation.Command
+Presentation.OrdreList_Customer ..> java.lang.Override
+Presentation.Register --|> Presentation.Command
+Presentation.Register ..> java.lang.Override
+Presentation.UserList --|> Presentation.Command
+Presentation.UserList ..> java.lang.Override
+Presentation.basisCarport --|> Presentation.Command
+Presentation.basisCarport ..> java.lang.Override
+@enduml

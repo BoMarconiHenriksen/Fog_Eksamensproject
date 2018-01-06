@@ -30,23 +30,22 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-       <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
-        <title>2. sprint userstories</title>
+        <title>2. sprint synopsis</title>
     </head>
     <body>
 
         <!-- Logo og header billed-->
-
-      <div class="center-img">
+        <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
                 <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
         </div>
 
 
-        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Benedikte pæsenterer</div>
-        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">2. sprint| Arkitektur</div>
+        <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Præsenterer 2. sprint</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Og lidt af 3. sprint | pga omformning af kode</div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
@@ -92,46 +91,60 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-           <!-- Navigation til eksamenspræsentation -->
+        <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
-            <li ><a class="form-inline" href="index.jsp">Hjem</a></li>
-            <li ><a  class="form-inline" href="finals_benedikte.jsp">Benedikte</a></li>
-            <li ><a class="form-inline" href="finals_bo.jsp">Bo</a></li>
-            <li><a  class="form-inline" href="finals_walther.jsp">Walther</a></li>
-            <li><a class="form-inline" href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
-            <li><a class="form-inline" href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            
+            <li><a href="index.jsp">Hjem</a></li>
+            <li><a href="finals_benedikte.jsp">Benedikte</a></li>
+            <li><a href="finals_bo.jsp">Bo</a></li>
+            <li><a href="finals_walther.jsp">Walther</a></li>
+            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
+
         </ul> 
+
 
         <div class="container">
 
-           <div class="text-heading text-lg">
-                <div class="text-center mt-4">
-                    <div class="bg-faded p-4 my-4">
- 
-                        <h2>2. Møde med productowner</h2>
+            <div class="architecture">
+                <div class="text-heading text-lg">
+                    <div class="text-center mt-4">
+                        <div class="bg-faded p-4 my-4">
 
-                        <!-- Navigation til eksamenspræsentation -->
-                        <ul class="navbar-nav mx-auto">
-                             <li><a>valgte userstories:</a>
+                            <h2>Fuldt systemoverblik</h2>
 
-                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/11">  Udskriv en stykliste</a><br>
-                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/44" >  se en tegning af carport</a><br>
-                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" > se en liste over ordrer </a><br>
-                               <li>  <a>andet:</a>
-                            <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-                            <li><a  href = 'finals_sekvens_materiale.jsp'>Sekvensdiagram stykliste</a></li>
-                            <li><a href="finals_fullsystem_diagram.jsp">Uskønt diagram over hele systemet</a></li>
-                    
-</ul>
 
-                    </div>
+                            <br>
+
+
+                            <hr class="divider">
+                            <h3> Navigationsdiagram </h3>  
+                            <hr class="divider">
+                            <div class="center-img">
+                                <img src="images/navigationsdiagram.jpg" width="75%" alt=""/>
+
+                            </div>
+
+                            <hr class="divider">
+                            <h3> Klassediagram </h3>  
+                            <hr class="divider">
+                            <div class="center-img">
+                                <img src="images/klassediagramfullsystem.png" alt=""/>
+
+                            </div>
+                            <hr class="divider">
+                            <h3> ErDiagram </h3>  
+                            <hr class="divider">
+
+                            <div class="center-img">
+                                <img src="images/FogErModel.png" width="75%" alt=""/>
+
+                            </div>
+                        </div></div>
                 </div>
             </div>
         </div>
 
-
-       <footer class="bg-faded text-center py-5">
+        <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">Copyright &copy; The Data Builders 2017</p>
             </div>

@@ -24,7 +24,7 @@ public class OrdreList extends Command {
 
         if (ordreList.isEmpty()) {
 
-            request.setAttribute("admin_orderlist", "Der er ikke nogen ordre."
+            request.setAttribute("admin_orderlist", "Der er ikke nogen ordrer."
                     + "Hvis der er nogen der har bestilt en ordre, vil den fremgå her på siden.");
 
         } else {
