@@ -11,9 +11,11 @@ public class LineItemFactory {
 
     /**
      * Metoden laver styklinerne for træ til en basis carport.
+     *
      * @param width er bredden på carporten.
      * @param length er længden på carporten.
-     * @return et array, der indeholder alle styklinjerne for træ til en basiscarport.
+     * @return et array, der indeholder alle styklinjerne for træ til en
+     * basiscarport.
      * @throws NewException ved fejl.
      */
     public static LineItem[] baseWood(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
@@ -34,10 +36,13 @@ public class LineItemFactory {
     }
 
     /**
-     * Metoden laver styklinjerne til styklisten for beslag og skruer til en basis carport.
+     * Metoden laver styklinjerne til styklisten for beslag og skruer til en
+     * basis carport.
+     *
      * @param width er carportens bredde.
      * @param length er carportens længde.
-     * @return et array, der indeholder alle styklinjerne for beslag og skruer til en basiscarport.
+     * @return et array, der indeholder alle styklinjerne for beslag og skruer
+     * til en basiscarport.
      * @throws NewException ved fejl.
      */
     public static LineItem[] carportBaseMetal(double width, double length) throws NewException {   // denne carport skal være mindre end 540 på ledderne
@@ -54,35 +59,49 @@ public class LineItemFactory {
     }
 
     /**
-     * Metoden laver styklinjerne til styklisten for ecolite tag til en carport med fladt tag.
+     * Metoden laver styklinjerne til styklisten for ecolite tag til en carport
+     * med fladt tag.
+     *
      * @param width er carportens bredde.
      * @param length er carportens længde.
      * @return et array, der indeholder alle styklinjerne for ecolite tag.
      * @throws NewException ved fejl.
      */
     public static LineItem[] ecoliteRoof(double width, double length) throws NewException {
-        LineItem[] ecoliteRoof = new LineItem[1];
+        LineItem[] ecoliteRoof = null;
 
         if (length <= 300) {
+            ecoliteRoof = new LineItem[1];
             ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 480) {
+            ecoliteRoof = new LineItem[1];
             ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         } else if (length <= 600) {
+            ecoliteRoof = new LineItem[1];
             ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
-        } else if (length > 600) {
+        } else if (length <= 780) {
+            ecoliteRoof = new LineItem[2];
             //OBS! Skal laves færdig!
-            ecoliteRoof[0] = new LineItem("Ring til supporten", Business.DataFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 600, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
-
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(33).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[1] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+        } else if (length <= 900) {
+            ecoliteRoof = new LineItem[2];
+            //OBS! Skal laves færdig!
+            ecoliteRoof[0] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(9).getMaterialenavn(), 480, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
+            ecoliteRoof[1] = new LineItem("Tagplader monteres på spær", Business.DataFacade.getMaterialeByVarenummer(8).getMaterialenavn(), 300, Calculator.calculateNumberOfEcoliteRoof(width), "Stk");
         }
 
         return ecoliteRoof;
     }
 
     /**
-     * Metoden laver styklinjerne til styklisten for træ til en carport med skur.
+     * Metoden laver styklinjerne til styklisten for træ til en carport med
+     * skur.
+     *
      * @param skurLængde er skurets længde.
      * @param skurBredde er skurets bredde.
-     * @return et array, der indeholder alle styklinjerne for træ til en carport med skur.
+     * @return et array, der indeholder alle styklinjerne for træ til en carport
+     * med skur.
      * @throws NewException ved fejl.
      */
     public static LineItem[] woodForShed(double skurLængde, double skurBredde) throws NewException {
@@ -101,10 +120,13 @@ public class LineItemFactory {
     }
 
     /**
-     * Metoden laver styklinjerne til styklisten for beslag og skurer til en carport med skur.
+     * Metoden laver styklinjerne til styklisten for beslag og skurer til en
+     * carport med skur.
+     *
      * @param skurLængde er skurets længde.
      * @param skurBredde er skurets bredde.
-     * @return et array, der indeholder alle styklinjerne for beslag og skurer til en carport med skur.
+     * @return et array, der indeholder alle styklinjerne for beslag og skurer
+     * til en carport med skur.
      * @throws NewException ved fejl.
      */
     public static LineItem[] screwsAndBracketShed(double skurLængde, double skurBredde) throws NewException {
@@ -117,6 +139,5 @@ public class LineItemFactory {
 
         return screwsAndBracketShed;
     }
-
 
 }
