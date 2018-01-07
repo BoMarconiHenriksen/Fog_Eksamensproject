@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
 
-                        <form  class="form-inline" name="login" action="FrontController" method="POST">
+                        <form  class="form-inline" name="loginForm" action="FrontController" method="POST">
 
                             <li class="nav-item active px-lg-4">
                                 <a class="nav-link text-uppercase text-expanded" href="index.jsp">Hjem
@@ -73,7 +73,7 @@
                                     <input type="text" name="email">
                                     <a>Password:</a> 
                                     <input type="password" name="password">
-                                    <button type="submit" name="login" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
+                                    <button type="submit" name="loginButton" value="Submit" class="w3-button nav-link text-uppercase text-expanded"><a>Login</a> </button>
                                 </div>
 
                             </li>

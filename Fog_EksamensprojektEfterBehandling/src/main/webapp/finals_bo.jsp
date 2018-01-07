@@ -109,7 +109,9 @@
 
                         <h2>Synopsis</h2>
 
-
+                        <p>Bo: Opretter en user story i Zenhub og viser Frontcontrolleren.</p>
+                        <p>Walter: User story med udgangspunt i navigationsdiagram og viser system.</p>
+                        <p>Benedikte: 2. Sprint og kode til user storyen stykliste.</p>
 
                    
                         <ul class="navbar-nav mx-auto">
