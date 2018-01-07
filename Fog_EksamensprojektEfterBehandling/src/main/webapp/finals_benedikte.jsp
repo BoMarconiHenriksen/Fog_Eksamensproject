@@ -38,7 +38,7 @@
 
         <!-- Logo og header billed-->
 
-       <div class="center-img">
+        <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
                 <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
@@ -93,14 +93,13 @@
         </nav>
         <!-- Navigation slut -->
         <!-- Navigation til eksamenspræsentation -->
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-auto" group="inline">
             <li><a href="index.jsp">Hjem</a></li>
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
             <li><a href="finals_bo.jsp">Bo</a></li>
             <li><a href="finals_walther.jsp">Walther</a></li>
-            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
             <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            
+            <li><a href="finals_fullsystem_diagram.jsp">Uskønt diagram over hele systemet</a></li>
         </ul> 
 
 
@@ -118,20 +117,20 @@
                             <li><a href="finals_second_userstories.jsp">2. Sprint</a></li>    
                             <li><a href="index.jsp">Udskriv en stykliste</a></li>
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-                            
+
                         </ul> 
                     </div>
                 </div>
             </div>
         </div>
-       
+
         <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">
                     <a >
                         <img border="4" border-color="black"   src="images/DataBuildersLogo.png" alt="DataBuilders" width="64px" height="40px">      
                     </a><br>
-                     Made by The DataBuilders 2017  
+                    Made by The DataBuilders 2017  
                 </p>
             </div>
         </footer>

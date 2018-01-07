@@ -30,14 +30,14 @@
 
         <!-- Our Own Custom styles for this template - Important for hide/show fields. Skal ligge øverst. -->
         <script src="script/jquery/jquery.min.js" type="text/javascript"></script>
-       <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
+        <script src="script/javascript.js" type="text/javascript" charset=UTF-8></script>
 
         <title>2. sprint synopsis</title>
     </head>
     <body>
 
         <!-- Logo og header billed-->
-  <div class="center-img">
+        <div class="center-img">
             <a href="https://www.johannesfog.dk" target="_blank">
                 <img class="logo" src="images/logo_header.jpg" alt="Fog Logo">
             </a>
@@ -91,15 +91,15 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-           <!-- Navigation til eksamenspræsentation -->
+        <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
             <li><a href="index.jsp">Hjem</a></li>
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
             <li><a href="finals_bo.jsp">Bo</a></li>
             <li><a href="finals_walther.jsp">Walther</a></li>
-            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
+            <li><a href="finals_fullsystem_diagram.jsp">Navigationsdiagram</a></li>
             <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            
+
         </ul> 
 
 
@@ -123,10 +123,12 @@
 
             </div>
 
+
+
         </div>
 
 
-       <footer class="bg-faded text-center py-5">
+        <footer class="bg-faded text-center py-5">
             <div class="container">
                 <p class="m-0">Copyright &copy; The Data Builders 2017</p>
             </div>
