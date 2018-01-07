@@ -46,7 +46,7 @@
 
 
         <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">BenedikteEva præsenterer</div>
-        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">2. sprint | stykliste</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">2. sprint | Stykliste</div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
@@ -92,15 +92,15 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        <!-- Navigation til eksamenspræsentation -->
-        <ul class="navbar-nav mx-auto" group="inline">
-            <li><a href="index.jsp">Hjem</a></li>
+     <!-- Navigation til eksamenspræsentation -->
+        <ul class="navbar-nav mx-auto">
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
             <li><a href="finals_bo.jsp">Bo</a></li>
             <li><a href="finals_walther.jsp">Walther</a></li>
-            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            <li><a href="finals_fullsystem_diagram.jsp">Uskønt diagram over hele systemet</a></li>
+            <li><a href="finals_arkitektur_diagram.jsp">Arkitektur</a></li>
+            <li><a href="finals_fullsystem_diagram.jsp">Overblik full system</a></li>
         </ul> 
+
 
 
         <div class="container">
@@ -109,16 +109,24 @@
                 <div class="text-center mt-4">
                     <div class="bg-faded p-4 my-4">
 
-                        <h2>Synopsis</h2>
+                        <h2>2. sprint</h2>
 
 
 
+                        <!-- Navigation til eksamenspræsentation -->
                         <ul class="navbar-nav mx-auto">
-                            <li><a href="finals_second_userstories.jsp">2. Sprint</a></li>    
-                            <li><a href="index.jsp">Udskriv en stykliste</a></li>
+                            <li><a>valgte userstories:</a>
+                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/11">  Udskriv en stykliste</a><br>
+                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/44" >  se en tegning af carport</a><br>
+                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" > se en liste over ordrer </a><br>
+                            <li>  <a>andet:</a>
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
-
-                        </ul> 
+                            <li><a  href = 'finals_sekvens_materiale.jsp'>Sekvensdiagram stykliste</a></li>
+                            <li><a  href = 'finals_andet_sprint_board.jsp'>Scrumboard 17. november start 2. sprint</a></li>
+                            
+                            <li><a href="finals_fullsystem_diagram.jsp">Uskønt diagram over hele systemet</a></li>
+                         
+                        </ul>
                     </div>
                 </div>
             </div>

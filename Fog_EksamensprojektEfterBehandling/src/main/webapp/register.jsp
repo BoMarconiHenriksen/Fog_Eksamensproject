@@ -78,16 +78,14 @@
                 </div>
             </div>
         </nav>
-     <!-- Navigation til eksamenspræsentation -->
+    <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
-            <li><a href="index.jsp">Hjem</a></li>
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
             <li><a href="finals_bo.jsp">Bo</a></li>
             <li><a href="finals_walther.jsp">Walther</a></li>
-            <li><a href="finals_navigations_diagram.jsp">Navigationsdiagram</a></li>
-            <li><a href="finals_sekvens_materiale.jsp">Sekvensdiagram stykliste</a></li>
-            
+            <li><a href="finals_fullsystem_diagram.jsp">Overblik full system</a></li>
         </ul> 
+
         <div class="container">
             <div class="bg-faded p-4 my-4">
 

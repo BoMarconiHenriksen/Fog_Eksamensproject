@@ -37,9 +37,7 @@ og gør at billedet bliver på siden, når der skaleres ned.*/
     justify-content: center;
 }
 
-.architecture{
- background-image: url("../images/Aktitektur Fog.jpg");
-}
+
 #div1{
     float: left;
     width: 10%;
