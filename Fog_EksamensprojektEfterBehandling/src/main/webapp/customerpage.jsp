@@ -167,31 +167,7 @@
 
 
 
-            <div class="bg-faded p-4 my-4">
-                <hr class="divider">
-                <h2 class="text-center text-lg text-uppercase my-0">
-                    <strong>Upload billede</strong>
-                </h2>
-                <hr class="divider">
-                <div class="center-img">
-                    <form name="ImageUpload"action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="ImageUpload">
-                        Vælg billeder: <input type="file" name="img" multiple>
-                        <button type="submit" name="ImageUpload" value="Submit" ><a>Upload </a></button>
-                    </form>
-                </div>  </div>  
-            <br>
-            <div class="bg-faded p-4 my-4">
-
-                <p>De kan vælge mere end en billedfil</p>   
-
-                <p><strong>Note:</strong> Undtagen hvis De bruger Internet Explorer 9 eller tidsligere versioner.</p>  
-                <p>Det her endte med at blive knapt så interessant, da den dybe tallerken var både opfundet og velbeskrevet på https://www.w3schools.com/html/html_form_attributes.asp</p>
-                <p>  men selvfølgelig krævede det at man både har en command og gør en tabel klar i databasen, har en mapper med metoder der
-                    både kan  lægge et billede ned og hente et billede op samt et sted at vise billederne. 
-                </p>
-
-            </div>   
+     
 
         </div>   
         <footer class="bg-faded text-center py-5">

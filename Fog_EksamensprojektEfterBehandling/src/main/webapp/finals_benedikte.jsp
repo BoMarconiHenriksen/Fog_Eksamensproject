@@ -101,7 +101,10 @@
             <li><a href="finals_fullsystem_diagram.jsp">Overblik full system</a></li>
         </ul> 
 
-
+     <div class="center-img">
+         
+         ${img}
+     </div>
 
         <div class="container">
 
@@ -118,7 +121,7 @@
                             <li><a>valgte userstories:</a>
                             <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/11">  Udskriv en stykliste</a><br>
                             <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/44" >  se en tegning af carport</a><br>
-                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" > se en liste over ordrer </a><br>
+                            <li><a href="https://github.com/walter01git/Fog_Eksamensproject/issues/10" > se kundes ordrer </a><br>
                             <li>  <a>andet:</a>
                             <li><a  href = 'https://github.com/walter01git/Fog_Eksamensproject/network'>Tree of branches</a></li>
                             <li><a  href = 'finals_sekvens_materiale.jsp'>Sekvensdiagram stykliste</a></li>

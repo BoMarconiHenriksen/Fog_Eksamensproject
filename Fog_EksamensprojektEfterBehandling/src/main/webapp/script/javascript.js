@@ -107,18 +107,15 @@ function checkNotnullOrEmpty()
     }
 }
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("iframe", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("iframe");
-    ev.target.appendChild(document.getElementById(data));
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ };
+ reader.readAsDataURL(event.target.files[0]);
 }
 
 // Til test
