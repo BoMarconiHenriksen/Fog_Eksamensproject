@@ -31,7 +31,7 @@ public class InvoiceDetail extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws NewException {
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+      //  User user = (User) session.getAttribute("user");
         User us = new User();
         String lockIntoOrder = request.getParameter("InvoiceDetail");
         String deletetheOrder = request.getParameter("InvoiceDetail_Admin_DeleteOrder");

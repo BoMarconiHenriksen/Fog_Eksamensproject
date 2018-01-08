@@ -100,8 +100,8 @@
             </div>
         </nav>
         <!-- Navigation slut -->
-        
-  <!-- Navigation til eksamenspræsentation -->
+
+        <!-- Navigation til eksamenspræsentation -->
         <ul class="navbar-nav mx-auto">
             <li><a href="finals_benedikte.jsp">Benedikte</a></li>
             <li><a href="finals_bo.jsp">Bo</a></li>
@@ -140,7 +140,7 @@
                                     Vi henter script filen ind oppe i Head delen af de jspsider den benyttes på.
                                 <p>
 
-                                <br><br>
+                                    <br><br>
                                 <div class="center-img">
                                     <%=RendUtilCustomerPresentation.getMeasuresShed()%>             
                                 </div>
@@ -185,31 +185,27 @@
 
                             %>
 
-                            <%                                                    out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
-                                    out.println("<p>Hvis du har brug for rådgivning, så ring og aftale et møde. Vores telefonnummer er 45 87 10 01.</p>");
+                            <%     out.println("<p>" + request.getAttribute("carportTegning") + "</p>");
+                                   out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
+                                   out.println("<p>Hvis du har brug for rådgivning, så ring og aftale et møde. Vores telefonnummer er 45 87 10 01.</p>");
                                 }%>    
                         </div>
                     </div>
-                                        <div class="bg-faded p-4 my-4">
-                    <%
-                        out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
-                    %>
-                </div>
-            </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer class="bg-faded text-center py-5">
-            <div class="container">
-                <p class="m-0">
-                    <a href="https://www.johannesfog.dk" target="_blank">
-                        <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
-                    </a>
-                    Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
-                </p>
-            </div>
-        </footer>
+    <footer class="bg-faded text-center py-5">
+        <div class="container">
+            <p class="m-0">
+                <a href="https://www.johannesfog.dk" target="_blank">
+                    <img class="fog_bottom_logo" src="images/logo.png" alt="Fog Logo">        
+                </a>
+                Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439 - Alle priser er inkl. moms
+            </p>
+        </div>
+    </footer>
 
-    </body>
+</body>
 </html>

@@ -45,7 +45,7 @@ public class basisCarport extends Command {
         double heightputskur = Double.parseDouble(request.getParameter("heightchoiceskur"));
         String shedOrNoShed = request.getParameter("skur");
 
-        Ordre order = new Ordre();
+     //   Ordre order = new Ordre();
         String ordre_status = null;
 
         // User Id'et kan bare hentes på session, da det bliver sat der i login.java, det var kun meningen at gemme ordre id'et her, -
