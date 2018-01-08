@@ -54,3 +54,15 @@ og gør at billedet bliver på siden, når der skaleres ned.*/
     padding: 10px;
     border: 1px solid black;
 }
+
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+}
+#output_image
+{
+ max-width:300px;
+}

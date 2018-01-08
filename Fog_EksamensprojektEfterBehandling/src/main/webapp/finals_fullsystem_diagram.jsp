@@ -117,8 +117,8 @@
                             <h3> Navigationsdiagram </h3>  
                             <hr class="divider">
                             <div class="center-img">
-                                <img src="images/navigationsdiagram.jpg" width="75%" alt=""/>
-
+                             
+                                <img src="images/Navigationsdiagram rettet fra afleveret version.jpeg" alt=""/>
                             </div>
 
                             <hr class="divider">

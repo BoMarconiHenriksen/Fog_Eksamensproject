@@ -3,6 +3,7 @@ package Presentation.Utillities;
 import Business.LogicFacade;
 import Business.Domain.Ordre;
 import Business.Exception.NewException;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class RendUtilOrderList {
         sb.append(" <div class=\"center-img\"> <table>\n"
                 + "<tr><th></th><th></th></tr>\n"
                 + "<tr><th>Ordre Id  </th><th>Dato  </th><th>Pris  </th><th>Kundens fornavn  </th><th>Telefon nr  </th><th>Status  </th></tr>\n");
+        
         for (Ordre ordre : ordreList) {
 
             sb.append("<tr><form name=\"InvoiceDetail\" action=\"FrontController\" method=\"POST\">");
