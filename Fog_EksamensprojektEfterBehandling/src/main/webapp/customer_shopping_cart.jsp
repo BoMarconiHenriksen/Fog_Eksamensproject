@@ -169,6 +169,11 @@
                         %>  
                     </div> 
                     <div class="center-img">
+                        <%
+                            out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
+                        %>  
+                    </div> 
+                    <div class="center-img">
                         <form name="Checkout" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="OrdertheOrder">
 

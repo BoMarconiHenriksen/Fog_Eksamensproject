@@ -157,8 +157,11 @@
                     <%                        out.println("<a>" + request.getAttribute("carportTegning") + "</a>");
                     %>  
                 </div>
+                 <div class="center-img">
+                    <%                        out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
+                    %>  
+                </div>
             </div>
-
 
 
             <div class="bg-faded p-4 my-4">

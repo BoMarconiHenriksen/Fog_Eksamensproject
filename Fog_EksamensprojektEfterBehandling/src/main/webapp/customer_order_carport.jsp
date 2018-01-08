@@ -190,6 +190,12 @@
                                 }%>    
                         </div>
                     </div>
+                                        <div class="bg-faded p-4 my-4">
+                    <%
+                        out.println("<a>" + request.getAttribute("carportTegningNd") + "</a>");
+                    %>
+                </div>
+            </div>
                 </div>
             </div>
         </div>

@@ -51,6 +51,8 @@ public class Employee_OrderCarport extends Command {
         int user_id = Integer.parseInt(request.getParameter("kunde_id"));
         String ordre_status = null;
 
+        // Nedenstående session metoder bliver ikke brugt og er slet ikke nødvendig. Ovenstående request fra RendUtilUserList -
+        // er der hvor id'et hentes.
         order.setUser_id(user_id);
         session.setAttribute("userNr", user_id);
         request.setAttribute("kunde_ided", user_id);
@@ -202,6 +204,8 @@ public class Employee_OrderCarport extends Command {
         double priceTotal = totalPrice;
         DataFacade.placeAnOrder(user_id, formatDateTime);
         int orderId = DataFacade.getLastInvoiceId();
+        
+        // Total ubruglig session gemning, da medarbejder bestilling ikke foregår over flere sidder, lige som når kunden bestiller.
         request.setAttribute("KundensOID", orderId);
         session.setAttribute("SessionIOD", orderId);
         Odetaljer oDetaljer = new Odetaljer(orderId, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);

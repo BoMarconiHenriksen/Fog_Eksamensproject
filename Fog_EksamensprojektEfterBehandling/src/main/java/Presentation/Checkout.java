@@ -5,6 +5,7 @@ import Business.LogicFacade;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
 import Presentation.Utillities.RendSvg;
+import Presentation.Utillities.RendSvgNd;
 import Presentation.Utillities.RendUtilStykListe;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,10 @@ public class Checkout extends Command {
         RendSvg svag = new RendSvg();
         String carportTegning = svag.simpelCarport(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
         request.setAttribute("carportTegning", carportTegning);
+        
+        RendSvgNd svagNd = new RendSvgNd();
+        String carportTegningNd = svagNd.simpelCarportSide(oDetaljer.getCarportLength(), oDetaljer.getCarportWidth(), oDetaljer.getLengthRedskabsrum(), oDetaljer.getWidthRedskabsrum());
+        request.setAttribute("carportTegningNd", carportTegningNd);
 
         RendUtilStykListe styk = new RendUtilStykListe();
 

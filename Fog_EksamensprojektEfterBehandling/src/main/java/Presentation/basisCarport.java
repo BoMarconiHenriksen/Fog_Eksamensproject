@@ -6,6 +6,7 @@ import Business.Domain.Ordre;
 import Business.Domain.Odetaljer;
 import Business.Domain.User;
 import Presentation.Utillities.RendSvg;
+import Presentation.Utillities.RendSvgNd;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,17 +48,18 @@ public class basisCarport extends Command {
         Ordre order = new Ordre();
         String ordre_status = null;
 
-        int user_id = user.getUser_id();
-        order.setUser_id(user_id);
-
-        session.setAttribute("userNr", user_id);
+        // User Id'et kan bare hentes på session, da det bliver sat der i login.java, det var kun meningen at gemme ordre id'et her, -
+        // da kundebestilingen foregår over flere sidder.
+        //  int user_id = user.getUser_id();
+        //  order.setUser_id(user_id);
+        //  session.setAttribute("userNr", user_id);
         double totalPrice = 0;
 
         if (checkOut != null) {
 
             ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
-            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
+            placeOrderOdetailsSetAttributes(request, session, user.getUser_id(), ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
             return "customer_shopping_cart";
         }
@@ -66,7 +68,7 @@ public class basisCarport extends Command {
 
             ordre_status = "Gemt Design";
             totalPrice = calculatePriceSetAttrubtes(request, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed);
-            placeOrderOdetailsSetAttributes(request, session, user_id, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
+            placeOrderOdetailsSetAttributes(request, session, user.getUser_id(), ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, heightputskur, shedOrNoShed, totalPrice);
 
             return "customerpage";
 
@@ -154,6 +156,10 @@ public class basisCarport extends Command {
         RendSvg RendSvg = new RendSvg();
         String carportTegning = RendSvg.simpelCarport(lentghinput, widthinput, lentghinputskur, widthinputskur);
         request.setAttribute("carportTegning", carportTegning);
+
+        RendSvgNd svagNd = new RendSvgNd();
+        String carportTegningNd = svagNd.simpelCarportSide(lentghinput, widthinput, lentghinputskur, widthinputskur);
+        request.setAttribute("carportTegningNd", carportTegningNd);
     }
 
     /**
@@ -192,7 +198,7 @@ public class basisCarport extends Command {
         double priceTotal = totalPrice;
         LogicFacade.placeAnOrder(user_id, formatDateTime);
         int or = LogicFacade.getLastInvoiceId();
-        request.setAttribute("KundensOID", or);
+        request.setAttribute("KundensOID", or);  // Unødvendig, da den nedenunder gemmes på session.
         session.setAttribute("SessionIOD", or);
         Odetaljer ods = new Odetaljer(or, ordre_status, lentghinput, widthinput, heightinput, lentghinputskur, widthinputskur, priceTotal);
         LogicFacade.AddOdetailstoOrdermedSkur(or, ods);
